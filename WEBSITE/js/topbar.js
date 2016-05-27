@@ -1,23 +1,29 @@
 function enableopen() {
-  $(".hasdropdown").mouseover(function() {
-    if (!$(this).find(".lidropdown").data("open"))
+  $(".ddstay").mouseover(function() {
+    if (!$(this).find(".lidropdown").data("open") && !$(this).data("open")) {
       $(this).find(".lidropdown").stop( true, true ).slideDown("slow", function() {
-        enableclose();
-        $(this).find(".lidropdown").data("open", true);
+        $(this).data("open", true);
       });
+    }
+    else if ($(this).data("open")) {
+      $(this).stop( true, true );
+      $(this).show();
+    }
+    else {
+      $(this).find(".lidropdown").stop( true, true );
+      $(this).find(".lidropdown").show();
+    }
   });
 }
 function enableclose() {
-  $(".hasdropdown").unbind("mouseover");
-  $(".hasdropdown").find(".lidropdown").unbind("mouseout");
-  $(".hasdropdown").find(".lidropdown").mouseout(function() {
-    $(this).stop( true, true ).slideUp("slow", function() {
-      enableopen();
-      $(this).find(".lidropdown").data("open", false);
+  $(".ddstay").mouseout(function() {
+      $(this).find(".lidropdown").stop( true, true ).slideUp("slow", function() {
+        $(this).data("open", false);
+      });
     });
-  });
 }
 
 $(document).ready(function() {
   enableopen();
+  enableclose();
 });
