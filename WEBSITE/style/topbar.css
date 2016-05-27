@@ -28,4 +28,6 @@
 .lidropdown {
   display: none;
   position: absolute;
+  margin-left: -1px;
+  margin-top: -3px;
 }

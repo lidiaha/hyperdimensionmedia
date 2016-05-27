@@ -1,9 +1,23 @@
-$(document).ready(function() {
+function enableopen() {
   $(".hasdropdown").mouseover(function() {
-    $(this).find(".lidropdown").stop( true, true ).slideDown("slow");
+    if (!$(this).find(".lidropdown").data("open"))
+      $(this).find(".lidropdown").stop( true, true ).slideDown("slow", function() {
+        enableclose();
+        $(this).find(".lidropdown").data("open", true);
+      });
   });
-  $(".hasdropdown").mouseout(function() {
-    console.log("funge");
-    $(this).find(".lidropdown").stop( true, true ).slideUp("slow");
+}
+function enableclose() {
+  $(".hasdropdown").unbind("mouseover");
+  $(".hasdropdown").find(".lidropdown").unbind("mouseout");
+  $(".hasdropdown").find(".lidropdown").mouseout(function() {
+    $(this).stop( true, true ).slideUp("slow", function() {
+      enableopen();
+      $(this).find(".lidropdown").data("open", false);
+    });
   });
+}
+
+$(document).ready(function() {
+  enableopen();
 });
