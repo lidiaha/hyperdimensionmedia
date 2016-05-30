@@ -13,6 +13,10 @@
     $result = $conn->query($sql);
   }
 
+  if (!$result) {
+    echo "query error";
+  }
+
   $rows = array();
   while($r = mysqli_fetch_assoc($result)) {
       array_push($rows, $r);
