@@ -15,7 +15,7 @@
 
   $rows = array();
   while($r = mysqli_fetch_assoc($result)) {
-      $rows[] = $r;
+      array_push($rows, $r);
   }
   print json_encode($rows);
  ?>

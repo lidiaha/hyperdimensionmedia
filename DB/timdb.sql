@@ -68,7 +68,7 @@ CREATE TABLE `testchat` (
   `message` varchar(2500) NOT NULL,
   `emote` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,6 +80,9 @@ LOCK TABLES `testchat` WRITE;
 INSERT INTO `testchat` VALUES (8,'User-374','2016-05-29 21:25:10','Ciao, questo è un messaggio di prova!','');
 INSERT INTO `testchat` VALUES (9,'Michele','2016-05-29 21:25:49','si può anche cambiare l&#39;username come vuoi','');
 INSERT INTO `testchat` VALUES (10,'Michele-chan','2016-05-29 21:26:10','beh, non proprio **come** vuoi...','kyubey');
+INSERT INTO `testchat` VALUES (11,'User-405','2016-05-29 21:40:11','日本語でおk','');
+INSERT INTO `testchat` VALUES (12,'User-486','2016-05-30 12:25:07','cioa','');
+INSERT INTO `testchat` VALUES (13,'Luca-is-baka','2016-05-30 12:26:02','1. html\n2. css\n3. javascript\n4. php','kyubey');
 /*!40000 ALTER TABLE `testchat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -92,4 +95,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-29 21:27:59
+-- Dump completed on 2016-05-30 14:24:58
