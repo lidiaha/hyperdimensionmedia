@@ -1,6 +1,7 @@
 <?php
   include "../../phplib/database.php";
   $conn = dbconn();
+  mysqli_set_charset($conn, 'utf8');
   if (isset($_POST["after"])) {
     $sql = "SELECT * FROM testchat WHERE time > ?";
     $prepared = $conn->prepare($sql);
