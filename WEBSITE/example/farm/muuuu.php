@@ -2,6 +2,7 @@
    <head>
 		<title> Farm </title>
 		<link rel="stylesheet" type="text/css" href="../style/farms.css">
+		<meta charset="UTF-8">
 	</head>
     <body>
 	  <div class="title"> Farm project summer 2016 </div>
