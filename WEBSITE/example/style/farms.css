@@ -1,4 +1,4 @@
-@font.face{
+@font-face{
 	font-family: mtitle;
     src: url("Edge.ttf") format('truetype'), local("Edge");
 }
@@ -16,7 +16,7 @@ body { background-color: WhiteSmoke
   background-color : LightSteelBlue;
   text-align : center;
   font-family: mtitle;
-  font-family: Courier New;
+  
   }
 
 .add {
