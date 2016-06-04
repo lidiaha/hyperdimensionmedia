@@ -1,0 +1,6 @@
+1) progettare db
+    1.1) tabelle per il device
+    1.2) tabelle per la promozione
+2) implementare simple device page (with db access)
+3) filter
+4) applicare il template su larga scala
