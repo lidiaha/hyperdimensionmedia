@@ -14,8 +14,10 @@
 		
         $sql = "INSERT INTO farms (name, url, location, animals , accomodation , job , rate) VALUES (?, ?, ?, ? , ?, ?, ?)";
         $prepared = $conn->prepare($sql);
-        $prepared->bind_param("ssssssi", $_POST["name"], $_POST["url"], $_POST["location"],
-		                                      $_POST["animals"], $_POST["accomodation"], $_POST["job"], $_POST["rate"] );
+        $prepared->bind_param("ssssssi", filter_var($_POST["name"], FILTER_SANITIZE_STRING), filter_var($_POST["url"], FILTER_SANITIZE_STRING),
+		                                             filter_var ($_POST["location"], FILTER_SANITIZE_STRING),filter_var($_POST["animals"], FILTER_SANITIZE_STRING),
+													 filter_var($_POST["accomodation"], FILTER_SANITIZE_STRING),filter_var ($_POST["job"], FILTER_SANITIZE_STRING),
+													 filter_var($_POST["rate"], FILTER_SANITIZE_STRING) );
         $prepared->execute();
         $conn->close();
 
