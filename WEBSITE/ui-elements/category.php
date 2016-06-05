@@ -11,9 +11,9 @@
     while($row = $result->fetch_assoc()) {
       $name = $row["name"];
       $id=$row["id"];
-      echo "<a class=\"category\" href=\"$url\">\n";
-      echo "<div class=\"data\"><div class=\"name\">$name:</div>\n";
-      echo "<img class=\"image\" src=\"/ui-elements/images/device/category/$id.png\">\n";
+      echo "<a class=\"category\" href=\ to do\">\n";
+      echo "<div class=\"data\"><img class=\"image\" src=\"/ui-elements/images/device/category/$id.png\">\n";
+	  echo "<div class=\"name\">$name</div>\n";
       echo "</div></a>\n";
     }
   }

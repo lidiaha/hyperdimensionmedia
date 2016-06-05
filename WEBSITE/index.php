@@ -11,7 +11,7 @@
     <div id="supercontainer">
       <?php include "ui-elements/topbar.html"; ?>
       <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="pictures/bg-scroll-sea-2.jpg">
-        <div id="maincontent">7
+        <div id="maincontent">
   		<?php include "ui-elements/category.php"; ?>
           I furetti sono carini. <br>
           Anche i gatti. <br>
