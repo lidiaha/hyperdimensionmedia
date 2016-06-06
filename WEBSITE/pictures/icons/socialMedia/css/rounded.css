@@ -121,10 +121,10 @@
 .cv-social-media a:hover {
    display:block;
 
-   -webkit-animation-name: fadeOut;
-   -moz-animation-name: fadeOut;
-   -o-animation-name: fadeOut;
-   animation-name: fadeOut;
+   -webkit-animation-name: wobble;
+   -moz-animation-name: wobble;
+   -o-animation-name: wobble;
+   animation-name: wobble;
 
          -webkit-animation-duration: 1s;
       -moz-animation-duration: 1s;
