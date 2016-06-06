@@ -1,5 +1,5 @@
 <?php
-  function dbconn() {
+function dbconn() {
     $servername = "localhost";
     $username = "timuser";
     $password = "timuser";
@@ -12,5 +12,5 @@
     }
     mysqli_set_charset($conn, 'utf8');
     return $conn;
-  }
+}
  ?>

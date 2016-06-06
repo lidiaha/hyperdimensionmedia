@@ -1,5 +1,5 @@
 @font-face{
-	font-family: mtitle;
+   font-family: mtitle;
     src: url("StoneStoryPlusp.ttf") format('truetype');
 }
 
@@ -32,34 +32,34 @@ body { background-color: WhiteSmoke
 }
 
 a{
-	 text-decoration: none;
+    text-decoration: none;
      color:MediumAquaMarine ;
 }
 
 
 table{
-	border: 5px solid RosyBrown;
-	width: 100%;
-	color : Snow;
-	
+   border: 5px solid RosyBrown;
+   width: 100%;
+   color : Snow;
+   
 }
 
 th {
-	background-color: DarkCyan;
+   background-color: DarkCyan;
 }
 tr { 
     width: 100%;
     margin: 0px;
-	background-color: MediumAquaMarine ;
-	border-collapse: collapse;
+   background-color: MediumAquaMarine ;
+   border-collapse: collapse;
 }
 
 tr:nth-child(even){
-	background-color: MediumSeaGreen
+   background-color: MediumSeaGreen
 }
 
 tr:hover {
-	background-color: SeaGreen
+   background-color: SeaGreen
 }
 
 th, td {
@@ -68,7 +68,7 @@ th, td {
 }
 
 input{
-	width: 98%;
+   width: 98%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
