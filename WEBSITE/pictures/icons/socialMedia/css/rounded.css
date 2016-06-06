@@ -119,12 +119,12 @@
 }
 
 .cv-social-media a:hover {
-   /*display:block;
+   display:block;
 
-   -webkit-animation-name: fadeInUp;
-   -moz-animation-name: fadeInUp;
-   -o-animation-name: fadeInUp;
-   animation-name: fadeInUp;
+   -webkit-animation-name: fadeOut;
+   -moz-animation-name: fadeOut;
+   -o-animation-name: fadeOut;
+   animation-name: fadeOut;
 
          -webkit-animation-duration: 1s;
       -moz-animation-duration: 1s;
@@ -134,7 +134,7 @@
    -webkit-animation-fill-mode: both;
       -moz-animation-fill-mode: both;
         -o-animation-fill-mode: both;
-           animation-fill-mode: both;*/
+           animation-fill-mode: both;
 }
 
 #facebook {
