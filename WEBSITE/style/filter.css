@@ -23,7 +23,3 @@
    line-height: 1.4;
    display: none;
 }
-
-.cate > .element:target {
-   display: block;
-}
