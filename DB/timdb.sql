@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `timdb`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `timdb` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `timdb`;
-
---
 -- Table structure for table `category`
 --
 
@@ -50,6 +42,119 @@ INSERT INTO `category` VALUES (3,'modem e networking','device');
 INSERT INTO `category` VALUES (4,'tv e smartliving','device');
 INSERT INTO `category` VALUES (5,'outlet','device');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `connectiontypes`
+--
+
+DROP TABLE IF EXISTS `connectiontypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `connectiontypes` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `connectiontypes`
+--
+
+LOCK TABLES `connectiontypes` WRITE;
+/*!40000 ALTER TABLE `connectiontypes` DISABLE KEYS */;
+INSERT INTO `connectiontypes` VALUES (1,'Wi-Fi');
+INSERT INTO `connectiontypes` VALUES (2,'3G');
+INSERT INTO `connectiontypes` VALUES (3,'4G');
+INSERT INTO `connectiontypes` VALUES (4,'GSM');
+INSERT INTO `connectiontypes` VALUES (5,'USB');
+INSERT INTO `connectiontypes` VALUES (6,'Ethernet');
+INSERT INTO `connectiontypes` VALUES (7,'ADSL');
+/*!40000 ALTER TABLE `connectiontypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `devicecolors`
+--
+
+DROP TABLE IF EXISTS `devicecolors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `devicecolors` (
+  `dev_id` int(11) NOT NULL,
+  `color` varchar(45) NOT NULL,
+  PRIMARY KEY (`dev_id`,`color`),
+  CONSTRAINT `fk_color_dev_id` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devicecolors`
+--
+
+LOCK TABLES `devicecolors` WRITE;
+/*!40000 ALTER TABLE `devicecolors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `devicecolors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `deviceconnect`
+--
+
+DROP TABLE IF EXISTS `deviceconnect`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deviceconnect` (
+  `dev_id` int(11) NOT NULL,
+  `conn_id` int(11) NOT NULL,
+  PRIMARY KEY (`dev_id`,`conn_id`),
+  KEY `fk_conn_id_idx` (`conn_id`),
+  CONSTRAINT `fk_conn_conn_id` FOREIGN KEY (`conn_id`) REFERENCES `connectiontypes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_conn_dev_id` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deviceconnect`
+--
+
+LOCK TABLES `deviceconnect` WRITE;
+/*!40000 ALTER TABLE `deviceconnect` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deviceconnect` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `devices`
+--
+
+DROP TABLE IF EXISTS `devices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `devices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `description` varchar(5000) NOT NULL,
+  `tech_specs` varchar(5000) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `type` int(11) NOT NULL,
+  `brand` varchar(45) NOT NULL,
+  `os` varchar(45) NOT NULL,
+  `purchase` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_devices_1_idx` (`type`),
+  CONSTRAINT `fk_devices_1` FOREIGN KEY (`type`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devices`
+--
+
+LOCK TABLES `devices` WRITE;
+/*!40000 ALTER TABLE `devices` DISABLE KEYS */;
+INSERT INTO `devices` VALUES (1,'Modem ADSL Wi-Fi','Navigazione veloce e senza fili\n\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l\'interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\n\n    Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione.\n    Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\n    Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\n    Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\n    Risparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo.\n\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).','Tecnologia\n\nADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up\n\n\nWi-Fi\n\nWi-Fi 802.11 b/g/n; velocità di trasferimento fino a 300Mbps\n\n\nInterfacce\n\nInterfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps\n\n\nProtezione Wireless\n\nWPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso\n\n\nFunzioni avanzate\n\nFunzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB\n\n\nAssistenza tecnica\n\n2 anni di garanzia sul prodotto\n\n\nContenuto della confezione\n\nGuida di installazione; CD autoinstallante (compatibile con Windows 7, Vista, XP- MacOS 10.3); 1 filtro ADSL 2+; 1 cavo Telefonico; 1 cavo Ethernet',69,3,'TIM','Embedded','vendita');
+/*!40000 ALTER TABLE `devices` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -173,4 +278,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-05 20:47:48
+-- Dump completed on 2016-06-07 18:35:34
