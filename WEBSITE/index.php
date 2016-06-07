@@ -17,6 +17,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
+	  <?php include "ui-elements/filter.html"; ?>
       <?php include "ui-elements/social-icons.html"; ?>
    </body>
 </html>
