@@ -16,12 +16,14 @@ function postProcessDevices() {
 }
 
 function fetchDevices() {
-  $.post("/php/controllers/get-devices.php", function(data) {
-    var newmessages = JSON.parse(data);
-    clearContent();
-    newmessages.forEach(processDevice);
-    postProcessDevices();
-  });
+   $.post("/php/controllers/get-devices.php", {
+      "preview": true
+   }, function(data) {
+      var newmessages = JSON.parse(data);
+      clearContent();
+      newmessages.forEach(processDevice);
+      postProcessDevices();
+   });
 }
 
 
