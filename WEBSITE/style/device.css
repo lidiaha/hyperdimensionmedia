@@ -1,8 +1,8 @@
 #side{
-	background-color:white;
-	position:fixed;
+	background-color: white;
+	position: fixed;
 	width: 15%;
-   left: 125px;
+   left: 86px;
 	top: 300px;
 	border: 2px solid black;
 	text-align: right;
@@ -12,22 +12,22 @@
 
 #presentazione{
 	position: relative;
-	top:20px;
-	margin:auto;
-	margin-bottom:0px;
-	width:80%;
-	height:300px;
+	top: 20px;
+	margin: auto;
+	margin-bottom: 0px;
+	width: 80%;
+	height: 300px;
 	background-color: white;
-	padding:20px;
+	padding: 20px;
 	display: block;
 }
 
 #link{
 	position: relative;
-	margin:auto;
-	width:80%;
+	margin: auto;
+	width: 80%;
 	background-color: white;
-	padding:20px;
+	padding: 20px;
 }
 
 .device-img{
@@ -40,11 +40,19 @@
 }
 
 #caratteristiche{
-	display:none;
+	position: relative;
+	top: 20px;
+	margin: auto;
+	margin-bottom: 0px;
+	width: 80%;
+	height: 300px;
+	background-color: white;
+	padding: 20px;
+	display: none;
 }
 
 .name{
-	position:relative;
+	position: relative;
 	color: blue;
 	font-size: 20px;
 	margin-top: 20px;
