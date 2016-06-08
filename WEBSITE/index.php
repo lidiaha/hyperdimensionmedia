@@ -12,12 +12,12 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-            <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/category.php"; ?>
+               Device categories has her own home now!<br>
+               check it out from the landmark bar
             </div>
          </div>
       <!-- <div id="footer"> -->
       </div>
-     <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter.html"; ?>
      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>
 </html>

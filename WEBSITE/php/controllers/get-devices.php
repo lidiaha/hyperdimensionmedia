@@ -30,6 +30,10 @@
    }
 
    function applyFilter($conn, $dbkey, $postkey, $filterlist) {
+      /*
+         applies a filter on the $dbkey database column, the filter parameter are
+         taken from $postkey
+      */
       if (isset($_POST[$postkey])) {
          $fragment = generateFilterQueryFragment($conn, $dbkey, explode(",", $_POST[$postkey]));
          if ($fragment != "") {
