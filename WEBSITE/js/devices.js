@@ -15,7 +15,7 @@ function postProcessDevices() {
    $("#maincontent").append("<div class=\"doorstopper\"></div>")
 }
 
-function fetchDevices() {
+function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true
    }, function(data) {
@@ -26,9 +26,23 @@ function fetchDevices() {
    });
 }
 
-
+function fetchDevicesSingleCategory() {
+   $.post("/php/controllers/get-devices.php", {
+      "preview": true,
+      "category": category_id
+   }, function(data) {
+      var newmessages = JSON.parse(data);
+      clearContent();
+      newmessages.forEach(processDevice);
+      postProcessDevices();
+   });
+}
 
 
 $(document).ready(function() {
-   fetchDevices();
+   if (!is_monocategory) {
+      fetchDevicesAllCategory();
+   } else {
+      fetchDevicesSingleCategory();
+   }
 });
