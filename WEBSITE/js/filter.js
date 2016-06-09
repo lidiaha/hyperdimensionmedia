@@ -1,5 +1,21 @@
 var filter_enabled_names = [];
 
+/*
+   to make this code reusable, we define those adapter functions:
+   if applyFilter() and/or removeFilter() were defined somewhere in the
+   page's code, we call them, otherwise, do nothing
+*/
+function applyFilterAdapter(elem) {
+   if (typeof applyFilter == 'function') {
+      applyFilter(elem);
+   }
+}
+function removeFilterAdapter(elem) {
+   if (typeof removeFilter == 'function') {
+      removeFilter(elem);
+   }
+}
+
 
 function putHigherCopy(value, numid) {
    /*
@@ -43,7 +59,7 @@ function enabled(elem) {
    elem.click(function() {
       disabled($(this));
    });
-
+   applyFilterAdapter(elem);
 }
 
 function disabled(elem) {
@@ -56,6 +72,7 @@ function disabled(elem) {
    if (found > -1) {
       deleteNameFromArray(found, filter_enabled_names);
       $("#selected-" + found).parent().remove();
+      removeFilterAdapter(elem);
    }
    elem.off("click");
    elem.click(function() {
@@ -81,6 +98,7 @@ function disableFromTop(topelem) {
       selector.click(function() {
          enabled($(this));
       });
+      removeFilterAdapter(elem);
    }
 }
 

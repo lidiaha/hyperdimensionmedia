@@ -1,4 +1,5 @@
 <?php
+//TODO: rename $filterlist in the generator, because it induces confusion
 function generateFilterQueryFragmentSet($conn, $filterkey, $filterlist) {
    if (count($filterlist) == 0) {
       return "";
@@ -18,11 +19,28 @@ function generateFilterQueryFragmentSet($conn, $filterkey, $filterlist) {
    return $query;
 }
 
-function generateFilterQueryFragmentRange($conn, $filterkey, $low, $high) {
+function generateFilterQueryFragmentRange($conn, $filterkey, $filterlist) {
+   if (count($filterlist) == 0) {
+      return "";
+   }
    $query = "(";
-   $safelow = mysqli_real_escape_string($conn, $low);
-   $safehigh = mysqli_real_escape_string($conn, $high);
-   $query = $query . $filterkey . " BETWEEN " . $safelow . " AND " . $safehigh;
+   for ($i = 0; $i < count($filterlist); $i++) {
+      $elem = $filterlist[$i];
+      if (array_key_exists("low", $elem) && array_key_exists("high", $elem)) {
+         $safelow = mysqli_real_escape_string($conn, $elem["low"]);
+         $safehigh = mysqli_real_escape_string($conn, $elem["high"]);
+         $query = $query . "(" . $filterkey . " BETWEEN " . $safelow . " AND " . $safehigh . ")";
+      } else if (array_key_exists("low", $elem)) {
+         $safelow = mysqli_real_escape_string($conn, $elem["low"]);
+         $query = $query . "(" . $filterkey . " >= " . $safelow . ")";
+      } else if (array_key_exists("high", $elem)) {
+         $safehigh = mysqli_real_escape_string($conn, $elem["high"]);
+         $query = $query . "(" . $filterkey . " <= " . $safehigh . ")";
+
+      if ($i + 1 < count($filterlist)) {
+         $query = $query . " OR ";
+      }
+   }
    $query = $query . ")";
    return $query;
 }
@@ -47,13 +65,14 @@ function applyFilterRange($conn, $dbkey, $postkey, $filterlist) {
       representation of the interval
    */
    if (isset($_POST[$postkey])) {
-      $interval = json_decode($_POST[$postkey]);
-      if (!$interval) {
+      $intervals = json_decode($_POST[$postkey], true);
+      if (!$intervals) {
          return $filterlist;
       }
-      $low = $interval->{"low"};
-      $high = $interval->{"high"};
-      $fragment = generateFilterQueryFragmentRange($conn, $dbkey, $low, $high);
+      if (!is_array($intervals)) {
+         return $filterlist;
+      }
+      $fragment = generateFilterQueryFragmentRange($conn, $dbkey, $intervals);
       if ($fragment != "") {
          array_push($filterlist, $fragment);
       }

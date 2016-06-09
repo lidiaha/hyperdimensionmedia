@@ -19,6 +19,7 @@ function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true
    }, function(data) {
+      console.log(data);
       var newmessages = JSON.parse(data);
       clearContent();
       newmessages.forEach(processDevice);

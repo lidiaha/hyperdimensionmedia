@@ -6,8 +6,8 @@
          filters:
             "category": contain a comma-separated list of inclusive filters to apply. If not set, the filter
                won't be applied. Values are the indexes of the device category to filter by
-            "price_range": serialized json object (string) specifying the price range, using the keys
-               "low" and "high" for the interval
+            "price_range": serialized json object (string) specifying a series of price ranges, in the form:
+               [{"low": 15, "high": 150 }, ...]
       return:
          json representation of the selected tuples
 
