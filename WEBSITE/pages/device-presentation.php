@@ -10,11 +10,19 @@
          $(document).ready(function() {
             $(".pre").click(function() {
                $(this).parents().find(".presentazione").show();
+					$(this).parent().find(".pre").css("background-color","white");
+					$(this).parent().find(".pre").css("border-right","0px");
 					$(this).parents().find(".caratteristiche").hide();
+					$(this).parent().find(".car").css("background-color","grey");
+					$(this).parent().find(".car").css("border-right","1px black solid");
             });
 				$(".car").click(function() {
+				   $(this).parents().find(".caratteristiche").show();
+					$(this).parent().find(".car").css("background-color","white");
+					$(this).parent().find(".car").css("border-right","0px");
                $(this).parents().find(".presentazione").hide();
-					$(this).parents().find(".caratteristiche").show();
+					$(this).parent().find(".pre").css("background-color","grey");
+					$(this).parent().find(".pre").css("border-right","1px black solid");
             });
          });
       </script>
@@ -24,8 +32,8 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
 			   <div id="side">
-				   <a href="#" class="pre"> Presentazione</a><br>
-					<a href="#" class="car"> Caratteristiche tecniche</a>
+				   <div class="pre"> Presentazione</div>
+					<div class="car"> Caratteristiche tecniche</div>
 				</div>
             <div id="maincontent">
 				<div class="presentazione">

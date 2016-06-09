@@ -2,13 +2,31 @@
 	background-color: white;
 	position: fixed;
 	width: 15%;
-   left: 125px;
+   left: 149px;
 	top: 300px;
-	border: 2px solid black;
-	border-right: none;
-	text-align: right;
-	padding-right: 20px;
 	z-index: 1;
+}
+
+.car{
+	background-color: grey;
+	width: 100%;
+	height: 30px;
+	padding-left:10px;
+	box-sizing: border-box;
+	cursor:pointer;
+	border: 1px black solid;
+	line-height: 30px;
+}
+
+.pre{
+	width: 100%;
+	height: 30px;
+	padding-left:10px;
+	box-sizing: border-box;
+   cursor:pointer;
+   border: 1px black solid;
+   border-right: 0px;	
+	line-height: 30px;
 }
 
 .presentazione{
