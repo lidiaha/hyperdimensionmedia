@@ -36,7 +36,7 @@ function generateFilterQueryFragmentRange($conn, $filterkey, $filterlist) {
       } else if (array_key_exists("high", $elem)) {
          $safehigh = mysqli_real_escape_string($conn, $elem["high"]);
          $query = $query . "(" . $filterkey . " <= " . $safehigh . ")";
-
+      }
       if ($i + 1 < count($filterlist)) {
          $query = $query . " OR ";
       }
