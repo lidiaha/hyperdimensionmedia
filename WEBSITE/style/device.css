@@ -7,17 +7,6 @@
 	z-index: 1;
 }
 
-.car{
-	background-color: grey;
-	width: 100%;
-	height: 30px;
-	padding-left:10px;
-	box-sizing: border-box;
-	cursor:pointer;
-	border: 1px black solid;
-	line-height: 30px;
-}
-
 .pre{
 	width: 100%;
 	height: 30px;
@@ -29,35 +18,77 @@
 	line-height: 30px;
 }
 
+.car{
+	background-color: grey;
+	width: 100%;
+	height: 30px;
+	padding-left:10px;
+	box-sizing: border-box;
+	cursor:pointer;
+	border: 1px black solid;
+	line-height: 30px;
+}
+
 .presentazione{
 	position: relative;
 	top: 20px;
 	margin: auto;
 	margin-bottom: 0px;
 	width: 80%;
-	height: 300px;
+	height: 500px;
 	background-color: white;
 	padding: 20px;
 	display: block;
 }
-
-#link{
-	position: relative;
-	margin: auto;
-	width: 80%;
-	background-color: white;
-	padding: 20px;
+.info{
+	display: inline-block;
 }
 
+.left{
+	width: 230px;
+	box-sizing: border-box;
+	padding-right: 20px;
+	padding-top: 35px;
+	float: left;
+}
 .device-img{
-	width: 220px;
+	width: 100%;
 	height: auto;
-	margin: 30px;
 	border-radius: 8px;
 	border: grey 2px solid;
+}
+
+.color{
+	width: 30px;
+	height: 30px;
+	background: #F8F8F8;
+	border-radius: 50%;
+	border: black 1px solid;
+}
+
+.right{
+	width: 270px;
+	box-sizing: border-box;
+   padding: 5px;
 	float: left;
 }
 
+.name{
+	color: blue;
+	font-size: 25px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
+}
+
+.price{
+	margin-bottom: 10px;
+	
+}
+	
+.buy{
+	padding-top:30px;
+}
 .caratteristiche{
 	position: relative;
 	top: 20px;
@@ -70,14 +101,19 @@
 	display: none;
 }
 
-.name{
-	position: relative;
-	color: blue;
-	font-size: 20px;
-	margin-top: 20px;
+.specifiche{
+	border: black 1px solid;
+	padding: 10px;
+	height: 200px;
+	overflow: scroll;
 }
-.price{
+p{ 
+   margin:0px;
+}
+#link{
 	position: relative;
-	margin: 10px;
-	
+	margin: auto;
+	width: 80%;
+	background-color: white;
+	padding: 20px;
 }

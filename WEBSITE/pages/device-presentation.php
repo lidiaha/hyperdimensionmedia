@@ -37,13 +37,34 @@
 				</div>
             <div id="maincontent">
 				<div class="presentazione">
-				   <img src="/pictures/products/devices/1.jpg" class="device-img"></img>
-				   <span class="name"> Modem adsl wi-fi </span><br>
-					<span class="price"> 69 € </span>
-					<p class="description"> Il nuovo modem  </p>  
+				   <div class="info left"> 
+					   <img src="/pictures/products/devices/1.jpg" class="device-img">
+						<div> Colore: <div class="color"></div></div>
+					</div>
+					<div class="info right">
+				      <div class="name"> Modem adsl wi-fi </div><br>
+					   <div class="price"> 69 € </div>
+					   <p class="description">Navigazione veloce e senza fili<br>
+                     Con il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l'interfaccia Wi-Fi o attraverso le 4 porte Ethernet.<br>
+                     Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi.
+                     Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. 
+                     Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.
+                     Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.</p> 
+               </div>
+               <div class="info buy"> Acquista </div>					
 				</div>
 				<div class="caratteristiche">
-				   <span class="specifiche"> Tutto quello che vuoi </span>
+				   <div class="name"> Modem adsl wi-fi </div>
+				   <div class="specifiche"> <p>Tecnologia: ADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up</p><br>
+                  <p>Wi-Fi: 802.11 b/g/n; velocità di trasferimento fino a 300Mbps</p><br>
+                  <p>Interfacce:<br>
+                  Interfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps</p><br>
+ 
+                  <p>Protezione Wireless: WPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso</p><br>
+                  <p>Funzioni avanzate:<br>
+                  Funzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB</p><br>
+                  <p>Assistenza tecnica: 2 anni di garanzia sul prodotto</p>
+               </div>
 				</div>
 				<div id="link">
 				   <a href="#"> Servizi Smart Life</a><br>
