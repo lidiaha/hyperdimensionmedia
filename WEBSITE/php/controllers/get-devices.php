@@ -10,6 +10,8 @@
                "low" and "high" for the interval
       return:
          json representation of the selected tuples
+
+      TODO: open ranges
    */
 
    include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";

@@ -1,43 +1,24 @@
 <link rel="stylesheet" type="text/css" href="/style/filter.css">
-<script>
-   $(document).ready(function() {
-      $(".cate").find("a").click(function() {
-         $(this).parent().find(".element").toggle();
-      });
-		$(".cate").find("input").click(function() {
-		   var coso = $(this).val();
-         $(this).parents().find(".choosen").show();
-			$(this).parents().find("input[value=coso]").show();
-			$(this).parent().hide();
-      });
-   });
-</script>
+<script src="/js/filter.js"></script>
 
 <div class="filter"><span> Filtri </span> <br>
-   <div class="choosen"> si vede?
-	   <div class="cate-copy">
-         <span><input class= "item" type="checkbox" name="price" value="50-150 €">50-150 €<br></span>
-         <span><input class= "item" type="checkbox" name="price" value="150-200 €">150-200 €<br></span>
-         <span><input class= "item" type="checkbox" name="price" value="200-250 €">200-250 €<br></span>
-			<span><input class= "item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
-         <span><input class= "item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
-         <span><input class= "item" type="checkbox" name="brand" value="Android">Android<br></span>
-	   </div>
-	</div>
+   <div class="choosen">
+
+   </div>
    <div class="cate">
       <a href="#"> <div class="sub">Prezzo </div></a>
       <div class= "element">
-         <span><input class= "item" type="checkbox" name="price" value="50-150 €">50-150 €<br></span>
-         <span><input class= "item" type="checkbox" name="price" value="150-200 €">150-200 €<br></span>
-         <span><input class= "item" type="checkbox" name="price" value="200-250 €">200-250 €<br></span>
+         <span><input class="item price" data-low="50" data-high="150" type="checkbox" name="price" value="50-150 €">50-150 €<br></span>
+         <span><input class="item price" data-low="150" data-high="200" type="checkbox" name="price" value="150-200 €">150-200 €<br></span>
+         <span><input class="item price" data-low="200" data-high="250" type="checkbox" name="price" value="200-250 €">200-250 €<br></span>
       </div>
    </div>
    <div class="cate">
       <a href="#"> <div class="sub">Marca </div></a>
       <div class= "element">
-         <span><input class= "item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
-         <span><input class= "item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
-         <span><input class= "item" type="checkbox" name="brand" value="Android">Android<br></span>
+         <span><input class="item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
+         <span><input class="item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
+         <span><input class="item" type="checkbox" name="brand" value="Android">Android<br></span>
       </div>
    </div>
 </div>

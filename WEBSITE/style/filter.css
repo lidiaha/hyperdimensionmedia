@@ -7,9 +7,6 @@
    border: black solid 2px;
 }
 
-.filter > .choosen {
-	display:none;
-}
 .cate > a {
    display: inline-block;
    width: 100%;
@@ -27,6 +24,7 @@
    display: none;
 }
 
-.filter > .choosen > .cate-copy {
-   display: none;
+.choosen > .spanblock {
+   display: block;
+   margin-left: 5px;
 }
