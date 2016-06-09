@@ -7,7 +7,10 @@
    border: black solid 2px;
 }
 
-.cate > a{
+.filter > .choosen {
+	display:none;
+}
+.cate > a {
    display: inline-block;
    width: 100%;
    height: 16px;
@@ -18,8 +21,12 @@
    border: black 1px solid;
 }
 
-.cate > .element{
+.cate > .element {
    margin-left: 2.5em;
    line-height: 1.4;
+   display: none;
+}
+
+.filter > .choosen > .cate-copy {
    display: none;
 }

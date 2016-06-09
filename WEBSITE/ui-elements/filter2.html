@@ -4,24 +4,40 @@
       $(".cate").find("a").click(function() {
          $(this).parent().find(".element").toggle();
       });
+		$(".cate").find("input").click(function() {
+		   var coso = $(this).val();
+         $(this).parents().find(".choosen").show();
+			$(this).parents().find("input[value=coso]").show();
+			$(this).parent().hide();
+      });
    });
 </script>
 
-<div class="filter">
+<div class="filter"><span> Filtri </span> <br>
+   <div class="choosen"> si vede?
+	   <div class="cate-copy">
+         <span><input class= "item" type="checkbox" name="price" value="50-150 €">50-150 €<br></span>
+         <span><input class= "item" type="checkbox" name="price" value="150-200 €">150-200 €<br></span>
+         <span><input class= "item" type="checkbox" name="price" value="200-250 €">200-250 €<br></span>
+			<span><input class= "item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
+         <span><input class= "item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
+         <span><input class= "item" type="checkbox" name="brand" value="Android">Android<br></span>
+	   </div>
+	</div>
    <div class="cate">
       <a href="#"> <div class="sub">Prezzo </div></a>
       <div class= "element">
-         <input class= "item" type="checkbox" name="price" value="50-150 €">50-150 €<br>
-         <input class= "item" type="checkbox" name="price" value="150-200 €">150-200 €<br>
-         <input class= "item" type="checkbox" name="price" value="200-250 €">200-250 €<br>
+         <span><input class= "item" type="checkbox" name="price" value="50-150 €">50-150 €<br></span>
+         <span><input class= "item" type="checkbox" name="price" value="150-200 €">150-200 €<br></span>
+         <span><input class= "item" type="checkbox" name="price" value="200-250 €">200-250 €<br></span>
       </div>
    </div>
    <div class="cate">
       <a href="#"> <div class="sub">Marca </div></a>
       <div class= "element">
-         <input class= "item" type="checkbox" name="brand" value="Shitphone">Shitphone<br>
-         <input class= "item" type="checkbox" name="brand" value="Iphone">Iphone<br>
-         <input class= "item" type="checkbox" name="brand" value="Android">Android<br>
+         <span><input class= "item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
+         <span><input class= "item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
+         <span><input class= "item" type="checkbox" name="brand" value="Android">Android<br></span>
       </div>
    </div>
 </div>
