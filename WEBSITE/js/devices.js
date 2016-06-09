@@ -1,4 +1,54 @@
 
+var priceFilter = [];
+
+function isEquivalent(a, b) {
+   /* check if two objects are equal by value */
+   var aProps = Object.getOwnPropertyNames(a);
+   var bProps = Object.getOwnPropertyNames(b);
+   if (aProps.length != bProps.length) {
+      return false;
+   }
+   for (var i = 0; i < aProps.length; i++) {
+      var propName = aProps[i];
+      if (a[propName] !== b[propName]) {
+         return false;
+      }
+   }
+   return true;
+}
+
+function getPriceObject(elem) {
+   var low = elem.data("low");
+   var high = elem.data("high");
+   if (low && high) {
+      return {"low": low, "high": high};
+   } else if (low) {
+      return {"low": low};
+   } else if (high) {
+      return {"high": high};
+   }
+}
+
+function applyFilter(elem) {
+   if (elem.attr("name") == "price") {
+      priceFilter.push(getPriceObject(elem));
+   }
+   reloadContent();
+}
+
+function removeFilter(elem) {
+   if (elem.attr("name") == "price") {
+      data = getPriceObject(elem);
+      for (var i=0; i<priceFilter.length; i++) {
+         if (isEquivalent(data, priceFilter[i])) {
+            priceFilter.splice(i, 1);
+            reloadContent();
+            return;
+         }
+      }
+   }
+}
+
 function clearContent() {
    $("#maincontent").html("");
 }
@@ -17,7 +67,8 @@ function postProcessDevices() {
 
 function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
-      "preview": true
+      "preview": true,
+      "price_range": JSON.stringify(priceFilter)
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
@@ -29,7 +80,8 @@ function fetchDevicesAllCategory() {
 function fetchDevicesSingleCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true,
-      "category": category_id
+      "category": category_id,
+      "price_range": JSON.stringify(priceFilter)
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
@@ -38,11 +90,14 @@ function fetchDevicesSingleCategory() {
    });
 }
 
-
-$(document).ready(function() {
+function reloadContent() {
    if (!is_monocategory) {
       fetchDevicesAllCategory();
    } else {
       fetchDevicesSingleCategory();
    }
+}
+
+$(document).ready(function() {
+   reloadContent();
 });

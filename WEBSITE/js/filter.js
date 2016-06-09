@@ -50,7 +50,6 @@ function enabled(elem) {
       triggered when we apply a new filter
    */
    var value = elem.val();
-   console.log("ok " + value);
    filter_enabled_names.push(value);
    numid = filter_enabled_names.length - 1;
    putHigherCopy(value, numid);
@@ -98,7 +97,7 @@ function disableFromTop(topelem) {
       selector.click(function() {
          enabled($(this));
       });
-      removeFilterAdapter(elem);
+      removeFilterAdapter(selector);
    }
 }
 
