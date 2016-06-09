@@ -1,6 +1,7 @@
 
 var priceFilter = [];
 
+// Note: this function may be moved to some "library" in the future
 function isEquivalent(a, b) {
    /* check if two objects are equal by value */
    var aProps = Object.getOwnPropertyNames(a);
@@ -18,6 +19,7 @@ function isEquivalent(a, b) {
 }
 
 function getPriceObject(elem) {
+   /* get a javascript object representing the price range inside an <input name='price'> */
    var low = elem.data("low");
    var high = elem.data("high");
    if (low && high) {
@@ -29,6 +31,7 @@ function getPriceObject(elem) {
    }
 }
 
+// interface with filter.js
 function applyFilter(elem) {
    if (elem.attr("name") == "price") {
       priceFilter.push(getPriceObject(elem));
