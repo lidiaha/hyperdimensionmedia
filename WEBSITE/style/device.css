@@ -35,17 +35,20 @@
 	margin: auto;
 	margin-bottom: 0px;
 	width: 80%;
-	height: 500px;
+	min-height: 200px;
+	overflow:auto; 
 	background-color: white;
 	padding: 20px;
 	display: block;
 }
+
 .info{
 	display: inline-block;
 }
 
 .left{
 	width: 230px;
+	height: 100%;
 	box-sizing: border-box;
 	padding-right: 20px;
 	padding-top: 35px;
@@ -68,6 +71,7 @@
 
 .right{
 	width: 270px;
+	height: 100%;
 	box-sizing: border-box;
    padding: 5px;
 	float: left;
@@ -95,7 +99,8 @@
 	margin: auto;
 	margin-bottom: 0px;
 	width: 80%;
-	height: 300px;
+	height: 400px;
+	overflow:auto; 
 	background-color: white;
 	padding: 20px;
 	display: none;
@@ -103,14 +108,17 @@
 
 .specifiche{
 	border: black 1px solid;
+	border-radius: 10px;
 	padding: 10px;
-	height: 200px;
+	margin-top:10px;
+	height: 80%;
 	overflow: scroll;
 }
 p{ 
    margin:0px;
 }
 #link{
+	display: block;
 	position: relative;
 	margin: auto;
 	width: 80%;
