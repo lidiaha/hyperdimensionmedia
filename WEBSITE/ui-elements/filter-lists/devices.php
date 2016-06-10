@@ -12,8 +12,36 @@
 <div class="cate">
    <a href="#"> <div class="sub">Marca </div></a>
    <div class= "element">
-      <span><input class="item" type="checkbox" name="brand" value="Shitphone">Shitphone<br></span>
-      <span><input class="item" type="checkbox" name="brand" value="Iphone">Iphone<br></span>
-      <span><input class="item" type="checkbox" name="brand" value="Android">Android<br></span>
+      <?php
+         $sql = "SELECT DISTINCT brand FROM devices";
+         $result = $conn->query($sql);
+         if (!$result) {
+            echo "query error";
+         }
+         else {
+               while($row = $result->fetch_assoc()) {
+                  $brand = $row["brand"];
+                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"brand\" value=\"$brand\">$brand<br></span>\n";
+               }
+         }
+       ?>
+   </div>
+</div>
+<div class="cate">
+   <a href="#"> <div class="sub">Sistema Operativo </div></a>
+   <div class= "element">
+      <?php
+         $sql = "SELECT DISTINCT os FROM devices";
+         $result = $conn->query($sql);
+         if (!$result) {
+            echo "query error";
+         }
+         else {
+               while($row = $result->fetch_assoc()) {
+                  $os = $row["os"];
+                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"os\" value=\"$os\">$os<br></span>\n";
+               }
+         }
+       ?>
    </div>
 </div>

@@ -51,6 +51,9 @@ function applyFilterSet($conn, $dbkey, $postkey, $filterlist) {
       taken from $postkey
    */
    if (isset($_POST[$postkey])) {
+      if ($_POST[$postkey] == "") {
+         return $filterlist;
+      }
       $fragment = generateFilterQueryFragmentSet($conn, $dbkey, explode(",", $_POST[$postkey]));
       if ($fragment != "") {
          array_push($filterlist, $fragment);

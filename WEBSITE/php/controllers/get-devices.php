@@ -6,6 +6,8 @@
          filters:
             "category": contain a comma-separated list of inclusive filters to apply. If not set, the filter
                won't be applied. Values are the indexes of the device category to filter by
+            "brands": same as above, but with brand names
+            "oses": same as above, but with operating systems
             "price_range": serialized json object (string) specifying a series of price ranges, in the form:
                [{"low": 15, "high": 150 }, ...]
       return:
@@ -31,11 +33,12 @@
    $filterlist = array();
    $filterlist = applyFilterSet($conn, "type", "category", $filterlist);
    $filterlist = applyFilterRange($conn, "price", "price_range", $filterlist);
+   $filterlist = applyFilterSet($conn, "brand", "brands", $filterlist);
+   $filterlist = applyFilterSet($conn, "os", "oses", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
    }
-
    // run query
    $result = $conn->query($sql);
    if (!$result) {

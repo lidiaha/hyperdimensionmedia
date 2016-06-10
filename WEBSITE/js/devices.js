@@ -1,20 +1,14 @@
 
 var priceFilter = [];
+var brandFilter = [];
+var osFilter = [];
 
-// Note: this function may be moved to some "library" in the future
-function isEquivalent(a, b) {
-   /* check if two objects are equal by value */
-   var aProps = Object.getOwnPropertyNames(a);
-   var bProps = Object.getOwnPropertyNames(b);
-   if (aProps.length != bProps.length) {
-      return false;
-   }
-   for (var i = 0; i < aProps.length; i++) {
-      var propName = aProps[i];
-      if (a[propName] !== b[propName]) {
-         return false;
-      }
-   }
+function sameInterval(a, b) {
+   /* check if two intervals are the same */
+   if (a.hasOwnProperty("low") && ! b.hasOwnProperty("low")) return false;
+   if (a.hasOwnProperty("high") && ! b.hasOwnProperty("high")) return false;
+   if (a["low"] != b["low"]) return false;
+   if (a["high"] != b["high"]) return false;
    return true;
 }
 
@@ -35,6 +29,10 @@ function getPriceObject(elem) {
 function applyFilter(elem) {
    if (elem.attr("name") == "price") {
       priceFilter.push(getPriceObject(elem));
+   } else if (elem.attr("name") == "brand") {
+      brandFilter.push(elem.val());
+   } else if (elem.attr("name") == "os") {
+      osFilter.push(elem.val());
    }
    reloadContent();
 }
@@ -43,11 +41,25 @@ function removeFilter(elem) {
    if (elem.attr("name") == "price") {
       data = getPriceObject(elem);
       for (var i=0; i<priceFilter.length; i++) {
-         if (isEquivalent(data, priceFilter[i])) {
+         if (sameInterval(data, priceFilter[i])) {
             priceFilter.splice(i, 1);
             reloadContent();
             return;
          }
+      }
+   } else if (elem.attr("name") == "brand") {
+      index = brandFilter.indexOf(elem.val());
+      if (index > -1) {
+         brandFilter.splice(index, 1);
+         reloadContent();
+         return;
+      }
+   } else if (elem.attr("name") == "os") {
+      index = osFilter.indexOf(elem.val());
+      if (index > -1) {
+         osFilter.splice(index, 1);
+         reloadContent();
+         return;
       }
    }
 }
@@ -71,7 +83,9 @@ function postProcessDevices() {
 function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true,
-      "price_range": JSON.stringify(priceFilter)
+      "price_range": JSON.stringify(priceFilter),
+      "brands": brandFilter.join(","),
+      "oses": osFilter.join(",")
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
@@ -84,7 +98,9 @@ function fetchDevicesSingleCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true,
       "category": category_id,
-      "price_range": JSON.stringify(priceFilter)
+      "price_range": JSON.stringify(priceFilter),
+      "brands": brandFilter.join(","),
+      "oses": osFilter.join(",")
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
