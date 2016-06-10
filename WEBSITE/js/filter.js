@@ -17,12 +17,12 @@ function removeFilterAdapter(elem) {
 }
 
 
-function putHigherCopy(value, numid) {
+function putHigherCopy(name, value, numid) {
    /*
       add a 'copy' of the selector in the upper area, to show the filter is enabled
    */
    var newel = "<span class=\"spanblock\"><input class= \"item activefilter\" type=\"checkbox\" " +
-   "name=\"price\" value=\"" + value + "\" id=\"selected-" + numid + "\" checked=\"checked\">" + value + "</span>"
+   "name=\"" + name + "\" value=\"" + value + "\" id=\"selected-" + numid + "\" checked=\"checked\">" + value + "</span>"
    $(".choosen").append($(newel));
 }
 
@@ -50,9 +50,10 @@ function enabled(elem) {
       triggered when we apply a new filter
    */
    var value = elem.val();
+   var name = elem.attr("name");
    filter_enabled_names.push(value);
    numid = filter_enabled_names.length - 1;
-   putHigherCopy(value, numid);
+   putHigherCopy(name, value, numid);
    elem.attr("id", "selector-" + numid);
    elem.off("click");
    elem.click(function() {

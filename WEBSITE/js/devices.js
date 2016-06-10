@@ -5,8 +5,10 @@ var osFilter = [];
 
 function sameInterval(a, b) {
    /* check if two intervals are the same */
-   if (a.hasOwnProperty("low") && ! b.hasOwnProperty("low")) return false;
-   if (a.hasOwnProperty("high") && ! b.hasOwnProperty("high")) return false;
+   if (a.hasOwnProperty("low") && !b.hasOwnProperty("low")) return false;
+   if (a.hasOwnProperty("high") && !b.hasOwnProperty("high")) return false;
+   if (!a.hasOwnProperty("low") && b.hasOwnProperty("low")) return false;
+   if (!a.hasOwnProperty("high") && b.hasOwnProperty("high")) return false;
    if (a["low"] != b["low"]) return false;
    if (a["high"] != b["high"]) return false;
    return true;
@@ -23,6 +25,7 @@ function getPriceObject(elem) {
    } else if (high) {
       return {"high": high};
    }
+   return {};
 }
 
 // interface with filter.js
