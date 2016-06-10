@@ -58,7 +58,7 @@ function clearContent() {
 
 function processDevice(obj) {
    $("#maincontent").append("<div class='deviceitem'>" +
-   "<div class='devicename'><a href='#nepu'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
+   "<div class='devicename'><a href='/pages/device-presentation.php?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
    "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
    "<div class='deviceprice'>" + obj.price + "€</div>" +
    "</div>");
