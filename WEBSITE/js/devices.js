@@ -9,8 +9,8 @@ function sameInterval(a, b) {
    if (a.hasOwnProperty("high") && !b.hasOwnProperty("high")) return false;
    if (!a.hasOwnProperty("low") && b.hasOwnProperty("low")) return false;
    if (!a.hasOwnProperty("high") && b.hasOwnProperty("high")) return false;
-   if (a["low"] != b["low"]) return false;
-   if (a["high"] != b["high"]) return false;
+   if (a.hasOwnProperty("low") && (a["low"] != b["low"])) return false;
+   if (a.hasOwnProperty("high") && (a["high"] != b["high"])) return false;
    return true;
 }
 
