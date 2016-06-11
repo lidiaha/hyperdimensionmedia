@@ -45,3 +45,21 @@
        ?>
    </div>
 </div>
+<div class="cate">
+   <a href="#"> <div class="sub">Connessione </div></a>
+   <div class= "element">
+      <?php
+         $sql = "SELECT name FROM connectiontypes";
+         $result = $conn->query($sql);
+         if (!$result) {
+            echo "query error";
+         }
+         else {
+               while($row = $result->fetch_assoc()) {
+                  $name = $row["name"];
+                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"connect\" value=\"$name\">$name<br></span>\n";
+               }
+         }
+       ?>
+   </div>
+</div>

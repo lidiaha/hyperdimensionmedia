@@ -71,6 +71,9 @@ INSERT INTO `connectiontypes` VALUES (4,'GSM');
 INSERT INTO `connectiontypes` VALUES (5,'USB');
 INSERT INTO `connectiontypes` VALUES (6,'Ethernet');
 INSERT INTO `connectiontypes` VALUES (7,'ADSL');
+INSERT INTO `connectiontypes` VALUES (8,'micro USB');
+INSERT INTO `connectiontypes` VALUES (9,'NFC');
+INSERT INTO `connectiontypes` VALUES (10,'Bluetooth');
 /*!40000 ALTER TABLE `connectiontypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,6 +98,24 @@ CREATE TABLE `devicecolors` (
 
 LOCK TABLES `devicecolors` WRITE;
 /*!40000 ALTER TABLE `devicecolors` DISABLE KEYS */;
+INSERT INTO `devicecolors` VALUES (1,'#f2f2f2');
+INSERT INTO `devicecolors` VALUES (2,'#363460');
+INSERT INTO `devicecolors` VALUES (2,'#ffffff');
+INSERT INTO `devicecolors` VALUES (3,'#9d9d9d');
+INSERT INTO `devicecolors` VALUES (3,'#d9d9d9');
+INSERT INTO `devicecolors` VALUES (3,'#ebd8ce');
+INSERT INTO `devicecolors` VALUES (3,'#f5e2a2');
+INSERT INTO `devicecolors` VALUES (4,'#000000');
+INSERT INTO `devicecolors` VALUES (4,'#00e2ff');
+INSERT INTO `devicecolors` VALUES (4,'#f5e293');
+INSERT INTO `devicecolors` VALUES (4,'#ffffff');
+INSERT INTO `devicecolors` VALUES (5,'#3d3d3d');
+INSERT INTO `devicecolors` VALUES (6,'#ffffff');
+INSERT INTO `devicecolors` VALUES (7,'#a15c92');
+INSERT INTO `devicecolors` VALUES (7,'#bfd22e');
+INSERT INTO `devicecolors` VALUES (7,'#ff0000');
+INSERT INTO `devicecolors` VALUES (7,'#ffffff');
+INSERT INTO `devicecolors` VALUES (8,'#494949');
 /*!40000 ALTER TABLE `devicecolors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +142,58 @@ CREATE TABLE `deviceconnect` (
 
 LOCK TABLES `deviceconnect` WRITE;
 /*!40000 ALTER TABLE `deviceconnect` DISABLE KEYS */;
+INSERT INTO `deviceconnect` VALUES (1,1);
+INSERT INTO `deviceconnect` VALUES (1,5);
+INSERT INTO `deviceconnect` VALUES (1,6);
+INSERT INTO `deviceconnect` VALUES (1,7);
+INSERT INTO `deviceconnect` VALUES (2,1);
+INSERT INTO `deviceconnect` VALUES (2,3);
+INSERT INTO `deviceconnect` VALUES (2,8);
+INSERT INTO `deviceconnect` VALUES (2,9);
+INSERT INTO `deviceconnect` VALUES (2,10);
+INSERT INTO `deviceconnect` VALUES (3,1);
+INSERT INTO `deviceconnect` VALUES (3,3);
+INSERT INTO `deviceconnect` VALUES (4,1);
+INSERT INTO `deviceconnect` VALUES (4,3);
+INSERT INTO `deviceconnect` VALUES (4,8);
+INSERT INTO `deviceconnect` VALUES (4,9);
+INSERT INTO `deviceconnect` VALUES (4,10);
+INSERT INTO `deviceconnect` VALUES (5,1);
+INSERT INTO `deviceconnect` VALUES (5,3);
+INSERT INTO `deviceconnect` VALUES (5,9);
+INSERT INTO `deviceconnect` VALUES (5,10);
+INSERT INTO `deviceconnect` VALUES (8,1);
+INSERT INTO `deviceconnect` VALUES (8,4);
+INSERT INTO `deviceconnect` VALUES (8,10);
 /*!40000 ALTER TABLE `deviceconnect` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `devicegiga`
+--
+
+DROP TABLE IF EXISTS `devicegiga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `devicegiga` (
+  `dev_id` int(11) NOT NULL,
+  `gigabytes` int(11) NOT NULL,
+  PRIMARY KEY (`dev_id`,`gigabytes`),
+  CONSTRAINT `fk_devicegiga_1` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devicegiga`
+--
+
+LOCK TABLES `devicegiga` WRITE;
+/*!40000 ALTER TABLE `devicegiga` DISABLE KEYS */;
+INSERT INTO `devicegiga` VALUES (3,16);
+INSERT INTO `devicegiga` VALUES (3,64);
+INSERT INTO `devicegiga` VALUES (4,32);
+INSERT INTO `devicegiga` VALUES (4,64);
+/*!40000 ALTER TABLE `devicegiga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -144,7 +216,7 @@ CREATE TABLE `devices` (
   PRIMARY KEY (`id`),
   KEY `fk_devices_1_idx` (`type`),
   CONSTRAINT `fk_devices_1` FOREIGN KEY (`type`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,11 +227,12 @@ LOCK TABLES `devices` WRITE;
 /*!40000 ALTER TABLE `devices` DISABLE KEYS */;
 INSERT INTO `devices` VALUES (1,'Modem ADSL Wi-Fi','Navigazione veloce e senza fili\n\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l\'interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\n\n    Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione.\n    Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\n    Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\n    Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\n    Risparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo.\n\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).','Tecnologia\n\nADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up\n\n\nWi-Fi\n\nWi-Fi 802.11 b/g/n; velocità di trasferimento fino a 300Mbps\n\n\nInterfacce\n\nInterfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps\n\n\nProtezione Wireless\n\nWPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso\n\n\nFunzioni avanzate\n\nFunzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB\n\n\nAssistenza tecnica\n\n2 anni di garanzia sul prodotto\n\n\nContenuto della confezione\n\nGuida di installazione; CD autoinstallante (compatibile con Windows 7, Vista, XP- MacOS 10.3); 1 filtro ADSL 2+; 1 cavo Telefonico; 1 cavo Ethernet',69.00,3,'TIM','Embedded','vendita');
 INSERT INTO `devices` VALUES (2,'LG K8','La nuova serie K di LG ti offre una gamma di smartphone che rispecchiano la tua personalità. LG K8 ti accompagna nei tuoi viaggi e ti sorprenderà con selfie dettagliati tutti da condividere con la velocità della rete 4G LTE\r\n\r\nDatti un tono! LG K8 ha un design che lascia a bocca aperta grazie al profilo del vetro smussato e alla forma arrotondata. In più è più ergonomico e garantisce una presa più salda grazie alla lavorazione della cover posteriore. \r\n\r\nCattura i le situazioni più divertenti della giornata con la fotocamera da 8 Megapixel. E\' sufficiente un tocco sul display e K8 mette a fuoco e scatta immediatamente. Anche per i selfie puoi contare sulla fotocamera frontale da 5 Megapixel con la funzione flash virtuale che illumina il tuo volto, così i tuoi selfie saranno illuminati come si deve, mentre tutti gli altri... scatteranno selfie scuri! \r\n\r\nGuarda le tue foto e i tuoi video sul display ampio da ben 5\".','Tecnologia\r\n\r\n4G cat.4/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\nPosteriore da 8 Mpxl con flash\r\n\r\n\r\nMemoria Interna\r\n\r\n8GB con Slot Memory Card Micro SD fino a 32GB\r\n\r\n\r\nProcessore\r\n\r\nProcessore QuadCore 1.3 GHz\r\n\r\n\r\nFormato SIM\r\n\r\nNano-sim\r\n\r\n\r\nAudio e Video\r\n\r\nVideo Recorder&Playback - MP3 Player - Radio FM\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria, Cavo dati USB, Manuale d’uso rapido, Auricolare stereo\r\n\r\nDimensioni\r\n\r\n144,6x71,5x8,7 mm\r\n\r\n\r\nPeso\r\n\r\n142 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 100 ore -  Conversazione fino a 240 min. ',179.90,1,'LG','android','vendita');
-INSERT INTO `devices` VALUES (3,'Apple iPhone SE 16GB','Il telefono da 4\" più potente di sempre. iPhone SE riprende un design compatto di grande successo aggiungendovi due fotocamere evolute e una potenza di elaborazione incredibile.Disegnato per stare comodamente in mano e risultare piacevole al tatto, grazie alla finitura satinata del guscio in alluminio microsabbiato.\r\n\r\niPhone SE ha un display Retina da 4’’, chip A9 con archittetura a 64 bit di livello desktop, sensore di impronte digitali Touch ID, fotocamera iSight da 12MP, videocamera FaceTime HD con Retina flash, Live Photos e connessioni Wi-Fi e 4G veloci. E ancora, iOS 9 e iCloud.','Display\r\n\r\nRetina Multi-Touch widescreen retroilluminato LED da 4\" (diagonale) 1136x640 pixel a 326 ppi\r\n\r\n\r\nProcessore\r\n\r\nChip A9 con architettura a 64 bit, Coprocessore di movimento M9 integrato\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera iSight da 12 megapixel\r\n\r\n\r\nVideocamera\r\n\r\nFaceTime HD\r\n\r\n\r\nSensori\r\n\r\nSensore di impronte digitali Touch ID\r\n\r\n\r\nConnettivita\r\n\r\n4G LTE1\r\n\r\nSistemaOperativo\r\n\r\niOS 9 e iCloud\r\n\r\n\r\nColori\r\n\r\nDisponibile in Space Grey, Silver, Gold e Rose Gold',509.90,1,'apple','iOS','vendita');
-INSERT INTO `devices` VALUES (4,'Samsung Galaxy S6 32GB','Traendo ispirazione dagli artisti della forma, come i mastri vetrai ed i fabbri di bottega, Samsung Galaxy S6 è il perfetto incontro di materiali finemente forgiati tra loro. Una rivelazione senza precedenti fatta non solo di straordinaria forma e dalle superfici lucenti, ma anche di eccellente sostanza con un ampio spettro di colori ancora più vibranti.\r\n\r\nOvunque tu sia potrai catturare al meglio ogni momento, ed ogni suo dettaglio, grazie alla fotocamera anteriore e posteriore di Samsung Galaxy S6, con risoluzione maggiore ed un obiettivo F1.9. Basterà un semplice doppio click per attivare la fotocamera e fissare i tuoi istanti, per sempre.','\r\n\r\nTecnologia\r\n\r\n4G cat.6/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5.1” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\n16 Mpixel/Flash\r\n\r\n\r\nMemoria Interna\r\n\r\n32GB\r\n\r\n\r\nProcessore\r\n\r\nOctaCore: (QuadCore 2.1 Ghz+QuadCore 1.5 Ghz)\r\n\r\n\r\nFormato SIM\r\n\r\nNano\r\n\r\n\r\nVideo\r\n\r\nVideo Recorder&Playback\r\n\r\n\r\nMusica\r\n\r\nMP3 Player\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria - Cavo Dati MicroUSB - Auricolare stereo - Guida di riferimento rapido\r\n\r\n\r\nDimensioni\r\n\r\n143,4x 70,5x 6,8 mm\r\n\r\n\r\nPeso\r\n\r\n138 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 490 ore - Conversazione fino a 1020 min',639.90,1,'samsung','android','vendita;a rate');
+INSERT INTO `devices` VALUES (3,'Apple iPhone SE','Il telefono da 4\" più potente di sempre. iPhone SE riprende un design compatto di grande successo aggiungendovi due fotocamere evolute e una potenza di elaborazione incredibile.Disegnato per stare comodamente in mano e risultare piacevole al tatto, grazie alla finitura satinata del guscio in alluminio microsabbiato.\r\n\r\niPhone SE ha un display Retina da 4’’, chip A9 con archittetura a 64 bit di livello desktop, sensore di impronte digitali Touch ID, fotocamera iSight da 12MP, videocamera FaceTime HD con Retina flash, Live Photos e connessioni Wi-Fi e 4G veloci. E ancora, iOS 9 e iCloud.','Display\r\n\r\nRetina Multi-Touch widescreen retroilluminato LED da 4\" (diagonale) 1136x640 pixel a 326 ppi\r\n\r\n\r\nProcessore\r\n\r\nChip A9 con architettura a 64 bit, Coprocessore di movimento M9 integrato\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera iSight da 12 megapixel\r\n\r\n\r\nVideocamera\r\n\r\nFaceTime HD\r\n\r\n\r\nSensori\r\n\r\nSensore di impronte digitali Touch ID\r\n\r\n\r\nConnettivita\r\n\r\n4G LTE1\r\n\r\nSistemaOperativo\r\n\r\niOS 9 e iCloud\r\n\r\n\r\nColori\r\n\r\nDisponibile in Space Grey, Silver, Gold e Rose Gold',509.90,1,'apple','iOS','vendita');
+INSERT INTO `devices` VALUES (4,'Samsung Galaxy S6','Traendo ispirazione dagli artisti della forma, come i mastri vetrai ed i fabbri di bottega, Samsung Galaxy S6 è il perfetto incontro di materiali finemente forgiati tra loro. Una rivelazione senza precedenti fatta non solo di straordinaria forma e dalle superfici lucenti, ma anche di eccellente sostanza con un ampio spettro di colori ancora più vibranti.\r\n\r\nOvunque tu sia potrai catturare al meglio ogni momento, ed ogni suo dettaglio, grazie alla fotocamera anteriore e posteriore di Samsung Galaxy S6, con risoluzione maggiore ed un obiettivo F1.9. Basterà un semplice doppio click per attivare la fotocamera e fissare i tuoi istanti, per sempre.','\r\n\r\nTecnologia\r\n\r\n4G cat.6/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5.1” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\n16 Mpixel/Flash\r\n\r\n\r\nMemoria Interna\r\n\r\n32GB\r\n\r\n\r\nProcessore\r\n\r\nOctaCore: (QuadCore 2.1 Ghz+QuadCore 1.5 Ghz)\r\n\r\n\r\nFormato SIM\r\n\r\nNano\r\n\r\n\r\nVideo\r\n\r\nVideo Recorder&Playback\r\n\r\n\r\nMusica\r\n\r\nMP3 Player\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria - Cavo Dati MicroUSB - Auricolare stereo - Guida di riferimento rapido\r\n\r\n\r\nDimensioni\r\n\r\n143,4x 70,5x 6,8 mm\r\n\r\n\r\nPeso\r\n\r\n138 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 490 ore - Conversazione fino a 1020 min',639.90,1,'samsung','android','vendita;a rate');
 INSERT INTO `devices` VALUES (5,'Huawei P9 Plus','L’esperienza di Huawei P9 si eleva ad un livello superiore con Huawei P9 Plus grazie al luminoso display da 5.5” e l’elegante corpo in metallo\r\n\r\nGrazie al perfetto connubio tra hardware e software di classe superiore della doppia fotocamera Leica, P9 Plus consente di catturare immagini di assoluta qualità senza rinunciare al design compatto ed elegante.','\r\n\r\nTecnologia\r\n\r\nAbilitato tecnologia 4G/HSPA+/EDGE/GPRS Frequenze 850/900/1800/1900MHz\r\n\r\n\r\nConnettivita\r\n\r\n4G cat.4/HSPA+/EDGE/GPRS Frequenze 850/900/1800/1900Wi-Fi 802.11 a/b/g/n/ac Wi-Fi Direct, Bluetooth 4.1, NFC, Sensore d\'impronta\r\n\r\n\r\nGPS\r\n\r\nGPS Integrato, A-GPS, Glonass, BeiDou\r\n\r\n\r\nDisplay\r\n\r\nDisplay Full HD Amoled da 5.5’’’\r\n\r\n\r\nFotocamera\r\n\r\nDoppia Fotocamera Leica da 12 Mpxl Dual Flash + anteriore da 8 Mpxl\r\n\r\n\r\nMemoria Interna\r\n\r\n4GB, Micro SD fino a 128 GB\r\n\r\n\r\nProcessore\r\n\r\nProcessore Kirin 955 - Octa-Core (4x2,5 GHz + 4x1,8 GHz)\r\n\r\n\r\nIn dotazione\r\n\r\nSmartphone Auricolari stereo - Caricabatteria Cavo USB Type-C - Estrattore SIM Guida rapida\r\n\r\n\r\nDimensioni\r\n\r\n152.3 x 75.3 x 6.98 mm\r\n\r\n\r\nPeso\r\n\r\n162 grammi',749.90,1,'huawei','android','vendita');
 INSERT INTO `devices` VALUES (6,'Sirio Maxi','Il nuovo Sirio Maxi è un telefono moderno, dotato di indicatore luminoso di chiamata in arrivo, ampio display grafico, rubrica e vivavoce.\r\n\r\nHa tasti grandi ed un ampio display, funziona senza batterie ed alimentatore anche in caso blackout, è elegante ed ergonomico, con il servizio \"CHI È\" attivo offre la possibilità di visualizzare il numero del chiamante.','\r\n\r\nDisplay\r\n\r\nAmpio schermo con caratteri grandi su tre righe - Visualizzazione del numero Chiamante (con CHI È attivo)\r\n\r\n\r\nTastierino\r\n\r\nTasti grandi e leggibili\r\n\r\n\r\nAvvisi\r\n\r\nIndicatore luminoso di chiamata in arrivo\r\n\r\n\r\nTecnologia\r\n\r\nFunziona senza batterie e alimentatore\r\nChiamata diretta (Baby Call) - Preselezione del numero con possibilità di correzione\r\n\r\n\r\nAudio\r\n\r\nVolume in ascolto regolabile con un singolo tasto (alto-basso) - Vivavoce con comodo regolatore di volume - Muto e Messa in attesa della chiamata con musica\r\n\r\n\r\nRubrica\r\n\r\nRubrica 125 contatti - 12 numeri programmabili in selezione abbreviata\r\n\r\n\r\nLingua\r\n\r\nMenu 8 lingue',39.90,1,'embedded','embedded','vendita;a rate');
 INSERT INTO `devices` VALUES (7,'Sirio Classico','Con Sirio Classico torna il Telefono di casa, ma con quante novità!\r\n\r\nLe forme originarie sono state interpretate in modo profondamente innovativo creando delle aperture che donano all\'insieme eleganza e leggerezza e lo rendono adatto ad essere armoniosamente integrato in ogni ambiente.\r\n\r\nSirio Classico è anche un telefono moderno, dotato di display grafico, rubrica, vivavoce; un ottimo telefono e un oggetto d\'arredamento che rispetta l\'ambiente, perché non usa né batterie né alimentatore.\r\n\r\nE per la comodità delle telefonate domestiche abbiamo pensato anche ad un cavo cornetta extra lungo, ben oltre tre metri nella sua massima estensione.\r\n\r\nAcquista Sirio Classico direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.','\r\n\r\nTipo di telefono\r\n\r\ncon filo\r\n\r\n\r\nDisplay\r\n\r\ngrafico a matrice di punti a due righe alfanumeriche\r\n\r\n\r\nData e ora a display\r\n\r\nsi\r\n\r\n\r\nLingue didponibili\r\n\r\nitaliano, inglese, francese, spagnolo, olandese, portoghese, tedesco\r\n\r\n\r\nSuoneria\r\n\r\n10 suonerie\r\n\r\n\r\nVolume suoneria\r\n\r\n3 livelli di volume + silenzioso\r\n\r\n\r\nVisualizzazione durata conversazione\r\n\r\nsi\r\n\r\n\r\nVisualizzazione numero chiamante\r\n\r\nsi, dopo aver attivato il servizio Chi è\r\n\r\n\r\nIdentificativo Chiamante\r\n\r\nlista ultime 20 chiamate perse/ricevute\r\n\r\n\r\nVivavoce\r\n\r\nsi\r\n\r\n\r\nAgenda\r\n\r\nno\r\n\r\n\r\nRubrica\r\n\r\n50 numeri e nomi\r\n\r\n\r\nSegreteria Telefonica\r\n\r\nno\r\n\r\n\r\nSveglia\r\n\r\nsi\r\n\r\n\r\nLettore carta SIM\r\n\r\nno\r\n\r\n\r\nTastiera\r\n\r\nnumerica + tasti funzione\r\n\r\n\r\nTasti dedicati sulla tastiera\r\n\r\ntasto vivavoce, tasto accesso a lista chiamate effettuate, tasto mute, tasto R\r\n\r\n\r\nRipetizione numeri\r\n\r\nultime 10 chiamate ricevute\r\n\r\n\r\nSelezione Rapida\r\n\r\nno\r\n\r\n\r\nTasto mute/attesa\r\n\r\nsì\r\n\r\n\r\nPreselezione\r\n\r\nsi\r\n\r\n\r\nFotocamera\r\n\r\nno\r\n\r\n\r\nInvio/ricezione SMS, e-mail e fax\r\n\r\nno\r\n\r\n\r\nInvio/ricezione MMS\r\n\r\nno\r\n\r\n\r\nVIP List\r\n\r\nno\r\n\r\n\r\nGiochi\r\n\r\nno\r\n\r\n\r\nSicurezza\r\n\r\nno\r\n\r\n\r\nBatteria\r\n\r\nno\r\n\r\n\r\nRoom Monitoring\r\n\r\nno\r\n\r\n\r\nAltre funzioni\r\n\r\ntono tasti attivabile o disattivabile da menu\r\n\r\n\r\nDimensioni\r\n\r\n226 x 187 x 128 mm\r\n\r\n\r\nPeso\r\n\r\nbase + cornetta: 0.605 kg; prodotto e accessori: 0.992 kg\r\n\r\n\r\nContenuto confezione\r\n\r\ntelefono, cornetta telefonica, cavo di collegamento cornetta molto lungo (85 spire, allungabile fino a 360 cm), cavo di collegamento presa tripolare, spina di tipo tripolare',39.90,1,'embedded','embedded','vendita;a rate');
+INSERT INTO `devices` VALUES (8,'Apple iPad Pro 128 GB','Con iPad hai scoperto un mondo completamente nuovo, semplice e coinvolgente. Oggi iPad Pro, con la tecnologia Multi‑Touch perfezionata, il suo grande display Retina da 12,9\" e prestazioni della CPU quasi raddoppiate rispetto a iPad Air 2, è pronto ad allargare ancora una volta i tuoi orizzonti. Non è solo più grande. È un iPad che ti permetterà di lavorare e creare in una dimensione tutta nuova, come non hai mai fatto prima.\n\nCon 5,6 milioni di pixel, iPad Pro ha il display Retina a più alta risoluzione mai visto su un dispositivo iOS. Montare video 4K, creare presentazioni, gestire un’azienda: sul display da 12,9\" tutto è più facile, veloce e coinvolgente. E con il Multi‑Touch riprogettato scoprirai nuovi modi per interagire con il tuo iPad.\n\nNonostante il suo grande display, iPad Pro è sorprendentemente sottile e leggero: solo 6,9 mm di spessore e appena 713 grammi. Grazie al guscio unibody, è anche resistente e ben bilanciato. Ma forse l’aspetto più incredibile di iPad Pro è un altro: è talmente comodo che quasi ti dimentichi di averlo in mano','Sistema Operativo iOS 9\nRetina Display 12.9” (2732x2048) Led IPS\nA9X con architettura a 64bit a 1.6GHz\nFotocamera iSight da 8 megapixel\n\nDisplay\n\nRetina Display 12.9”\n\n\nSensori\n\nimpronte digitali Touch ID\n\n\nProcessore\n\nco-processore M9\n\n\nFotocamera\n\niSight da 8MP\n\n\nVideocamera\n\nFaceTime HD\n\n\nConnettivita\n\nLTE /HSDPA-DC 42.2/HSUPA 5.76/, Wi-Fi 802.11a/b/g/n/ac e MIMO, Bluetooth 4.2\n\n\nBatteria\n\nFino a 10 ore di autonomia',1249.90,2,'apple','iOS','vendita');
 /*!40000 ALTER TABLE `devices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-10 13:35:51
+-- Dump completed on 2016-06-11 16:25:46
