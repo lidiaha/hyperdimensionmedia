@@ -1,17 +1,16 @@
 <?php
-//TODO: rename $filterlist in the generator, because it induces confusion
-function generateFilterQueryFragmentSet($conn, $filterkey, $filterlist) {
-   if (count($filterlist) == 0) {
+function generateFilterQueryFragmentSet($conn, $filterkey, $paramlist) {
+   if (count($paramlist) == 0) {
       return "";
    }
    $query = "(";
-   for ($i = 0; $i < count($filterlist); $i++) {
-      $safeval = mysqli_real_escape_string($conn, $filterlist[$i]);
+   for ($i = 0; $i < count($paramlist); $i++) {
+      $safeval = mysqli_real_escape_string($conn, $paramlist[$i]);
       if ($safeval == "") {
          continue;
       }
       $query = $query . $filterkey . " = '" . $safeval . "'";
-      if ($i + 1 < count($filterlist)) {
+      if ($i + 1 < count($paramlist)) {
          $query = $query . " OR ";
       }
    }
@@ -19,13 +18,13 @@ function generateFilterQueryFragmentSet($conn, $filterkey, $filterlist) {
    return $query;
 }
 
-function generateFilterQueryFragmentRange($conn, $filterkey, $filterlist) {
-   if (count($filterlist) == 0) {
+function generateFilterQueryFragmentRange($conn, $filterkey, $paramlist) {
+   if (count($paramlist) == 0) {
       return "";
    }
    $query = "(";
-   for ($i = 0; $i < count($filterlist); $i++) {
-      $elem = $filterlist[$i];
+   for ($i = 0; $i < count($paramlist); $i++) {
+      $elem = $paramlist[$i];
       if (array_key_exists("low", $elem) && array_key_exists("high", $elem)) {
          $safelow = mysqli_real_escape_string($conn, $elem["low"]);
          $safehigh = mysqli_real_escape_string($conn, $elem["high"]);
@@ -37,11 +36,21 @@ function generateFilterQueryFragmentRange($conn, $filterkey, $filterlist) {
          $safehigh = mysqli_real_escape_string($conn, $elem["high"]);
          $query = $query . "(" . $filterkey . " <= " . $safehigh . ")";
       }
-      if ($i + 1 < count($filterlist)) {
+      if ($i + 1 < count($paramlist)) {
          $query = $query . " OR ";
       }
    }
    $query = $query . ")";
+   return $query;
+}
+
+function generateFilterQueryFragmentDeviceConn($conn, $paramlist) {
+   if (count($paramlist) == 0) {
+      return "";
+   }
+   $subquery = generateFilterQueryFragmentSet($conn, "ct.name", $paramlist);
+   $query = "(id IN (SELECT dc.dev_id FROM connectiontypes AS ct JOIN deviceconnect AS dc ON ct.id = dc.conn_id" .
+   " WHERE $subquery))";
    return $query;
 }
 
@@ -76,6 +85,22 @@ function applyFilterRange($conn, $dbkey, $postkey, $filterlist) {
          return $filterlist;
       }
       $fragment = generateFilterQueryFragmentRange($conn, $dbkey, $intervals);
+      if ($fragment != "") {
+         array_push($filterlist, $fragment);
+      }
+   }
+   return $filterlist;
+}
+
+function applyFilterDeviceConn($conn, $postkey, $filterlist) {
+   /*
+      applies a tailor-made subquery to filter a device based on its connections
+   */
+   if (isset($_POST[$postkey])) {
+      if ($_POST[$postkey] == "") {
+         return $filterlist;
+      }
+      $fragment = generateFilterQueryFragmentDeviceConn($conn, explode(",", $_POST[$postkey]));
       if ($fragment != "") {
          array_push($filterlist, $fragment);
       }

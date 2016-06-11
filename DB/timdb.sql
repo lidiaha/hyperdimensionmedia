@@ -163,7 +163,7 @@ INSERT INTO `deviceconnect` VALUES (5,3);
 INSERT INTO `deviceconnect` VALUES (5,9);
 INSERT INTO `deviceconnect` VALUES (5,10);
 INSERT INTO `deviceconnect` VALUES (8,1);
-INSERT INTO `deviceconnect` VALUES (8,4);
+INSERT INTO `deviceconnect` VALUES (8,3);
 INSERT INTO `deviceconnect` VALUES (8,10);
 /*!40000 ALTER TABLE `deviceconnect` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -357,4 +357,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-11 16:25:46
+-- Dump completed on 2016-06-11 16:59:14

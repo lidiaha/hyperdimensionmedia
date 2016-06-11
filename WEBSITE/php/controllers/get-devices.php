@@ -35,6 +35,7 @@
    $filterlist = applyFilterRange($conn, "price", "price_range", $filterlist);
    $filterlist = applyFilterSet($conn, "brand", "brands", $filterlist);
    $filterlist = applyFilterSet($conn, "os", "oses", $filterlist);
+   $filterlist = applyFilterDeviceConn($conn, "connections", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
