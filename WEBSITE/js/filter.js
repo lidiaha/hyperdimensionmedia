@@ -92,13 +92,13 @@ function disableFromTop(topelem) {
       topelem.parent().remove();
 
       var selector = $("#selector-" + found);
+      removeFilterAdapter(selector);
       selector.off("click");
       selector.attr("id", "");
       selector.prop("checked", false);
       selector.click(function() {
          enabled($(this));
       });
-      removeFilterAdapter(selector);
    }
 }
 
