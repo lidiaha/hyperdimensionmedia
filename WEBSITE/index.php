@@ -3,7 +3,7 @@
    <head>
       <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/home.js"></script>
    </head>
