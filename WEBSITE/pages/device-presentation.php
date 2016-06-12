@@ -43,15 +43,17 @@
                   $conn = dbconn();
 
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
-						
-						function formatText($tech_specs) {
-						   $paragr = explode("\r\n\r\n\r\n",$tech_specs);
-							foreach($paragr as $piece){
-							   list($title,$text) = explode("\r\n\r\n",$piece);
-							   echo "<p style=\"font-weight:bold\"> $title </p>";
-							   echo "<p> $text </p><br>";
-							}	
-					   }
+
+                  function formatText($_tech_specs) {
+                     $tech_specs = preg_replace("/\n\n\n/", "\r\n\r\n\r\n", $_tech_specs);
+                     $paragr = explode("\r\n\r\n\r\n",$tech_specs);
+                     foreach($paragr as $_piece){
+                        $piece = preg_replace("/\n\n/", "\r\n\r\n", $_piece);
+                        list($title,$text) = explode("\r\n\r\n",$piece);
+                        echo "<p style=\"font-weight:bold\"> $title </p>";
+                        echo "<p> $text </p><br>";
+                     }
+                  }
 
                   function printColors($conn, $device_id) {
                      $sql = "SELECT * FROM devicecolors WHERE dev_id='$device_id' ";
@@ -95,7 +97,7 @@
                            echo "<div class=\"caratteristiche\">";
                            echo "<div class=\"name\"> $name </div>";
                            echo "<div class=\"specifiche\">";
-									formatText($tech_specs);
+                           formatText($tech_specs);
                            echo "<br></div>";
                            echo "</div>";
 
