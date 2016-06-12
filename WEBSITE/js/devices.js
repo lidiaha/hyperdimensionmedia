@@ -3,6 +3,7 @@ var priceFilter = [];
 var brandFilter = [];
 var osFilter = [];
 var connectFilter = [];
+var categoryFilter = [];  // note: only used in devices.php, NOT devices-mono-category.php
 
 function sameInterval(a, b) {
    /* check if two intervals are the same */
@@ -39,8 +40,21 @@ function applyFilter(elem) {
       osFilter.push(elem.val());
    } else if (elem.attr("name") == "connect") {
       connectFilter.push(elem.val());
+   } else if (elem.attr("name") == "category") {
+      categoryFilter.push(elem.val());
    }
    reloadContent();
+}
+
+function simpleArrayRemove(elem, arr) {
+   /* boilerplate code */
+   index = arr.indexOf(elem.val());
+   if (index > -1) {
+      arr.splice(index, 1);
+      reloadContent();
+      return true;
+   }
+   return false;
 }
 
 function removeFilter(elem) {
@@ -54,26 +68,13 @@ function removeFilter(elem) {
          }
       }
    } else if (elem.attr("name") == "brand") {
-      index = brandFilter.indexOf(elem.val());
-      if (index > -1) {
-         brandFilter.splice(index, 1);
-         reloadContent();
-         return;
-      }
+      if (simpleArrayRemove(elem, brandFilter)) return;
    } else if (elem.attr("name") == "os") {
-      index = osFilter.indexOf(elem.val());
-      if (index > -1) {
-         osFilter.splice(index, 1);
-         reloadContent();
-         return;
-      }
+      if (simpleArrayRemove(elem, osFilter)) return;
    } else if (elem.attr("name") == "connect") {
-      index = connectFilter.indexOf(elem.val());
-      if (index > -1) {
-         connectFilter.splice(index, 1);
-         reloadContent();
-         return;
-      }
+      if (simpleArrayRemove(elem, connectFilter)) return;
+   } else if (elem.attr("name") == "category") {
+      if (simpleArrayRemove(elem, categoryFilter)) return;
    }
 }
 
@@ -99,7 +100,8 @@ function fetchDevicesAllCategory() {
       "price_range": JSON.stringify(priceFilter),
       "brands": brandFilter.join(","),
       "oses": osFilter.join(","),
-      "connections": connectFilter.join(",")
+      "connections": connectFilter.join(","),
+      "category": categoryFilter.join(",")
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();

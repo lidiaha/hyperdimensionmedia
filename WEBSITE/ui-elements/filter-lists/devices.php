@@ -1,4 +1,23 @@
 <div class="cate">
+   <a href="#"> <div class="sub">Categoria </div></a>
+   <div class= "element">
+      <?php
+         $sql = "SELECT * FROM category WHERE type='device'";
+         $result = $conn->query($sql);
+         if (!$result) {
+            echo "query error";
+         }
+         else {
+               while($row = $result->fetch_assoc()) {
+                  $category = $row["name"];
+                  $id = $row["id"];
+                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\">$category<br></span>\n";
+               }
+         }
+       ?>
+   </div>
+</div>
+<div class="cate">
    <a href="#"> <div class="sub">Prezzo </div></a>
    <div class= "element">
       <span><input class="item price" data-high="150" type="checkbox" name="price" value="< 150 €">< 150 €<br></span>
