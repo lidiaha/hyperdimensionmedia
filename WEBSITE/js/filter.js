@@ -22,7 +22,7 @@ function putHigherCopy(name, value, numid, text) {
       add a 'copy' of the selector in the upper area, to show the filter is enabled
    */
    var newel = "<span class=\"spanblock\"><input class= \"item activefilter\" type=\"checkbox\" " +
-   "name=\"" + name + "\" value=\"" + value + "\" id=\"selected-" + numid + "\" checked=\"checked\">" + text + "</span>"
+   "name=\"" + name + "\" value=\"" + value + "\" id=\"selected-" + numid + "\" checked=\"checked\"><label>" + text + "</label></span>"
    $(".choosen").append($(newel));
 }
 

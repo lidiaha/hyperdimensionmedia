@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/style/filter.css">
 <script src="/js/filter.js"></script>
 
-<div class="filter"><span> Filtri </span> <br>
+<div class="filter"><div class="title"> Filtri</div> 
    <div class="choosen">
 
    </div>
