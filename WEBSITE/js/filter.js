@@ -16,13 +16,22 @@ function removeFilterAdapter(elem) {
    }
 }
 
+var idgen_state = 0;
+function idGenerator() {
+   value = "elem-" + idgen_state;
+   idgen_state++;
+   return value;
+}
+
 
 function putHigherCopy(name, value, numid, text) {
    /*
       add a 'copy' of the selector in the upper area, to show the filter is enabled
    */
-   var newel = "<span class=\"spanblock\"><input class= \"item activefilter\" type=\"checkbox\" " +
-   "name=\"" + name + "\" value=\"" + value + "\" id=\"selected-" + numid + "\" checked=\"checked\"><label>" + text + "</label></span>"
+   var bindID = idGenerator();
+   var newel = "<span class=\"spanblock\"><input id=\"" + bindID + "\" class=\"item activefilter\" type=\"checkbox\" " +
+   "name=\"" + name + "\" value=\"" + value + "\" data-pseudoid=\"selected-" + numid + "\" checked=\"checked\">" +
+   "<label for=\"" + bindID + "\"><span></span>" + text + "</label></span>"
    $(".choosen").append($(newel));
 }
 
@@ -54,7 +63,7 @@ function enabled(elem) {
    filter_enabled_names.push(value);
    numid = filter_enabled_names.length - 1;
    putHigherCopy(name, value, numid, elem.parent().text());
-   elem.attr("id", "selector-" + numid);
+   elem.attr("data-pseudoid", "selector-" + numid);
    elem.off("click");
    elem.click(function() {
       disabled($(this));
@@ -71,7 +80,9 @@ function disabled(elem) {
    var found = filter_enabled_names.indexOf(value);
    if (found > -1) {
       deleteNameFromArray(found, filter_enabled_names);
-      $("#selected-" + found).parent().remove();
+      $("input[data-pseudoid='selected-" + found + "']").parent().remove();
+      var selector = $("input[data-pseudoid='selector-" + found + "']");
+      selector.attr("data-pseudoid", "");
       removeFilterAdapter(elem);
    }
    elem.off("click");
@@ -91,10 +102,10 @@ function disableFromTop(topelem) {
       deleteNameFromArray(found, filter_enabled_names);
       topelem.parent().remove();
 
-      var selector = $("#selector-" + found);
+      var selector = $("input[data-pseudoid='selector-" + found + "']");
       removeFilterAdapter(selector);
       selector.off("click");
-      selector.attr("id", "");
+      selector.attr("data-pseudoid", "");
       selector.prop("checked", false);
       selector.click(function() {
          enabled($(this));
@@ -111,6 +122,13 @@ $(document).ready(function() {
    });
    $(".choosen").on("click", ".activefilter", function() {
       disableFromTop($(this));  // clickable checkboxes (for the not-yet-existing active filters)
+   });
+   $("input[type='checkbox']").parent().each(function() {  //
+      var checkbox = $(this).find("input");
+      var label = $(this).find("label");
+      var bindID = idGenerator();
+      checkbox.attr("id", bindID);
+      label.attr("for", bindID);
    });
    $(".element").find("input").prop("checked", false);  // uncheck all the checkboxes
 });
