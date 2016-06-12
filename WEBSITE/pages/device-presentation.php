@@ -45,13 +45,12 @@
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
 						
 						function formatText($tech_specs) {
-						   $paragr = explode("\r\n",$tech_specs);
-							print_r ($paragr);
-							for ($i=0; $i< count($paragr)-1; $i+=2){
-							   $j = $i + 1;
-							   echo "<p style=\"color:red;\"> $paragr[$i] </p><br>";
-                        echo "<p> $paragr[$j] </p><hr>";    
-							}
+						   $paragr = explode("\r\n\r\n\r\n",$tech_specs);
+							foreach($paragr as $piece){
+							   list($title,$text) = explode("\r\n\r\n",$piece);
+							   echo "<p style=\"font-weight:bold\"> $title </p>";
+							   echo "<p> $text </p><br>";
+							}	
 					   }
 
                   function printColors($conn, $device_id) {
