@@ -18,6 +18,25 @@ function generateFilterQueryFragmentSet($conn, $filterkey, $paramlist) {
    return $query;
 }
 
+function generateFilterQueryFragmentSetLike($conn, $filterkey, $paramlist) {
+   if (count($paramlist) == 0) {
+      return "";
+   }
+   $query = "(";
+   for ($i = 0; $i < count($paramlist); $i++) {
+      $safeval = mysqli_real_escape_string($conn, $paramlist[$i]);
+      if ($safeval == "") {
+         continue;
+      }
+      $query = $query . $filterkey . " LIKE '%" . $safeval . "%'";
+      if ($i + 1 < count($paramlist)) {
+         $query = $query . " OR ";
+      }
+   }
+   $query = $query . ")";
+   return $query;
+}
+
 function generateFilterQueryFragmentRange($conn, $filterkey, $paramlist) {
    if (count($paramlist) == 0) {
       return "";
@@ -101,6 +120,23 @@ function applyFilterDeviceConn($conn, $postkey, $filterlist) {
          return $filterlist;
       }
       $fragment = generateFilterQueryFragmentDeviceConn($conn, explode(",", $_POST[$postkey]));
+      if ($fragment != "") {
+         array_push($filterlist, $fragment);
+      }
+   }
+   return $filterlist;
+}
+
+function applyFilterSetLike($conn, $dbkey, $postkey, $filterlist) {
+   /*
+      applies a filter on the $dbkey database column, the filter parameter are
+      taken from $postkey; match is done by using "LIKE %keyword%"
+   */
+   if (isset($_POST[$postkey])) {
+      if ($_POST[$postkey] == "") {
+         return $filterlist;
+      }
+      $fragment = generateFilterQueryFragmentSetLike($conn, $dbkey, explode(",", $_POST[$postkey]));
       if ($fragment != "") {
          array_push($filterlist, $fragment);
       }

@@ -8,12 +8,13 @@
                won't be applied. Values are the indexes of the device category to filter by
             "brands": same as above, but with brand names
             "oses": same as above, but with operating systems
+            "connections": same as above, but with connection IDs (identifying a connection-type, i.e. Wi-Fi)
+            "purchase": same as above, but with purchase modalities
             "price_range": serialized json object (string) specifying a series of price ranges, in the form:
                [{"low": 15, "high": 150 }, ...]
+
       return:
          json representation of the selected tuples
-
-      TODO: open ranges
    */
 
    include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";
@@ -36,6 +37,7 @@
    $filterlist = applyFilterSet($conn, "brand", "brands", $filterlist);
    $filterlist = applyFilterSet($conn, "os", "oses", $filterlist);
    $filterlist = applyFilterDeviceConn($conn, "connections", $filterlist);
+   $filterlist = applyFilterSetLike($conn, "purchase", "purchase", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);

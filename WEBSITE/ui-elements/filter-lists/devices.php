@@ -65,6 +65,13 @@
    </div>
 </div>
 <div class="cate">
+   <a href="#"> <div class="sub">Acquisto </div></a>
+   <div class= "element">
+      <span><input class="item" type="checkbox" name="acquisto" value="vendita"><label><span></span>vendita</label><br></span>
+      <span><input class="item" type="checkbox" name="acquisto" value="a rate"><label><span></span>a rate</label><br></span>
+   </div>
+</div>
+<div class="cate">
    <a href="#"> <div class="sub">Connessione </div></a>
    <div class= "element">
       <?php
