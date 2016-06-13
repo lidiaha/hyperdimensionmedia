@@ -24,7 +24,7 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, price FROM devices";
+      $sql = "SELECT id, name, price , purchase FROM devices";
    }
    else {
       $sql = "SELECT * FROM devices";

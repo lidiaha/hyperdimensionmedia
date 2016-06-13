@@ -68,6 +68,26 @@
                         }
                      }
                   }
+						
+						function printRate($conn, $device_id) {
+						   $sql = "SELECT * FROM device_installments WHERE dev_id='$device_id' ";
+						   $result = $conn->query($sql);
+							if (!$result) {
+                        echo "query error";
+                     }
+                     else {
+                        while($row = $result->fetch_assoc()) {
+                           $num= $row["inst_num"];
+									$amount= $row["inst_amount"];
+									$landline= $row["require_landline"];
+                           echo "<div class=\"rate\"> A rate: $amount €/mese per $num mesi</div>";
+									if($landline){
+									   echo "<div>Se hai una linea di casa TIM </div>";
+									}
+                        }
+                     }
+						}
+				
 
                   $sql = "SELECT * FROM devices WHERE id='$device_id' ";
                   $result = $conn->query($sql);
@@ -88,8 +108,9 @@
                            echo "</div></div>";
                            echo "<div class=\"info right\">";
                            echo "<div class=\"name\"> $name </div><br>";
-                           echo "<div class=\"price\"> $price € </div>";
-                           echo "<p class=\"description\"> $description <br>";
+                           echo "<div class=\"price\"> Unica soluzione: $price € </div>";
+									printRate($conn, $device_id);
+                           echo "<br><p class=\"description\"> $description <br>";
                            echo "</p>";
                            echo "</div>";
                            echo "<div class=\"info buy\"> Acquista </div>";
