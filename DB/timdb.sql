@@ -78,6 +78,35 @@ INSERT INTO `connectiontypes` VALUES (10,'Bluetooth');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `device_installments`
+--
+
+DROP TABLE IF EXISTS `device_installments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `device_installments` (
+  `dev_id` int(11) NOT NULL,
+  `inst_num` int(11) DEFAULT NULL,
+  `inst_amount` decimal(12,2) DEFAULT NULL,
+  `require_landline` tinyint(4) NOT NULL,
+  PRIMARY KEY (`dev_id`),
+  CONSTRAINT `fk_device_installments_1` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `device_installments`
+--
+
+LOCK TABLES `device_installments` WRITE;
+/*!40000 ALTER TABLE `device_installments` DISABLE KEYS */;
+INSERT INTO `device_installments` VALUES (4,36,15.00,1);
+INSERT INTO `device_installments` VALUES (6,12,3.33,1);
+INSERT INTO `device_installments` VALUES (7,12,3.33,1);
+/*!40000 ALTER TABLE `device_installments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `devicecolors`
 --
 
@@ -357,4 +386,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-13 14:48:54
+-- Dump completed on 2016-06-13 15:03:18
