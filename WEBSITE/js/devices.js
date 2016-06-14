@@ -88,10 +88,10 @@ function clearContent() {
 }
 
 function processDevice(obj) {
-	var div_rate = "";
-	if (obj.purchase.indexOf("a rate") > -1) {
-		div_rate = "<div class='devicerate'> Anche a rate</div>"
-	}
+   var div_rate = "";
+   if (obj.purchase.indexOf("a rate") > -1) {
+      div_rate = "<div class='devicerate'> Anche a rate</div>"
+   }
    $("#maincontent").append("<div class='deviceitem'>" +
    "<div class='devicename'><a href='/pages/device-presentation.php?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
    "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
@@ -99,8 +99,20 @@ function processDevice(obj) {
    "</div>");
 }
 
+function fitTileSize() {
+   $(".devicename").each(function() {
+      var textheight = parseFloat($(this).find("a").css("height"));
+      var divheight = parseFloat($(this).css("height"));
+      var fontsize = parseFloat($(this).css("font-size"));
+      if (textheight > divheight) {
+         $(this).css("font-size", (fontsize/1.5) + "px");
+      }
+   });
+}
+
 function postProcessDevices() {
-   $("#maincontent").append("<div class=\"doorstopper\"></div>")
+   $("#maincontent").append("<div class=\"doorstopper\"></div>");
+   fitTileSize();
 }
 
 function fetchDevicesAllCategory() {
