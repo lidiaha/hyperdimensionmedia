@@ -13,6 +13,7 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
+               <div class="dummyheader"></div>
                <div class="header">
                   <div class="name">PROMO TIM VISION con decoder</div>
                   <div class="rules"></div>
