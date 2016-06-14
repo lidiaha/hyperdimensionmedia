@@ -10,6 +10,7 @@
             "oses": same as above, but with operating systems
             "connections": same as above, but with connection IDs (identifying a connection-type, i.e. Wi-Fi)
             "purchase": same as above, but with purchase modalities
+            "typology": same as above, but with type-tags (i.e. smartphone, tablet)
             "price_range": serialized json object (string) specifying a series of price ranges, in the form:
                [{"low": 15, "high": 150 }, ...]
 
@@ -38,6 +39,7 @@
    $filterlist = applyFilterSet($conn, "os", "oses", $filterlist);
    $filterlist = applyFilterDeviceConn($conn, "connections", $filterlist);
    $filterlist = applyFilterSetLike($conn, "purchase", "purchase", $filterlist);
+   $filterlist = applyFilterSetLike($conn, "typetags", "typology", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);

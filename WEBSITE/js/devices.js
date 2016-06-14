@@ -5,6 +5,7 @@ var osFilter = [];
 var connectFilter = [];
 var categoryFilter = [];  // note: only used in devices.php, NOT devices-mono-category.php
 var purchaseFilter = [];
+var typologyFilter = [];
 
 function sameInterval(a, b) {
    /* check if two intervals are the same */
@@ -45,6 +46,8 @@ function applyFilter(elem) {
       categoryFilter.push(elem.val());
    } else if (elem.attr("name") == "acquisto") {
       purchaseFilter.push(elem.val());
+   } else if (elem.attr("name") == "typology") {
+      typologyFilter.push(elem.val());
    }
    reloadContent();
 }
@@ -80,6 +83,8 @@ function removeFilter(elem) {
       if (simpleArrayRemove(elem, categoryFilter)) return;
    } else if (elem.attr("name") == "acquisto") {
       if (simpleArrayRemove(elem, purchaseFilter)) return;
+   } else if (elem.attr("name") == "typology") {
+      if (simpleArrayRemove(elem, typologyFilter)) return;
    }
 }
 
@@ -123,7 +128,8 @@ function fetchDevicesAllCategory() {
       "oses": osFilter.join(","),
       "connections": connectFilter.join(","),
       "category": categoryFilter.join(","),
-      "purchase": purchaseFilter.join(",")
+      "purchase": purchaseFilter.join(","),
+      "typology": typologyFilter.join(",")
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
@@ -140,7 +146,8 @@ function fetchDevicesSingleCategory() {
       "brands": brandFilter.join(","),
       "oses": osFilter.join(","),
       "connections": connectFilter.join(","),
-      "purchase": purchaseFilter.join(",")
+      "purchase": purchaseFilter.join(","),
+      "typology": typologyFilter.join(",")
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();

@@ -24,7 +24,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <!-- TODO: a 'simpler' filter -->
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>
 </html>
