@@ -3,7 +3,7 @@
       interface:
       post parameters:
          "preview": if set, return only the columns required for the "list of devices" page
-         
+
       return:
          json representation of the selected tuples
    */
@@ -35,7 +35,7 @@
    $rows = array();
    while($r = mysqli_fetch_assoc($result)) {
       if ($r["id"]) {
-         $r["image"] = imageAutoExtension("/pictures/promo/", $r["id"]);
+         $r["image"] = imageAutoExtension("/pictures/promoicons/", $r["id"]);
       }
       array_push($rows, $r);
    }
