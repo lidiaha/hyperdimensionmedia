@@ -12,7 +12,7 @@
    background-image: url("/pictures/promotionbanners/1.jpg");
    background-repeat: no-repeat;
    background-size: 100% 100%;
-	display: block;
+   display: block;
 }
 
 .name{
@@ -47,11 +47,12 @@
 
 .price {
    position: absolute;
-   width: 110px;
+   width: 200px;
    height: 30px;
    line-height: 30px;
    top: 95px;
-   right: 120px;
+   right: 130px;
+   text-align: right;
    color: white;
    font-size: 30px;
 }
@@ -90,8 +91,8 @@
 }
 
 .table-striped{
-	width: 90%;
-	margin: auto;
-	background-color: white;
-	border: black 1px solid;
+   width: 90%;
+   margin: auto;
+   background-color: white;
+   border: black 1px solid;
 }

@@ -105,6 +105,10 @@ function processDevice(obj) {
 }
 
 function fitTileSize() {
+   /*
+      if the title of a .devicename item is partially hidden, reduce the font to make it visible
+      otherwise, do nothing
+   */
    $(".devicename").each(function() {
       var textheight = parseFloat($(this).find("a").css("height"));
       var divheight = parseFloat($(this).css("height"));
@@ -157,7 +161,7 @@ function fetchDevicesSingleCategory() {
 }
 
 function reloadContent() {
-   if (!is_monocategory) {
+   if (!is_monocategory) {  // is_monocategory is dynamically defined by the php code in the host page
       fetchDevicesAllCategory();
    } else {
       fetchDevicesSingleCategory();
