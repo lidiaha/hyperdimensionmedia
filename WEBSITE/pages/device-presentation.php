@@ -130,7 +130,8 @@
 
             <div id="link">
                <a href="#"> Servizi Smart Life</a><br>
-               <a href="#"> Servizio di assistenza dedicato</a>
+               <a href="#"> Servizio di assistenza dedicato</a><br>
+					<a href="/pages/promos-for-device.php?device_id=$device_id"> Altre promozioni </a>
             </div>
             </div>
          </div>

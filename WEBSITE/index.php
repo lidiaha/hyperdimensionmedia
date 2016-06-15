@@ -10,7 +10,7 @@
    <body>
       <div id="supercontainer">
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
-         <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="pictures/bg-scroll-sea-2.jpg">
+         <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
                Device categories has her own home now!<br>
                check it out from the landmark bar
