@@ -121,18 +121,16 @@
                            formatText($tech_specs);
                            echo "<br></div>";
                            echo "</div>";
-
+                           echo "<div id='link'>";
+                           echo "<a href='#'> Servizi Smart Life</a><br>";
+                           echo "<a href='#'> Servizio di assistenza dedicato</a><br>";
+					            echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
+                           echo "</div>";
                         }
                      echo "\n";
                   }
                   $conn->close();
                ?>
-
-            <div id="link">
-               <a href="#"> Servizi Smart Life</a><br>
-               <a href="#"> Servizio di assistenza dedicato</a><br>
-					<a href="/pages/promos-for-device.php?device_id=$device_id"> Altre promozioni </a>
-            </div>
             </div>
          </div>
       <!-- <div id="footer"> -->
