@@ -15,7 +15,7 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, description, subtitle FROM sl_services";
+      $sql = "SELECT id, name, description FROM sl_services";
    }
    else {
       $sql = "SELECT * FROM sl_services";
