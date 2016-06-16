@@ -3,6 +3,8 @@
       interface:
       post parameters:
          "preview": if set, return only the columns required for the "list of services" page
+         "category": contain a comma-separated list of inclusive filters to apply. If not set, the filter
+            won't be applied. Values are the indexes of the device category to filter by
 
       return:
          json representation of the selected tuples
@@ -23,6 +25,7 @@
 
    // apply filters
    $filterlist = array();
+   $filterlist = applyFilterSet($conn, "category", "category", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
