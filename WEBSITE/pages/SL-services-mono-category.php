@@ -7,7 +7,10 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script>
-         var is_monocategory = false;
+         <?php
+            echo "var category_id = " . $_GET["category"] . ";\n";
+          ?>
+         var is_monocategory = true;
       </script>
       <script src="/js/SL.js"></script>
    </head>
@@ -20,8 +23,6 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <?php $filter_flavor = "services"; ?>
-      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>
 </html>

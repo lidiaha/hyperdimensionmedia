@@ -14,6 +14,8 @@
          include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/devices.php";
       } else if ($filter_flavor == "promotions") {
          include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/promotions.php";
+      } else if ($filter_flavor == "services") {
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/services.php";
       } else {
          echo "unknown filter flavor";
       }
