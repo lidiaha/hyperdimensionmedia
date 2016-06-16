@@ -16,15 +16,43 @@
             echo "query error";
          }
          else {
-               while($row = $result->fetch_assoc()) {
-                  $category = $row["name"];
-                  $id = $row["id"];
-                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
-               }
+            while($row = $result->fetch_assoc()) {
+               $category = $row["name"];
+               $id = $row["id"];
+               echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
+            }
          }
        ?>
    </div>
 </div>
 <?php
+   }
+ ?>
+<?php
+
+   function getSubcate($cat_id) {
+
+   }
+
+   $sql = "SELECT * FROM category WHERE type='smartlife'";
+   $result = $conn->query($sql);
+   if (!$result) {
+      echo "query error";
+   }
+   else {
+      while($row = $result->fetch_assoc()) {
+         $category = $row["name"];
+         $cat_id = $row["id"];
+ ?>
+ <div class="cate">
+    <a href="#"> <div class="sub">Categorie di <?php echo $category; ?> </div></a>
+    <div class= "element">
+ <?php
+         getSubcate($cat_id);
+ ?>
+   </div>
+</div>
+ <?php
+      }
    }
  ?>
