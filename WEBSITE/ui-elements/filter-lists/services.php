@@ -30,8 +30,18 @@
  ?>
 <?php
 
-   function getSubcate($cat_id) {
-
+   function getSubcate($conn, $cat_id) {
+      $sql = "SELECT DISTINCT sub.id, sub.name FROM sl_services AS sl JOIN sl_subcategory AS sub ON sl.subcategory = sub.id WHERE sl.category = '$cat_id'";
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      } else {
+         while($row = $result->fetch_assoc()) {
+            $subid = $row["id"];
+            $subname = $row["name"];
+            echo "<span><input class=\"item\" type=\"checkbox\" name=\"subcategory\" value=\"$subid\"><label><span></span>$subname</label><br></span>\n";
+         }
+      }
    }
 
    $sql = "SELECT * FROM category WHERE type='smartlife'";
@@ -48,7 +58,7 @@
     <a href="#"> <div class="sub">Categorie di <?php echo $category; ?> </div></a>
     <div class= "element">
  <?php
-         getSubcate($cat_id);
+         getSubcate($conn, $cat_id);
  ?>
    </div>
 </div>
