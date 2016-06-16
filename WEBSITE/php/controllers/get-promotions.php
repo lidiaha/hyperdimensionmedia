@@ -3,6 +3,9 @@
       interface:
       post parameters:
          "preview": if set, return only the columns required for the "list of promotions" page
+         "price_range": serialized json object (string) specifying a series of price ranges, in the form:
+            [{"low": 15, "high": 150 }, ...]
+         "duration_range": same as the above, except with intervals on the duration
 
       return:
          json representation of the selected tuples
@@ -15,7 +18,7 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, price , duration , subtitle FROM promotions";
+      $sql = "SELECT id, name, price, duration, subtitle FROM promotions";
    }
    else {
       $sql = "SELECT * FROM promotions";
@@ -23,6 +26,8 @@
 
    // apply filters
    $filterlist = array();
+   $filterlist = applyFilterRange($conn, "price", "price_range", $filterlist);
+   $filterlist = applyFilterRange($conn, "duration", "duration_range", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
