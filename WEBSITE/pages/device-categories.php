@@ -25,7 +25,7 @@
                         $name = $row["name"];
                         $id=$row["id"];
                         echo "<a class=\"category\" href=\"/pages/devices-mono-category.php?category=$id\">\n";
-                        echo "<div class=\"data\"><img class=\"image\" src=\"/ui-elements/images/device/category/$id.png\">\n";
+                        echo "<div class=\"data\"><img class=\"image\" src=\"/pictures/category/device/$id.png\">\n";
                         echo "<div class=\"name\">$name</div>\n";
                         echo "</div></a>";
                      }
