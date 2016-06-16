@@ -77,7 +77,7 @@ function clearContent() {
 
 function processPromotion(obj) {
    $("#maincontent").append("<div class='promotionitem'>" +
-   "<div class='promopic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
+   "<div class='promopic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center top;\"></div>" +
    "<div class='name'>" + obj.name + "</div>" +
    "<div class='subtitle'>" +obj.subtitle + "</div>" +
    "<div class='promoprice'> da " + obj.price + "€/mese</div>" +

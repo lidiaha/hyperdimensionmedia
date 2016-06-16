@@ -31,11 +31,17 @@
 }
 
 .scopri{
-	display: inline-block;
+	float: right;
 	width: 120px;
 	right: 5px;
-	top: 50%;
-	position: absolute;
+   bottom: 60px;
+	position: relative;
 	color: blue;
 	font-size: 20px;
+}
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
 }
