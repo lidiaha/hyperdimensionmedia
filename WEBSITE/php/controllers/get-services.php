@@ -2,7 +2,7 @@
    /*
       interface:
       post parameters:
-         "preview": if set, return only the columns required for the "list of promotions" page
+         "preview": if set, return only the columns required for the "list of services" page
 
       return:
          json representation of the selected tuples
@@ -15,10 +15,10 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, price , duration , subtitle FROM promotions";
+      $sql = "SELECT id, name, description, subtitle FROM sl_services";
    }
    else {
-      $sql = "SELECT * FROM promotions";
+      $sql = "SELECT * FROM sl_services";
    }
 
    // apply filters
@@ -35,7 +35,7 @@
    $rows = array();
    while($r = mysqli_fetch_assoc($result)) {
       if ($r["id"]) {
-         $r["image"] = imageAutoExtension("/pictures/promoicons/", $r["id"]);
+         $r["image"] = imageAutoExtension("/pictures/products/services/", $r["id"]);
       }
       array_push($rows, $r);
    }
