@@ -68,26 +68,26 @@
                         }
                      }
                   }
-						
-						function printRate($conn, $device_id) {
-						   $sql = "SELECT * FROM device_installments WHERE dev_id='$device_id' ";
-						   $result = $conn->query($sql);
-							if (!$result) {
+
+                  function printRate($conn, $device_id) {
+                     $sql = "SELECT * FROM device_installments WHERE dev_id='$device_id' ";
+                     $result = $conn->query($sql);
+                     if (!$result) {
                         echo "query error";
                      }
                      else {
                         while($row = $result->fetch_assoc()) {
                            $num= $row["inst_num"];
-									$amount= $row["inst_amount"];
-									$landline= $row["require_landline"];
+                           $amount= $row["inst_amount"];
+                           $landline= $row["require_landline"];
                            echo "<div class=\"rate\"> A rate: $amount €/mese per $num mesi</div>";
-									if($landline){
-									   echo "<div>Se hai una linea di casa TIM </div>";
-									}
+                           if($landline){
+                              echo "<div>Se hai una linea di casa TIM </div>";
+                           }
                         }
                      }
-						}
-				
+                  }
+
 
                   $sql = "SELECT * FROM devices WHERE id='$device_id' ";
                   $result = $conn->query($sql);
@@ -109,7 +109,7 @@
                            echo "<div class=\"info right\">";
                            echo "<div class=\"name\"> $name </div><br>";
                            echo "<div class=\"price\"> Unica soluzione: $price € </div>";
-									printRate($conn, $device_id);
+                           printRate($conn, $device_id);
                            echo "<br><p class=\"description\"> $description <br>";
                            echo "</p>";
                            echo "</div>";
@@ -124,10 +124,13 @@
                            echo "<div id='link'>";
                            echo "<a href='#'> Servizi Smart Life</a><br>";
                            echo "<a href='#'> Servizio di assistenza dedicato</a><br>";
-					            echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
+                           echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
                            echo "</div>";
                         }
                      echo "\n";
+                     if (mysqli_num_rows($result) == 0) {
+                        include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/no-results.html";
+                     }
                   }
                   $conn->close();
                ?>

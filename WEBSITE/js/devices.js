@@ -124,6 +124,12 @@ function postProcessDevices() {
    fitTileSize();
 }
 
+function emptyResultHandler() {
+   $.get("/ui-elements/no-results.html", function(data) {
+      $("#maincontent").append(data);
+   });
+}
+
 function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true,
@@ -137,6 +143,9 @@ function fetchDevicesAllCategory() {
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
+      if (newmessages.length == 0) {
+         emptyResultHandler();
+      }
       newmessages.forEach(processDevice);
       postProcessDevices();
    });
@@ -155,6 +164,9 @@ function fetchDevicesSingleCategory() {
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();
+      if (newmessages.length == 0) {
+         emptyResultHandler();
+      }
       newmessages.forEach(processDevice);
       postProcessDevices();
    });
