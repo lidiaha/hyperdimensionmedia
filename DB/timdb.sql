@@ -397,7 +397,9 @@ CREATE TABLE `sl_services` (
   `url` varchar(5000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_sl_services_1_idx` (`category`),
-  CONSTRAINT `fk_sl_services_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_sl_services_2_idx` (`subcategory`),
+  CONSTRAINT `fk_sl_services_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_sl_services_2` FOREIGN KEY (`subcategory`) REFERENCES `sl_subcategory` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -407,7 +409,36 @@ CREATE TABLE `sl_services` (
 
 LOCK TABLES `sl_services` WRITE;
 /*!40000 ALTER TABLE `sl_services` DISABLE KEYS */;
+INSERT INTO `sl_services` VALUES (1,'TIMvision',6,1,'Cartoni, cinema, serie tv, documentari e concerti sempre on demand per creare il tuo palinsesto senza pubblicità. Più di 8.000 titoli in un abbonamento, senza vincoli di durata, anche in HD',NULL);
 /*!40000 ALTER TABLE `sl_services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sl_subcategory`
+--
+
+DROP TABLE IF EXISTS `sl_subcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sl_subcategory` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sl_subcategory`
+--
+
+LOCK TABLES `sl_subcategory` WRITE;
+/*!40000 ALTER TABLE `sl_subcategory` DISABLE KEYS */;
+INSERT INTO `sl_subcategory` VALUES (1,'TV');
+INSERT INTO `sl_subcategory` VALUES (2,'TIMmusic');
+INSERT INTO `sl_subcategory` VALUES (3,'TIMreading');
+INSERT INTO `sl_subcategory` VALUES (4,'TIMgames');
+INSERT INTO `sl_subcategory` VALUES (5,'Serie A TIM');
+/*!40000 ALTER TABLE `sl_subcategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -493,4 +524,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-16 13:32:48
+-- Dump completed on 2016-06-16 13:51:07
