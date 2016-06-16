@@ -27,7 +27,7 @@ CREATE TABLE `category` (
   `name` varchar(100) NOT NULL,
   `type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,10 @@ INSERT INTO `category` VALUES (2,'tablet e computer','device');
 INSERT INTO `category` VALUES (3,'modem e networking','device');
 INSERT INTO `category` VALUES (4,'tv e smartliving','device');
 INSERT INTO `category` VALUES (5,'outlet','device');
+INSERT INTO `category` VALUES (6,'tv e entertainment','smartlife');
+INSERT INTO `category` VALUES (7,'salute e benessere','smartlife');
+INSERT INTO `category` VALUES (8,'casa e famiglia','smartlife');
+INSERT INTO `category` VALUES (9,'servizi alla persona','smartlife');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +123,10 @@ DROP TABLE IF EXISTS `device_promo`;
 CREATE TABLE `device_promo` (
   `device_id` int(10) NOT NULL,
   `promo_id` int(10) NOT NULL,
-  PRIMARY KEY (`device_id`,`promo_id`)
+  PRIMARY KEY (`device_id`,`promo_id`),
+  KEY `fk_device_promo_2_idx` (`promo_id`),
+  CONSTRAINT `fk_device_promo_1` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_device_promo_2` FOREIGN KEY (`promo_id`) REFERENCES `promotions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -375,6 +382,35 @@ INSERT INTO `promotions` VALUES (1,'PROMO TIM VISION con decoder',5,0,'Con TIMvi
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sl_services`
+--
+
+DROP TABLE IF EXISTS `sl_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sl_services` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subcategory` int(11) NOT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  `url` varchar(5000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_sl_services_1_idx` (`category`),
+  CONSTRAINT `fk_sl_services_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sl_services`
+--
+
+LOCK TABLES `sl_services` WRITE;
+/*!40000 ALTER TABLE `sl_services` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sl_services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `testable`
 --
 
@@ -457,4 +493,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-16 11:50:14
+-- Dump completed on 2016-06-16 13:32:48
