@@ -19,10 +19,12 @@
                   $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
 						
 						function printUrls($url) {
-                     $links = explode(";",$url);
-                     foreach($links as $link){
-                        echo "<a href='$link'><div class='link'></div></a>";
-                     }
+							if($url!=null){
+                        $links = explode(";",$url);
+                        foreach($links as $link){
+                           echo "<a href='$link'><div class='link'></div></a>";
+                        }
+							}
                   }
                   $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";
                   $result = $conn->query($sql);

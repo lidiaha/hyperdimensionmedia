@@ -35,7 +35,7 @@
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='rules'></div>\n";
                         echo "<div class='mini-description'>$subtitle</div>\n";
-                        echo "<div class='price'> $price €/mese";
+                        echo "<div class='price'> $price €/mese ";
                         if ($duration!=0){
                            echo "per $duration mesi";
                         }
