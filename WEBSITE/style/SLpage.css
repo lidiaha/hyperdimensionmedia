@@ -1,0 +1,73 @@
+.dummyheader {
+   position: relative;
+   width: 100%;
+   height: 30px;
+}
+
+.header {
+   position: relative;
+   width: 100%;
+   height: 200px;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   display: block;
+	margin-bottom: 20px;
+}
+
+.name{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 30px;
+	text-align: center;
+	display: block;
+	padding-top: 10px;
+}
+
+.description{
+	width: 50%;
+	height: auto;
+	position: relative;
+	display: block;
+	text-align: center;
+	left: 25%;
+}
+
+.link{
+	margin: 10px;
+	width: 100px;
+	height: 100px;
+	display: block-inline;
+	background-image: url("/pictures/info.png");
+	background-repeat: no-repeat;
+	background-size: 70px 70px;
+	background-position: center center;
+}
+.scopri{
+	width: 260px;
+	height: 40px;
+	background-color: white;
+	box-shadow: 10px 10px black;
+	float: left;
+	position: relative;
+	margin: 10px;
+	text-align: center;
+	font-size: 30px;
+	line-height: 30px;
+	border: 2px black solid;
+	box-sizing: border-box;
+}
+.products{
+	left: 20px;
+	
+}
+
+.offers{
+	left: 180px;
+}
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}
