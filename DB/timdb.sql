@@ -16,6 +16,64 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `assistance`
+--
+
+DROP TABLE IF EXISTS `assistance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assistance` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subcategory` int(11) NOT NULL,
+  `subtopic` varchar(100) DEFAULT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  `id_faq` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_assistance_1_idx` (`category`),
+  KEY `fk_assistance_2_idx` (`subcategory`),
+  CONSTRAINT `fk_assistance_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_assistance_2` FOREIGN KEY (`subcategory`) REFERENCES `assistance_subcategory` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assistance`
+--
+
+LOCK TABLES `assistance` WRITE;
+/*!40000 ALTER TABLE `assistance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assistance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assistance_subcategory`
+--
+
+DROP TABLE IF EXISTS `assistance_subcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assistance_subcategory` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assistance_subcategory`
+--
+
+LOCK TABLES `assistance_subcategory` WRITE;
+/*!40000 ALTER TABLE `assistance_subcategory` DISABLE KEYS */;
+INSERT INTO `assistance_subcategory` VALUES (1,'fisso');
+INSERT INTO `assistance_subcategory` VALUES (2,'mobile');
+INSERT INTO `assistance_subcategory` VALUES (3,'cosa puoi fare online');
+/*!40000 ALTER TABLE `assistance_subcategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `category`
 --
 
@@ -527,4 +585,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-16 19:07:25
+-- Dump completed on 2016-06-17 17:23:52

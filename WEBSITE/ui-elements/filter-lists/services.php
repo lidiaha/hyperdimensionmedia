@@ -45,6 +45,9 @@
    }
 
    $sql = "SELECT * FROM category WHERE type='smartlife'";
+   if (isset($filter_category)) {
+      $sql = $sql . " AND id = '$filter_category'";
+   }
    $result = $conn->query($sql);
    if (!$result) {
       echo "query error";
