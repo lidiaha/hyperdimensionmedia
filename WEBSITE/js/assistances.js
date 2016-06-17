@@ -2,6 +2,7 @@
 var code_accumulator = "";  // if we appended directly the code, jquery would flatten the nested structure
 
 function clearContent() {
+   var code_accumulator = "";
    $("#maincontent").html("");
 }
 
