@@ -69,24 +69,8 @@ function processService(obj) {
    "</div>");
 }
 
-function fitTileSize() {
-   /*
-      if the title of a .devicename item is partially hidden, reduce the font to make it visible
-      otherwise, do nothing*/
-
-   $(".devicename").each(function() {
-      var textheight = parseFloat($(this).find("a").css("height"));
-      var divheight = parseFloat($(this).css("height"));
-      var fontsize = parseFloat($(this).css("font-size"));
-      if (textheight > divheight) {
-         $(this).css("font-size", (fontsize/1.5) + "px");
-      }
-   });
-}
-
 function postProcessServices() {
    $("#maincontent").append("<div class=\"doorstopper\"></div>");
-   fitTileSize();
 }
 
 function emptyResultHandler() {
