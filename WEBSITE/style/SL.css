@@ -22,7 +22,8 @@
 	margin-top: 30px;
 	position: relative;
 	display: inline-block;
-	background-position: center center;	
+	background-position: center center;
+   margin-right: 5px;	
 }
 
 .description{
