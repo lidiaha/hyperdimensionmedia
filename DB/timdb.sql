@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 18, 2016 alle 13:16
+-- Creato il: Giu 18, 2016 alle 13:38
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.21
 
@@ -110,7 +110,8 @@ INSERT INTO `category` (`id`, `name`, `type`) VALUES
 (10, 'gestione linea e servizi', 'assistance'),
 (11, 'controllo costi e pagamenti', 'assistance'),
 (12, 'supporto tecnico e configurazione', 'assistance'),
-(13, 'smart life', 'assistance');
+(13, 'smart life', 'assistance'),
+(14, 'in evidenza', 'assistance');
 
 -- --------------------------------------------------------
 
@@ -640,7 +641,7 @@ ALTER TABLE `testchat`
 -- AUTO_INCREMENT per la tabella `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT per la tabella `devices`
 --
