@@ -7,7 +7,11 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script>
-         var is_monocategory = false;
+      <?php
+         echo "var category_id = " . $_GET["category"] . ";\n";
+         echo "var is_monocategory = true;\n";
+         //TODO: redirect to devices.php if $_GET["category"] is not set
+      ?>
       </script>
       <script src="/js/assistances.js"></script>
    </head>

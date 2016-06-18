@@ -6,6 +6,7 @@
          "category": contain a comma-separated list of inclusive filters to apply. If not set, the filter
             won't be applied. Values are the indexes of the device category to filter by
          "subcategory": same as the above, but with sub-categories
+         "subtopic": same as the above, but with sub-topics
 
       return:
          json representation of the selected tuples
@@ -41,6 +42,7 @@
    $filterlist = array();
    $filterlist = applyFilterSet($conn, "category", "category", $filterlist);
    $filterlist = applyFilterSet($conn, "subcategory", "subcategory", $filterlist);
+   $filterlist = applyFilterSet($conn, "subtopic", "subtopic", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
