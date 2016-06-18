@@ -14,6 +14,10 @@
 	margin-bottom: 20px;
 }
 
+.serviceitem {
+   padding-left: 50px;
+	padding-right: 50px;
+}
 .name{
 	width: 100%;
 	height: 30px;
@@ -31,6 +35,18 @@
 	display: block;
 	text-align: center;
 	left: 25%;
+}
+
+.info{
+	text-align: center;
+}
+
+.more{
+	position: relative;
+	padding: 0px 10px;
+	line-height: 25px;
+	border: 2px black solid;
+	box-shadow: 3px 3px black;
 }
 
 .link{
