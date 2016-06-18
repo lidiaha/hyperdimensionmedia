@@ -14,6 +14,7 @@
             <div id="maincontent">
                <?php
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   $promo_id = mysqli_real_escape_string($conn, $_GET["promo_id"]);
@@ -30,8 +31,9 @@
                         $description = $row["description"];
                         $subtitle = $row["subtitle"];
                         $table_code = $row["table_code"];
+                        $image = imageAutoExtension("/pictures/promotionbanners/", $row["id"]);
                         echo "<div class='dummyheader'></div>\n";
-                        echo "<div class='header' style='background-image: url(\"/pictures/promotionbanners/$promo_id.jpg\")'>\n";
+                        echo "<div class='header' style='background-image: url(\"$image\")'>\n";
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='rules'></div>\n";
                         echo "<div class='mini-description'>$subtitle</div>\n";

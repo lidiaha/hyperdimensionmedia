@@ -40,6 +40,7 @@
             <div id="maincontent">
                <?php
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
@@ -100,9 +101,10 @@
                            $description= $row["description"];
                            $tech_specs= $row["tech_specs"];
                            $price= $row["price"];
+                           $image = imageAutoExtension("/pictures/products/devices/", $row["id"]);
                            echo "<div class=\"presentazione\">";
                            echo "<div class=\"info left\">";
-                           echo "<img src=\"/pictures/products/devices/$device_id.jpg\" class=\"device-img\">";
+                           echo "<img src=\"$image\" class=\"device-img\">";
                            echo "<div> Colore: ";
                            printColors($conn, $device_id);
                            echo "</div></div>";

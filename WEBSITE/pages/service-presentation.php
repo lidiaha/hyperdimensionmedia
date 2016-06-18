@@ -6,6 +6,7 @@
       <link rel="stylesheet" type="text/css" href="/style/SLpage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <script src="/js/SLpage.js"></script>
    </head>
    <body>
       <div id="supercontainer">
@@ -14,17 +15,19 @@
             <div id="maincontent">
                <?php
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-mean-color.php";
                   $conn = dbconn();
 
                   $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
-						
-						function printUrls($url) {
-							if($url!=null){
+
+                  function printUrls($url) {
+                     if($url!=null){
                         $links = explode(";",$url);
                         foreach($links as $link){
                            echo "<a href='$link'><div class='link'></div></a>";
                         }
-							}
+                     }
                   }
                   $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";
                   $result = $conn->query($sql);
@@ -35,15 +38,19 @@
                      while($row = $result->fetch_assoc()) {
                         $name = $row["name"];
                         $description = $row["description"];
-								$urls = $row["url"];
+                        $urls = $row["url"];
+                        $image = imageAutoExtension("/pictures/products/servicesbanners/", $row["id"]);
+                        $meanimg = imageMeanColor($image);
+                        $meancolor = $meanimg["color"];
+                        $imgbrightness = $meanimg["brightness"];
                         echo "<div class='dummyheader'></div>\n";
-                        echo "<div class='header' style='background-image: url(\"/pictures/products/servicesbanners/$service_id.jpg\")'>\n";
+                        echo "<div data-meancolor=\"$meancolor\" data-brightness=\"$imgbrightness\" class='header' style='background-image: url(\"$image\")'>\n";
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='description'><p>$description</p></div>\n";
                         echo "</div>";
-								printUrls($urls);
+                        printUrls($urls);
                         echo "<div class='products scopri'><a href='#'> Scopri i prodotti</a></div>\n";
-								echo "<div class='offers scopri'><a href='#'> Scopri le offerte</a></div>\n";
+                        echo "<div class='offers scopri'><a href='#'> Scopri le offerte</a></div>\n";
                         echo "<div class='doorstopper'></div>\n";
                      }
                      echo "\n";
