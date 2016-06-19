@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `assist_faq`
+--
+
+DROP TABLE IF EXISTS `assist_faq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assist_faq` (
+  `id` int(11) NOT NULL,
+  `id_assistance` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `question` varchar(5000) NOT NULL,
+  `answer` varchar(5000) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_assist_faq_1_idx` (`id_assistance`),
+  CONSTRAINT `fk_assist_faq_1` FOREIGN KEY (`id_assistance`) REFERENCES `assistance` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assist_faq`
+--
+
+LOCK TABLES `assist_faq` WRITE;
+/*!40000 ALTER TABLE `assist_faq` DISABLE KEYS */;
+INSERT INTO `assist_faq` VALUES (1,1,1,'Come leggo la fattura della linea fissa?','Nella prima pagina trovi:\n\n   * i dati principali dell’intestatario della linea di casa e della fattura\n   * il riepilogo degli abbonamenti attivi \n   * un box informativo con le proposte commerciali personalizzate relative a  offerte, prodotti, servizi \n    l’informazione sulla modalità di pagamento (bollettino, addebito su conto corrente o su carta di credito)\n   * lo stato dei pagamenti\n   * una guida veloce che riporta, attraverso semplici icone, i riferimenti per entrare in contatto con TIM: App MyTIM Fisso per Smartphone e Tablet, sito www.tim.it (registrandoti alla sezione MyTIM Fisso), Social Network (Facebook, Youtube, Twitter, Google+), Servizio clienti 187, Negozi TIM.\n\nNella pagina del “Dettaglio dei costi”  le voci sono riordinate secondo una logica più vicina alle tue esigenze:  \n\n   * prima trovi gli eventuali “Importi Una Tantum” cioè quelli straordinari da pagare una sola volta, \n   * poi gli “Abbonamenti” (canoni delle offerte/prodotti/servizi attivi), \n   * segue la descrizione “Telefonate e contenuti” (consumi di traffico, sms, contenuti digitali come video on demand, ebook, ecc) \n   * ed infine la voce “Altri importi” (spese di produzione e spedizione fatture, le rate dei prodotti, le indennità di ritardato pagamento, interessi legali e moratori, consegna elenchi telefonici).');
+INSERT INTO `assist_faq` VALUES (2,1,2,'Che vantaggi ho con la fattura online?','Con la fattura online puoi:\n\n   * avere chiarimenti sul significato delle voci in fattura\n   * visualizzare il dettaglio di tutte le tue telefonate ed analizzarle utilizzando i filtri per tipo di chiamata, offerta, data, numero chiamato, fascia oraria, durata e costo;\n   * inviare segnalazioni al Servizio Clienti (ad es. segnalazione di errato addebito del traffico, richiesta di abilitazione di un servizio, ecc.) ottenendo la risposta in tempi brevi.\n   * inviare la fattura sulla tua casella emai\n   * visualizzare e scaricare in formato excel i grafici del tuo traffico');
+INSERT INTO `assist_faq` VALUES (3,1,3,'Vorrei cambiare l’indirizzo e-mail su cui ricevere il messaggio della disponibilità online della mia fattura. Come posso fare?','Accedi con la tua username e password nella sezione “MyTIM Fisso” →  \"Il mio profilo → “Gestione Profilo\" e quindi clicca su “Gestione email” che si trova sulla stessa riga della voce \"Email\": qui potrai modificare l’indirizzo e-mail su cui ricevere il messaggio della disponibilità online della tua fattura, inserendone uno nuovo o selezionando come principale uno di quelli già presenti');
+/*!40000 ALTER TABLE `assist_faq` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `assistance`
 --
 
@@ -29,7 +60,6 @@ CREATE TABLE `assistance` (
   `subcategory` int(11) NOT NULL,
   `subtopic` int(11) NOT NULL,
   `description` varchar(5000) DEFAULT NULL,
-  `id_faq` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_assistance_1_idx` (`category`),
   KEY `fk_assistance_2_idx` (`subcategory`),
@@ -46,7 +76,7 @@ CREATE TABLE `assistance` (
 
 LOCK TABLES `assistance` WRITE;
 /*!40000 ALTER TABLE `assistance` DISABLE KEYS */;
-INSERT INTO `assistance` VALUES (1,'Come leggere la fattura della linea fissa',11,1,1,'La fattura della linea fissa Ãš semplice e facile da leggere perchÃ© disegnata prendendo spunto dai suggerimenti dei clienti. La veste grafica, moderna e raffinata, utilizza un linguaggio sempre piÃ¹ chiaro per lâesposizione delle voci di spesa, facilitando la lettura di tutte le informazioni di cui hai bisogno e garantendo maggiore trasparenza nei contenuti e negli importi.',NULL);
+INSERT INTO `assistance` VALUES (1,'Come leggere la fattura della linea fissa',11,1,1,'La fattura della linea fissa Ãš semplice e facile da leggere perchÃ© disegnata prendendo spunto dai suggerimenti dei clienti. La veste grafica, moderna e raffinata, utilizza un linguaggio sempre piÃ¹ chiaro per lâesposizione delle voci di spesa, facilitando la lettura di tutte le informazioni di cui hai bisogno e garantendo maggiore trasparenza nei contenuti e negli importi.');
 /*!40000 ALTER TABLE `assistance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -641,4 +671,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-18 21:57:53
+-- Dump completed on 2016-06-19 15:56:06

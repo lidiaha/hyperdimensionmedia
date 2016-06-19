@@ -36,6 +36,13 @@ function brightness($r, $g, $b) {
 
 function imageMeanColor($rel_path) {
    /*
+      params:
+         $rel_path path of the image, relative to the site's root
+      returns:
+         associative array containing the keys:
+            "color": html hex representation of the mean color
+            "brightness" 0-255 integer representation of the image's mean brightness
+
       basically it works like this: resample the image to a size of 1x1 pixel,
       so that the resizing algorithm averages the color for us.
       Then, read the color of that single pixel.
