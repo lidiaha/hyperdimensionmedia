@@ -76,7 +76,7 @@ CREATE TABLE `assistance` (
 
 LOCK TABLES `assistance` WRITE;
 /*!40000 ALTER TABLE `assistance` DISABLE KEYS */;
-INSERT INTO `assistance` VALUES (1,'Come leggere la fattura della linea fissa',11,1,1,'La fattura della linea fissa Ãš semplice e facile da leggere perchÃ© disegnata prendendo spunto dai suggerimenti dei clienti. La veste grafica, moderna e raffinata, utilizza un linguaggio sempre piÃ¹ chiaro per lâesposizione delle voci di spesa, facilitando la lettura di tutte le informazioni di cui hai bisogno e garantendo maggiore trasparenza nei contenuti e negli importi.');
+INSERT INTO `assistance` VALUES (1,'Come leggere la fattura della linea fissa',11,1,1,'La fattura della linea fissa è semplice e facile da leggere perché disegnata prendendo spunto dai suggerimenti dei clienti. La veste grafica, moderna e raffinata, utilizza un linguaggio sempre più chiaro per l’esposizione delle voci di spesa, facilitando la lettura di tutte le informazioni di cui hai bisogno e garantendo maggiore trasparenza nei contenuti e negli importi.');
 /*!40000 ALTER TABLE `assistance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -671,4 +671,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-19 15:56:06
+-- Dump completed on 2016-06-19 16:45:02
