@@ -24,19 +24,19 @@
                   <div class="labelback">Torna al servizio SL</div>
                </div>
                <?php
-                  $sql = "SELECT * FROM devices JOIN device_service WHERE service_id='$service_id' AND devices.id=device_service.device_id ";
+                  $sql = "SELECT * FROM promotions JOIN service_promo WHERE service_id='$service_id' AND promotions.id=service_promo.promo_id ";
                   $result = $conn->query($sql);
                   if (!$result) {
                      echo "query error";
                   }
                   else {
                      while($row = $result->fetch_assoc()) {
-                        $device_id= $row["id"];
+                        $promo_id= $row["id"];
                         $name = $row["name"];
 								echo "<div class='dummyheader'></div>\n";
 								echo "<div class='item'>";
-                        echo "<div class='pic' style='background-image: url(\"/pictures/products/devices/$device_id.jpg\")'></div>\n";
-                        echo "<div class='name'><a href='/pages/device-presentation.php?device_id=$device_id' >$name</a></div>\n";
+                        echo "<div class='pic' style='background-image: url(\"/pictures/promoicons/$promo_id.jpg\")'></div>\n";
+                        echo "<div class='name'><a href='/pages/promotion-description.php?promo_id=$promo_id' >$name</a></div>\n";
                         echo "</div>\n";
                         echo "<div class='doorstopper'></div>\n";
                      }

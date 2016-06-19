@@ -50,7 +50,7 @@
                         echo "</div>";
                         printUrls($urls);
                         echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
-                        echo "<div class='offers scopri'><a href='#'> Scopri le offerte</a></div>\n";
+                        echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
                         echo "<div class='doorstopper'></div>\n";
                      }
                      echo "\n";
