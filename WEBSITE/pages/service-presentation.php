@@ -49,7 +49,7 @@
                         echo "<div class='description'><p>$description</p></div>\n";
                         echo "</div>";
                         printUrls($urls);
-                        echo "<div class='products scopri'><a href='#'> Scopri i prodotti</a></div>\n";
+                        echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
                         echo "<div class='offers scopri'><a href='#'> Scopri le offerte</a></div>\n";
                         echo "<div class='doorstopper'></div>\n";
                      }
