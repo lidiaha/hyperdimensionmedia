@@ -25,14 +25,18 @@
                         echo "query error";
                      }
                      else {
-                        while($row = $result->fetch_assoc()) {
-                           $question = $row["question"];
-                           $_answer = $row["answer"];
-                           $answer = preg_replace("/\n/", "<br>", $_answer);
-                           echo "<div class='faqitem'>\n";
-                           echo "<div class='faq_question'>$question</div>\n";
-                           echo "<div class='faq_answer'>$answer</div>\n</div>\n";
-                        }
+								if($result->num_rows!=0){
+								   echo "<fieldset class='faqbox'><legend>FAQ</legend><div class='faqinnerbox'>\n";
+                           while($row = $result->fetch_assoc()) {
+                              $question = $row["question"];
+                              $_answer = $row["answer"];
+                              $answer = preg_replace("/\n/", "<br>", $_answer);
+                              echo "<div class='faqitem'>\n";
+                              echo "<div class='faq_question'>$question</div>\n";
+                              echo "<div class='faq_answer'>$answer</div>\n</div>\n";
+                           }
+								echo "</div></fieldset>\n";
+								}
                      }
                   }
 
@@ -49,9 +53,7 @@
                         $description = $row["description"];
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='description'><p>$description</p></div>\n";
-                        echo "<fieldset class='faqbox'><legend>FAQ</legend><div class='faqinnerbox'>\n";
-                        printFaq($conn, $assistance_id);
-                        echo "</div></fieldset>\n";
+                        printFaq($conn, $assistance_id); 
                         echo "<div class='doorstopper'></div>\n";
                      }
                      echo "\n";
