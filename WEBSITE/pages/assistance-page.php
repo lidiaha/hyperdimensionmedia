@@ -52,6 +52,7 @@
                         $name = $row["name"];
                         $description = $row["description"];
                         echo "<div class='name'>$name</div>\n";
+								echo "<div class='products'> Scopri i prodotti interessati </div>";
                         echo "<div class='description'><p>$description</p></div>\n";
                         printFaq($conn, $assistance_id); 
                         echo "<div class='doorstopper'></div>\n";

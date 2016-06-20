@@ -10,6 +10,14 @@
    margin-top: 60px;
 }
 
+.products{
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	margin-left: 20px;
+	color: yellow;
+}
+
 .faqbox {
    width: 90%;
    margin: auto;
