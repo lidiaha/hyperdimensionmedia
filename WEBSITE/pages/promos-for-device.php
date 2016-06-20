@@ -40,7 +40,7 @@
                         echo "<div class='name'> $name </div>";
                         echo "<div class='subtitle'> $subtitle </div>";
                         echo "<div class='promoprice'> da $price €/mese</div>";
-                        echo "<div class='scopri'><a class='more' href='/pages/promotion-description.php?promo_id=\"$promo_id\"'> Scopri </a></div>";
+                        echo "<div class='scopri'><a class='more' href='/pages/promotion-description.php?promo_id=$promo_id'> Scopri </a></div>";
                         echo "</div>";
                         echo "<div class='doorstopper'></div>\n";
                      }
