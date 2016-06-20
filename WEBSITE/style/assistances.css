@@ -1,27 +1,44 @@
 .assis_category {
-
+   border: 2px solid #707070;
+	background-color: #808080;
+	border-radius: 10px;
+	padding-bottom: 10px;
 }
 
 .assis_subcategory {
-   margin-left: 30px;
+   margin: 0px 30px;
+	background-color: #A0A0A0;
+	border-radius: 10px;
+	padding-bottom: 10px;
 }
 
 .assis_subtopic {
-   margin-left: 30px;
+   margin: 0px 30px;
+	background-color: #C0C0C0;
+	border-radius: 10px;
+	padding-bottom: 10px;
 }
 
 .assis_item {
-   margin-left: 30px;
+   margin: 0px 30px;
+	background-color: #E0E0E0;
+	border-radius: 10px;
+	padding-bottom: 10px;
 }
 
 .assis_category_label {
+	margin-left: 10px;
    font-size: 30pt;
 }
 
+
+
 .assis_subcategory_label {
+	margin-left: 10px;
    font-size: 23pt;
 }
 
 .assis_subtopic_label {
+	margin-left: 10px;
    font-size: 16pt;
 }
