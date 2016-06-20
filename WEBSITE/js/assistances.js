@@ -4,6 +4,33 @@ var categoryFilter = [];  // note: only used in devices.php, NOT devices-mono-ca
 var typologyFilter = [];
 var topicFilter = [];
 
+var colors = ["DeepPink","DarkOrange","DarkGreen","MediumBlue","LightGreen","Sienna","RoyalBlue","Red"];
+var colorindex = 0;
+var lsdDeltaT = 10;
+var lsdTime = 1000;
+
+function lsdGetcolor(offset) {
+   var color = colors[(colorindex + offset) % colors.length];
+   return color;
+}
+
+function lsd() {
+   $(".assis_category").css("background-color", lsdGetcolor(0));
+   $(".assis_subcategory").css("background-color", lsdGetcolor(1));
+   $(".assis_subtopic").css("background-color", lsdGetcolor(2));
+   $(".assis_item").css("background-color", lsdGetcolor(3));
+
+   colorindex++;
+   if (colorindex > colors.length) {
+      colorindex = 0;
+   }
+
+   if (lsdTime - lsdDeltaT > 0) {
+      lsdTime -= lsdDeltaT;
+   }
+   window.setTimeout(lsd, lsdTime);
+}
+
 
 // interface with filter.js
 function applyFilter(elem) {
