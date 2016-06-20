@@ -31,14 +31,24 @@
    font-size: 30pt;
 }
 
-
+.assis_category_label::first-letter{
+	text-transform: capitalize;
+}
 
 .assis_subcategory_label {
 	margin-left: 10px;
    font-size: 23pt;
 }
 
+.assis_subcategory_label::first-letter{
+	text-transform: capitalize;
+}
+
 .assis_subtopic_label {
 	margin-left: 10px;
    font-size: 16pt;
+}
+
+.assis_subtopic_label::first-letter{
+	text-transform: capitalize;
 }
