@@ -2,6 +2,20 @@
 var navHistory = [];
 var cookieKey = "nav_history";
 
+var landmarks = ["/pages/SL-services.php","/pages/smartlife-categories.php","/pages/devices.php",
+   "/pages/device-categories.php","/pages/promotions.php","/pages/assistance-services.php","/pages/assistance-categories.php"];
+
+function isLandmark(url) {
+   var candidate;
+   for (var i=0; i<landmarks.length; i++) {
+      candidate = landmarks[i];
+      if (url.endsWith(candidate)) {
+         return true;
+      }
+   }
+   return false;
+}
+
 function loadHistory() {
    var cookie = Cookies.get(cookieKey, { path: '/' });
    if (cookie) {
@@ -26,6 +40,9 @@ function breadcrumbCurrentPage(name, url) {
    if (found >= 0) {
       navHistory.splice(found+1, navHistory.length - found - 1);
    } else {
+      if (isLandmark(url)) {
+         navHistory = [];  // the root of the history must always be a landmark
+      }
       navHistory.push(newentry);
    }
    Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
@@ -34,9 +51,11 @@ function breadcrumbCurrentPage(name, url) {
 function getBreadcrumbHtmlBar() {
    var code = "<div class=\"bcbar\">";
    var curr;
+   var extraclass = "";
    for (var i=0; i<navHistory.length; i++) {
       curr = navHistory[i];
-      code += "<div class=\"bcitem\"><a href=\"" + curr.url + "\">" + curr.name + "</a></div>";
+      if (i+1 >= navHistory.length) extraclass = " bclast";
+      code += "<div class=\"bcitem" + extraclass +"\"><a href=\"" + curr.url + "\">" + curr.name + "</a></div>";
       if (i+1 < navHistory.length) {
          code += "<div class=\"bcsep\">/</div>";
       }

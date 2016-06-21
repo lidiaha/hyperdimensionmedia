@@ -6,7 +6,7 @@
 
    </div>
    <?php
-      include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+      include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
       $conn = dbconn();
    ?>
    <?php

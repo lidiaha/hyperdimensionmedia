@@ -6,7 +6,7 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("how to activate");
        ?>
    </head>

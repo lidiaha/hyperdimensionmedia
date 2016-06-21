@@ -6,7 +6,7 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("device categories");
        ?>
    </head>
@@ -16,7 +16,7 @@
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
                <?php
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   $conn = dbconn();
                   $sql = "SELECT * FROM category WHERE type='device' ";
                   $result = $conn->query($sql);

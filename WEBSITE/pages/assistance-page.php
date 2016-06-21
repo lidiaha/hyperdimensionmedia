@@ -7,7 +7,7 @@
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/assisPage.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("assistance service");
        ?>
    </head>
@@ -18,8 +18,8 @@
             <div id="maincontent">
                <script>document.write(getBreadcrumbHtmlBar());</script>
                <?php
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   function printFaq($conn, $assistance_id) {

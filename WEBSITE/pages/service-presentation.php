@@ -7,7 +7,7 @@
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/SLpage.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("service presentation");
        ?>
    </head>
@@ -18,9 +18,9 @@
             <div id="maincontent">
                <script>document.write(getBreadcrumbHtmlBar());</script>
                <?php
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-mean-color.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-mean-color.php";
                   $conn = dbconn();
 
                   $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);

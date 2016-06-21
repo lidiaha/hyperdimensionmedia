@@ -6,7 +6,7 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("promotion description");
        ?>
    </head>
@@ -17,8 +17,8 @@
             <div id="maincontent">
                <script>document.write(getBreadcrumbHtmlBar());</script>
                <?php
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
 
                   function getSLServiceID($conn, $promo_id) {
                      $sql = "SELECT * FROM service_promo WHERE promo_id='$promo_id' ";

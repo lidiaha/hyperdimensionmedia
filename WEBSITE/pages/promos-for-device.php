@@ -7,7 +7,7 @@
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("related promotions");
        ?>
    </head>
@@ -17,7 +17,7 @@
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
                <?php
-                  include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   $conn = dbconn();
 
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
