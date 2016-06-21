@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
       <link rel="stylesheet" type="text/css" href="/style/SLpage.css">
       <link rel="stylesheet" type="text/css" href="/style/transitionpage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <?php
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("related smartlife");
+       ?>
    </head>
    <body>
       <div id="supercontainer">
@@ -34,12 +37,12 @@
                         $service_id= $row["id"];
                         $name = $row["name"];
                         $description = $row["description"];
-								echo "<div class='dummyheader'></div>\n";
-								echo "<div class='serviceitem'>";
+                        echo "<div class='dummyheader'></div>\n";
+                        echo "<div class='serviceitem'>";
                         echo "<div class='header' style='background-image: url(\"/pictures/products/servicesbanners/$service_id.jpg\")'>\n";
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='description'><p>$description</p></div>\n";
-								echo "<div class=' info'><a class='more' href='/pages/service-presentation.php?service_id=$service_id'> Scopri </a></div>\n";
+                        echo "<div class=' info'><a class='more' href='/pages/service-presentation.php?service_id=$service_id'> Scopri </a></div>\n";
                         echo "</div></div>\n";
                         echo "<div class='doorstopper'></div>\n";
                      }

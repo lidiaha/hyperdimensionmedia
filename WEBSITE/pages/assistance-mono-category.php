@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
       <link rel="stylesheet" type="text/css" href="/style/assistances.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <?php
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("single assistance category");
+       ?>
       <script>
       <?php
          echo "var category_id = " . $_GET["category"] . ";\n";

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
       <link rel="stylesheet" type="text/css" href="/style/assistancepage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/assisPage.js"></script>
+      <?php
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("assistance service");
+       ?>
    </head>
    <body>
       <div id="supercontainer">
@@ -25,8 +28,8 @@
                         echo "query error";
                      }
                      else {
-								if($result->num_rows!=0){
-								   echo "<fieldset class='faqbox'><legend>FAQ</legend><div class='faqinnerbox'>\n";
+                        if($result->num_rows!=0){
+                           echo "<fieldset class='faqbox'><legend>FAQ</legend><div class='faqinnerbox'>\n";
                            while($row = $result->fetch_assoc()) {
                               $question = $row["question"];
                               $_answer = $row["answer"];
@@ -35,8 +38,8 @@
                               echo "<div class='faq_question'>$question</div>\n";
                               echo "<div class='faq_answer'>$answer</div>\n</div>\n";
                            }
-								echo "</div></fieldset>\n";
-								}
+                        echo "</div></fieldset>\n";
+                        }
                      }
                   }
 
@@ -52,9 +55,9 @@
                         $name = $row["name"];
                         $description = $row["description"];
                         echo "<div class='name'>$name</div>\n";
-								echo "<div class='products'> Scopri i prodotti interessati </div>";
+                        echo "<div class='products'> Scopri i prodotti interessati </div>";
                         echo "<div class='description'><p>$description</p></div>\n";
-                        printFaq($conn, $assistance_id); 
+                        printFaq($conn, $assistance_id);
                         echo "<div class='doorstopper'></div>\n";
                      }
                      echo "\n";

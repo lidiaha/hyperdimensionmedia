@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
       <link rel="stylesheet" type="text/css" href="/style/promotionslist.css">
       <link rel="stylesheet" type="text/css" href="/style/transitionpage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <?php
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("related promotions");
+       ?>
    </head>
    <body>
       <div id="supercontainer">

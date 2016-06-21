@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css">
       <link rel="stylesheet" type="text/css" href="/style/list.css">
       <link rel="stylesheet" type="text/css" href="/style/transitionpage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <?php
+         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("related devices");
+       ?>
    </head>
    <body>
       <div id="supercontainer">
@@ -33,8 +36,8 @@
                      while($row = $result->fetch_assoc()) {
                         $device_id= $row["id"];
                         $name = $row["name"];
-								echo "<div class='dummyheader'></div>\n";
-								echo "<div class='item'>";
+                        echo "<div class='dummyheader'></div>\n";
+                        echo "<div class='item'>";
                         echo "<div class='pic' style='background-image: url(\"/pictures/products/devices/$device_id.jpg\")'></div>\n";
                         echo "<div class='name'><a href='/pages/device-presentation.php?device_id=$device_id' >$name</a></div>\n";
                         echo "</div>\n";
