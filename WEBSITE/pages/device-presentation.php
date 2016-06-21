@@ -41,6 +41,7 @@
                <div class="car"> Caratteristiche tecniche</div>
             </div>
             <div id="maincontent">
+               <script>document.write(getBreadcrumbHtmlBar());</script>
                <?php
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";

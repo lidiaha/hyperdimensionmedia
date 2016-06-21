@@ -16,6 +16,7 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
+               <script>document.write(getBreadcrumbHtmlBar());</script>
                <?php
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";

@@ -30,3 +30,17 @@ function breadcrumbCurrentPage(name, url) {
    }
    Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
 }
+
+function getBreadcrumbHtmlBar() {
+   var code = "<div class=\"bcbar\">";
+   var curr;
+   for (var i=0; i<navHistory.length; i++) {
+      curr = navHistory[i];
+      code += "<div class=\"bcitem\"><a href=\"" + curr.url + "\">" + curr.name + "</a></div>";
+      if (i+1 < navHistory.length) {
+         code += "<div class=\"bcsep\">/</div>";
+      }
+   }
+   code += "</div>";
+   return code;
+}
