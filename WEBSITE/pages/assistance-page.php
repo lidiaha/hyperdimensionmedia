@@ -8,7 +8,7 @@
       <script src="/js/assisPage.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentify("assistance service");
+         pageIdentifyFromDB($_GET["id"],"assistance");
        ?>
    </head>
    <body>

@@ -8,7 +8,7 @@
       <script src="/js/SLpage.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentify("service presentation");
+         pageIdentifyFromDB($_GET["service_id"],"sl_services");
        ?>
    </head>
    <body>

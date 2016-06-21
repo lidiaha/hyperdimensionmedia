@@ -7,7 +7,7 @@
       <script src="/jslib/parallax.min.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentify("promotion description");
+         pageIdentifyFromDB($_GET["promo_id"],"promotions");
        ?>
    </head>
    <body>

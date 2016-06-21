@@ -11,9 +11,11 @@
       $sitename = "ulTIM8";
       echo "<title>$sitename - $name</title>\n";
    }
-   function pageIdentifyFromDB($id, $table) {
+   function pageIdentifyFromDB($_id, $_table) {
       $conn = dbconn();
-      $sql = "SELECT * FROM '$table' WHERE id='$id' ";
+      $id = mysqli_real_escape_string($conn, $_id);
+      $table = mysqli_real_escape_string($conn, $_table);
+      $sql = "SELECT * FROM `$table` WHERE id = '$id' ";
       $result = $conn->query($sql);
       if (!$result) {
          echo "query error";
