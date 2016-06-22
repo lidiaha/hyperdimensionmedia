@@ -31,3 +31,24 @@
    margin-left: -1px;
    margin-top: -3px;
 }
+
+.topsearchbar {
+   position: absolute;;
+   top: 50%;
+   right: 20px;
+   transform: translateY(-50%);
+   width: 25%;
+   height: 35px;
+   background-color: #ffffff;
+   border-radius: 17px;
+   box-sizing: border-box;
+   line-height: 35px;
+}
+
+.topsearchinput {
+   width: 80%;
+   color: #000000;
+   background: none;
+   border: none;
+   margin-left: 10px;
+}
