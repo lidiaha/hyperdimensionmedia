@@ -31,7 +31,7 @@
 
 .assis_category_label {
 	margin-left: 10px;
-   font-size: 30pt;
+   font-size: 22pt;
 }
 
 .assis_category_label::first-letter{
@@ -40,7 +40,7 @@
 
 .assis_subcategory_label {
 	margin-left: 10px;
-   font-size: 23pt;
+   font-size: 16pt;
 }
 
 .assis_subcategory_label::first-letter{
@@ -49,7 +49,7 @@
 
 .assis_subtopic_label {
 	margin-left: 10px;
-   font-size: 16pt;
+   font-size: 11pt;
 }
 
 .assis_subtopic_label::first-letter{
