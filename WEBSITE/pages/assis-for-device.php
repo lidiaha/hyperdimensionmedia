@@ -35,6 +35,20 @@
 								return false;
                      }
                   }
+						
+						function idToName($conn, $table, $id) {
+                     $sql = "SELECT * FROM $table WHERE id = '$id'";
+                     $result = $conn->query($sql);
+                     if (!$result) {
+                        echo "query error";
+                        return "error";
+                     } 
+						   else {
+                        while($r = mysqli_fetch_assoc($result)) {
+                        return $r["name"];
+                        }
+                     }
+                  }
                ?>
                <div class="gobackbar" onclick="location.href='/pages/device-presentation.php?device_id=<?php echo $device_id; ?>'">
                   <div class="arrowback"></div>
@@ -56,7 +70,18 @@
                            echo "query error";
                         }
                         else {
+									$ret = array();
 									while($row2 = $result2->fetch_assoc()) {
+										$cate = idToName($conn, "category", $row2["category"]);
+                              $subcate = idToName($conn, "assistance_subcategory", $row2["subcategory"]);
+                              $subtopic = idToName($conn, "assistance_subtopics", $row2["subtopic"]);
+
+                              if (!isset($ret[$cate])) { $ret[$cate] = array(); }
+                              if (!isset($ret[$cate][$subcate])) { $ret[$cate][$subcate] = array(); }
+                              if (!isset($ret[$cate][$subcate][$subtopic])) { $ret[$cate][$subcate][$subtopic] = array(); }
+
+                              array_push($ret[$cate][$subcate][$subtopic], $row2);
+										
 										$typetags2= $row2["typetags"];
 										$id_as= $row2["id"];
 										$name = $row2["name"];
