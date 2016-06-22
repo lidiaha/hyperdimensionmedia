@@ -114,8 +114,18 @@ function disableFromTop(topelem) {
 }
 
 $(document).ready(function() {
+	var open = false;
    $(".cate").find("a").click(function() {
       $(this).parent().find(".element").toggle();  // hidable-panels
+		
+		if(!open){
+		   $(this).parent().find("a").css("background-image", "url(/pictures/up.png)");
+			open = true;
+		}
+		else{
+			$(this).parent().find("a").css("background-image", "url(/pictures/down.png)");
+			open = false;
+		}
    });
    $(".cate").find("input").click(function() {
       enabled($(this));  // clickable checkboxes
