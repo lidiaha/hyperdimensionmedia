@@ -130,7 +130,7 @@
                            echo "</div>";
                            echo "<div id='link'>";
                            echo "<a href='/pages/SL-for-device.php?device_id=$device_id'> Servizi Smart Life</a><br>";
-                           echo "<a href='#'> Servizio di assistenza dedicato</a><br>";
+                           echo "<a href='/pages/assis-for-device.php?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
                            echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
                            echo "</div>";
                         }

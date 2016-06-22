@@ -19,7 +19,7 @@
                   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   $conn = dbconn();
                   $conn2 = dbconn();
-						$array = array();
+						
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
 						
 						function findMatch($tags, $tags2 , $id) {
@@ -27,11 +27,11 @@
                         foreach($tags as $tag){
                            foreach($tags2 as $tag){
 									   if($tag==$tag2){
-											array_push($array, $id);
-											break;
+											return true;
 										}
 									}
                         }
+								return false;
                      }
                   }
                ?>
@@ -58,9 +58,12 @@
 									while($row2 = $result2->fetch_assoc()) {
 										$typetags2= $row2["typetags"];
 										$id_as= $row2["id"];
+										$name = $row2["name"];
                               $tags2 = explode(";",$typetags2);
-								      findMatch($tags, $tags2, $id_as);
-										
+								      if(findMatch($tags, $tags2, $id_as)){
+											echo "<div class=\"assis_item\"><a href=\"/pages/assistance-page.php?id=\"$id_as\">$name</a></div>";
+										}	
+								   }
 								}
                         echo "<div class='doorstopper'></div>\n";
                      }
