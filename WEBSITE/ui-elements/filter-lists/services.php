@@ -7,7 +7,7 @@
    if (!isset($filter_category)) {
  ?>
 <div class="cate">
-   <a href="#"> <div class="sub">Categoria </div></a>
+   <a> <div class="sub">Categoria </div></a>
    <div class= "element">
       <?php
          $sql = "SELECT * FROM category WHERE type='smartlife'";
@@ -58,7 +58,7 @@
          $cat_id = $row["id"];
  ?>
  <div class="cate">
-    <a href="#"> <div class="sub">Categorie di <?php echo $category; ?> </div></a>
+    <a> <div class="sub">Categorie di <?php echo $category; ?> </div></a>
     <div class= "element">
  <?php
          getSubcate($conn, $cat_id);

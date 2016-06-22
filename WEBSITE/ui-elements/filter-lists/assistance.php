@@ -7,7 +7,7 @@
    if (!isset($filter_category)) {
  ?>
 <div class="cate">
-   <a href="#"> <div class="sub">Categoria </div></a>
+   <a> <div class="sub">Categoria </div></a>
    <div class= "element">
       <?php
          $sql = "SELECT * FROM category WHERE type='assistance'";
@@ -29,7 +29,7 @@
    }
  ?>
  <div class="cate">
-    <a href="#"> <div class="sub">Tipologia </div></a>
+    <a> <div class="sub">Tipologia </div></a>
     <div class= "element">
        <?php
           $sql = "SELECT * FROM assistance_subcategory";
@@ -48,7 +48,7 @@
     </div>
  </div>
  <div class="cate">
-    <a href="#"> <div class="sub">Argomento </div></a>
+    <a> <div class="sub">Argomento </div></a>
     <div class= "element">
       <?php
           $sql = "SELECT * FROM assistance_subtopics";

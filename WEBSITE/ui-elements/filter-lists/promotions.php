@@ -1,5 +1,5 @@
 <div class="cate">
-   <a href="#"> <div class="sub">Prezzo </div></a>
+   <a> <div class="sub">Prezzo </div></a>
    <div class= "element">
       <span><input class="item price" data-high="5" type="checkbox" name="price" value="<= 5 €"><label><span></span><= 5 €</label><br></span>
       <span><input class="item price" data-low="5" data-high="15" type="checkbox" name="price" value="5-15 €"><label><span></span>5-15 €</label><br></span>
@@ -9,7 +9,7 @@
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Durata </div></a>
+   <a> <div class="sub">Durata </div></a>
    <div class= "element">
       <span><input class="item price" data-high="0" type="checkbox" name="duration" value="< 0 mesi"><label><span></span>indefinita</label><br></span>
       <span><input class="item price" data-low="1" data-high="6" type="checkbox" name="duration" value="1-6 mesi"><label><span></span>1-6 mesi</label><br></span>

@@ -7,7 +7,7 @@
    if (!isset($filter_category)) {
  ?>
 <div class="cate">
-   <a href="#"> <div class="sub">Categoria </div></a>
+   <a> <div class="sub">Categoria </div></a>
    <div class= "element">
       <?php
          $sql = "SELECT * FROM category WHERE type='device'";
@@ -29,7 +29,7 @@
    }
  ?>
 <div class="cate">
-   <a href="#"> <div class="sub">Tipologia </div></a>
+   <a> <div class="sub">Tipologia </div></a>
    <div class= "element">
       <?php
          if (isset($filter_category)) {
@@ -59,7 +59,7 @@
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Prezzo </div></a>
+   <a> <div class="sub">Prezzo </div></a>
    <div class= "element">
       <span><input class="item price" data-high="150" type="checkbox" name="price" value="< 150 €"><label><span></span>< 150 €</label><br></span>
       <span><input class="item price" data-low="150" data-high="200" type="checkbox" name="price" value="150-200 €"><label><span></span>150-200 €</label><br></span>
@@ -70,7 +70,7 @@
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Marca </div></a>
+   <a> <div class="sub">Marca </div></a>
    <div class= "element">
       <?php
          if (isset($filter_category)) {
@@ -92,7 +92,7 @@
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Sistema Operativo </div></a>
+   <a> <div class="sub">Sistema Operativo </div></a>
    <div class= "element">
       <?php
          if (isset($filter_category)) {
@@ -114,14 +114,14 @@
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Acquisto </div></a>
+   <a> <div class="sub">Acquisto </div></a>
    <div class= "element">
       <span><input class="item" type="checkbox" name="acquisto" value="vendita"><label><span></span>vendita</label><br></span>
       <span><input class="item" type="checkbox" name="acquisto" value="a rate"><label><span></span>a rate</label><br></span>
    </div>
 </div>
 <div class="cate">
-   <a href="#"> <div class="sub">Connessione </div></a>
+   <a> <div class="sub">Connessione </div></a>
    <div class= "element">
       <?php
          if (isset($filter_category)) {
