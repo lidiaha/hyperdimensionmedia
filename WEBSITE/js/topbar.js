@@ -28,6 +28,8 @@ function enableclose() {
 }
 
 $(document).ready(function() {
-   enableopen();
-   enableclose();
+   if (parseInt($(window).width()) > 480) {
+      enableopen();
+      enableclose();
+   }
 });

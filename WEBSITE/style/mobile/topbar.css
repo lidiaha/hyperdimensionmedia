@@ -1,9 +1,8 @@
 #topbar {
-   position: fixed;
+   position: relative;
    top: 0px;
    left: 0px;
    width: 100%;
-   height: 110px;
    z-index: 10;
 }
 .bluepart {
@@ -12,33 +11,51 @@
    left: 0px;
    width: 100%;
    height: 55px;
-   background-color: #2b78e4;
+   background-color: #8de42b;
 }
 .landmarkitem {
-   width: 16.666%;
-   height: 55px;
-   line-height: 55px;
-   box-sizing: border-box;
-   display: inline-block;
    border: solid 2px #000000;
    background-color: #ffffff;
    cursor: pointer;
+}
+
+.listandalone {
+   width: 100%;
+   height: 55px;
+   line-height: 55px;
+   display: inline-block;
+   box-sizing: border-box;
    text-align: center;
 }
+
+.liparent {
+   width: 100%;
+   height: 55px;
+   box-sizing: content-box;
+}
+
+.liparent > div {
+   width: 50%;
+   text-align: center;
+   float: left;
+   line-height: 55px;
+}
+
 .lidropdown {
-   display: none;
-   position: absolute;
-   margin-left: -1px;
-   margin-top: -3px;
+   width: 50%;
+   height: 55px;
+   line-height: 55px;
+   box-sizing: border-box;
+   float: left;
 }
 
 .topicon {
    position: absolute;
    top: 50%;
-   margin-left: 20px;
+   margin-left: 5px;
    transform: translateY(-50%);
-   height: 55px;
-   width: 55px;
+   height: 40px;
+   width: 40px;
    background-size: contain;
    background-repeat: no-repeat;
    cursor: pointer;
@@ -52,16 +69,16 @@
    position: absolute;
    left: 50%;
    top: 50%;
-   height: 40px;
-   line-height: 40px;
+   height: 30px;
+   line-height: 30px;
    transform: translate(-50%,-50%);
-   font-size: 20pt;
+   font-size: 15pt;
    cursor: pointer;
 }
 
 .toptimlogo {
-   width: 40px;
-   height: 40px;
+   width: 30px;
+   height: 30px;
    background-image: url('/pictures/logo.png');
    background-repeat: no-repeat;
    background-size: contain;
@@ -73,16 +90,16 @@
    top: 50%;
    right: 20px;
    transform: translateY(-50%);
-   width: 25%;
-   height: 35px;
+   width: 15%;
+   height: 45px;
    background-color: #ffffff;
-   border-radius: 17px;
+   border-radius: 23px;
    box-sizing: border-box;
-   line-height: 35px;
+   line-height: 45px;
 }
 
 .topsearchinput {
-   width: 75%;
+   width: 55%;
    color: #000000;
    background: none;
    border: none;

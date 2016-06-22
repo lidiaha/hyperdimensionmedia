@@ -1,4 +1,6 @@
-<link rel="stylesheet" type="text/css" href="/style/topbar.css">
+<link rel="stylesheet" type="text/css" href="/style/topbar.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" type="text/css" href="/style/mobile/topbar.css" media="screen and (max-width: 480px)">
+
 <script src="/js/topbar.js"></script>
 <!-- element with class "ddstay" are part of a dropdown. -->
 <!-- element with class "lidropdown" contain the "collapsable content" of a dropdown . -->
@@ -8,14 +10,14 @@
       <div class="timhome" onclick="location.href='/index.php'"><div class="toptimlogo"></div>TIM Home</div>
       <div class="topsearchbar"><input class="topsearchinput" type="textbox" value="fake search..."></div>
    </div>
-   <div class="landmarkitem ddstay"><div onclick="location.href='/pages/SL-services.php'">Smart Life</div>
+   <div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/SL-services.php'">Smart Life</div>
       <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/smartlife-categories.php'">Servizi SL per categoria</div></div>
-   </div><div class="landmarkitem ddstay"><div onclick="location.href='/pages/devices.php'">Prodotti</div>
+   </div><div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/devices.php'">Prodotti</div>
       <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/device-categories.php'">Prodotti per categoria</div></div>
-   </div><div class="landmarkitem" onclick="location.href='/pages/promotions.php'">Promozioni
-   </div><div class="landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-services.php'">Assistenza</div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/promotions.php'">Promozioni
+   </div><div class="liparent landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-services.php'">Assistenza</div>
       <div class="lidropdown landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-categories.php'">Assistenza per categoria</div></div>
-   </div><div class="landmarkitem">Chi Siamo
-   </div><div class="landmarkitem" onclick="location.href='/pages/thegroup.php'">Il Gruppo</div>
+   </div><div class="listandalone landmarkitem">Chi Siamo
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/thegroup.php'">Il Gruppo</div>
 
 </div>
