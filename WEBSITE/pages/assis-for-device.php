@@ -3,6 +3,7 @@
    <head>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
+		<link rel="stylesheet" type="text/css" href="/style/assistances.css" media="screen and (min-width: 480px)">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
@@ -25,7 +26,7 @@
 						function findMatch($tags, $tags2 , $id) {
                      if($tags!=null){
                         foreach($tags as $tag){
-                           foreach($tags2 as $tag){
+                           foreach($tags2 as $tag2){
 									   if($tag==$tag2){
 											return true;
 										}
@@ -40,7 +41,7 @@
                   <div class="labelback">Torna al prodotto</div>
                </div>
                <?php
-                  $sql = "SELECT typetags FROM devices WHERE device_id='$device_id'";
+                  $sql = "SELECT typetags FROM devices WHERE id='$device_id'";
                   $result = $conn->query($sql);
                   if (!$result) {
                      echo "query error";
@@ -61,7 +62,7 @@
 										$name = $row2["name"];
                               $tags2 = explode(";",$typetags2);
 								      if(findMatch($tags, $tags2, $id_as)){
-											echo "<div class=\"assis_item\"><a href=\"/pages/assistance-page.php?id=\"$id_as\">$name</a></div>";
+											echo "<div class='assis_item'><a href=\"/pages/assistance-page.php?id=$id_as\">$name</a></div>";
 										}	
 								   }
 								}
