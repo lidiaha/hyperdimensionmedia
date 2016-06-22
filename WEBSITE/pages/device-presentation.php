@@ -14,16 +14,16 @@
          $(document).ready(function() {
             $(".pre").click(function() {
                $(this).parents().find(".presentazione").show();
-               $(this).parent().find(".pre").css("background-color","white");
-               $(this).parent().find(".pre").css("border-right","0px");
+               $(this).css("background-color","white");
+               $(this).css("border-right","0px");
                $(this).parents().find(".caratteristiche").hide();
                $(this).parent().find(".car").css("background-color","grey");
                $(this).parent().find(".car").css("border-right","1px black solid");
             });
             $(".car").click(function() {
                $(this).parents().find(".caratteristiche").show();
-               $(this).parent().find(".car").css("background-color","white");
-               $(this).parent().find(".car").css("border-right","0px");
+               $(this).css("background-color","white");
+               $(this).css("border-right","0px");
                $(this).parents().find(".presentazione").hide();
                $(this).parent().find(".pre").css("background-color","grey");
                $(this).parent().find(".pre").css("border-right","1px black solid");
