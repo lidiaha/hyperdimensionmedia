@@ -32,8 +32,44 @@
    margin-top: -3px;
 }
 
+.topicon {
+   position: absolute;
+   top: 50%;
+   margin-left: 20px;
+   transform: translateY(-50%);
+   height: 55px;
+   width: 55px;
+   background-size: contain;
+   background-repeat: no-repeat;
+   cursor: pointer;
+}
+
+.iconcart {
+   background-image: url('/pictures/shopping_cart.png');
+}
+
+.timhome {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   height: 40px;
+   line-height: 40px;
+   transform: translate(-50%,-50%);
+   font-size: 20pt;
+   cursor: pointer;
+}
+
+.toptimlogo {
+   width: 40px;
+   height: 40px;
+   background-image: url('/pictures/logo.png');
+   background-repeat: no-repeat;
+   background-size: contain;
+   float: left;
+}
+
 .topsearchbar {
-   position: absolute;;
+   position: absolute;
    top: 50%;
    right: 20px;
    transform: translateY(-50%);
