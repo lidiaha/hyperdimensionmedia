@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
 		<link rel="stylesheet" type="text/css" href="/style/assistances.css" media="screen and (min-width: 480px)">
@@ -20,9 +21,9 @@
                   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
                   $conn = dbconn();
                   $conn2 = dbconn();
-						
+
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
-						
+
 						function findMatch($tags, $tags2 , $id) {
                      if($tags!=null){
                         foreach($tags as $tag){
@@ -35,14 +36,14 @@
 								return false;
                      }
                   }
-						
+
 						function idToName($conn, $table, $id) {
                      $sql = "SELECT * FROM $table WHERE id = '$id'";
                      $result = $conn->query($sql);
                      if (!$result) {
                         echo "query error";
                         return "error";
-                     } 
+                     }
 						   else {
                         while($r = mysqli_fetch_assoc($result)) {
                         return $r["name"];
@@ -81,14 +82,14 @@
                               if (!isset($ret[$cate][$subcate][$subtopic])) { $ret[$cate][$subcate][$subtopic] = array(); }
 
                               array_push($ret[$cate][$subcate][$subtopic], $row2);
-										
+
 										$typetags2= $row2["typetags"];
 										$id_as= $row2["id"];
 										$name = $row2["name"];
                               $tags2 = explode(";",$typetags2);
 								      if(findMatch($tags, $tags2, $id_as)){
 											echo "<div class='assis_item'><a href=\"/pages/assistance-page.php?id=$id_as\">$name</a></div>";
-										}	
+										}
 								   }
 								}
                         echo "<div class='doorstopper'></div>\n";
