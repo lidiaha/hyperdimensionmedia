@@ -2,7 +2,7 @@
    position: relative;
    width: 760px;
    height: 100%;
-   margin: auto;
+   margin: 0px auto 0px 22%;
    background-color: rgba(53, 99, 16, 0.5);
 }
 #contentwrapper {
