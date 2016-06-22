@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>ulTIM8</title>
-      <link rel="stylesheet" type="text/css" href="/style/home.css">
+      <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/devices.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <?php
+         include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
+         pageIdentify("all devices");
+       ?>
+      <script>
+         var is_monocategory = false;
+      </script>
       <script src="/js/devices.js"></script>
    </head>
    <body>
@@ -17,7 +24,8 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.html"; ?>
+      <?php $filter_flavor = "devices"; ?>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>
 </html>

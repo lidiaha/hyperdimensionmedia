@@ -1,0 +1,17 @@
+.noresults {
+   width: 100%;
+   display: inline-block;
+}
+.noresults_picture {
+   position: relative;
+   width: auto;
+   height: auto;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.noresults_caption {
+   width: 100%;
+   text-align: center;
+   font-size: 50px;
+}

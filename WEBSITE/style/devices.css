@@ -12,21 +12,40 @@
 .devicename {
    position: relative;
    width: 100%;
-   height: 10%;
+   /*height: 10%;*/
    text-align: center;
    font-size: 16pt;
+   z-index: 6;
 }
 .devicepic {
-   position: relative;
+   position: absolute;
    width: 100%;
    height: 80%;
+   bottom: 10%;
    background-position: center center;
+   z-index: 5;
+}
+
+.devicerate{
+   position: absolute;
+   bottom: 5px;
+   margin-left: 0px;
+   margin-top: -20px;
+   padding-left: 5px;
+   float: left;
+   width: 60px;
+   height: 40px;
+   background-color: Tomato;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+   z-index: 6;
 }
 .deviceprice {
-   position: relative;
+   position: absolute;
    width: 100%;
    height: 10%;
    text-align: center;
+   bottom: 0px;
 }
 
 .doorstopper {

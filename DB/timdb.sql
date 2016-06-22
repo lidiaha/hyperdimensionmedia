@@ -16,6 +16,123 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `assist_faq`
+--
+
+DROP TABLE IF EXISTS `assist_faq`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assist_faq` (
+  `id` int(11) NOT NULL,
+  `id_assistance` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `question` varchar(5000) NOT NULL,
+  `answer` varchar(5000) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_assist_faq_1_idx` (`id_assistance`),
+  CONSTRAINT `fk_assist_faq_1` FOREIGN KEY (`id_assistance`) REFERENCES `assistance` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assist_faq`
+--
+
+LOCK TABLES `assist_faq` WRITE;
+/*!40000 ALTER TABLE `assist_faq` DISABLE KEYS */;
+INSERT INTO `assist_faq` VALUES (1,1,1,'Come leggo la fattura della linea fissa?','Nella prima pagina trovi:\n\n   * i dati principali dell’intestatario della linea di casa e della fattura\n   * il riepilogo degli abbonamenti attivi \n   * un box informativo con le proposte commerciali personalizzate relative a  offerte, prodotti, servizi \n    l’informazione sulla modalità di pagamento (bollettino, addebito su conto corrente o su carta di credito)\n   * lo stato dei pagamenti\n   * una guida veloce che riporta, attraverso semplici icone, i riferimenti per entrare in contatto con TIM: App MyTIM Fisso per Smartphone e Tablet, sito www.tim.it (registrandoti alla sezione MyTIM Fisso), Social Network (Facebook, Youtube, Twitter, Google+), Servizio clienti 187, Negozi TIM.\n\nNella pagina del “Dettaglio dei costi”  le voci sono riordinate secondo una logica più vicina alle tue esigenze:  \n\n   * prima trovi gli eventuali “Importi Una Tantum” cioè quelli straordinari da pagare una sola volta, \n   * poi gli “Abbonamenti” (canoni delle offerte/prodotti/servizi attivi), \n   * segue la descrizione “Telefonate e contenuti” (consumi di traffico, sms, contenuti digitali come video on demand, ebook, ecc) \n   * ed infine la voce “Altri importi” (spese di produzione e spedizione fatture, le rate dei prodotti, le indennità di ritardato pagamento, interessi legali e moratori, consegna elenchi telefonici).');
+INSERT INTO `assist_faq` VALUES (2,1,2,'Che vantaggi ho con la fattura online?','Con la fattura online puoi:\n\n   * avere chiarimenti sul significato delle voci in fattura\n   * visualizzare il dettaglio di tutte le tue telefonate ed analizzarle utilizzando i filtri per tipo di chiamata, offerta, data, numero chiamato, fascia oraria, durata e costo;\n   * inviare segnalazioni al Servizio Clienti (ad es. segnalazione di errato addebito del traffico, richiesta di abilitazione di un servizio, ecc.) ottenendo la risposta in tempi brevi.\n   * inviare la fattura sulla tua casella emai\n   * visualizzare e scaricare in formato excel i grafici del tuo traffico');
+INSERT INTO `assist_faq` VALUES (3,1,3,'Vorrei cambiare l’indirizzo e-mail su cui ricevere il messaggio della disponibilità online della mia fattura. Come posso fare?','Accedi con la tua username e password nella sezione “MyTIM Fisso” →  \"Il mio profilo → “Gestione Profilo\" e quindi clicca su “Gestione email” che si trova sulla stessa riga della voce \"Email\": qui potrai modificare l’indirizzo e-mail su cui ricevere il messaggio della disponibilità online della tua fattura, inserendone uno nuovo o selezionando come principale uno di quelli già presenti');
+/*!40000 ALTER TABLE `assist_faq` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assistance`
+--
+
+DROP TABLE IF EXISTS `assistance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assistance` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subcategory` int(11) NOT NULL,
+  `subtopic` int(11) NOT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_assistance_1_idx` (`category`),
+  KEY `fk_assistance_2_idx` (`subcategory`),
+  KEY `fk_assistance_3_idx` (`subtopic`),
+  CONSTRAINT `fk_assistance_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_assistance_2` FOREIGN KEY (`subcategory`) REFERENCES `assistance_subcategory` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_assistance_3` FOREIGN KEY (`subtopic`) REFERENCES `assistance_subtopics` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assistance`
+--
+
+LOCK TABLES `assistance` WRITE;
+/*!40000 ALTER TABLE `assistance` DISABLE KEYS */;
+INSERT INTO `assistance` VALUES (1,'Come leggere la fattura della linea fissa',11,1,1,'La fattura della linea fissa è semplice e facile da leggere perché disegnata prendendo spunto dai suggerimenti dei clienti. La veste grafica, moderna e raffinata, utilizza un linguaggio sempre più chiaro per l’esposizione delle voci di spesa, facilitando la lettura di tutte le informazioni di cui hai bisogno e garantendo maggiore trasparenza nei contenuti e negli importi.');
+INSERT INTO `assistance` VALUES (2,'Configurazione Mail su iPad',12,2,2,'							<div class=\"cont-row\"> 								<div class=\"col-sm-12\"> 										 										 										 										 										 										 											<p>Per aggiungere il tuo account di posta Alice su iPad, tocca dal menu l\'icona <strong>Impostazioni</strong>:</p><p><img alt=\"http://assistenzatecnica.telecomitalia.it/at/ShowBinary?nodePath=/AT_REPOSITORY/Serbatoio/common/images/sg/help/upload/ipa/ipad_imp\" src=\"/pictures/assistance/2/0.jpeg\" style=\"width: 76px; height: 77px;\"></p><p>Nelle <strong>Impostazioni</strong>:</p><ul>	<li>scegli la voce <strong>E-mail, contatti, calendari</strong></li>	<li>quindi <strong>Aggiungi account... </strong>sulla destra</li>	<li>dall\'elenco dei provider vai su <strong>Altro</strong>:</li></ul><p align=\"center\"><img alt=\"http://assistenzatecnica.telecomitalia.it/at/ShowBinary?nodePath=/AT_REPOSITORY/Serbatoio/common/images/sg/help/upload/ipa/ipad_mail\" src=\"/pictures/assistance/2/1.jpeg\" style=\"width: 500px; height: 377px;\"></p><ul>	<li>tocca l\'opzione <strong>Aggiungi account Mail</strong></li>	<li>compila i campi con i tuoi dati della casella di posta Alice:	<ul>		<li><strong>Nome</strong>: inserisci un nome a tua scelta;</li>		<li><strong>Indirizzo</strong>: il tuo indirizzo completo del dominio @alice.it;</li>		<li><strong>Password</strong>: digita la tua password di posta;</li>		<li><strong>Descrizione</strong>: inserisci un nome per specificare questo account (Alice, Casa, Ufficio, ...).</li>	</ul>	</li>	<li>tocca infine il tasto <strong>Salva</strong>:</li></ul><p align=\"center\"><img alt=\"http://assistenzatecnica.telecomitalia.it/at/ShowBinary?nodePath=/AT_REPOSITORY/Serbatoio/common/images/sg/help/upload/ipa/ipad_mail_1b\" src=\"/pictures/assistance/2/2.jpeg\"></p><p>L\'iPad nei passaggi successivi <strong>verifica automaticamente </strong>l\'esistenza dell\'account e il corretto funzionamento dei server di posta in entrata ed in uscita (\'Cerco account\' e \'Verifico\').</p><ul>	<li>Al termine della verifica potresti visualizzare il seguente avviso, in questo caso tocca il tasto <strong>Si </strong>per completare la configurazione:</li></ul><p align=\"center\"><img alt=\"http://assistenzatecnica.telecomitalia.it/at/ShowBinary?nodePath=/AT_REPOSITORY/Serbatoio/common/images/sg/help/upload/ipa/ipad_mail_4\" src=\"/pictures/assistance/2/3.jpeg\"></p><p>Per accedere alla casella di posta tocca l\'icona <strong>Mail </strong>dal menu principale e seleziona il tuo account.</p><p><img alt=\"http://assistenzatecnica.telecomitalia.it/at/ShowBinary?nodePath=/AT_REPOSITORY/Serbatoio/common/images/sg/help/upload/ipa/ipad_tasto_mail\" src=\"/pictures/assistance/2/4.jpeg\"></p><p><strong>Se riscontri difficoltà nell\'invio dei messaggi, seleziona di seguito la voce \'Gestione posta in uscita SMTP\'</strong>.</p><p><strong>N.B. </strong>iPad configura in automatico <strong>per la ricezione dei messaggi</strong> della tua casella Alice&nbsp;il <strong>protocollo</strong> <strong>IMAP </strong>che permette di mantenere sincronizzato lo stato della tua&nbsp;mail&nbsp;con il server di posta; in questo modo anche l\'eliminazione dei tuoi messaggi dal server avviene solo quando effettui la cancellazione da iPad. <strong>Ti consigliamo di mantenere questa impostazione sul tuo tablet</strong>.</p><p>Se hai necessità di configurare la ricezione dei messaggi&nbsp;tramite protocollo <strong>POP3 </strong>segui le indicazioni riportate di seguito alla voce \'Gestione POP3\'.</p><p>Se trovi comunque difficoltà nella configurazione, ti informiamo che è disponibile il nostro servizio di assistenza a pagamento <a href=\"http://assistenzatecnica.telecomitalia.it/at/portals/assistenzatecnica.portal?_nfpb=true&amp;_pageLabel=SOS_SolutionsBook&amp;nodeId=/AT_REPOSITORY/596110&amp;radice=consumer_root\"><strong>SOS PC</strong></a>: il personale tecnico concorderà un <strong>intervento personalizzato</strong> per configurare in maniera ottimale il tuo iPad.</p> 								</div> 								<br clear=\"all\"> 							</div> 						</div>');
+/*!40000 ALTER TABLE `assistance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assistance_subcategory`
+--
+
+DROP TABLE IF EXISTS `assistance_subcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assistance_subcategory` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assistance_subcategory`
+--
+
+LOCK TABLES `assistance_subcategory` WRITE;
+/*!40000 ALTER TABLE `assistance_subcategory` DISABLE KEYS */;
+INSERT INTO `assistance_subcategory` VALUES (1,'fisso');
+INSERT INTO `assistance_subcategory` VALUES (2,'mobile');
+INSERT INTO `assistance_subcategory` VALUES (3,'cosa puoi fare online');
+/*!40000 ALTER TABLE `assistance_subcategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assistance_subtopics`
+--
+
+DROP TABLE IF EXISTS `assistance_subtopics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `assistance_subtopics` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assistance_subtopics`
+--
+
+LOCK TABLES `assistance_subtopics` WRITE;
+/*!40000 ALTER TABLE `assistance_subtopics` DISABLE KEYS */;
+INSERT INTO `assistance_subtopics` VALUES (1,'fatture e pagamenti');
+INSERT INTO `assistance_subtopics` VALUES (2,'configurare la posta');
+/*!40000 ALTER TABLE `assistance_subtopics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `category`
 --
 
@@ -27,7 +144,7 @@ CREATE TABLE `category` (
   `name` varchar(100) NOT NULL,
   `type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +158,15 @@ INSERT INTO `category` VALUES (2,'tablet e computer','device');
 INSERT INTO `category` VALUES (3,'modem e networking','device');
 INSERT INTO `category` VALUES (4,'tv e smartliving','device');
 INSERT INTO `category` VALUES (5,'outlet','device');
+INSERT INTO `category` VALUES (6,'tv e entertainment','smartlife');
+INSERT INTO `category` VALUES (7,'salute e benessere','smartlife');
+INSERT INTO `category` VALUES (8,'casa e famiglia','smartlife');
+INSERT INTO `category` VALUES (9,'servizi alla persona','smartlife');
+INSERT INTO `category` VALUES (10,'gestione linea e servizi','assistance');
+INSERT INTO `category` VALUES (11,'controllo costi e pagamenti','assistance');
+INSERT INTO `category` VALUES (12,'supporto tecnico e configurazione','assistance');
+INSERT INTO `category` VALUES (13,'smart life','assistance');
+INSERT INTO `category` VALUES (14,'in evidenza','assistance');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +197,93 @@ INSERT INTO `connectiontypes` VALUES (4,'GSM');
 INSERT INTO `connectiontypes` VALUES (5,'USB');
 INSERT INTO `connectiontypes` VALUES (6,'Ethernet');
 INSERT INTO `connectiontypes` VALUES (7,'ADSL');
+INSERT INTO `connectiontypes` VALUES (8,'micro USB');
+INSERT INTO `connectiontypes` VALUES (9,'NFC');
+INSERT INTO `connectiontypes` VALUES (10,'Bluetooth');
 /*!40000 ALTER TABLE `connectiontypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `device_installments`
+--
+
+DROP TABLE IF EXISTS `device_installments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `device_installments` (
+  `dev_id` int(11) NOT NULL,
+  `inst_num` int(11) DEFAULT NULL,
+  `inst_amount` decimal(12,2) DEFAULT NULL,
+  `require_landline` tinyint(4) NOT NULL,
+  PRIMARY KEY (`dev_id`),
+  CONSTRAINT `fk_device_installments_1` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `device_installments`
+--
+
+LOCK TABLES `device_installments` WRITE;
+/*!40000 ALTER TABLE `device_installments` DISABLE KEYS */;
+INSERT INTO `device_installments` VALUES (4,36,15.00,1);
+INSERT INTO `device_installments` VALUES (6,12,3.33,1);
+INSERT INTO `device_installments` VALUES (7,12,3.33,1);
+INSERT INTO `device_installments` VALUES (9,24,5.00,1);
+INSERT INTO `device_installments` VALUES (10,36,10.28,1);
+INSERT INTO `device_installments` VALUES (12,36,22.22,1);
+/*!40000 ALTER TABLE `device_installments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `device_promo`
+--
+
+DROP TABLE IF EXISTS `device_promo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `device_promo` (
+  `device_id` int(10) NOT NULL,
+  `promo_id` int(10) NOT NULL,
+  PRIMARY KEY (`device_id`,`promo_id`),
+  KEY `fk_device_promo_2_idx` (`promo_id`),
+  CONSTRAINT `fk_device_promo_1` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_device_promo_2` FOREIGN KEY (`promo_id`) REFERENCES `promotions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `device_promo`
+--
+
+LOCK TABLES `device_promo` WRITE;
+/*!40000 ALTER TABLE `device_promo` DISABLE KEYS */;
+INSERT INTO `device_promo` VALUES (14,1);
+/*!40000 ALTER TABLE `device_promo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `device_service`
+--
+
+DROP TABLE IF EXISTS `device_service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `device_service` (
+  `device_id` int(10) NOT NULL,
+  `service_id` int(10) NOT NULL,
+  PRIMARY KEY (`device_id`,`service_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `device_service`
+--
+
+LOCK TABLES `device_service` WRITE;
+/*!40000 ALTER TABLE `device_service` DISABLE KEYS */;
+INSERT INTO `device_service` VALUES (14,1);
+/*!40000 ALTER TABLE `device_service` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -95,6 +307,32 @@ CREATE TABLE `devicecolors` (
 
 LOCK TABLES `devicecolors` WRITE;
 /*!40000 ALTER TABLE `devicecolors` DISABLE KEYS */;
+INSERT INTO `devicecolors` VALUES (1,'#f2f2f2');
+INSERT INTO `devicecolors` VALUES (2,'#363460');
+INSERT INTO `devicecolors` VALUES (2,'#ffffff');
+INSERT INTO `devicecolors` VALUES (3,'#9d9d9d');
+INSERT INTO `devicecolors` VALUES (3,'#d9d9d9');
+INSERT INTO `devicecolors` VALUES (3,'#ebd8ce');
+INSERT INTO `devicecolors` VALUES (3,'#f5e2a2');
+INSERT INTO `devicecolors` VALUES (4,'#000000');
+INSERT INTO `devicecolors` VALUES (4,'#00e2ff');
+INSERT INTO `devicecolors` VALUES (4,'#f5e293');
+INSERT INTO `devicecolors` VALUES (4,'#ffffff');
+INSERT INTO `devicecolors` VALUES (5,'#3d3d3d');
+INSERT INTO `devicecolors` VALUES (6,'#ffffff');
+INSERT INTO `devicecolors` VALUES (7,'#a15c92');
+INSERT INTO `devicecolors` VALUES (7,'#bfd22e');
+INSERT INTO `devicecolors` VALUES (7,'#ff0000');
+INSERT INTO `devicecolors` VALUES (7,'#ffffff');
+INSERT INTO `devicecolors` VALUES (8,'#494949');
+INSERT INTO `devicecolors` VALUES (9,'#e6e6e6');
+INSERT INTO `devicecolors` VALUES (10,'#000000');
+INSERT INTO `devicecolors` VALUES (10,'#ffffff');
+INSERT INTO `devicecolors` VALUES (11,'#000000');
+INSERT INTO `devicecolors` VALUES (12,'#fefcfc');
+INSERT INTO `devicecolors` VALUES (13,'#ff0000');
+INSERT INTO `devicecolors` VALUES (13,'#ffffff');
+INSERT INTO `devicecolors` VALUES (14,'#000000');
 /*!40000 ALTER TABLE `devicecolors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +359,58 @@ CREATE TABLE `deviceconnect` (
 
 LOCK TABLES `deviceconnect` WRITE;
 /*!40000 ALTER TABLE `deviceconnect` DISABLE KEYS */;
+INSERT INTO `deviceconnect` VALUES (1,1);
+INSERT INTO `deviceconnect` VALUES (1,5);
+INSERT INTO `deviceconnect` VALUES (1,6);
+INSERT INTO `deviceconnect` VALUES (1,7);
+INSERT INTO `deviceconnect` VALUES (2,1);
+INSERT INTO `deviceconnect` VALUES (2,3);
+INSERT INTO `deviceconnect` VALUES (2,8);
+INSERT INTO `deviceconnect` VALUES (2,9);
+INSERT INTO `deviceconnect` VALUES (2,10);
+INSERT INTO `deviceconnect` VALUES (3,1);
+INSERT INTO `deviceconnect` VALUES (3,3);
+INSERT INTO `deviceconnect` VALUES (4,1);
+INSERT INTO `deviceconnect` VALUES (4,3);
+INSERT INTO `deviceconnect` VALUES (4,8);
+INSERT INTO `deviceconnect` VALUES (4,9);
+INSERT INTO `deviceconnect` VALUES (4,10);
+INSERT INTO `deviceconnect` VALUES (5,1);
+INSERT INTO `deviceconnect` VALUES (5,3);
+INSERT INTO `deviceconnect` VALUES (5,9);
+INSERT INTO `deviceconnect` VALUES (5,10);
+INSERT INTO `deviceconnect` VALUES (8,1);
+INSERT INTO `deviceconnect` VALUES (8,3);
+INSERT INTO `deviceconnect` VALUES (8,10);
 /*!40000 ALTER TABLE `deviceconnect` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `devicegiga`
+--
+
+DROP TABLE IF EXISTS `devicegiga`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `devicegiga` (
+  `dev_id` int(11) NOT NULL,
+  `gigabytes` int(11) NOT NULL,
+  PRIMARY KEY (`dev_id`,`gigabytes`),
+  CONSTRAINT `fk_devicegiga_1` FOREIGN KEY (`dev_id`) REFERENCES `devices` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `devicegiga`
+--
+
+LOCK TABLES `devicegiga` WRITE;
+/*!40000 ALTER TABLE `devicegiga` DISABLE KEYS */;
+INSERT INTO `devicegiga` VALUES (3,16);
+INSERT INTO `devicegiga` VALUES (3,64);
+INSERT INTO `devicegiga` VALUES (4,32);
+INSERT INTO `devicegiga` VALUES (4,64);
+/*!40000 ALTER TABLE `devicegiga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -136,15 +425,16 @@ CREATE TABLE `devices` (
   `name` varchar(200) NOT NULL,
   `description` varchar(5000) NOT NULL,
   `tech_specs` varchar(5000) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
+  `price` decimal(15,2) NOT NULL,
   `type` int(11) NOT NULL,
   `brand` varchar(45) NOT NULL,
   `os` varchar(45) NOT NULL,
   `purchase` varchar(45) NOT NULL,
+  `typetags` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_devices_1_idx` (`type`),
   CONSTRAINT `fk_devices_1` FOREIGN KEY (`type`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +443,20 @@ CREATE TABLE `devices` (
 
 LOCK TABLES `devices` WRITE;
 /*!40000 ALTER TABLE `devices` DISABLE KEYS */;
-INSERT INTO `devices` VALUES (1,'Modem ADSL Wi-Fi','Navigazione veloce e senza fili\n\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l\'interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\n\n    Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione.\n    Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\n    Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\n    Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\n    Risparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo.\n\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).','Tecnologia\n\nADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up\n\n\nWi-Fi\n\nWi-Fi 802.11 b/g/n; velocità di trasferimento fino a 300Mbps\n\n\nInterfacce\n\nInterfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps\n\n\nProtezione Wireless\n\nWPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso\n\n\nFunzioni avanzate\n\nFunzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB\n\n\nAssistenza tecnica\n\n2 anni di garanzia sul prodotto\n\n\nContenuto della confezione\n\nGuida di installazione; CD autoinstallante (compatibile con Windows 7, Vista, XP- MacOS 10.3); 1 filtro ADSL 2+; 1 cavo Telefonico; 1 cavo Ethernet',69,3,'TIM','Embedded','vendita');
+INSERT INTO `devices` VALUES (1,'Modem ADSL Wi-Fi','Navigazione veloce e senza fili\n\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l\'interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\n\n    Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione.\n    Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\n    Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\n    Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\n    Risparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo.\n\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).','Tecnologia\n\nADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up\n\n\nWi-Fi\n\nWi-Fi 802.11 b/g/n; velocità di trasferimento fino a 300Mbps\n\n\nInterfacce\n\nInterfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps\n\n\nProtezione Wireless\n\nWPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso\n\n\nFunzioni avanzate\n\nFunzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB\n\n\nAssistenza tecnica\n\n2 anni di garanzia sul prodotto\n\n\nContenuto della confezione\n\nGuida di installazione; CD autoinstallante (compatibile con Windows 7, Vista, XP- MacOS 10.3); 1 filtro ADSL 2+; 1 cavo Telefonico; 1 cavo Ethernet',69.00,3,'TIM','Embedded','vendita','modem');
+INSERT INTO `devices` VALUES (2,'LG K8','La nuova serie K di LG ti offre una gamma di smartphone che rispecchiano la tua personalità. LG K8 ti accompagna nei tuoi viaggi e ti sorprenderà con selfie dettagliati tutti da condividere con la velocità della rete 4G LTE\r\n\r\nDatti un tono! LG K8 ha un design che lascia a bocca aperta grazie al profilo del vetro smussato e alla forma arrotondata. In più è più ergonomico e garantisce una presa più salda grazie alla lavorazione della cover posteriore. \r\n\r\nCattura i le situazioni più divertenti della giornata con la fotocamera da 8 Megapixel. E\' sufficiente un tocco sul display e K8 mette a fuoco e scatta immediatamente. Anche per i selfie puoi contare sulla fotocamera frontale da 5 Megapixel con la funzione flash virtuale che illumina il tuo volto, così i tuoi selfie saranno illuminati come si deve, mentre tutti gli altri... scatteranno selfie scuri! \r\n\r\nGuarda le tue foto e i tuoi video sul display ampio da ben 5\".','Tecnologia\r\n\r\n4G cat.4/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\nPosteriore da 8 Mpxl con flash\r\n\r\n\r\nMemoria Interna\r\n\r\n8GB con Slot Memory Card Micro SD fino a 32GB\r\n\r\n\r\nProcessore\r\n\r\nProcessore QuadCore 1.3 GHz\r\n\r\n\r\nFormato SIM\r\n\r\nNano-sim\r\n\r\n\r\nAudio e Video\r\n\r\nVideo Recorder&Playback - MP3 Player - Radio FM\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria, Cavo dati USB, Manuale d’uso rapido, Auricolare stereo\r\n\r\nDimensioni\r\n\r\n144,6x71,5x8,7 mm\r\n\r\n\r\nPeso\r\n\r\n142 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 100 ore -  Conversazione fino a 240 min. ',179.90,1,'LG','android','vendita','smartphone');
+INSERT INTO `devices` VALUES (3,'Apple iPhone SE','Il telefono da 4\" più potente di sempre. iPhone SE riprende un design compatto di grande successo aggiungendovi due fotocamere evolute e una potenza di elaborazione incredibile.Disegnato per stare comodamente in mano e risultare piacevole al tatto, grazie alla finitura satinata del guscio in alluminio microsabbiato.\r\n\r\niPhone SE ha un display Retina da 4’’, chip A9 con archittetura a 64 bit di livello desktop, sensore di impronte digitali Touch ID, fotocamera iSight da 12MP, videocamera FaceTime HD con Retina flash, Live Photos e connessioni Wi-Fi e 4G veloci. E ancora, iOS 9 e iCloud.','Display\r\n\r\nRetina Multi-Touch widescreen retroilluminato LED da 4\" (diagonale) 1136x640 pixel a 326 ppi\r\n\r\n\r\nProcessore\r\n\r\nChip A9 con architettura a 64 bit, Coprocessore di movimento M9 integrato\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera iSight da 12 megapixel\r\n\r\n\r\nVideocamera\r\n\r\nFaceTime HD\r\n\r\n\r\nSensori\r\n\r\nSensore di impronte digitali Touch ID\r\n\r\n\r\nConnettivita\r\n\r\n4G LTE1\r\n\r\nSistemaOperativo\r\n\r\niOS 9 e iCloud\r\n\r\n\r\nColori\r\n\r\nDisponibile in Space Grey, Silver, Gold e Rose Gold',509.90,1,'apple','iOS','vendita','iphone;smartphone');
+INSERT INTO `devices` VALUES (4,'Samsung Galaxy S6','Traendo ispirazione dagli artisti della forma, come i mastri vetrai ed i fabbri di bottega, Samsung Galaxy S6 è il perfetto incontro di materiali finemente forgiati tra loro. Una rivelazione senza precedenti fatta non solo di straordinaria forma e dalle superfici lucenti, ma anche di eccellente sostanza con un ampio spettro di colori ancora più vibranti.\r\n\r\nOvunque tu sia potrai catturare al meglio ogni momento, ed ogni suo dettaglio, grazie alla fotocamera anteriore e posteriore di Samsung Galaxy S6, con risoluzione maggiore ed un obiettivo F1.9. Basterà un semplice doppio click per attivare la fotocamera e fissare i tuoi istanti, per sempre.','Tecnologia\r\n\r\n4G cat.6/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5.1” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\n16 Mpixel/Flash\r\n\r\n\r\nMemoria Interna\r\n\r\n32GB\r\n\r\n\r\nProcessore\r\n\r\nOctaCore: (QuadCore 2.1 Ghz+QuadCore 1.5 Ghz)\r\n\r\n\r\nFormato SIM\r\n\r\nNano\r\n\r\n\r\nVideo\r\n\r\nVideo Recorder&Playback\r\n\r\n\r\nMusica\r\n\r\nMP3 Player\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria - Cavo Dati MicroUSB - Auricolare stereo - Guida di riferimento rapido\r\n\r\n\r\nDimensioni\r\n\r\n143,4x 70,5x 6,8 mm\r\n\r\n\r\nPeso\r\n\r\n138 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 490 ore - Conversazione fino a 1020 min',639.90,1,'samsung','android','vendita;a rate','smartphone');
+INSERT INTO `devices` VALUES (5,'Huawei P9 Plus','L’esperienza di Huawei P9 si eleva ad un livello superiore con Huawei P9 Plus grazie al luminoso display da 5.5” e l’elegante corpo in metallo\r\n\r\nGrazie al perfetto connubio tra hardware e software di classe superiore della doppia fotocamera Leica, P9 Plus consente di catturare immagini di assoluta qualità senza rinunciare al design compatto ed elegante.','Tecnologia\r\n\r\nAbilitato tecnologia 4G/HSPA+/EDGE/GPRS Frequenze 850/900/1800/1900MHz\r\n\r\n\r\nConnettivita\r\n\r\n4G cat.4/HSPA+/EDGE/GPRS Frequenze 850/900/1800/1900Wi-Fi 802.11 a/b/g/n/ac Wi-Fi Direct, Bluetooth 4.1, NFC, Sensore d\'impronta\r\n\r\n\r\nGPS\r\n\r\nGPS Integrato, A-GPS, Glonass, BeiDou\r\n\r\n\r\nDisplay\r\n\r\nDisplay Full HD Amoled da 5.5’’’\r\n\r\n\r\nFotocamera\r\n\r\nDoppia Fotocamera Leica da 12 Mpxl Dual Flash + anteriore da 8 Mpxl\r\n\r\n\r\nMemoria Interna\r\n\r\n4GB, Micro SD fino a 128 GB\r\n\r\n\r\nProcessore\r\n\r\nProcessore Kirin 955 - Octa-Core (4x2,5 GHz + 4x1,8 GHz)\r\n\r\n\r\nIn dotazione\r\n\r\nSmartphone Auricolari stereo - Caricabatteria Cavo USB Type-C - Estrattore SIM Guida rapida\r\n\r\n\r\nDimensioni\r\n\r\n152.3 x 75.3 x 6.98 mm\r\n\r\n\r\nPeso\r\n\r\n162 grammi',749.90,1,'huawei','android','vendita','smartphone');
+INSERT INTO `devices` VALUES (6,'Sirio Maxi','Il nuovo Sirio Maxi è un telefono moderno, dotato di indicatore luminoso di chiamata in arrivo, ampio display grafico, rubrica e vivavoce.\r\n\r\nHa tasti grandi ed un ampio display, funziona senza batterie ed alimentatore anche in caso blackout, è elegante ed ergonomico, con il servizio \"CHI È\" attivo offre la possibilità di visualizzare il numero del chiamante.','Display\r\n\r\nAmpio schermo con caratteri grandi su tre righe - Visualizzazione del numero Chiamante (con CHI È attivo)\r\n\r\n\r\nTastierino\r\n\r\nTasti grandi e leggibili\r\n\r\n\r\nAvvisi\r\n\r\nIndicatore luminoso di chiamata in arrivo\r\n\r\n\r\nTecnologia\r\n\r\nFunziona senza batterie e alimentatore\r\nChiamata diretta (Baby Call) - Preselezione del numero con possibilità di correzione\r\n\r\n\r\nAudio\r\n\r\nVolume in ascolto regolabile con un singolo tasto (alto-basso) - Vivavoce con comodo regolatore di volume - Muto e Messa in attesa della chiamata con musica\r\n\r\n\r\nRubrica\r\n\r\nRubrica 125 contatti - 12 numeri programmabili in selezione abbreviata\r\n\r\n\r\nLingua\r\n\r\nMenu 8 lingue',39.90,1,'TIM','embedded','vendita;a rate','corded');
+INSERT INTO `devices` VALUES (7,'Sirio Classico','Con Sirio Classico torna il Telefono di casa, ma con quante novità!\r\n\r\nLe forme originarie sono state interpretate in modo profondamente innovativo creando delle aperture che donano all\'insieme eleganza e leggerezza e lo rendono adatto ad essere armoniosamente integrato in ogni ambiente.\r\n\r\nSirio Classico è anche un telefono moderno, dotato di display grafico, rubrica, vivavoce; un ottimo telefono e un oggetto d\'arredamento che rispetta l\'ambiente, perché non usa né batterie né alimentatore.\r\n\r\nE per la comodità delle telefonate domestiche abbiamo pensato anche ad un cavo cornetta extra lungo, ben oltre tre metri nella sua massima estensione.\r\n\r\nAcquista Sirio Classico direttamente su questo sito. Lo riceverai a casa tua in consegna gratuita.','Tipo di telefono\r\n\r\ncon filo\r\n\r\n\r\nDisplay\r\n\r\ngrafico a matrice di punti a due righe alfanumeriche\r\n\r\n\r\nData e ora a display\r\n\r\nsi\r\n\r\n\r\nLingue didponibili\r\n\r\nitaliano, inglese, francese, spagnolo, olandese, portoghese, tedesco\r\n\r\n\r\nSuoneria\r\n\r\n10 suonerie\r\n\r\n\r\nVolume suoneria\r\n\r\n3 livelli di volume + silenzioso\r\n\r\n\r\nVisualizzazione durata conversazione\r\n\r\nsi\r\n\r\n\r\nVisualizzazione numero chiamante\r\n\r\nsi, dopo aver attivato il servizio Chi è\r\n\r\n\r\nIdentificativo Chiamante\r\n\r\nlista ultime 20 chiamate perse/ricevute\r\n\r\n\r\nVivavoce\r\n\r\nsi\r\n\r\n\r\nAgenda\r\n\r\nno\r\n\r\n\r\nRubrica\r\n\r\n50 numeri e nomi\r\n\r\n\r\nSegreteria Telefonica\r\n\r\nno\r\n\r\n\r\nSveglia\r\n\r\nsi\r\n\r\n\r\nLettore carta SIM\r\n\r\nno\r\n\r\n\r\nTastiera\r\n\r\nnumerica + tasti funzione\r\n\r\n\r\nTasti dedicati sulla tastiera\r\n\r\ntasto vivavoce, tasto accesso a lista chiamate effettuate, tasto mute, tasto R\r\n\r\n\r\nRipetizione numeri\r\n\r\nultime 10 chiamate ricevute\r\n\r\n\r\nSelezione Rapida\r\n\r\nno\r\n\r\n\r\nTasto mute/attesa\r\n\r\nsì\r\n\r\n\r\nPreselezione\r\n\r\nsi\r\n\r\n\r\nFotocamera\r\n\r\nno\r\n\r\n\r\nInvio/ricezione SMS, e-mail e fax\r\n\r\nno\r\n\r\n\r\nInvio/ricezione MMS\r\n\r\nno\r\n\r\n\r\nVIP List\r\n\r\nno\r\n\r\n\r\nGiochi\r\n\r\nno\r\n\r\n\r\nSicurezza\r\n\r\nno\r\n\r\n\r\nBatteria\r\n\r\nno\r\n\r\n\r\nRoom Monitoring\r\n\r\nno\r\n\r\n\r\nAltre funzioni\r\n\r\ntono tasti attivabile o disattivabile da menu\r\n\r\n\r\nDimensioni\r\n\r\n226 x 187 x 128 mm\r\n\r\n\r\nPeso\r\n\r\nbase + cornetta: 0.605 kg; prodotto e accessori: 0.992 kg\r\n\r\n\r\nContenuto confezione\r\n\r\ntelefono, cornetta telefonica, cavo di collegamento cornetta molto lungo (85 spire, allungabile fino a 360 cm), cavo di collegamento presa tripolare, spina di tipo tripolare',39.90,1,'TIM','embedded','vendita;a rate','corded');
+INSERT INTO `devices` VALUES (8,'Apple iPad Pro','Con iPad hai scoperto un mondo completamente nuovo, semplice e coinvolgente. Oggi iPad Pro, con la tecnologia Multi‑Touch perfezionata, il suo grande display Retina da 12,9\" e prestazioni della CPU quasi raddoppiate rispetto a iPad Air 2, è pronto ad allargare ancora una volta i tuoi orizzonti. Non è solo più grande. È un iPad che ti permetterà di lavorare e creare in una dimensione tutta nuova, come non hai mai fatto prima.\n\nCon 5,6 milioni di pixel, iPad Pro ha il display Retina a più alta risoluzione mai visto su un dispositivo iOS. Montare video 4K, creare presentazioni, gestire un’azienda: sul display da 12,9\" tutto è più facile, veloce e coinvolgente. E con il Multi‑Touch riprogettato scoprirai nuovi modi per interagire con il tuo iPad.\n\nNonostante il suo grande display, iPad Pro è sorprendentemente sottile e leggero: solo 6,9 mm di spessore e appena 713 grammi. Grazie al guscio unibody, è anche resistente e ben bilanciato. Ma forse l’aspetto più incredibile di iPad Pro è un altro: è talmente comodo che quasi ti dimentichi di averlo in mano','Sistema Operativo \r\n\r\niOS 9\r\n\r\n\r\nDisplay\r\n\r\nRetina Display 12.9” (2732x2048)\r\n\r\n\r\nSensori\r\n\r\nimpronte digitali Touch ID\r\n\r\n\r\nProcessore\r\n\r\nco-processore M9\r\n\r\n\r\nFotocamera\r\n\r\niSight da 8MP\r\n\r\n\r\nVideocamera\r\n\r\nFaceTime HD\r\n\r\n\r\nConnettivita\r\n\r\nLTE /HSDPA-DC 42.2/HSUPA 5.76/, Wi-Fi 802.11a/b/g/n/ac e MIMO, Bluetooth 4.2\r\n\r\n\r\nBatteria\r\n\r\nFino a 10 ore di autonomia',1249.90,2,'apple','iOS','vendita','tablet;ipad');
+INSERT INTO `devices` VALUES (9,'D-Link SmartHome Starter Kit ','Con lo Smart Home HD Starter Kit potrai impostare, controllare, monitorare e automatizzare la tua casa ovunque ti trovi.\r\n\r\nNel Kit sono inclusi:\r\n\r\n    Un Monitor HD (DCS-935L) \r\n    Un Wi-Fi Motion Sensor (DCH-S150)\r\n    Una smart plug (DSP-W215) \r\n\r\nTramite l\'App mydlink Home per smartphone e tablet hai a disposizione il controllo di tutti i dispositivi così da semplificarti la gestione della casa rendendola più sicura e intelligente.','Accensione e spegnimento dei dispositivi\r\n\r\nAccendi o spegni i dispositivi usando la app mydlink™ Home sul tuo smartphone o tablet iOS o Android, ovunque ti trovi.\r\n\r\n\r\nPianificazione\r\n\r\nCrea pianificazioni di accensione/ spegnimento per far funzionare i tuoi elettrodomestici quando vuoi.\r\nProtezione degli elettrodomestici\r\nIl sensore termico integrato spegne \r\nautomaticamente le prese elettriche \r\nsurriscaldate, così non avrai pensieri.\r\n\r\n\r\nRimani al corrente\r\n\r\nInvia avvisi automatici per informare che un elettrodomestico è stato acceso o spento, quando viene raggiunto il limite di consumo energetico o se un elettrodomestico non funziona correttamente e si surriscalda.\r\n\r\n\r\nVisualizzazione da qualsiasi luogo\r\n\r\nVisualizza in modo sicuro usando \r\nInternet attraverso il tuo smartphone \r\no tablet. Funziona con smartphone e \r\ntablet iOS e Android attraverso la app \r\nmydlink™ Home1.\r\n\r\n\r\nAlta definizione\r\n\r\nControlla la tua casa in HD 720p. \r\nGuarda tutto nel dettaglio, persino \r\nquando l\'immagine è ingrandita.\r\n\r\n\r\nVisione notturna\r\n\r\nLa funzione di visione notturna ti \r\nconsente di vedere fino a 5 metri \r\nanche in completa oscurità\r\n\r\n\r\nRilevazione di movimento e suoni\r\n\r\nTi avvisa mediante notifica push \r\nogni volta che viene rilevato un \r\nmovimento o un suono.\r\n\r\n\r\nAmpia copertura\r\n\r\nRilevazione dei movimenti fino a 8 \r\nmetri (100° orizzontale/ 80° verticale).',159.90,4,'D-link','embedded','vendita;a rate','videocamera');
+INSERT INTO `devices` VALUES (10,'Apple Watch Sport 38','Ogni collezione di Apple Watch è realizzata con leghe speciali, studiate per unire estetica e robustezza. La cassa di Apple Watch Sport è in alluminio anodizzato color argento, grigio siderale, oro oppure oro rosa, mentre nei modelli Apple Watch è in acciaio inossidabile colore naturale o nero siderale. La cassa è disponibile in due misure: 38 mm e 42 mm. Abbiamo anche creato una gamma di cinturini intercambiabili in materiali esclusivi. Apple Watch usa tecnologie rivoluzionarie come la Digital Crown, il Taptic Engine e il Force Touch. E grazie a una batteria che dura fino a 18 ore, puoi usarlo tutto il giorno.','\r\n\r\nDisplay\r\n\r\nVetro Ion-X\r\n\r\nDisplay Retina con Force Touch\r\n\r\n\r\nSensori\r\n\r\nCardiofrequenzimetro\r\n\r\nAccelerometro\r\n\r\nGiroscopio\r\n\r\nSensore di luce ambientale\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi (802.11b/g/n a 2,4GHz)\r\n\r\nBluetooth 4.0\r\n\r\n\r\nBatteria\r\n\r\nFino a 18 ore di autonomia*\r\n\r\nResistenza all\'acqua\r\n\r\nSi',369.90,4,'Apple','iOS','vendita;a rate','smartwatch');
+INSERT INTO `devices` VALUES (11,'Samsung Galaxy TabPro S 12','DESIGN SOTTILE&LEGGERO\r\n\r\nGalaxy TabPro S rappresenta il perfetto connubio tra design e tecnologia. Estremamente sottile e leggero, stupisce per la ricercatezza dei dettagli e la qualità dei materiali.\r\nELEGANTE PROTEZIONE\r\n\r\nLa book cover protegge perfettamente Galaxy TabPro S, mantenendone intatta l\'eleganza.\r\nDISPLAY SUPER AMOLED\r\n\r\nGalaxy TabPro S è il primo prodotto Windows 10 al mondo dotato di display SUPER AMOLED. Lavorare in mobilità è davvero comodo, grazie al display touchscreen da 12 pollici. Indipendentemente dal contenuto visualizzato, che sia una immagine o un video, i colori e la brillantezza delle immagini saranno esaltate dalla definizione e dalla qualità del display SUPER AMOLED di Galaxy TabPro S\r\nINTRATTENIMENTO XBOX ONE GAME STREAMING\r\n\r\nCon questa rivoluzionaria funzione, utilizzando la stessa connessione WiFi, potrai giocare in streaming ai giochi della tua XBOX ONE direttamente su Galaxy TabPro S.','\r\n\r\nConnettivita\r\n\r\nUSB 3.1 (C-type), Bluetooth 4.1, Wi-Fi 802.11 802.11 a/b/g/n/ac (MIMO), GPS + GLONASS, NFC, Wi-Fi Direct, Connettore da 3.5 mm per auricolare, Scheda nanoSIM\r\n\r\n\r\nDisplay\r\n\r\nDisplay 12” FHD+, 2160x1440 SuperAmoled\r\n\r\n\r\nDimensioni\r\n\r\n290.3x198.8x6.3 mm\r\n\r\n\r\nPeso\r\n\r\n698 gr\r\n\r\n\r\nAutonomia\r\n\r\n600 minuti\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera (Front: 5 MP Back: 5 MP)\r\n\r\n\r\nFormati supportati\r\n\r\nVideo: MP4,3GP,WMV,ASF,AVI,MKV\r\nAudio: MP3,AAC,WAV,WMA,AMR,FLAC\r\n\r\n\r\nMemoria\r\n\r\n128GB SSD, 4GB di Ram\r\n\r\n\r\nProcessore\r\n\r\nProcessore Intel Core M3 (Dualcore 2.2 GHz)\r\n\r\n\r\nSistemaOperativo\r\n\r\nWindows 10 Pro\r\n\r\n\r\nApplicazioni\r\n\r\nMicrosoft Services: Maps, OneDrive, Windows Store, Music, Film & TV, Xbox, Money, Meteo, Notizie\r\nMicrosoft Apps: Word, Excel, PowerPoint, OneNote, Edge browser\r\nIntegrazione completa con il tuo Smartphone Galaxy (disponibile da fine Marzo 2016):\r\n- Autenticazione con impronte digitali\r\n- Sincronizzazione delle notifiche\r\n- Hotspot Wi-Fi automatico\r\n\r\n\r\nIn confezione\r\n\r\nCarica batteria, Cavo dati Usb, Manuale d’uso',1299.90,2,'samsung','windows','vendita','tablet;computer');
+INSERT INTO `devices` VALUES (12,'Samsung Galaxy View 18.4\" LTE','Design sottile e moderno\r\nLo stile essenziale e la cornice metallizzata esaltano il nuovo formato 4:3, donando a Galaxy View un look moderno e sofisticato, garantendo la massima maneggevolezza grazie ai 7,5 millimetri di spessore e solo 456 grammi di peso.\r\nEsperienza visiva ottimizzata\r\nProgettato per essere il tablet più portatile della categoria, Galaxy View non accetta compromessi, regalandoti uno schermo più ampio rispetto ad altri tablet. Un nuovo display, ideale per visualizzare in modo ottimale presentazioni, siti web, pubblicazioni, e-book ed e-mail.\r\nFoto perfette con Auto Focus\r\nLa fotocamera da 5 MP con messa a fuoco automatica permette di ottenere immagini sempre chiare e definite con la massima semplicità e in qualsiasi condizione. È anche possibile eseguire facilmente scansioni di codici QR e codici a barre migliorando l\'interazione con il mondo che ti circonda.\r\nInteressanti contenuti e servizi gratuiti\r\nL\'esperienza di GALAXY View è arricchita dai numerosi contenuti disponbili per te. Potrai leggere le tue riviste preferite grazie ai 6 mesi inclusi con MagBox e goderti un fantasitico e-book al mese per un anno con Kindle for Samsung.\r\nPrestazioni eccellenti\r\nGrazie al processore Quad Core da 1.2GHz, 2GB di RAM, alla versione più recente di Android Lollipop e alla funzione Multischermo, è il dispositivo perfetto per chi prova per la prima volta un Tablet e per chi cerca un prodotto performante.','\r\n\r\nConnettivita\r\n\r\nConnettività WirelessBluetooth 4.1, BLEWi-Fi 802.11 a/b/g/n/ac\r\n\r\n\r\nDisplay\r\n\r\nDisplay 18.4” TFT PLS ,1920x1080 Full HD\r\n\r\n\r\nDimensioni\r\n\r\n451,8x275,8x11,9 mm.\r\n\r\n\r\nPeso\r\n\r\n2,65 kg\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera (Front: 2.1 MP)\r\n\r\n\r\nFormati supportati\r\n\r\nLettore multimediale, aac,amr,awb,mp3,ogg,wav, DivX, XviD, MPEG4, VP8, H.263, H.264, H.265\r\n\r\n\r\nMemoria\r\n\r\nInterna 32GB (espandibile fino a 128GB)\r\n\r\n\r\nProcessore\r\n\r\nOctaCore da 1.6 GHzx\\\r\n\r\n\r\nSistemaOperativo\r\n\r\nAndroidTM 5.1 (Lollipop)\r\n\r\n\r\nIn confezione\r\n\r\nCarica batteria, Manuale d’uso\r\n\r\n\r\nApplicazioni\r\n\r\nAndroid Market, Google Mobile App, Youtube, Inserimento testo e ricerca vocale, E-mail, GPS Glonass, SMS/MMS,\r\n\r\n\r\nAutonomia\r\n\r\nfino a 8h in video play',799.90,2,'samsung','android','vendita;a rate','tablet');
+INSERT INTO `devices` VALUES (13,'Beats Solo2 On-Ear Headphones','Audio potenziato con la nuova qualità sonora Beats, il suono delle cuffie Solo2 è più nitido e più pulito e sprigiona una più vasta gamma di emozioni. Le cuffie Solo2 offrono un\'ampia gamma di frequenze alte e bassi profondi per un\'esperienza di ascolto equilibrata per tutti i generi musicali.\r\n\r\nVestibilità e stile: comfort, durevolezza e stile. Padiglioni curvati di 15 gradi per un comfort prolungato; la flessibilità rotazionale consente ai padiglioni di flettersi per una vestibilità ancor più personalizzata','\r\n\r\nDimensioni\r\n\r\n156 mm (larghezza)\r\n\r\n\r\nPeso\r\n\r\n205 gr.\r\n\r\n\r\nContenuto della confezione\r\n\r\nCavo RemoteTalk™, Custodia da viaggi',199.90,4,'Beats','embedded','vendita','casse');
+INSERT INTO `devices` VALUES (14,'Decoder TIMvision','Con il decoder TIMvision hai a disposizione più di 8.000 titoli tra cartoni, film, serie e documentari sempre on demand per creare il tuo palinsesto senza interruzioni pubblicitarie.\r\n\r\nTramite il telecomando puoi mettere in pausa il tuo film preferito e farlo ripartire quando decidi tu, puoi rivedere una scena o andare avanti.\r\n\r\nCollega il decoder alla tua linea ADSL Illimitata o Fibra Ottica di TIM per accedere:\r\n\r\n    al Videostore di TIMvision, dove ti aspettano tutti gli episodi delle migliori serie, dalle più famose alle più esclusive, i cartoni animati e le serie preferite per bambini e ragazzi, le anteprime più attese e tanti film mai visti in tv o da rivedere in lingua originale. Scegli tra oltre 6.000 titoli sempre aggiornati.\r\n    alla Replay TV di TIMvision, dove trovi tutti i programmi televisivi andati in onda negli ultimi 7 giorni sulle reti RAI (da tutti i dispositivi escluso streaming da web) e LA7 e l’archivio LA7\r\n    a YouTube, per vedere i video che vuoi direttamente dalla tua TV\r\n\r\nPuoi goderti la visione anche su Smart TV, su timvision.it e su app TIMvision per Smartphone, Tablet e PC, utilizzando le credenziali scelte al momento della registrazione al servizio TIMvision.','\r\n\r\nDimensioni (LxPxA)\r\n\r\n210 mm x 210 mm x 40 mm\r\n\r\nConfezione\r\n\r\nDecoder - Cavo alimentazione - Cavo HDMI - Telecomando universale - Batterie - Guida rapida all\'installazione\r\n\r\nProcessore\r\n\r\nProcessore Intel ATOM CE 4230\r\n\r\nMemoria\r\n\r\nRam 1 GByte DDR3\r\n\r\nConnettivita\r\n\r\nHDMI 1.3 - Video Composito - Uscita audio ottica digitale - Ethernet 10/100 BASE-T - 1 x USB 2.0 - Connessione Wireless 802.11 b/g/n (2.4GHz e 5GHz) - Ricevitore IR integrato per telecomando TIMvision\r\n\r\nFormati supportati\r\n\r\nAudio: MPEG-1 Layer I, II 2.0 - MPEG-1 Layer 3 (mp3) 2.0 - MPEG-4 AA-LC 2.0 - MPEG-4 AAC-LC 5.1 - MPEG-4 HE-AAC 5.1 - MPEG-4 BSAC 2.0 - LPCM 7.1 - WMA9 2.0 - WMA9 Pro 5.1\r\n\r\nVideo: MPEG-1 - MPEG-2 - MPEG-2@HL - MPEG-4.2 ASP@L5 (720p) - MPEG-4.10 (H.264) BP@L3 MP4@L4.0 e HIP@L4.0 - WMV9 MP@HL - SMPTE421 (VC-1) MP@HL Fotografici: JPEG - BMP - GIF - TIFF - PNG\r\n\r\n\r\nImpostazione intuitiva\r\n\r\nCollegamento al televisore: Il Decoder TIMvision può essere collegato al televisore mediante il cavo HDMI oppure mediante cavo analogico RCA-SCART (inclusi nella confezione)\r\n\r\nCollegamento alla rete ADSL: Il Decoder TIMvision può essere collegato alla rete mediante cavo Ethernet o mediante connessione Wi-Fi. Alla prima accensione una procedura guidata ti assisterà nella prima configurazione della tua connessione\r\n\r\n\r\nModalità Video PAL\r\n\r\n576p - 720p - 1080i - 1080p\r\n',49.00,4,'TIM','embedded','vendita','decoder;tim vision');
 /*!40000 ALTER TABLE `devices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,6 +496,122 @@ INSERT INTO `farms` VALUES (7,'Le Jardin EnchantÃ© du ChÃ¢teau Marquise Mira
 INSERT INTO `farms` VALUES (8,'Chateau des Allues','https://app.wwoof.fr/host/2631','Grenoble','','no','Vegetable Patch Permaculture',7);
 INSERT INTO `farms` VALUES (9,'Le Berghon','https://app.wwoof.fr/host/215','Briga marittima','','Bedroom','Permaculture Beekeeping Foraging Vegetable Patch',7);
 /*!40000 ALTER TABLE `farms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `promotions`
+--
+
+DROP TABLE IF EXISTS `promotions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `promotions` (
+  `id` int(10) NOT NULL,
+  `name` varchar(300) NOT NULL,
+  `price` int(10) NOT NULL,
+  `duration` int(10) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `subtitle` varchar(500) NOT NULL,
+  `table_code` mediumtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `promotions`
+--
+
+LOCK TABLES `promotions` WRITE;
+/*!40000 ALTER TABLE `promotions` DISABLE KEYS */;
+INSERT INTO `promotions` VALUES (1,'PROMO TIM VISION con decoder',5,0,'Con TIMvision puoi scegliere tra cinema, serie tv, cartoni e documentari, gli ultimi 7 giorni dei principali canali Rai, La7 e l’archivio La7, dove e quando vuoi.\r\n\r\nPiù di 8.000 titoli disponibili, sempre on demand, in un solo abbonamento mensile, per creare il tuo palinsesto senza interruzioni pubblicitarie.\r\n\r\nIn più, nella sezione Videostore, trovi gli ultimi successi cinematografici con un catalogo sempre aggiornato, da noleggiare o acquistare in qualsiasi momento anche senza abbonamento.\r\n\r\nPer non interrompere la tua maratona, puoi guardare TIMvision anche sul web, su smartphone e tablet senza consumare GB, e su Smart TV, inserendo le credenziali scelte al momento della registrazione al servizio.','Cartoni, cinema e serie TV, dove e quando vuoi','<table class=\"table table-striped table-hover \">\r\n	    \r\n	    <tbody>\r\n	    	\r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo di attivazione\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									nessuno\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<thead>\r\n	    	<tr>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Voci di Costo\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Costi di Listino\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Promozioni\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Note\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n		    </tr>\r\n	    </thead><td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Offerta TIMvision\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									10 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									5 €/mese con decoder incluso\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\" style=\"margin:0;\">Per tutti i Clienti con linea fissa TIM sia nuovi che già clienti che attivano TIMvision entro il 30/06/2016</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n	    </tbody>\r\n	</table>');
+INSERT INTO `promotions` VALUES (2,'TIM SMART FIBRA',19,12,'TIM SMART FIBRA è l’offerta completa per navigare senza limiti con l’ultravelocità della FIBRA. Ora anche con la TV ON demand.\r\n\r\n    connessione Internet per navigare da casa senza limiti fino a 100 Mega in download e fino a 20 Mega in upload, con SMART SUPERFIBRA gratuita per attivazioni entro il 31/07/2016. A Milano, Perugia, Bari e Catania fino a 300 Mega in download e fino a 20 Mega in upload. Verifica copertura.\r\n    linea telefonica\r\n    chiamate a 0 €/minuto verso tutti i numeri fissi e mobili nazionali (solo 19 cent alla risposta).\r\n    Smart Modem Wi-Fi in comodato d’uso\r\n    TIMvision, la TV sempre ON DEMAND','Fibra ultraveloce e chiamate','<table class=\"table table-striped table-hover \">\r\n	    <thead>\r\n	    	<tr>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Voci di costo\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Costi di listino\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Promozioni valide fino al 31/07/2016\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n			    	<th class=\"col-sm-3\">\r\n				    		\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n							\r\n								Note\r\n							\r\n						\r\n			    	</th>\r\n			    \r\n		    </tr>\r\n	    </thead>\r\n	    <tbody>\r\n	    	\r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo di attivazione Linea di casa\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									3,75 € per 24 mesi\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Il contributo è richiesto per Nuovi Impianti e Passaggi da Altro Operatore. È possibile il pagamento del contributo anche in un’unica soluzione al prezzo di 90 €.</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo di attivazione offerta TIM SMART FIBRA<br>per Nuovi Clienti\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									49 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									0 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Per Nuovi Impianti, Passaggi da Altro Operatore, per i già clienti con linea fissa TIM solo voce e per i già clienti con linea fissa TIM con ADSL illimitata che passano a FIBRA. Promozione subordinata alla sottoscrizione del servizio di domiciliazione bancaria o postale della fattura TIM entro 90 giorni dalla data di richiesta di attivazione dell’Offerta.</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo di attivazione offerta TIM SMART FIBRA<br>per Clienti TIM\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									98 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									49 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Per i clienti che hanno già una linea fissa TIM con offerte FIBRA. Promozione subordinata alla sottoscrizione del servizio di domiciliazione bancaria o postale della fattura TIM entro 90 giorni dalla data di richiesta di attivazione dell’Offerta.</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Abbonamento (comprensivo della Linea di casa TIM)\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									39,90 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									da <strong>19,90 €/mese per 12 mesi</strong>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">La promozione è valida per i clienti che attivano una nuova linea fissa TIM, per i clienti che provengono da Altri Operatori con linea fissa e per i Clienti TIM con linea fissa che non hanno l\'ADSL illimitata.</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Traffico Internet\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Incluso\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Chiamate dalla Linea di casa verso i numeri fissi e mobili nazionali\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									19 cent (scatto alla risposta)\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Altre tipologie di chiamate\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Vedi <a href=\"https://img.tim.it/sdr/documenti/assistenza/fisso/tariffe_base.pdf\">altre tipologie di chiamate</a>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									SMART MODEM\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Incluso\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Il prezzo di acquisto del modem in caso di cessazione dell\'offerta FIBRA e a seguito della mancata restituzione (art. 8 comma 6 delle Condizioni Generali di contratto) è di 25 € (IVA inclusa)</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Consegna SMART MODEM\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Inclusa\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo intervento del tecnico a casa\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									49 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									0 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">L’intervento del tecnico è gratuito per i clienti con nuovi impianti, passaggi da altro operatore e per i clienti già TIM linea fissa con offerte “solo voce” o Alice Voce o per chi sottoscrive SKY contestualmente al passaggio a Fibra.   L’intervento del tecnico è gratuito anche nei casi di collegamenti Fibra in modalità FTTH (fino a 300 Mega).</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Contributo di disattivazione in caso di cessazione linea FIBRA Ottica\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									99 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<strong>Opzioni</strong>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Abbonamento opzione SMART MOBILE\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									10 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Abbonamento opzione SMART VOCE CASA\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									10 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Abbonamento opzione  VOCE INTERNAZIONALE\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									10,16 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									5 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Per nuove richieste pervenute entro il 31/07/2016</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Noleggio decoder TIMVision\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									2 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">Offerta valida per tutti i clienti TIM che hanno richiesto TIM SMART dal 29/08/2015</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									FACILE Mini Duo\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									59,90 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									24 €<br>(1 €/mese per 24 mesi)\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									<p class=\"note\">La promozione è dedicata ai soli clienti che scelgono di attivare la linea Fibra senza l’ausilio del Tecnico al proprio domicilio; in tale caso il Cordless è parte integrante dell’offerta Fibra ed è in vendita promozionata. In tutti i casi di attivazione con Tecnico a domicilio, il telefono cordless è opzionale a prezzo pieno. Spese di consegna pari a 10,98 €</p>\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									Pronto PC\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									3,05 €/mese\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n			     <tr>\r\n			     	\r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									SOS PC al telefono\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n									29,95 €\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			         	<td>\r\n				         		\r\n								\r\n								\r\n								\r\n								\r\n								\r\n								\r\n							\r\n			         	</td>\r\n			        \r\n			     </tr>\r\n		    \r\n	    </tbody>\r\n	</table>');
+/*!40000 ALTER TABLE `promotions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_promo`
+--
+
+DROP TABLE IF EXISTS `service_promo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `service_promo` (
+  `service_id` int(10) NOT NULL,
+  `promo_id` int(10) NOT NULL,
+  PRIMARY KEY (`service_id`,`promo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_promo`
+--
+
+LOCK TABLES `service_promo` WRITE;
+/*!40000 ALTER TABLE `service_promo` DISABLE KEYS */;
+INSERT INTO `service_promo` VALUES (1,1);
+/*!40000 ALTER TABLE `service_promo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sl_services`
+--
+
+DROP TABLE IF EXISTS `sl_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sl_services` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subcategory` int(11) NOT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  `url` varchar(5000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_sl_services_1_idx` (`category`),
+  KEY `fk_sl_services_2_idx` (`subcategory`),
+  CONSTRAINT `fk_sl_services_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_sl_services_2` FOREIGN KEY (`subcategory`) REFERENCES `sl_subcategory` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sl_services`
+--
+
+LOCK TABLES `sl_services` WRITE;
+/*!40000 ALTER TABLE `sl_services` DISABLE KEYS */;
+INSERT INTO `sl_services` VALUES (1,'TIMvision',6,1,'Cartoni, cinema, serie tv, documentari e concerti sempre on demand per creare il tuo palinsesto senza pubblicità. Più di 8.000 titoli in un abbonamento, senza vincoli di durata, anche in HD','http://www.timvision.it/page/offerta');
+INSERT INTO `sl_services` VALUES (2,'TIM Sky',6,1,'Solo la nostra fibra e l’ADSL veloce ti portano SKY, senza parabola. TIM SKY, la prima offerta che ti dà chiamate, internet senza limiti e ti porta a casa lo spettacolo di SKY, senza parabola',NULL);
+INSERT INTO `sl_services` VALUES (3,'TIMmusic',6,2,'Tante playlist create per accompagnare ogni momento della tua giornata.\r\n\r\nTutte le novità discografiche nazionali e internazionali, spesso in anteprima esclusiva','http://www.timmusic.it/www/home');
+/*!40000 ALTER TABLE `sl_services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sl_subcategory`
+--
+
+DROP TABLE IF EXISTS `sl_subcategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sl_subcategory` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sl_subcategory`
+--
+
+LOCK TABLES `sl_subcategory` WRITE;
+/*!40000 ALTER TABLE `sl_subcategory` DISABLE KEYS */;
+INSERT INTO `sl_subcategory` VALUES (1,'TV');
+INSERT INTO `sl_subcategory` VALUES (2,'TIMmusic');
+INSERT INTO `sl_subcategory` VALUES (3,'TIMreading');
+INSERT INTO `sl_subcategory` VALUES (4,'TIMgames');
+INSERT INTO `sl_subcategory` VALUES (5,'Serie A TIM');
+/*!40000 ALTER TABLE `sl_subcategory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -278,4 +697,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-08 19:30:17
+-- Dump completed on 2016-06-22 17:10:09

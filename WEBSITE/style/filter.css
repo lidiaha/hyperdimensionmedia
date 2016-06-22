@@ -1,24 +1,39 @@
 .filter {
-   background-color: #FF6666;
+   background-color: MediumAquaMarine;
    position: fixed;
-   width: 250px;
-   left: 20px;
+   width: 19%;
+   left: 10px;
    top: 150px;
    border: black solid 2px;
+   display: block;
 }
 
-.filter > .choosen {
-	display:none;
+.title{
+   margin-left: 10px;
+   height: 25px;
+   line-height: 25px;
 }
+
 .cate > a {
    display: inline-block;
    width: 100%;
-   height: 16px;
-   padding-left: 20px;
+   min-height: 30px;
+   line-height: 20px;
+   text-decoration: none;
+   padding: 10px 0px 10px 20px;
+   box-sizing: border-box;
+	background-image: url(/pictures/down.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: contain;
 }
 
 .filter > .cate {
-   border: black 1px solid;
+   border-top: black 1px solid;
+}
+
+.cate > a:hover {
+   background-color: LightBlue;
 }
 
 .cate > .element {
@@ -27,6 +42,32 @@
    display: none;
 }
 
-.filter > .choosen > .cate-copy {
+span > label{
+   text-transform: capitalize;
+   margin-left: 5px;
+}
+
+.choosen > .spanblock {
+   display: block;
+   margin-left: 5px;
+}
+
+span > input[type="checkbox"] {
+    display:none;
+}
+span > input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url('/pictures/ui/check_radio_sheet.png') left top no-repeat;
+    cursor:pointer;
+}
+span > input[type="checkbox"]:checked + label span {
+    background:url('/pictures/ui/check_radio_sheet.png') -19px top no-repeat;
+}
+
+#filteropen {
    display: none;
 }

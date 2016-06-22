@@ -1,0 +1,73 @@
+.dummyheader {
+   position: relative;
+   width: 100%;
+   height: 30px;
+}
+
+.progress{
+	width: 100%;
+	height: 70px;
+	padding: 0px 30px;
+	box-sizing: border-box;
+}
+
+.step{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+.one{
+	margin-right: 30px;
+}
+
+.three{
+	margin-left: 40px;
+	
+}
+
+.label{
+	width: 100%;
+	height: 20px;
+	text-align: center;
+}
+
+.one > .circle{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: blue;
+	margin: auto;
+}
+
+.circle{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: white;
+	margin: auto;
+}
+
+.name{
+	width: 100%;
+	height: 15px;
+	text-align: center;
+}
+
+.bar{
+	width: 65%;
+	height: 10px;
+	margin-left: 95px;
+	position: absolute;
+	border: 3px black solid;
+	top: 57px;
+	z-index: -1;
+	background-color: white;
+}
+
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}
