@@ -131,4 +131,16 @@ $(document).ready(function() {
       label.attr("for", bindID);
    });
    $(".element").find("input").prop("checked", false);  // uncheck all the checkboxes
+
+
+   $("#filteropen").click(function() {
+      if (parseInt($(window).width()) <= 480) {
+         $(".filter").toggle();
+         if ($(".filter").css("display") == "block") {
+            $(this).html("chiudi filtro");
+         } else {
+            $(this).html("apri filtro");
+         }
+      }
+   });
 });
