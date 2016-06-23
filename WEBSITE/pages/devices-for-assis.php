@@ -39,7 +39,7 @@
                   }
 
                ?>
-               <div class="gobackbar" onclick="location.href='/pages/assistance-page.php?assistance_id=<?php echo $assistance_id; ?>'">
+               <div class="gobackbar" onclick="location.href='/pages/assistance-page.php?id=<?php echo $assistance_id; ?>'">
                   <div class="arrowback"></div>
                   <div class="labelback">Torna al servizio di assistenza</div>
                </div>

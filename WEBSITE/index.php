@@ -17,8 +17,27 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-               Device categories has her own home now!<br>
-               check it out from the landmark bar
+               <div class="banner"><div class="image"><div class="quote">Il futuro pensato Telecom Italia</div></div></div>
+					<div class="trending">
+					   <div class="top outlet">
+						   <div class="pic"></div>
+							<div class="name">Prodotti scontati</div>
+						</div>
+						<div class="top">
+						   <div class="pic"></div>
+							<div class="name">Internet senza limiti</div>
+						</div>
+						<div class="top">
+						   <div class="pic"></div>
+							<div class="name">Netflix</div>
+						</div>
+						<div class="top">
+						   <div class="pic"></div>
+							<div class="name">Tim Smart Fibra</div>
+						</div>
+				   </div> 
+					<div class="util">
+					</div>
             </div>
          </div>
       <!-- <div id="footer"> -->
