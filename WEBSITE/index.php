@@ -17,7 +17,7 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-               <div class="banner"><div class="image"><div class="quote">Il futuro pensato Telecom Italia</div></div></div>
+               <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/ElasticSlideshow/index2.html"; ?>
 					<div class="trending">
 					   <div class="top outlet">
 						   <div class="pic"></div>
