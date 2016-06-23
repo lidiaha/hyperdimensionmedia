@@ -71,7 +71,29 @@
                   <div class='quote'> <div class='text'>Tim Berners-Lee <br>"Quando si osserva il web è come se si osservasse l'intera umanità."
                   </div></div>
                </div>
-               <div class='progetti'> TODO</div>
+               <div class='progetti'>
+					   <div class='project'>
+						   <div class='name'>Expo 2015</div>
+							<div class='desc'>A Milano è nata la prima cloud digital smart city.
+    							Le tecnologie innovative e i servizi di telecomunicazioni di TIM hanno 
+								offerto ai visitatori di EXPO un’esperienza digitale unica e a 360°.
+							</div>
+						</div>
+						<div class='project'>
+						   <div class='name'>#TIMGIRLSHACKATHON</div>
+							<div class='desc'>La competizione tecnologica al femminile più cool del momento torna il 6
+							   aprile in quattro nuove città: Padova, Firenze, Cagliari, Bari.
+							</div>
+						</div>
+						<div class='project'>
+						   <div class='name'></div>
+							<div class='desc'></div>
+						</div>
+						<div class='project'>
+						   <div class='name'></div>
+							<div class='desc'></div>
+						</div>
+					</div>
                <div class="doorstopper"></div>
             </div>
          </div>

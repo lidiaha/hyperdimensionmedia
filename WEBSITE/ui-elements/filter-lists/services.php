@@ -58,7 +58,7 @@
          $cat_id = $row["id"];
  ?>
  <div class="cate">
-    <a> <div class="sub">Categorie di <?php echo $category; ?> </div></a>
+    <a> <div class="sub"><?php echo $category; ?> </div></a>
     <div class= "element">
  <?php
          getSubcate($conn, $cat_id);
