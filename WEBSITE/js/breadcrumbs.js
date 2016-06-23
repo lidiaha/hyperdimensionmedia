@@ -54,8 +54,11 @@ function getBreadcrumbHtmlBar() {
    var extraclass = "";
    for (var i=0; i<navHistory.length; i++) {
       curr = navHistory[i];
-      if (i+1 >= navHistory.length) extraclass = " bclast";
-      code += "<div class=\"bcitem" + extraclass +"\"><a href=\"" + curr.url + "\">" + curr.name + "</a></div>";
+      if (i+1 >= navHistory.length) {
+         code += "<div class=\"bcitem bclast" + extraclass +"\"><span>" + curr.name + "</span></div>";
+      } else {
+         code += "<div class=\"bcitem" + extraclass +"\"><a href=\"" + curr.url + "\">" + curr.name + "</a></div>";
+      }
       if (i+1 < navHistory.length) {
          code += "<div class=\"bcsep\">/</div>";
       }
