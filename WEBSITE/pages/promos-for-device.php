@@ -20,6 +20,7 @@
             <div id="maincontent">
                <?php
                   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
@@ -40,8 +41,9 @@
                         $name = $row["name"];
                         $price = $row["price"];
                         $subtitle = $row["subtitle"];
+                        $image = imageAutoExtension("/pictures/promoicons/", $row["id"]);
                         echo "<div class='promotionitem'>";
-                        echo "<div class='promopic' style=\"background: url('/pictures/promoicons/$promo_id.jpg') no-repeat; background-size: contain;\"></div>";
+                        echo "<div class='promopic' style=\"background: url('$image') no-repeat; background-size: contain;\"></div>";
                         echo "<div class='name'> $name </div>";
                         echo "<div class='subtitle'> $subtitle </div>";
                         echo "<div class='promoprice'> da $price €/mese</div>";

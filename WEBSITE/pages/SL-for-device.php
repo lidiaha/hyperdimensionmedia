@@ -20,6 +20,7 @@
             <div id="maincontent">
                <?php
                   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
@@ -39,9 +40,10 @@
                         $service_id= $row["id"];
                         $name = $row["name"];
                         $description = $row["description"];
+                        $image = imageAutoExtension("/pictures/products/servicesbanners/", $row["id"]);
                         echo "<div class='dummyheader'></div>\n";
                         echo "<div class='serviceitem'>";
-                        echo "<div class='header' style='background-image: url(\"/pictures/products/servicesbanners/$service_id.jpg\")'>\n";
+                        echo "<div class='header' style='background-image: url(\"$image\")'>\n";
                         echo "<div class='name'>$name</div>\n";
                         echo "<div class='description'><p>$description</p></div>\n";
                         echo "<div class=' info'><a class='more' href='/pages/service-presentation.php?service_id=$service_id'> Scopri </a></div>\n";

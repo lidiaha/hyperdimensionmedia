@@ -20,6 +20,7 @@
             <div id="maincontent">
                <?php
                   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+                  include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
                   $conn = dbconn();
 
                   $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
@@ -38,9 +39,10 @@
                      while($row = $result->fetch_assoc()) {
                         $device_id= $row["id"];
                         $name = $row["name"];
+                        $image = imageAutoExtension("/pictures/products/devices/", $row["id"]);
                         echo "<div class='dummyheader'></div>\n";
                         echo "<div class='item'>";
-                        echo "<div class='pic' style='background-image: url(\"/pictures/products/devices/$device_id.jpg\")'></div>\n";
+                        echo "<div class='pic' style='background-image: url(\"$image\")'></div>\n";
                         echo "<div class='name'><a href='/pages/device-presentation.php?device_id=$device_id' >$name</a></div>\n";
                         echo "</div>\n";
                         echo "<div class='doorstopper'></div>\n";
