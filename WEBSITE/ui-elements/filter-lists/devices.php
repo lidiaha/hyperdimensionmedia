@@ -17,7 +17,7 @@
          }
          else {
                while($row = $result->fetch_assoc()) {
-                  $category = $row["name"];
+                  $category = ucfirst($row["name"]);
                   $id = $row["id"];
                   echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
                }
@@ -52,7 +52,8 @@
                }
             }
             foreach ($tags as $tag) {
-               echo "<span><input class=\"item\" type=\"checkbox\" name=\"typology\" value=\"$tag\"><label><span></span>$tag</label><br></span>\n";
+               $label = ucfirst($tag);
+               echo "<span><input class=\"item\" type=\"checkbox\" name=\"typology\" value=\"$tag\"><label><span></span>$label</label><br></span>\n";
             }
          }
        ?>
@@ -85,7 +86,8 @@
          else {
             while($row = $result->fetch_assoc()) {
                $brand = $row["brand"];
-               echo "<span><input class=\"item\" type=\"checkbox\" name=\"brand\" value=\"$brand\"><label><span></span>$brand</label><br></span>\n";
+               $label = ucfirst($brand);
+               echo "<span><input class=\"item\" type=\"checkbox\" name=\"brand\" value=\"$brand\"><label><span></span>$label</label><br></span>\n";
             }
          }
        ?>
@@ -107,7 +109,8 @@
          else {
             while($row = $result->fetch_assoc()) {
                $os = $row["os"];
-               echo "<span><input class=\"item\" type=\"checkbox\" name=\"os\" value=\"$os\"><label><span></span>$os</label><br></span>\n";
+               $label = ucfirst($os);
+               echo "<span><input class=\"item\" type=\"checkbox\" name=\"os\" value=\"$os\"><label><span></span>$label</label><br></span>\n";
             }
          }
        ?>
@@ -116,8 +119,8 @@
 <div class="cate">
    <a> <div class="sub">Acquisto </div></a>
    <div class= "element">
-      <span><input class="item" type="checkbox" name="acquisto" value="vendita"><label><span></span>vendita</label><br></span>
-      <span><input class="item" type="checkbox" name="acquisto" value="a rate"><label><span></span>a rate</label><br></span>
+      <span><input class="item" type="checkbox" name="acquisto" value="vendita"><label><span></span>Vendita</label><br></span>
+      <span><input class="item" type="checkbox" name="acquisto" value="a rate"><label><span></span>A rate</label><br></span>
    </div>
 </div>
 <div class="cate">
@@ -138,6 +141,7 @@
          else {
             while($row = $result->fetch_assoc()) {
                $name = $row["name"];
+               $label = ucfirst($name);
                echo "<span><input class=\"item\" type=\"checkbox\" name=\"connect\" value=\"$name\"><label><span></span>$name</label><br></span>\n";
             }
          }

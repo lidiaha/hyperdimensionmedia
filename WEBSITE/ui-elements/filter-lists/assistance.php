@@ -17,7 +17,7 @@
          }
          else {
                while($row = $result->fetch_assoc()) {
-                  $category = $row["name"];
+                  $category = ucfirst($row["name"]);
                   $id = $row["id"];
                   echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
                }
@@ -39,7 +39,7 @@
           }
           else {
              while($row = $result->fetch_assoc()) {
-                $name = $row["name"];
+                $name = ucfirst($row["name"]);
                 $id = $row["id"];
                 echo "<span><input class=\"item\" type=\"checkbox\" name=\"type\" value=\"$id\"><label><span></span>$name</label><br></span>\n";
              }
@@ -58,7 +58,7 @@
           }
           else {
              while($row = $result->fetch_assoc()) {
-                $name = $row["name"];
+                $name = ucfirst($row["name"]);
                 $id = $row["id"];
                 echo "<span><input class=\"item\" type=\"checkbox\" name=\"topic\" value=\"$id\"><label><span></span>$name</label><br></span>\n";
              }

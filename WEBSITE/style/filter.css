@@ -1,6 +1,6 @@
 .filter {
    background-color: MediumAquaMarine;
-	opacity: 0.8;
+   opacity: 0.8;
    position: fixed;
    width: 19%;
    left: 10px;
@@ -23,14 +23,14 @@
    text-decoration: none;
    padding: 10px 0px 10px 20px;
    box-sizing: border-box;
-	background-image: url(/pictures/down.png);
-	background-repeat: no-repeat;
-	background-position: top right;
-	background-size: contain;
+   background-image: url(/pictures/down.png);
+   background-repeat: no-repeat;
+   background-position: top right;
+   background-size: contain;
 }
 
 .cate > a > .sub::first-letter{
-	text-transform: capitalize;
+   text-transform: capitalize;
 }
 
 .filter > .cate {
@@ -49,10 +49,6 @@
 
 span > label{
    margin-left: 5px;
-}
-
-span > label::first-letter{
-	text-transform: capitalize;
 }
 
 .choosen > .spanblock {
