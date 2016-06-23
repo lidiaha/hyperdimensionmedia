@@ -1,10 +1,10 @@
 .promotionitem {
    position: relative;
-   width: 30%;
+   width: 80%;
    height: 300px;
    float: left;
    background-color: #ffffff;
-   margin-left: 2.5%;
+   margin-left: 10%;
    margin-top: 25px;
    border: 3px solid black;
    box-sizing: border-box;
