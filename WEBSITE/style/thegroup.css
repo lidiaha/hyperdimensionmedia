@@ -97,7 +97,7 @@
 	position: relative;
    width: 45%;
    min-height: 120px;
-   float: left;
+   display: inline-table;
    background-color: #ffffff;
    margin-left: 2.5%;
    margin-top: 25px;
