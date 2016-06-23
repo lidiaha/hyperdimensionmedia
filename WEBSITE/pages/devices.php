@@ -4,7 +4,8 @@
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
-      <link rel="stylesheet" type="text/css" href="/style/devices.css">
+      <link rel="stylesheet" type="text/css" href="/style/devices.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/devices.css" media="screen and (max-width: 480px)">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php
