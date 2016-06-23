@@ -54,7 +54,6 @@
                         $subtitle = $row["subtitle"];
                         $table_code = $row["table_code"];
                         $image = imageAutoExtension("/pictures/promotionbanners/", $row["id"]);
-                        echo "<div class='dummyheader'></div>\n";
                         echo "<div class='header' style='background-image: url(\"$image\")'>\n";
                         echo "<div class='name'>$name</div>\n";
                         echo "<a href='/pages/how-to-activate.php'><div class='rules'>Come si attiva</div></a>\n";

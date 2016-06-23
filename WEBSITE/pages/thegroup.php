@@ -8,34 +8,7 @@
       <link rel="stylesheet" type="text/css" href="/style/thegroup.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
-      <script>
-         $(document).ready(function() {
-            $(".pro").click(function() {
-               $(this).parents().find(".progetti").show();
-               $(this).parent().find(".pro").css("background-color","grey");
-               $(this).parents().find(".testimonial").hide();
-               $(this).parent().find(".test").css("background-color","white");
-               $(this).parents().find(".innovation").hide();
-               $(this).parent().find(".inn").css("background-color","white");
-            });
-            $(".test").click(function() {
-               $(this).parents().find(".testimonial").show();
-               $(this).parent().find(".test").css("background-color","grey");
-               $(this).parents().find(".progetti").hide();
-               $(this).parent().find(".pro").css("background-color","white");
-               $(this).parents().find(".innovation").hide();
-               $(this).parent().find(".inn").css("background-color","white");
-            });
-            $(".inn").click(function() {
-               $(this).parents().find(".innovation").show();
-               $(this).parent().find(".inn").css("background-color","grey");
-               $(this).parents().find(".progetti").hide();
-               $(this).parent().find(".pro").css("background-color","white");
-               $(this).parents().find(".testimonial").hide();
-               $(this).parent().find(".test").css("background-color","white");
-            });
-         });
-      </script>
+		<script src="/js/thegroup.js"></script>
    </head>
    <body>
       <div id="supercontainer">

@@ -1,12 +1,7 @@
 @import url('reset.css');
 
 /* General Demo Style */
-body{
-	background: #fff;
-	color: #000;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 13px;
-}
+
 a{
 	color: #555;
 	text-decoration: none;
