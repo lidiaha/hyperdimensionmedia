@@ -1,26 +1,43 @@
+
+
+function showSection(sectionclass, buttonclass) {
+   $(sectionclass).show();
+   $(buttonclass).css("background-color","grey");
+}
+
+function hideSection(sectionclass, buttonclass) {
+   $(sectionclass).hide();
+   $(buttonclass).css("background-color","white");
+}
+
+function switchPanel(ident) {
+   if (ident == "progetti") {
+      showSection(".progetti", ".pro");
+      hideSection(".testimonial", ".test");
+      hideSection(".innovation", ".inn");
+   } else if (ident == "testimonial") {
+      hideSection(".progetti", ".pro");
+      showSection(".testimonial", ".test");
+      hideSection(".innovation", ".inn");
+   } else if (ident == "innovation") {
+      hideSection(".progetti", ".pro");
+      hideSection(".testimonial", ".test");
+      showSection(".innovation", ".inn");
+   }
+}
+
 $(document).ready(function() {
+   // setup click events
    $(".pro").click(function() {
-      $(this).parents().find(".progetti").show();
-      $(this).parent().find(".pro").css("background-color","grey");
-      $(this).parents().find(".testimonial").hide();
-      $(this).parent().find(".test").css("background-color","white");
-      $(this).parents().find(".innovation").hide();
-      $(this).parent().find(".inn").css("background-color","white");
+      switchPanel("progetti");
    });
    $(".test").click(function() {
-      $(this).parents().find(".testimonial").show();
-      $(this).parent().find(".test").css("background-color","grey")
-		$(this).parents().find(".progetti").hide();
-      $(this).parent().find(".pro").css("background-color","white");
-      $(this).parents().find(".innovation").hide();
-      $(this).parent().find(".inn").css("background-color","white");
+      switchPanel("testimonial");
    });
    $(".inn").click(function() {
-   	$(this).parents().find(".innovation").show();
-      $(this).parent().find(".inn").css("background-color","grey");
-      $(this).parents().find(".progetti").hide();
-      $(this).parent().find(".pro").css("background-color","white");
-      $(this).parents().find(".testimonial").hide();
-      $(this).parent().find(".test").css("background-color","white");
+      switchPanel("innovation");
    });
+   if (!(typeof section === 'undefined')) {  // shows a specific section if required
+      switchPanel(section);
+   }
 });

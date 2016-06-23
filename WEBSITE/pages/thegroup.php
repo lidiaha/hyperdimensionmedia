@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+   interface:
+      get parameters:
+         section = "progetti", "testimonial", "innovation": section to show open
+         after loading
+-->
 <html>
    <head>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
@@ -8,7 +14,15 @@
       <link rel="stylesheet" type="text/css" href="/style/thegroup.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
-		<script src="/js/thegroup.js"></script>
+      <script>
+      <?php
+         if (isset($_GET["section"])) {
+            $section = filter_var($_GET["section"], FILTER_SANITIZE_STRING);
+            echo "var section = \"$section\";\n";
+         }
+       ?>
+      </script>
+      <script src="/js/thegroup.js"></script>
    </head>
    <body>
       <div id="supercontainer">
@@ -45,28 +59,28 @@
                   </div></div>
                </div>
                <div class='progetti'>
-					   <div class='project'>
-						   <div class='name'>Expo 2015</div>
-							<div class='desc'>A Milano è nata la prima cloud digital smart city.
-    							Le tecnologie innovative e i servizi di telecomunicazioni di TIM hanno 
-								offerto ai visitatori di EXPO un’esperienza digitale unica e a 360°.
-							</div>
-						</div>
-						<div class='project'>
-						   <div class='name'>#TIMGIRLSHACKATHON</div>
-							<div class='desc'>La competizione tecnologica al femminile più cool del momento torna il 6
-							   aprile in quattro nuove città: Padova, Firenze, Cagliari, Bari.
-							</div>
-						</div>
-						<div class='project'>
-						   <div class='name'></div>
-							<div class='desc'></div>
-						</div>
-						<div class='project'>
-						   <div class='name'></div>
-							<div class='desc'></div>
-						</div>
-					</div>
+                  <div class='project'>
+                     <div class='name'>Expo 2015</div>
+                     <div class='desc'>A Milano è nata la prima cloud digital smart city.
+                         Le tecnologie innovative e i servizi di telecomunicazioni di TIM hanno
+                        offerto ai visitatori di EXPO un’esperienza digitale unica e a 360°.
+                     </div>
+                  </div>
+                  <div class='project'>
+                     <div class='name'>#TIMGIRLSHACKATHON</div>
+                     <div class='desc'>La competizione tecnologica al femminile più cool del momento torna il 6
+                        aprile in quattro nuove città: Padova, Firenze, Cagliari, Bari.
+                     </div>
+                  </div>
+                  <div class='project'>
+                     <div class='name'></div>
+                     <div class='desc'></div>
+                  </div>
+                  <div class='project'>
+                     <div class='name'></div>
+                     <div class='desc'></div>
+                  </div>
+               </div>
                <div class="doorstopper"></div>
             </div>
          </div>
