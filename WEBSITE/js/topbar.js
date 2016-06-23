@@ -31,11 +31,16 @@ function enableToggle() {
    $("#landmarktoggle").click(function () {
       var attropen = $("#landmarktoggle").attr("data-open");
       var open = (attropen == "true");
-      $(".landmarkitem:not(#landmarktoggle)").toggle();
-      if (open) {
+      if (!open) {
+         $(".liparent:not(#landmarktoggle)").show();
+         $(".listandalone:not(#landmarktoggle)").show();
+         $(".lidropdown:not(#landmarktoggle)").show();
          $("#landmarktoggle").html("Nascondi Menu di navigazione");
          $("#landmarktoggle").attr("data-open", "true");
       } else {
+         $(".lidropdown:not(#landmarktoggle)").hide();
+         $(".listandalone:not(#landmarktoggle)").hide();
+         $(".liparent:not(#landmarktoggle)").hide();
          $("#landmarktoggle").html("Mostra Menu di navigazione");
          $("#landmarktoggle").attr("data-open", "false");
       }
