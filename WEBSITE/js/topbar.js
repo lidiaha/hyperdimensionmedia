@@ -27,9 +27,27 @@ function enableclose() {
    });
 }
 
+function enableToggle() {
+   $("#landmarktoggle").click(function () {
+      var attropen = $("#landmarktoggle").attr("data-open");
+      var open = (attropen == "true");
+      $(".landmarkitem:not(#landmarktoggle)").toggle();
+      if (open) {
+         $("#landmarktoggle").html("Nascondi Menu di navigazione");
+         $("#landmarktoggle").attr("data-open", "true");
+      } else {
+         $("#landmarktoggle").html("Mostra Menu di navigazione");
+         $("#landmarktoggle").attr("data-open", "false");
+      }
+
+   });
+}
+
 $(document).ready(function() {
    if (parseInt($(window).width()) > 480) {
       enableopen();
       enableclose();
+   } else {
+      enableToggle();
    }
 });

@@ -88,3 +88,7 @@
    border: none;
    margin-left: 10px;
 }
+
+#landmarktoggle {
+   display: none;
+}

@@ -110,3 +110,11 @@
    border: none;
    margin-left: 10px;
 }
+
+.landmarkitem:not(#landmarktoggle) {
+   display: none;
+}
+
+#landmarktoggle {
+   display: block;
+}
