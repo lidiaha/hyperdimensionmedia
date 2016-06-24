@@ -113,7 +113,7 @@ function disableFromTop(topelem) {
    }
 }
 
-$(document).ready(function() {
+function afterFilterLoaded() {
    $(".cate").find("a").click(function() {
       $(this).parent().find(".element").toggle();  // hidable-panels
       var dataopen = $(this).parent().find(".element").attr("data-open");
@@ -153,4 +153,4 @@ $(document).ready(function() {
          }
       }
    });
-});
+}

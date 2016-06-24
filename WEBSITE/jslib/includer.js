@@ -4,9 +4,10 @@ function includeResource(localurl, params, container) {
    });
 }
 
-function afterResource(localurl, params, container) {
+function afterResource(localurl, params, container, callback) {
    $.get(localurl, params, function (data) {
       container.after(data);
+      callback();
    });
 }
 
@@ -31,5 +32,5 @@ function getFilterSection(sectionName) {
       var search = location.search.substring(1);
       params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
    }
-   afterResource("/ui-elements/filter-lists/" + sectionName + ".php", params, $(".choosen"));
+   afterResource("/ui-elements/filter-lists/" + sectionName + ".php", params, $(".choosen"), afterFilterLoaded);
 }
