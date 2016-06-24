@@ -94,13 +94,22 @@ function clearContent() {
 
 function processDevice(obj) {
    var div_rate = "";
+	var div_price = "";
+	var div_promo = "";
    if (obj.purchase.indexOf("a rate") > -1) {
       div_rate = "<div class='devicerate'> Anche a rate</div>"
    }
+	if (obj.outlet_id != null){
+		div_price = "<div class='deviceprice'><del>"+ obj.price + "</del>  " + obj.discount + "€</div>";
+		div_promo = "<div class='promo'> Promo </div>"
+	}
+	else {
+		div_price = "<div class='deviceprice'>" + obj.price + "€</div>" 
+	}
    $("#maincontent").append("<div class='deviceitem'>" +
    "<div class='devicename'><a href='/pages/device-presentation.php?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
    "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
-   div_rate + "<div class='deviceprice'>" + obj.price + "€</div>" +
+   div_rate + div_price + div_promo +
    "</div>");
 }
 

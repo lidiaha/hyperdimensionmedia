@@ -108,6 +108,21 @@
                            $tech_specs= $row["tech_specs"];
                            $price= $row["price"];
                            $image = imageAutoExtension("/pictures/products/devices/", $row["id"]);
+									$outlet_id = $row["outlet_id"];
+									if ($outlet_id != null){
+										$connOut = dbconn();
+										$sqlOut = "SELECT * FROM outlet WHERE id='$outlet_id' ";
+										$resultOut = $connOut->query($sqlOut);
+										if (!$resultOut) {
+                                 echo "query error";
+                              }
+										else {
+											while($rowOut = $resultOut->fetch_assoc()) {
+												$discount = $rowOut["price"];
+												$div_discount = "<div class=\"price\" style=\"color:red; text-decoration:underline;\"><b> In promozione a: $discount € </b></div>";
+											}
+										}
+									}
                            echo "<div class=\"presentazione\">";
                            echo "<div class=\"info left\">";
                            echo "<img src=\"$image\" class=\"device-img\">";
@@ -117,6 +132,7 @@
                            echo "<div class=\"info right\">";
                            echo "<div class=\"name\"> $name </div><br>";
                            echo "<div class=\"price\"> Unica soluzione: $price € </div>";
+									echo $div_discount;
                            printRate($conn, $device_id);
                            echo "<br><p class=\"description\"> $description <br>";
                            echo "</p>";

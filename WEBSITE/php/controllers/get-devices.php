@@ -25,7 +25,7 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, price , purchase FROM devices";
+      $sql = "SELECT id, name, price , purchase ,outlet_id FROM devices";
    }
    else {
       $sql = "SELECT * FROM devices";
@@ -54,7 +54,10 @@
       if ($r["id"]) {
          $r["image"] = imageAutoExtension("/pictures/products/devices/", $r["id"]);
       }
-      array_push($rows, $r);
+		if ($r["outlet_id"]!= null) {
+			$r["discount"] = "300";
+		}
+		array_push($rows, $r);
    }
    print json_encode($rows);
  ?>
