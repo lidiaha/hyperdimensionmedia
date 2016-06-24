@@ -7,32 +7,19 @@
       <link rel="stylesheet" type="text/css" href="/style/device.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <script>
+      <?php
+         if (isset($_GET["device_id"])) {
+            $dev_id_js = filter_var($_GET["device_id"], FILTER_SANITIZE_STRING);
+            echo "var device_id = \"$dev_id_js\";\n";
+         }
+       ?>
+      </script>
+      <script src="/js/devicePage.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentifyFromDB($_GET["device_id"],"devices");
        ?>
-      <script>
-         $(document).ready(function() {
-            $(".pre").click(function() {
-               $(this).parents().find(".presentazione").show();
-               $(this).css("background-color","white");
-               $(this).css("border-right","0px");
-               $(this).parents().find(".caratteristiche").hide();
-               $(this).parent().find(".car").css("background-color","grey");
-               $(this).parent().find(".car").css("border-right","1px black solid");
-            });
-            $(".car").click(function() {
-               $(this).parents().find(".caratteristiche").show();
-               $(this).css("background-color","white");
-               $(this).css("border-right","0px");
-               $(this).parents().find(".presentazione").hide();
-               $(this).parent().find(".pre").css("background-color","grey");
-               $(this).parent().find(".pre").css("border-right","1px black solid");
-            });
-         });
-      </script>
-      <script>
-      </script>
    </head>
    <body>
       <div id="supercontainer">
@@ -108,8 +95,8 @@
                            $tech_specs= $row["tech_specs"];
                            $price= $row["price"];
                            $image = imageAutoExtension("/pictures/products/devices/", $row["id"]);
-									$discount_price = $row["discount_price"];
-									echo "<div class=\"presentazione\">";
+                           $discount_price = $row["discount_price"];
+                           echo "<div class=\"presentazione\">";
                            echo "<div class=\"info left\">";
                            echo "<img src=\"$image\" class=\"device-img\">";
                            echo "<div> Colore: ";
@@ -118,8 +105,8 @@
                            echo "<div class=\"info right\">";
                            echo "<div class=\"name\"> $name </div><br>";
                            echo "<div class=\"price\"> Unica soluzione: $price € </div>";
-									if($discount_price!=null){
-									   echo "<div class=\"price\" style=\"color:red; text-decoration:underline;\"><b> In promozione a: $discount_price € </b></div>";									
+                           if($discount_price!=null){
+                              echo "<div class=\"price\" style=\"color:red; text-decoration:underline;\"><b> In promozione a: $discount_price € </b></div>";
                            }
                            printRate($conn, $device_id);
                            echo "<br><p class=\"description\"> $description <br>";

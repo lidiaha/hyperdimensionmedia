@@ -34,6 +34,11 @@ function superIndexOf(arr, histObj) {
    return -1;
 }
 
+function resetBreadcrumbs() {
+   navHistory = [];
+   Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
+}
+
 function breadcrumbCurrentPage(name, url) {
    var newentry = {name: name, url: url};
    var found = superIndexOf(navHistory, newentry);
@@ -41,7 +46,7 @@ function breadcrumbCurrentPage(name, url) {
       navHistory.splice(found+1, navHistory.length - found - 1);
    } else {
       if (isLandmark(url)) {
-         navHistory = [];  // the root of the history must always be a landmark
+         navHistory = []; // the root of the history must always be a landmark
       }
       navHistory.push(newentry);
    }

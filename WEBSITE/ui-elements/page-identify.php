@@ -11,6 +11,12 @@
       $sitename = "ulTIM8";
       echo "<title>$sitename - $name</title>\n";
    }
+   function pageIdentifyReset($name) {
+      $sitename = "ulTIM8";
+      echo "<script>loadHistory();\n" .
+         "resetBreadcrumbs()</script>\n";
+      echo "<title>$sitename - $name</title>\n";
+   }
    function pageIdentifyFromDB($_id, $_table) {
       $conn = dbconn();
       $id = mysqli_real_escape_string($conn, $_id);

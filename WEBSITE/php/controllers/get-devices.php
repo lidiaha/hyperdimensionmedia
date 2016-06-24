@@ -22,6 +22,17 @@
    include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";
    include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
    include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+   include $_SERVER['DOCUMENT_ROOT'] . "/php/get-page-hits.php";
+
+   function cmp_function($ra, $rb) {
+      $hits_a = getHitNum($ra["id"], "devices");
+      $hits_b = getHitNum($rb["id"], "devices");
+      if ($hits_a == $hits_b) {
+         return 0;
+      }
+      return ($hits_a < $hits_b) ? 1 : -1;
+   }
+
    $conn = dbconn();
 
    // apply "preview"
@@ -63,5 +74,8 @@
       }
       array_push($rows, $r);
    }
+
+   usort($rows, "cmp_function");
+
    print json_encode($rows);
  ?>

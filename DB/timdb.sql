@@ -544,6 +544,33 @@ INSERT INTO `farms` VALUES (9,'Le Berghon','https://app.wwoof.fr/host/215','Brig
 UNLOCK TABLES;
 
 --
+-- Table structure for table `page_hits`
+--
+
+DROP TABLE IF EXISTS `page_hits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_hits` (
+  `id` int(11) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `hits` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page_hits`
+--
+
+LOCK TABLES `page_hits` WRITE;
+/*!40000 ALTER TABLE `page_hits` DISABLE KEYS */;
+INSERT INTO `page_hits` VALUES (7,'devices',2);
+INSERT INTO `page_hits` VALUES (8,'devices',1);
+INSERT INTO `page_hits` VALUES (14,'devices',1);
+/*!40000 ALTER TABLE `page_hits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `promotions`
 --
 
@@ -765,4 +792,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-24 13:37:50
+-- Dump completed on 2016-06-24 15:09:58
