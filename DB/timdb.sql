@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 24, 2016 alle 10:41
+-- Creato il: Giu 24, 2016 alle 13:14
 -- Versione del server: 10.1.13-MariaDB
 -- Versione PHP: 5.6.21
 
@@ -130,7 +130,6 @@ INSERT INTO `category` (`id`, `name`, `type`) VALUES
 (2, 'tablet e computer', 'device'),
 (3, 'modem e networking', 'device'),
 (4, 'tv e smartliving', 'device'),
-(5, 'outlet', 'device'),
 (6, 'tv e entertainment', 'smartlife'),
 (7, 'salute e benessere', 'smartlife'),
 (8, 'casa e famiglia', 'smartlife'),
@@ -299,14 +298,14 @@ CREATE TABLE `devices` (
   `os` varchar(45) NOT NULL,
   `purchase` varchar(45) NOT NULL,
   `typetags` varchar(200) DEFAULT NULL,
-  `outlet_id` int(10) DEFAULT NULL
+  `discount_price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `devices`
 --
 
-INSERT INTO `devices` (`id`, `name`, `description`, `tech_specs`, `price`, `type`, `brand`, `os`, `purchase`, `typetags`, `outlet_id`) VALUES
+INSERT INTO `devices` (`id`, `name`, `description`, `tech_specs`, `price`, `type`, `brand`, `os`, `purchase`, `typetags`, `discount_price`) VALUES
 (1, 'Modem ADSL Wi-Fi', 'Navigazione veloce e senza fili\n\nCon il Modem ADSL Wi-Fi navighi ad alta velocità e senza fili, utilizzando l''interfaccia Wi-Fi o attraverso le 4 porte Ethernet.\n\n    Navigazione più veloce grazie alla tecnologia senza fili Wi-Fi e migliore copertura della rete Wi-Fi della tua abitazione.\n    Protezione: la cifratura WPA e WPA2 impedisce l’accesso ai non autorizzati alla rete Wi-Fi. Disponibili anche funzionalità avanzate come il filtro degli indirizzi MAC ed il firewall integrato.\n    Tutta la famiglia connessa: collega tutti i PC, smartphone e tablet al nuovo modem ADSL Wi-Fi e inoltre condividi Hard Disk e stampanti collegati alla porta USB del modem.\n    Installazione no problem: il modem si configura automaticamente sulla tua linea ADSL, senza installare software.\n    Risparmia sulla bolletta elettrica: il nuovo modem, rispetto ad un prodotto Telecom Italia di generazione precedente con le stesse funzionalità, consente di risparmiare fino al 40% di energia elettrica su un utilizzo medio annuo.\n\nIl Modem Wi-Fi opera solo su linea ADSL di Telecom Italia ed è compatibile con i principali sistemi operativi (Windows 7, Vista, XP - MacOS 10.3).', 'Tecnologia\n\nADSL/ADSL2+; velocità fino a 20 Mbps down/1 Mbps up\n\n\nWi-Fi\n\nWi-Fi 802.11 b/g/n; velocità di trasferimento fino a 300Mbps\n\n\nInterfacce\n\nInterfacce USB alta velocità (480 Mbit/s) ad alta potenza (500 mA), 1 porta connettore tipo A Interfaccia Wi-FiStandard IEEE 802.11nInterfaccia radio 2.4Ghz, 2 antenne, velocità di trasmissione teorica 300 Mbps\n\n\nProtezione Wireless\n\nWPA, WPA-PSK, WEP - Supporto Wi-Fi Protected Setup - Controllo di accesso\n\n\nFunzioni avanzate\n\nFunzionalità di routing avanzate (DHCP server, NAT, NAPT, Virtual Server) - Firewall - Condivisione Hard Disk e Stampante USB\n\n\nAssistenza tecnica\n\n2 anni di garanzia sul prodotto\n\n\nContenuto della confezione\n\nGuida di installazione; CD autoinstallante (compatibile con Windows 7, Vista, XP- MacOS 10.3); 1 filtro ADSL 2+; 1 cavo Telefonico; 1 cavo Ethernet', '69.00', 3, 'TIM', 'Embedded', 'vendita', 'modem', NULL),
 (2, 'LG K8', 'La nuova serie K di LG ti offre una gamma di smartphone che rispecchiano la tua personalità. LG K8 ti accompagna nei tuoi viaggi e ti sorprenderà con selfie dettagliati tutti da condividere con la velocità della rete 4G LTE\r\n\r\nDatti un tono! LG K8 ha un design che lascia a bocca aperta grazie al profilo del vetro smussato e alla forma arrotondata. In più è più ergonomico e garantisce una presa più salda grazie alla lavorazione della cover posteriore. \r\n\r\nCattura i le situazioni più divertenti della giornata con la fotocamera da 8 Megapixel. E'' sufficiente un tocco sul display e K8 mette a fuoco e scatta immediatamente. Anche per i selfie puoi contare sulla fotocamera frontale da 5 Megapixel con la funzione flash virtuale che illumina il tuo volto, così i tuoi selfie saranno illuminati come si deve, mentre tutti gli altri... scatteranno selfie scuri! \r\n\r\nGuarda le tue foto e i tuoi video sul display ampio da ben 5".', 'Tecnologia\r\n\r\n4G cat.4/HSDPA42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900/2100\r\n\r\n\r\nConnettivita\r\n\r\nWi-Fi - Bluetooth - Micro USB - NFC\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nDisplay\r\n\r\n5” 16 Milioni colori Touch\r\n\r\n\r\nFotocamera\r\n\r\nPosteriore da 8 Mpxl con flash\r\n\r\n\r\nMemoria Interna\r\n\r\n8GB con Slot Memory Card Micro SD fino a 32GB\r\n\r\n\r\nProcessore\r\n\r\nProcessore QuadCore 1.3 GHz\r\n\r\n\r\nFormato SIM\r\n\r\nNano-sim\r\n\r\n\r\nAudio e Video\r\n\r\nVideo Recorder&Playback - MP3 Player - Radio FM\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria, Cavo dati USB, Manuale d’uso rapido, Auricolare stereo\r\n\r\nDimensioni\r\n\r\n144,6x71,5x8,7 mm\r\n\r\n\r\nPeso\r\n\r\n142 gr.\r\n\r\n\r\nAutonomia(*)\r\n\r\nStand-by fino a 100 ore -  Conversazione fino a 240 min. ', '179.90', 1, 'LG', 'android', 'vendita', 'smartphone', NULL),
 (3, 'Apple iPhone SE', 'Il telefono da 4" più potente di sempre. iPhone SE riprende un design compatto di grande successo aggiungendovi due fotocamere evolute e una potenza di elaborazione incredibile.Disegnato per stare comodamente in mano e risultare piacevole al tatto, grazie alla finitura satinata del guscio in alluminio microsabbiato.\r\n\r\niPhone SE ha un display Retina da 4’’, chip A9 con archittetura a 64 bit di livello desktop, sensore di impronte digitali Touch ID, fotocamera iSight da 12MP, videocamera FaceTime HD con Retina flash, Live Photos e connessioni Wi-Fi e 4G veloci. E ancora, iOS 9 e iCloud.', 'Display\r\n\r\nRetina Multi-Touch widescreen retroilluminato LED da 4" (diagonale) 1136x640 pixel a 326 ppi\r\n\r\n\r\nProcessore\r\n\r\nChip A9 con architettura a 64 bit, Coprocessore di movimento M9 integrato\r\n\r\n\r\nFotocamera\r\n\r\nFotocamera iSight da 12 megapixel\r\n\r\n\r\nVideocamera\r\n\r\nFaceTime HD\r\n\r\n\r\nSensori\r\n\r\nSensore di impronte digitali Touch ID\r\n\r\n\r\nConnettivita\r\n\r\n4G LTE1\r\n\r\nSistemaOperativo\r\n\r\niOS 9 e iCloud\r\n\r\n\r\nColori\r\n\r\nDisponibile in Space Grey, Silver, Gold e Rose Gold', '509.90', 1, 'apple', 'iOS', 'vendita', 'iphone;smartphone', NULL),
@@ -323,7 +322,7 @@ INSERT INTO `devices` (`id`, `name`, `description`, `tech_specs`, `price`, `type
 (14, 'Decoder TIMvision', 'Con il decoder TIMvision hai a disposizione più di 8.000 titoli tra cartoni, film, serie e documentari sempre on demand per creare il tuo palinsesto senza interruzioni pubblicitarie.\r\n\r\nTramite il telecomando puoi mettere in pausa il tuo film preferito e farlo ripartire quando decidi tu, puoi rivedere una scena o andare avanti.\r\n\r\nCollega il decoder alla tua linea ADSL Illimitata o Fibra Ottica di TIM per accedere:\r\n\r\n    al Videostore di TIMvision, dove ti aspettano tutti gli episodi delle migliori serie, dalle più famose alle più esclusive, i cartoni animati e le serie preferite per bambini e ragazzi, le anteprime più attese e tanti film mai visti in tv o da rivedere in lingua originale. Scegli tra oltre 6.000 titoli sempre aggiornati.\r\n    alla Replay TV di TIMvision, dove trovi tutti i programmi televisivi andati in onda negli ultimi 7 giorni sulle reti RAI (da tutti i dispositivi escluso streaming da web) e LA7 e l’archivio LA7\r\n    a YouTube, per vedere i video che vuoi direttamente dalla tua TV\r\n\r\nPuoi goderti la visione anche su Smart TV, su timvision.it e su app TIMvision per Smartphone, Tablet e PC, utilizzando le credenziali scelte al momento della registrazione al servizio TIMvision.', 'Dimensioni (LxPxA)\r\n\r\n210 mm x 210 mm x 40 mm\r\n\r\nConfezione\r\n\r\nDecoder - Cavo alimentazione - Cavo HDMI - Telecomando universale - Batterie - Guida rapida all''installazione\r\n\r\nProcessore\r\n\r\nProcessore Intel ATOM CE 4230\r\n\r\nMemoria\r\n\r\nRam 1 GByte DDR3\r\n\r\nConnettivita\r\n\r\nHDMI 1.3 - Video Composito - Uscita audio ottica digitale - Ethernet 10/100 BASE-T - 1 x USB 2.0 - Connessione Wireless 802.11 b/g/n (2.4GHz e 5GHz) - Ricevitore IR integrato per telecomando TIMvision\r\n\r\nFormati supportati\r\n\r\nAudio: MPEG-1 Layer I, II 2.0 - MPEG-1 Layer 3 (mp3) 2.0 - MPEG-4 AA-LC 2.0 - MPEG-4 AAC-LC 5.1 - MPEG-4 HE-AAC 5.1 - MPEG-4 BSAC 2.0 - LPCM 7.1 - WMA9 2.0 - WMA9 Pro 5.1\r\n\r\nVideo: MPEG-1 - MPEG-2 - MPEG-2@HL - MPEG-4.2 ASP@L5 (720p) - MPEG-4.10 (H.264) BP@L3 MP4@L4.0 e HIP@L4.0 - WMV9 MP@HL - SMPTE421 (VC-1) MP@HL Fotografici: JPEG - BMP - GIF - TIFF - PNG\r\n\r\n\r\nImpostazione intuitiva\r\n\r\nCollegamento al televisore: Il Decoder TIMvision può essere collegato al televisore mediante il cavo HDMI oppure mediante cavo analogico RCA-SCART (inclusi nella confezione)\r\n\r\nCollegamento alla rete ADSL: Il Decoder TIMvision può essere collegato alla rete mediante cavo Ethernet o mediante connessione Wi-Fi. Alla prima accensione una procedura guidata ti assisterà nella prima configurazione della tua connessione\r\n\r\n\r\nModalità Video PAL\r\n\r\n576p - 720p - 1080i - 1080p\r\n', '49.00', 4, 'TIM', 'embedded', 'vendita', 'decoder;tim vision', NULL),
 (15, 'TIMTag', 'TIMTag, il dispositivo che ti informa sulla posizione del tuo amico a quattro zampe e delle cose a te più care.\r\nSegui in tempo reale i suoi spostamenti sul tuo smartphone senza perderlo mai di vista.\r\n\r\nCon TIMTag hai un dispositivo di localizzazione GPS di ultima generazione, un’ App dedicata intuitiva e semplice da utilizzare, inclusi 12 mesi di servizio TIMTag e una TIM Card!\r\nTutto a soli 129€!\r\nCon l’app TIMTag puoi:\r\n\r\n    Localizzare e seguire i tuoi amici a quattro zampe tramite le funzioni “Dove è ora” e “Seguimi”\r\n    Condividere con i tuoi cari le funzioni di localizzazione di TIMTag\r\n    Impostare allarmi di “Movimento” e uscita da un area di sicurezza in modo da ricevere direttamente sul tuo smartphone notifiche quando il tuo amico a quattro zampe si muove o esce da una determinata area da te definita\r\n    Visualizzare il percorso per raggiungere i tuoi amici a quattro zampe tramite la funzione “Trovami”\r\nGestire in maniera dinamica e intelligente la durata della batteria all’interno dell’App', 'Resistente all’acqua\r\nFornisce allarmi di movimento (velocità, inerzia, crash)\r\nBatteria di lunga durata\r\nDimensioni 49 x 47 x 17 mm\r\n\r\nL''offerta è rivolta a tutti i Clienti TIM Ricaricabili Consumer.\r\nAll’attivazione della TIMCard viene attivata l’offerta Tim-Tag in promozione per 12 mesi.\r\nL''offerta può essere attivata solo sulla TIM Card contenuta all''interno della confezione.\r\nIl traffico sia dati che sms del Tracker GPS vs la piattaforma di servizio, è incluso nell’opzione TIM Tag (50MB e 100SMS ogni 30 giorni). Il Bundle dati e sms previsto è calibrato per soddisfare le esigenze di un utilizzo continuativo del dispositivo.\r\nPer fruire dell''offerta è in ogni caso necessario che la TIMCard ad essa associata disponga di un credito telefonico residuo, in quanto non può essere effettuato traffico in assenza di credito sulla TIM Card.\r\nPer effettuare il download sul proprio smartphone dell’APP TIMTag, è necessario avere connessione dati attiva o una copertura Wi-Fi.\r\nL’app TIMTag è compatibile con dispositivi iOS e Android.\r\nAlla scadenza (trascorsi 360 gg dall’attivazione di Servizio), salvo disdetta, l’opzione TIMTag resterà attiva a 5€/mese con addebito su credito residuo della TIMCard. Pertanto si dovrà fare attenzione a disporre di un credito residuo sufficiente di almeno 5€.\r\nÈ possibile avere informazioni sul servizio e sullo stato dell’utenza contattando il Servizio Assistenza Clienti 119.\r\nIl Cliente potrà recedere in qualsiasi momento dall’Offerta chiamando il Servizio Assistenza Clienti 119.\r\nIl rilevatore GPS contenuto nella confezione è acquistato con effetto immediato e definitivo.\r\n\r\n', '129.00', 4, 'TIM', 'embedded', 'vendita', 'smart life;casa e famiglia', NULL),
 (16, 'Polar Sensore freq. Cardiaca HR', 'Utilizzato con un''applicazione mobile per lo sport o con un training computer Polar compatibile, visualizza inmodo estremamente preciso la frequenza cardiaca in tempo reale durante l’allenamento. Polar H7 può essereutilizzato con diversi prodotti della gamma Polar e con attrezzature da palestra compatibili.', 'Compatibile con i dispositivi Apple iOS (versione iOS 5.0 o successiva)\r\nCompatibile con i dispositivi Android (sistema operativo 3.0 o successivo)\r\n\r\nCompatibile con decine di applicazioni per lo sport, tra cui Polar Beat\r\nGaranzia 24 mesi.', '69.90', 4, 'polar', 'embedded', 'vendita', 'salute e benessere', NULL),
-(17, 'NOKIA Lumia 925', 'Nokia presenta il miglior LUMIA di sempre!\r\n\r\nIl nuovo top di gamma Nokia infatti condensa e racchiude in un corpo in alluminio sottile e leggero dal design incredibilmente elegante e raffinato il massimo della tecnologia e dei contenuti ad oggi disponibili nel panorama degli smartphone.\r\n\r\nIl Nokia LUMIA 925 diviene il nuovo punto di riferimento dell’imaging  grazie alla Fotocamera da ben 8,7 megapixel con sei lenti Carl Zeiss dotata di tecnologia PureView che lo rende perfetto per scattare le foto dei tuoi momenti indimenticabili sia di giorno che di notte. Inoltre con Nokia Smart Camera  puoi scattare una sequenza di immagini per poi scegliere quella che più ti piace e grazie alla funzione Action Shot di Nokia Smart Camera  puoi avere una sequenza di movimenti in un''unica immagine in Alta Definizione. Goditi l’incredibile nitidezza e luminosità di foto e video sul grande display HD+ da 4,5’’, e condividi tutto in tempo reale sui tuoi Social preferiti a portata di mano.  Il Sistema Operativo Windows Phone 8 ha già installate le migliori applicazioni e funzionalità che cerchi. E ancora, puoi lavorare ovunque tu sia con Microsoft Office, ascoltare le tue canzoni preferite su Nokia Musica, scoprire ogni angolo della città con HERE Maps e tanto altro ancora.\r\n\r\nInfine, scopri quanto è veloce grazie al processore Snapdragon™ S4 Dual Core da 1,5 GHz\r\n\r\nNokia LUMIA 925, Molto più di quello che i tuoi occhi possono vedere!', 'Tecnologia\r\n\r\n4G/HSDPA 42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900\r\n\r\n\r\nMusica\r\n\r\nMP3 Player\r\n\r\n\r\nDisplay\r\n\r\n4.5” 16 milioni colori Touch\r\n\r\n\r\nConnettivita\r\n\r\nBluetooth - Wi-Fi - Micro USB\r\n\r\n\r\nVideo\r\n\r\nVideo Recorder&Playback\r\n\r\n\r\nFotocamera\r\n\r\n8.7 Mpixel/Flash\r\n\r\n\r\nMemoria Interna\r\n\r\n16GB\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nProcessore\r\n\r\nDual Core 1.5 Ghz\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria standard - Auricolare stereo - Cavo dati MicroUSB\r\n\r\n\r\nDimensioni\r\n\r\n129 x 70,6 x 8,5 mm\r\n\r\n\r\nPeso\r\n\r\n139 grammi\r\n\r\n\r\nAutonomia (*)\r\n\r\nStand by: fino a 432 ore - Conversazione: fino a 1098 minuti', '499.90', 5, 'nokia', 'windows', 'vendita', 'smartphone', 1);
+(17, 'NOKIA Lumia 925', 'Nokia presenta il miglior LUMIA di sempre!\r\n\r\nIl nuovo top di gamma Nokia infatti condensa e racchiude in un corpo in alluminio sottile e leggero dal design incredibilmente elegante e raffinato il massimo della tecnologia e dei contenuti ad oggi disponibili nel panorama degli smartphone.\r\n\r\nIl Nokia LUMIA 925 diviene il nuovo punto di riferimento dell’imaging  grazie alla Fotocamera da ben 8,7 megapixel con sei lenti Carl Zeiss dotata di tecnologia PureView che lo rende perfetto per scattare le foto dei tuoi momenti indimenticabili sia di giorno che di notte. Inoltre con Nokia Smart Camera  puoi scattare una sequenza di immagini per poi scegliere quella che più ti piace e grazie alla funzione Action Shot di Nokia Smart Camera  puoi avere una sequenza di movimenti in un''unica immagine in Alta Definizione. Goditi l’incredibile nitidezza e luminosità di foto e video sul grande display HD+ da 4,5’’, e condividi tutto in tempo reale sui tuoi Social preferiti a portata di mano.  Il Sistema Operativo Windows Phone 8 ha già installate le migliori applicazioni e funzionalità che cerchi. E ancora, puoi lavorare ovunque tu sia con Microsoft Office, ascoltare le tue canzoni preferite su Nokia Musica, scoprire ogni angolo della città con HERE Maps e tanto altro ancora.\r\n\r\nInfine, scopri quanto è veloce grazie al processore Snapdragon™ S4 Dual Core da 1,5 GHz\r\n\r\nNokia LUMIA 925, Molto più di quello che i tuoi occhi possono vedere!', 'Tecnologia\r\n\r\n4G/HSDPA 42/UMTS/EDGE/GPRS Frequenze 850/900/1800/1900\r\n\r\n\r\nMusica\r\n\r\nMP3 Player\r\n\r\n\r\nDisplay\r\n\r\n4.5” 16 milioni colori Touch\r\n\r\n\r\nConnettivita\r\n\r\nBluetooth - Wi-Fi - Micro USB\r\n\r\n\r\nVideo\r\n\r\nVideo Recorder&Playback\r\n\r\n\r\nFotocamera\r\n\r\n8.7 Mpixel/Flash\r\n\r\n\r\nMemoria Interna\r\n\r\n16GB\r\n\r\n\r\nGPS\r\n\r\nIntegrato\r\n\r\n\r\nProcessore\r\n\r\nDual Core 1.5 Ghz\r\n\r\n\r\nIn dotazione\r\n\r\nCaricabatteria standard - Auricolare stereo - Cavo dati MicroUSB\r\n\r\n\r\nDimensioni\r\n\r\n129 x 70,6 x 8,5 mm\r\n\r\n\r\nPeso\r\n\r\n139 grammi\r\n\r\n\r\nAutonomia (*)\r\n\r\nStand by: fino a 432 ore - Conversazione: fino a 1098 minuti', '499.90', 1, 'nokia', 'windows', 'vendita', 'smartphone', '431.00');
 
 -- --------------------------------------------------------
 
@@ -394,6 +393,25 @@ INSERT INTO `device_service` (`device_id`, `service_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura stand-in per le viste `discount_devices`
+--
+CREATE TABLE `discount_devices` (
+`id` int(11)
+,`name` varchar(200)
+,`description` varchar(5000)
+,`tech_specs` varchar(5000)
+,`price` decimal(15,2)
+,`type` int(11)
+,`brand` varchar(45)
+,`os` varchar(45)
+,`purchase` varchar(45)
+,`typetags` varchar(200)
+,`discount_price` decimal(10,2)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `farms`
 --
 
@@ -422,24 +440,6 @@ INSERT INTO `farms` (`id`, `name`, `url`, `location`, `animals`, `accomodation`,
 (7, 'Le Jardin EnchantÃ© du ChÃ¢teau Marquise Mirabelle', 'https://app.wwoof.fr/host/3070', 'Besancon', ' deux Ã¢nes, un alpaga, trois oies Bernaches, 50 poules et coqs, un canard de barbarie et un lapin', 'no', 'Foraging Orchard Vegetable Patch Permaculture', 8),
 (8, 'Chateau des Allues', 'https://app.wwoof.fr/host/2631', 'Grenoble', '', 'no', 'Vegetable Patch Permaculture', 7),
 (9, 'Le Berghon', 'https://app.wwoof.fr/host/215', 'Briga marittima', '', 'Bedroom', 'Permaculture Beekeeping Foraging Vegetable Patch', 7);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `outlet`
---
-
-CREATE TABLE `outlet` (
-  `id` int(10) NOT NULL,
-  `price` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dump dei dati per la tabella `outlet`
---
-
-INSERT INTO `outlet` (`id`, `price`) VALUES
-(1, '431.00');
 
 -- --------------------------------------------------------
 
@@ -600,6 +600,15 @@ INSERT INTO `testchat` (`id`, `user`, `time`, `message`, `emote`) VALUES
 (22, 'User-342', '2016-05-30 14:36:56', 'emote', 'kyubey'),
 (23, 'User-344', '2016-06-04 19:54:37', 'kmgbkmgbkgmkbgkb', '');
 
+-- --------------------------------------------------------
+
+--
+-- Struttura per la vista `discount_devices`
+--
+DROP TABLE IF EXISTS `discount_devices`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `discount_devices`  AS  select `devices`.`id` AS `id`,`devices`.`name` AS `name`,`devices`.`description` AS `description`,`devices`.`tech_specs` AS `tech_specs`,`devices`.`price` AS `price`,`devices`.`type` AS `type`,`devices`.`brand` AS `brand`,`devices`.`os` AS `os`,`devices`.`purchase` AS `purchase`,`devices`.`typetags` AS `typetags`,`devices`.`discount_price` AS `discount_price` from `devices` where (`devices`.`discount_price` is not null) ;
+
 --
 -- Indici per le tabelle scaricate
 --
@@ -693,12 +702,6 @@ ALTER TABLE `device_service`
 -- Indici per le tabelle `farms`
 --
 ALTER TABLE `farms`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `outlet`
---
-ALTER TABLE `outlet`
   ADD PRIMARY KEY (`id`);
 
 --

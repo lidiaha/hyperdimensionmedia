@@ -99,8 +99,8 @@ function processDevice(obj) {
    if (obj.purchase.indexOf("a rate") > -1) {
       div_rate = "<div class='devicerate'> Anche a rate</div>"
    }
-	if (obj.outlet_id != null){
-		div_price = "<div class='deviceprice'><del>"+ obj.price + "</del>  " + obj.discount + "€</div>";
+	if (obj.discount_price != null){
+		div_price = "<div class='deviceprice'><del>"+ obj.price + "</del>  " + obj.discount_price + "€</div>";
 		div_promo = "<div class='promo'> Promo </div>"
 	}
 	else {
