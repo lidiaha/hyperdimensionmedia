@@ -1,6 +1,6 @@
 function includeResource(localurl, params, container) {
    $.get(localurl, params, function (data) {
-      container.html(data);
+      container.append(data);
    });
 }
 
