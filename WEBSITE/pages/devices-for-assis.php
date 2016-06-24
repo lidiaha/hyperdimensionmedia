@@ -65,7 +65,7 @@
                            while($row2 = $result2->fetch_assoc()) {
                               $typetags2= $row2["typetags"];
                               $device_id= $row2["id"];
-                              $image = imageAutoExtension("/pictures/products/devices/", $row["id"]);
+                              $image = imageAutoExtension("/pictures/products/devices/", $row2["id"]);
                               $name = $row2["name"];
                               $tags2 = explode(";",$typetags2);
                               if(findMatch($tags, $tags2)){
