@@ -31,6 +31,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
+      <?php $filter_flavor = "devices"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>

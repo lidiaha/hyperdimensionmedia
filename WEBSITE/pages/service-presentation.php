@@ -9,6 +9,11 @@
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/SLpage.js"></script>
       <script src="/jslib/includer.js"></script>
+      <script>
+         function callback() {
+            afterDataLoaded();
+         }
+      </script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentifyFromDB($_GET["service_id"],"sl_services");
@@ -22,7 +27,7 @@
                <script>document.write(getBreadcrumbHtmlBar());</script>
 
             </div>
-            <script>getMyData();</script>
+            <script>getMyDataAndCall(callback);</script>
          </div>
       <!-- <div id="footer"> -->
       </div>
