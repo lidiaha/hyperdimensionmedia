@@ -6,6 +6,7 @@ var connectFilter = [];
 var categoryFilter = [];  // note: only used in devices.php, NOT devices-mono-category.php
 var purchaseFilter = [];
 var typologyFilter = [];
+var discountFilter = [];
 
 function sameInterval(a, b) {
    /* check if two intervals are the same */
@@ -48,6 +49,8 @@ function applyFilter(elem) {
       purchaseFilter.push(elem.val());
    } else if (elem.attr("name") == "typology") {
       typologyFilter.push(elem.val());
+   } else if (elem.attr("name") == "discount") {
+      discountFilter.push(elem.val());
    }
    reloadContent();
 }
@@ -85,6 +88,8 @@ function removeFilter(elem) {
       if (simpleArrayRemove(elem, purchaseFilter)) return;
    } else if (elem.attr("name") == "typology") {
       if (simpleArrayRemove(elem, typologyFilter)) return;
+   } else if (elem.attr("name") == "discount") {
+      if (simpleArrayRemove(elem, discountFilter)) return;
    }
 }
 
@@ -94,18 +99,18 @@ function clearContent() {
 
 function processDevice(obj) {
    var div_rate = "";
-	var div_price = "";
-	var div_promo = "";
+   var div_price = "";
+   var div_promo = "";
    if (obj.purchase.indexOf("a rate") > -1) {
       div_rate = "<div class='devicerate'> Anche a rate</div>"
    }
-	if (obj.discount_price != null){
-		div_price = "<div class='deviceprice'><del>"+ obj.price + "</del>  " + obj.discount_price + "€</div>";
-		div_promo = "<div class='promo'> Promo </div>"
-	}
-	else {
-		div_price = "<div class='deviceprice'>" + obj.price + "€</div>" 
-	}
+   if (obj.discount_price != null){
+      div_price = "<div class='deviceprice'><del>"+ obj.price + "</del>  " + obj.discount_price + "€</div>";
+      div_promo = "<div class='promo'> Promo </div>"
+   }
+   else {
+      div_price = "<div class='deviceprice'>" + obj.price + "€</div>"
+   }
    $("#maincontent").append("<div class='deviceitem'>" +
    "<div class='devicename'><a href='/pages/device-presentation.php?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
    "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
@@ -139,6 +144,12 @@ function emptyResultHandler() {
    });
 }
 
+function simplifyBinaryArray(arr) {
+   if (arr.indexOf("yes") >= 0 && arr.indexOf("no") >= 0) return "";
+   else if (arr.length >= 1) return arr[0];
+   return "";
+}
+
 function fetchDevicesAllCategory() {
    $.post("/php/controllers/get-devices.php", {
       "preview": true,
@@ -148,8 +159,10 @@ function fetchDevicesAllCategory() {
       "connections": connectFilter.join(","),
       "category": categoryFilter.join(","),
       "purchase": purchaseFilter.join(","),
-      "typology": typologyFilter.join(",")
+      "typology": typologyFilter.join(","),
+      "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
+      console.log(data);
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -169,7 +182,8 @@ function fetchDevicesSingleCategory() {
       "oses": osFilter.join(","),
       "connections": connectFilter.join(","),
       "purchase": purchaseFilter.join(","),
-      "typology": typologyFilter.join(",")
+      "typology": typologyFilter.join(","),
+      "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
       var newmessages = JSON.parse(data);
       clearContent();

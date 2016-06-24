@@ -73,6 +73,13 @@ function generateFilterQueryFragmentDeviceConn($conn, $paramlist) {
    return $query;
 }
 
+function generateFilterQueryFragmentDeviceDiscount($conn, $inclusive) {
+   if ($inclusive) {
+      return "(discount_price IS NOT NULL)";
+   }
+   return "(discount_price IS NULL)";
+}
+
 function applyFilterSet($conn, $dbkey, $postkey, $filterlist) {
    /*
       applies a filter on the $dbkey database column, the filter parameter are
@@ -120,6 +127,25 @@ function applyFilterDeviceConn($conn, $postkey, $filterlist) {
          return $filterlist;
       }
       $fragment = generateFilterQueryFragmentDeviceConn($conn, explode(",", $_POST[$postkey]));
+      if ($fragment != "") {
+         array_push($filterlist, $fragment);
+      }
+   }
+   return $filterlist;
+}
+
+function applyFilterDeviceDiscount($conn, $postkey, $filterlist) {
+   /*
+      applies a tailor-made subquery to filter a device based on its discount
+   */
+   if (isset($_POST[$postkey])) {
+      $inclusive = true;
+      if ($_POST[$postkey] == "") {
+         return $filterlist;
+      } else if ($_POST[$postkey] != "yes") {
+         $inclusive = false;
+      }
+      $fragment = generateFilterQueryFragmentDeviceDiscount($conn, $inclusive);
       if ($fragment != "") {
          array_push($filterlist, $fragment);
       }

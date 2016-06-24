@@ -13,6 +13,7 @@
             "typology": same as above, but with type-tags (i.e. smartphone, tablet)
             "price_range": serialized json object (string) specifying a series of price ranges, in the form:
                [{"low": 15, "high": 150 }, ...]
+            "discount": in ["yes","no"]; wether to include/exclude discounted devices
 
       return:
          json representation of the selected tuples
@@ -25,21 +26,27 @@
 
    // apply "preview"
    if (isset($_POST["preview"])) {
-      $sql = "SELECT id, name, price , purchase , discount_price FROM devices";
+      $sql = "SELECT id, name, price, purchase, discount_price FROM devices";
    }
    else {
       $sql = "SELECT * FROM devices";
    }
 
+   $price_db_key = "price";
+   if (isset($_POST["discount"]) && $_POST["discount"] == "yes") {
+      $price_db_key = "discount_price";
+   }
+
    // apply filters
    $filterlist = array();
    $filterlist = applyFilterSet($conn, "type", "category", $filterlist);
-   $filterlist = applyFilterRange($conn, "price", "price_range", $filterlist);
+   $filterlist = applyFilterRange($conn, $price_db_key, "price_range", $filterlist);
    $filterlist = applyFilterSet($conn, "brand", "brands", $filterlist);
    $filterlist = applyFilterSet($conn, "os", "oses", $filterlist);
    $filterlist = applyFilterDeviceConn($conn, "connections", $filterlist);
    $filterlist = applyFilterSetLike($conn, "purchase", "purchase", $filterlist);
    $filterlist = applyFilterSetLike($conn, "typetags", "typology", $filterlist);
+   $filterlist = applyFilterDeviceDiscount($conn, "discount", $filterlist);
    // more filters here ^^^^^^^^
    if (count($filterlist) > 0) {
       $sql = $sql . " WHERE " . implode(" AND ", $filterlist);
@@ -54,7 +61,7 @@
       if ($r["id"]) {
          $r["image"] = imageAutoExtension("/pictures/products/devices/", $r["id"]);
       }
-		array_push($rows, $r);
+      array_push($rows, $r);
    }
    print json_encode($rows);
  ?>

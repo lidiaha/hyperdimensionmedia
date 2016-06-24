@@ -60,6 +60,13 @@
    </div>
 </div>
 <div class="cate">
+   <a> <div class="sub">In sconto </div></a>
+   <div class= "element">
+      <span><input class="item price" type="checkbox" name="discount" value="yes"><label><span></span>Scontato</label><br></span>
+      <span><input class="item price" type="checkbox" name="discount" value="no"><label><span></span>Non scontato</label><br></span>
+   </div>
+</div>
+<div class="cate">
    <a> <div class="sub">Prezzo </div></a>
    <div class= "element">
       <span><input class="item price" data-high="150" type="checkbox" name="price" value="< 150 €"><label><span></span>< 150 €</label><br></span>
