@@ -1,4 +1,8 @@
 <?php
+   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+   $conn = dbconn();
+?>
+<?php
    if (isset($_GET["category"])) {
       $filter_category = mysqli_real_escape_string($conn, $_GET["category"]);
    }
@@ -66,3 +70,4 @@
         ?>
     </div>
  </div>
+<?php $conn->close(); ?>

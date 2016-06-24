@@ -7,22 +7,17 @@
 
    </div>
    <?php
-      include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-      $conn = dbconn();
-   ?>
-   <?php
       if (!isset($filter_flavor) || $filter_flavor == "devices") {
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/devices.php";
+         echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else if ($filter_flavor == "promotions") {
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/promotions.php";
+         echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else if ($filter_flavor == "services") {
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/services.php";
+         echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else if ($filter_flavor == "assistance") {
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter-lists/assistance.php";
+         echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else {
          echo "unknown filter flavor";
       }
    ?>
-   <?php $conn->close(); ?>
 </div>
 <div id="filteropen">apri filtro</div>

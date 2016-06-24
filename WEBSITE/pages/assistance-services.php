@@ -5,10 +5,11 @@
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/assistances.css">
-		<link rel="stylesheet" type="text/css" href="/style/mobile/assistances.css" media="screen and (max-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/assistances.css" media="screen and (max-width: 480px)">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
-		<script src="/js/toggle.js" media="screen and (max-width: 480px)"></script>
+      <script src="/jslib/includer.js"></script>
+      <script src="/js/toggle.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("all assistance services");

@@ -4,6 +4,12 @@ function includeResource(localurl, params, container) {
    });
 }
 
+function afterResource(localurl, params, container) {
+   $.get(localurl, params, function (data) {
+      container.after(data);
+   });
+}
+
 function getPageData(pagename, params, container) {
    includeResource("/php/controllers/specific/" + pagename, params, container);
 }
@@ -17,4 +23,13 @@ function getMyData() {
       params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
    }
    getPageData(identifier + ".php", params, $("#maincontent"));
+}
+
+function getFilterSection(sectionName) {
+   var params = {};
+   if (location.search != "") {
+      var search = location.search.substring(1);
+      params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+   }
+   afterResource("/ui-elements/filter-lists/" + sectionName + ".php", params, $(".choosen"));
 }
