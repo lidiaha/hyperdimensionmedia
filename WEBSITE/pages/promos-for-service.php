@@ -8,6 +8,7 @@
       <link rel="stylesheet" type="text/css" href="/style/transitionpage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
+      <script src="/jslib/includer.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
          pageIdentify("related promotions");
