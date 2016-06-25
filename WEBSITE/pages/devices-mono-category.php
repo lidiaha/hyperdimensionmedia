@@ -14,11 +14,9 @@
          pageIdentify("single device category");
        ?>
       <script>
-         <?php
-            echo "var category_id = " . $_GET["category"] . ";\n";
-            echo "var is_monocategory = true;\nvar is_outlet = false;\n";
-            //TODO: redirect to devices.php if $_GET["category"] is not set
-         ?>
+         var category_id = getParams().category;
+         var is_monocategory = true;
+         var is_outlet = false;
       </script>
       <script src="/js/devices.js"></script>
    </head>
@@ -31,7 +29,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <?php $filter_flavor = "dev_outlet"; ?>
+      <?php $filter_flavor = "devices"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>

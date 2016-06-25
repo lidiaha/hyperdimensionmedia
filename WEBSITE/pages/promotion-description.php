@@ -10,7 +10,7 @@
       <script src="/jslib/includer.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentifyFromDB($_GET["promo_id"],"promotions");
+         pageIdentifyFromDB("promo_id","promotions");
        ?>
    </head>
    <body>

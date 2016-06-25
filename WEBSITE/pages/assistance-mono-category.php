@@ -13,11 +13,9 @@
          pageIdentify("single assistance category");
        ?>
       <script>
-      <?php
-         echo "var category_id = " . $_GET["category"] . ";\n";
-         echo "var is_monocategory = true;\n";
+         var category_id = getParams().category;
+         var is_monocategory = true;
          //TODO: redirect to devices.php if $_GET["category"] is not set
-      ?>
       </script>
       <script src="/js/assistances.js"></script>
    </head>

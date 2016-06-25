@@ -11,7 +11,7 @@
       <script src="/jslib/includer.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentifyFromDB($_GET["id"],"assistance");
+         pageIdentifyFromDB("id","assistance");
        ?>
    </head>
    <body>

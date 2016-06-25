@@ -13,9 +13,7 @@
          pageIdentify("single smartlife category");
        ?>
       <script>
-         <?php
-            echo "var category_id = " . $_GET["category"] . ";\n";
-          ?>
+         var category_id = getParams().category;
          var is_monocategory = true;
       </script>
       <script src="/js/SL.js"></script>

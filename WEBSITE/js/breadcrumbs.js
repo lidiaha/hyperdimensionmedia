@@ -53,6 +53,15 @@ function breadcrumbCurrentPage(name, url) {
    Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
 }
 
+function breadcrumbCurrentPageFromDbQuery(id, table, url) {
+   $.get("/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
+      console.log(data);
+      if (data != "query error") {
+         breadcrumbCurrentPage(data, url);
+      }
+   });
+}
+
 function getBreadcrumbHtmlBar() {
    var code = "<div class=\"bcbar\">";
    var curr;

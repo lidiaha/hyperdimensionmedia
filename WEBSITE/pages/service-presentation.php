@@ -16,7 +16,7 @@
       </script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentifyFromDB($_GET["service_id"],"sl_services");
+         pageIdentifyFromDB("service_id","sl_services");
        ?>
    </head>
    <body>

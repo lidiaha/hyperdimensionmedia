@@ -9,17 +9,12 @@
       <script src="/jslib/parallax.min.js"></script>
       <script src="/jslib/includer.js"></script>
       <script>
-      <?php
-         if (isset($_GET["device_id"])) {
-            $dev_id_js = filter_var($_GET["device_id"], FILTER_SANITIZE_STRING);
-            echo "var device_id = \"$dev_id_js\";\n";
-         }
-       ?>
+         var device_id = getParams().device_id;
       </script>
       <script src="/js/devicePage.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentifyFromDB($_GET["device_id"],"devices");
+         pageIdentifyFromDB("device_id","devices");
        ?>
    </head>
    <body>
