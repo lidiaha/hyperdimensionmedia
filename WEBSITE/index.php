@@ -20,7 +20,7 @@
             <div id="maincontent">
                <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/ElasticSlideshow/index2.html"; ?>
                <div class="trending">
-                  <div class="top outlet"><a href = "/pages/devices-mono-category.html?category=5">
+                  <div class="top outlet"><a href = "/pages/devices-outlet.php">
                      <div class="pic" style="background-image: url(/pictures/sconti.jpg)">
                         <div class="name">Prodotti scontati</div>
                      </div>
@@ -42,22 +42,22 @@
                   </div>
                </div>
                <div class="util">
-					   <div class="link" style="background-image:url(/pictures/icon1.png)">
+					   <div class="link" style="background-image:url(/pictures/icons/home/icon1.png)">
 						   Ricarica veloce
 						</div>
-						<div class="link" style="background-image:url(/pictures/icon2.png)">
+						<div class="link" style="background-image:url(/pictures/icons/home/icon2.png)">
 						   Guida all'acquisto
 						</div>
-						<div class="link" style="background-image:url(/pictures/icon3.png)">
+						<div class="link" style="background-image:url(/pictures/icons/home/icon3.png)">
 						   Trova negozio
 						</div>
-						<div class="link" style="background-image:url(/pictures/icon4.png)">
+						<div class="link" style="background-image:url(/pictures/icons/home/icon4.png)">
 						   Richiedi un esperto
 						</div>
-						<div class="link" style="background-image:url(/pictures/icon5.png)">
+						<div class="link" style="background-image:url(/pictures/icons/home/icon5.png)">
 						   My Tim
 						</div>
-						<div class="link" style="background-image:url(/pictures/icon6.png)">
+						<div class="link" style="background-image:url(/pictures/icons/home/icon6.png)">
 						   Per i consumatori
 						</div>
                </div>

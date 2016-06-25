@@ -47,7 +47,7 @@
                   </div>
                   <div class='discover'>
                      <div class='title'>Siamo leader responsabili</div>
-                     <div class='pic' style='background-image: url("/pictures/innovation1.jpg")' ></div>
+                     <div class='pic' style='background-image: url("/pictures/whoweare/innovation1.jpg")' ></div>
                      <div class='more'>Essere leader significa possedere una visione che vada oltre gli orizzonti della conoscenza, dare il buon esempio,
                         essere modelli di riferimento. Crediamo nella cultura dell’inclusione, considerando il confronto un’opportunità e ci impegniamo a
                         incoraggiare il dialogo.
@@ -55,20 +55,20 @@
                   </div>
                   <div class='discover'>
                      <div class='title'>Desideriamo crescere</div>
-                     <div class='pic'style='background-image: url("/pictures/innovation2.jpg")'></div>
+                     <div class='pic'style='background-image: url("/pictures/whoweare/innovation2.jpg")'></div>
                      <div class='more'>Mantenere sempre viva la passione, alimentando la propria curiosità con la ferma volontà di migliorarsi è tra i
                         nostri impegni primari: restiamo aperti al mondo e protesi verso il futuro.
                      </div>
                   </div>
                   <div class='discover'>
                      <div class='title'>Puntiamo all’eccellenza</div>
-                     <div class='pic'style='background-image: url("/pictures/innovation3.jpg")' ></div>
+                     <div class='pic'style='background-image: url("/pictures/whoweare/innovation3.jpg")' ></div>
                      <div class='more'>Impegno e dedizione sono elementi imprescindibili per sviluppare progetti di assoluta qualità, realizzati
                         con uno sguardo costante all’innovazione e alle esigenze dei nostri clienti.
                      </div>
                   </div><div class='discover'>
                      <div class='title'>Viviamo il cliente</div>
-                     <div class='pic' style='background-image: url("/pictures/innovation4.jpg")'></div>
+                     <div class='pic' style='background-image: url("/pictures/whoweare/innovation4.jpg")'></div>
                      <div class='more'>Lavoriamo per far comunicare le persone, rendendo la loro vita più semplice, ricca di opportunità e relazioni.
                          Tutto questo attraverso un cammino di cura, sviluppo e arricchimento reciproco che incontri i bisogni, le aspirazioni ed i sogni dei nostri clienti.
                      </div>
