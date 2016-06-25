@@ -13,7 +13,7 @@
          $id=$row["id"];
          $image = imageAutoExtension("/pictures/category/device/", $row["id"]);
          echo "<a class=\"category\" href=\"/pages/devices-mono-category.php?category=$id\">\n";
-         echo "<div class=\"data\"><img class=\"image\" src=\"/pictures/category/device/$id.png\">\n";
+         echo "<div class=\"data\"><img class=\"image\" src=\"$image\">\n";
          echo "<div class=\"name\">$name</div>\n";
          echo "</div></a>";
       }
@@ -24,4 +24,8 @@
    }
    $conn->close();
 ?>
+<a class="category" href="/pages/devices-outlet.php">
+<div class="data"><img class="image" src="/pictures/category/device/5.png">
+<div class="name">outlet</div>
+</div></a>
 <div class="doorstopper"></div>

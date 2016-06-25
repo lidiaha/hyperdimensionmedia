@@ -162,7 +162,6 @@ function fetchDevicesAllCategory() {
       "typology": typologyFilter.join(","),
       "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
-      console.log(data);
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -195,9 +194,35 @@ function fetchDevicesSingleCategory() {
    });
 }
 
+function fetchDevicesOutlet() {
+   $.post("/php/controllers/get-devices.php", {
+      "preview": true,
+      "price_range": JSON.stringify(priceFilter),
+      "brands": brandFilter.join(","),
+      "oses": osFilter.join(","),
+      "connections": connectFilter.join(","),
+      "category": categoryFilter.join(","),
+      "purchase": purchaseFilter.join(","),
+      "typology": typologyFilter.join(","),
+      "discount": "yes"
+   }, function(data) {
+      var newmessages = JSON.parse(data);
+      clearContent();
+      if (newmessages.length == 0) {
+         emptyResultHandler();
+      }
+      newmessages.forEach(processDevice);
+      postProcessDevices();
+   });
+}
+
 function reloadContent() {
    if (!is_monocategory) {  // is_monocategory is dynamically defined by the php code in the host page
-      fetchDevicesAllCategory();
+      if (is_outlet) {
+         fetchDevicesOutlet();
+      } else {
+         fetchDevicesAllCategory();
+      }
    } else {
       fetchDevicesSingleCategory();
    }

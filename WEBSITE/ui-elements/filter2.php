@@ -9,6 +9,8 @@
    <?php
       if (!isset($filter_flavor) || $filter_flavor == "devices") {
          echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
+      }  else if ($filter_flavor == "dev_outlet") {
+         echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else if ($filter_flavor == "promotions") {
          echo "<script>getFilterSection(\"" . $filter_flavor . "filter\");</script>";
       } else if ($filter_flavor == "services") {

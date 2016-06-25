@@ -16,7 +16,7 @@
       <script>
          <?php
             echo "var category_id = " . $_GET["category"] . ";\n";
-            echo "var is_monocategory = true;\n";
+            echo "var is_monocategory = true;\nvar is_outlet = false;\n";
             //TODO: redirect to devices.php if $_GET["category"] is not set
          ?>
       </script>
@@ -31,7 +31,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <?php $filter_flavor = "devices"; ?>
+      <?php $filter_flavor = "dev_outlet"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>

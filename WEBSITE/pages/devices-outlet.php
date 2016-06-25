@@ -15,7 +15,7 @@
        ?>
       <script>
          var is_monocategory = false;
-         var is_outlet = false;
+         var is_outlet = true;
       </script>
       <script src="/js/devices.js"></script>
    </head>
@@ -28,7 +28,7 @@
          </div>
       <!-- <div id="footer"> -->
       </div>
-      <?php $filter_flavor = "devices"; ?>
+      <?php $filter_flavor = "dev_outlet"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/filter2.php"; ?>
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/social-icons.html"; ?>
    </body>
