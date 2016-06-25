@@ -37,6 +37,9 @@ $(document).ready(function() {
    $(".inn").click(function() {
       switchPanel("innovation");
    });
+	$(".discover").click(function(){
+		$(this).find(".more").toggle();
+	});
    if (!(typeof section === 'undefined')) {  // shows a specific section if required
       switchPanel(section);
    }

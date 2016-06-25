@@ -54,21 +54,26 @@
 .discover{
 	width: 40%;
 	height: 165px;
-	display: inline-block;
+	display: inline-table;
 	margin-top: 20px;
 	margin-left: 50px;
+	cursor: pointer;
+	border: 1px black solid;
 }
 
 .pic{
 	width: 100%;
-	height: 80%;
-	background-image: url(/pictures/innovation1.jpg);
+	height: 165px;
 	background-position: bottom center;
 	background-repeat: no-repeat;
 	background-size: contain;
 	margin-bottom: 0px;	
 }
 
+.more{
+	display: none;
+	padding: 5px 20px;
+}
 .title{
 	width: 100%;
 	text-align: center;
@@ -80,24 +85,23 @@
 }
 
 .quote{
-	width: 100%;
-	height: 300px;
 	background-position: bottom center;
 	background-repeat: no-repeat;
 	background-size: contain;
 }
 
 .one{
+	width: 100%;
+	height: 300px;
 	background-image: url(/pictures/quote1.jpg);
 }
 
 .two{
+	width: 100%;
+	height: 300px;
 	background-image: url(/pictures/quote2.jpg);
 }
 
-.quote:hover{
-	background-image: none;
-}
 .text{
 	width: 40%;
 	float: left;
@@ -116,13 +120,20 @@
    display: inline-table;
    background-color: #ffffff;
    margin-left: 2.5%;
-   margin-top: 25px;
+   margin-top: 5px;
    border: 3px solid black;
    box-sizing: border-box;
+	cursor: pointer;
+	padding: 5px;
 }
 
+.name{
+	text-align: center;
+	color: blue;
+}
 .desc{
 	padding: 3px 10px;
+	color: black;
 }
 .doorstopper {
    width: 100%;
