@@ -7,6 +7,7 @@
 -->
 <html>
    <head>
+	   <meta charset="UTF-8">
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html";?>
       <title>ulTIM8</title>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
