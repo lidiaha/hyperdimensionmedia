@@ -37,15 +37,15 @@
    <div class="labelback">Torna al prodotto</div>
 </div>
 <?php
-   $sql = "SELECT typetags FROM devices WHERE id='$device_id'";
+   $sql = "SELECT tags FROM devices WHERE id='$device_id'";
    $result = $conn->query($sql);
    if (!$result) {
       echo "query error";
    }
    else {
       while($row = $result->fetch_assoc()) {
-         $typetags= $row["typetags"];
-         $tags = explode(";",$typetags);
+         $tags= $row["tags"];
+         $tags = explode(";",$tags);
          $sql2 = "SELECT * FROM assistance";
          $result2 = $conn2->query($sql2);
          if (!$result2) {
@@ -64,10 +64,10 @@
 
                array_push($ret[$cate][$subcate][$subtopic], $row2);
 
-               $typetags2= $row2["typetags"];
+               $tags2= $row2["tags"];
                $id_as= $row2["id"];
                $name = $row2["name"];
-               $tags2 = explode(";",$typetags2);
+               $tags2 = explode(";",$tags2);
                if(findMatch($tags, $tags2)){
                   echo "<div class='assis_item'><a href=\"/pages/assistance-page.php?id=$id_as\">$name</a></div>";
                }

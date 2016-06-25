@@ -20,11 +20,11 @@
             <div id="maincontent">
                <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/ElasticSlideshow/index2.html"; ?>
                <div class="trending">
-                  <div class="top outlet">
+                  <div class="top outlet"><a href = "/pages/devices-mono-category.php?category=5">
                      <div class="pic" style="background-image: url(/pictures/sconti.jpg)">
                         <div class="name">Prodotti scontati</div>
                      </div>
-                  </div>
+                  </a></div>
                   <div class="top">
                      <div class="pic" style="background-image: url(/pictures/top2.jpg)">
                         <div class="name">Internet senza limiti</div>

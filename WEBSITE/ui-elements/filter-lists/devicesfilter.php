@@ -23,8 +23,13 @@
                while($row = $result->fetch_assoc()) {
                   $category = ucfirst($row["name"]);
                   $id = $row["id"];
-                  echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
-               }
+						if ($id != 5){
+							echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
+                  }
+						else {
+							echo "<span><input class=\"item price\" type=\"checkbox\" name=\"discount\" value=\"yes\"><label><span></span>$category</label><br></span>\n";
+						}
+					}
          }
        ?>
    </div>

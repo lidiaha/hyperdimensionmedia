@@ -25,15 +25,15 @@
    <div class="labelback">Torna al servizio di assistenza</div>
 </div>
 <?php
-   $sql = "SELECT typetags FROM assistance WHERE id='$assistance_id'";
+   $sql = "SELECT tags FROM assistance WHERE id='$assistance_id'";
    $result = $conn->query($sql);
    if (!$result) {
       echo "query error";
    }
    else {
       while($row = $result->fetch_assoc()) {
-         $typetags= $row["typetags"];
-         $tags = explode(";",$typetags);
+         $tags= $row["tags"];
+         $tags = explode(";",$tags);
          $sql2 = "SELECT * FROM devices";
          $result2 = $conn2->query($sql2);
          if (!$result2) {
@@ -43,11 +43,11 @@
             $ret = array();
             echo "<div class='dummyheader'></div>\n";
             while($row2 = $result2->fetch_assoc()) {
-               $typetags2= $row2["typetags"];
+               $tags2= $row2["tags"];
                $device_id= $row2["id"];
                $image = imageAutoExtension("/pictures/products/devices/", $row2["id"]);
                $name = $row2["name"];
-               $tags2 = explode(";",$typetags2);
+               $tags2 = explode(";",$tags2);
                if(findMatch($tags, $tags2)){
                   echo "<div class='item'>";
                   echo "<div class='pic' style='background-image: url(\"$image\")'></div>\n";
