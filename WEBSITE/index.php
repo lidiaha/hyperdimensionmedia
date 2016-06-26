@@ -5,6 +5,7 @@
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/homepage.css" media="screen and (min-width: 480px)">
+		<link rel="stylesheet" type="text/css" href="/style/mobile/homepage.css" media="screen and (max-width: 480px)">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/home.js"></script>

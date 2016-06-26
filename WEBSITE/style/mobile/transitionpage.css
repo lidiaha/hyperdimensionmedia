@@ -1,0 +1,23 @@
+.gobackbar {
+   width: 100%;
+   min-height: 50px;
+   display: inline-block;
+   cursor: pointer;
+}
+.arrowback {
+   height: 40px;
+   width: 100px;
+   float: left;
+   margin: 8% 0 0 5%;
+   background: url("/pictures/icons/arrow.png");
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center center;
+}
+.labelback {
+   height: 100%;
+   float: left;
+   line-height: 40px;
+   font-size: 20px;
+   margin: 8% 0 0 5%;
+}

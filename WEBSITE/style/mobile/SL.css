@@ -1,0 +1,50 @@
+
+.serviceitem{
+   width: 100%;
+   min-height: 160px;
+   border: 1px black solid;
+   background-color: white;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 1%;
+}
+.servicename{
+   position: relative;
+   width: 60%;
+   top: 15px;
+   font-size: 20px;
+   display: inline-block;
+}
+.servicepic{
+   width: 30%;
+   height: 100px;
+   margin-top: 5%;
+   position: relative;
+   float: left;
+   background-position: center center;
+	background-size: contain;
+   margin-right: 2%;
+}
+
+.description{
+   width: 100%;
+   margin-top: 30px;
+	margin-left: 5%;
+}
+
+.serviceinfo {
+   display: inline-block;
+   float: left;
+}
+
+.scopri{
+	display: inline-block;
+	position: relative;
+	margin: 3% 5%;
+}
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}
