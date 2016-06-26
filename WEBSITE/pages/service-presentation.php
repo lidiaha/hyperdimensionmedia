@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
    <head>
-	   <meta charset="UTF-8">
+      <meta charset="UTF-8">
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/SLpage.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/SLpage.css" media="screen and (max-width: 480px)">
-		
+
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/SLpage.js"></script>
@@ -27,7 +27,8 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-               <script>document.write(getBreadcrumbHtmlBar());</script>
+               <div id="bcholder"></div>
+               <script>reciveBCcode();</script>
 
             </div>
             <script>getMyDataAndCall(callback);</script>

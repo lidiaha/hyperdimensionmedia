@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-	   <meta charset="UTF-8">
+      <meta charset="UTF-8">
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
@@ -20,10 +20,11 @@
          <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/topbar.html"; ?>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-               <script>document.write(getBreadcrumbHtmlBar());</script>
+               <div id="bcholder"></div>
+               <script>reciveBCcode();</script>
 
             </div>
-            <script>getMyData();</script>
+            <script>getMyDataAndCall(faqEnable);</script>
          </div>
       <!-- <div id="footer"> -->
       </div>

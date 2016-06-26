@@ -2,6 +2,7 @@
 var navHistory = [];
 var cookieKey = "nav_history";
 var nameFromDb = "";
+var scheduledInjectBC = false;
 
 var landmarks = ["/pages/SL-services.php","/pages/smartlife-categories.php","/pages/devices.php",
    "/pages/device-categories.php","/pages/promotions.php","/pages/assistance-services.php","/pages/assistance-categories.php"];
@@ -55,19 +56,30 @@ function breadcrumbCurrentPage(name, url) {
 }
 
 function breadcrumbCurrentPageFromDbQuery(id, table, url) {
+   _breadcrumbCurrentPageFromDbQuery(id, table, url, function() {
+      $(document).ready(function () {
+         refreshTitle();
+      });
+   });
+}
+
+function _breadcrumbCurrentPageFromDbQuery(id, table, url, callback) {
    $.get("/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
       console.log(data);
       if (data != "query error") {
          nameFromDb = data;
          breadcrumbCurrentPage(data, url);
+         callback();
+         if (!scheduledInjectBC === false) {
+            scheduledInjectBC();
+         }
+         scheduledInjectBC = false; // clear it so that it won't be called twice
       }
    });
 }
 
 function refreshTitle() {
-   $(document).ready(function () {
-      document.title = document.title + " - " + nameFromDb;
-   });
+   document.title = document.title + " - " + nameFromDb;
 }
 
 function getBreadcrumbHtmlBar() {
@@ -87,4 +99,15 @@ function getBreadcrumbHtmlBar() {
    }
    code += "</div>";
    return code;
+}
+
+function reciveBCcode() {
+   scheduledInjectBC = function () {
+      $("#bcholder").html(getBreadcrumbHtmlBar());
+   };
+   $(document).ready(function () {
+      if (!scheduledInjectBC === false) {
+         scheduledInjectBC();
+      }
+   });
 }

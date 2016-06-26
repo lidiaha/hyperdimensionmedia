@@ -20,7 +20,6 @@
       $sitename = "ulTIM8";
       echo "<title>$sitename</title>\n";
       echo "<script>loadHistory();\n" .
-         "breadcrumbCurrentPageFromDbQuery(getParams().$_idkey, \"$_table\", location.href);\n" .
-         "refreshTitle();</script>\n";
+         "breadcrumbCurrentPageFromDbQuery(getParams().$_idkey, \"$_table\", location.href);</script>\n";
    }
  ?>
