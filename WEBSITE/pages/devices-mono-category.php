@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-	   <meta charset="UTF-8">
+      <meta charset="UTF-8">
       <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
@@ -12,7 +12,7 @@
       <script src="/jslib/includer.js"></script>
       <?php
          include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/page-identify.php";
-         pageIdentify("single device category");
+         pageIdentifyFromDB("category","category");
        ?>
       <script>
          var category_id = getParams().category;
