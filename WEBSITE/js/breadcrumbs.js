@@ -1,6 +1,7 @@
 
 var navHistory = [];
 var cookieKey = "nav_history";
+var nameFromDb = "";
 
 var landmarks = ["/pages/SL-services.php","/pages/smartlife-categories.php","/pages/devices.php",
    "/pages/device-categories.php","/pages/promotions.php","/pages/assistance-services.php","/pages/assistance-categories.php"];
@@ -57,8 +58,15 @@ function breadcrumbCurrentPageFromDbQuery(id, table, url) {
    $.get("/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
       console.log(data);
       if (data != "query error") {
+         nameFromDb = data;
          breadcrumbCurrentPage(data, url);
       }
+   });
+}
+
+function refreshTitle() {
+   $(document).ready(function () {
+      document.title = document.title + " - " + nameFromDb;
    });
 }
 
