@@ -1,8 +1,13 @@
 <?php
+/*
+   iterface: to be imported & called by other php code
+*/
 include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
 
-function getHitNum($pageid, $pagetype) {
+function getHitNum($_pageid, $_pagetype) {
    $conn = dbconn();
+   $pageid = mysqli_real_escape_string($conn, $_pageid);
+   $pagetype = mysqli_real_escape_string($conn, $_pagetype);
    $sql = "SELECT hits FROM page_hits WHERE id='$pageid' AND type='$pagetype'";
    $result = $conn->query($sql);
    if (!$result) {

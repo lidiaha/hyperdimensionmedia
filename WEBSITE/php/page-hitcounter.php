@@ -1,4 +1,13 @@
 <?php
+/*
+   interface:
+      POST parameters:
+         "pageid": id of the product/item described on the page to hit-count
+         "pagetype": in ["assistance", "devices"]: class of the item/product
+   return:
+      prints "done" once finished processing, with optional "query error" in case of error.
+      please note that receiving "done" does not guarantee that the db update was successful
+*/
 include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
 $conn = dbconn();
 $pagetypes = array("assistance", "devices");

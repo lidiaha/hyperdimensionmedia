@@ -1,4 +1,15 @@
 <?php
+/*
+   interface:
+      POST parameters:
+         "id": id of the product/item to identify
+         "table": in ["category", "assistance", "devices", "promotions", "sl_services"]:
+            name of the db table containing the product/item to identify
+      returns:
+         on success, the "name" field of the tuple corresponding to the provided
+         id, table.
+         on error, either "query error" or "forbidden"
+*/
 include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
 
 $conn = dbconn();

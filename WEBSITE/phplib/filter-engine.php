@@ -1,4 +1,8 @@
 <?php
+/*
+   interface: to be imported & called by php code (usually controllers/get-<somename>.php)
+   post parameter sanitization is done here
+*/
 function generateFilterQueryFragmentSet($conn, $filterkey, $paramlist) {
    if (count($paramlist) == 0) {
       return "";
