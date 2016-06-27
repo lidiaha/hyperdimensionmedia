@@ -1,28 +1,32 @@
 .dummyheader {
-   
+   position: initial;
+   width: initial;
+   height: initial;
 }
 
 .item{
-	width: 80%;
-	background-color: white;
-	border: 2px black solid;
-	margin: 0  10%;
-	min-height: 150px;
+   width: 80%;
+   background-color: white;
+   border: 2px black solid;
+   margin: 0  10%;
+   min-height: 150px;
+   height: initial;
 }
 
 .pic{
-	float: right;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center center;
-	width: 40%;
-	height: 150px;
-	margin-right: 3%;
+   float: right;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center center;
+   width: 40%;
+   height: 150px;
+   margin-right: 3%;
 }
 
 .name{
-	margin: 10% 30% 10% 10%;
-	font-size: 150%;
+   margin: 10% 30% 10% 10%;
+   font-size: 150%;
+   line-height: initial;
 }
 
 .doorstopper {

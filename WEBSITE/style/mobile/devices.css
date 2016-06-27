@@ -2,6 +2,7 @@
    position: relative;
    width: 40%;
    min-height: 150px;
+   height: initial;
    display: inline-table;
    background-color: #ffffff;
    margin-left: 6.67%;
@@ -16,7 +17,7 @@
    text-align: center;
    font-size: 16pt;
    z-index: 6;
-	display: block;
+   display: block;
 }
 .devicepic {
    position: relative;
@@ -66,8 +67,8 @@
    text-align: right;
    right: 5px;
    bottom: 0px;
-	display: inline-block;
-	z-index: 6;
+   display: inline-block;
+   z-index: 6;
 }
 
 .doorstopper {

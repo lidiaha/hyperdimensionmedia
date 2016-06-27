@@ -1,77 +1,89 @@
 .dummyheader {
-   
+
 }
 
 .header {
    position: relative;
    width: 100%;
    min-height: 200px;
+   height: initial;
    background-repeat: no-repeat;
    background-size: 100% 100%;
    display: block;
-	margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .serviceitem {
    padding-left: 50px;
-	padding-right: 50px;
+   padding-right: 50px;
 }
 .name{
-	width: 100%;
-	height: 30px;
-	line-height: 30px;
-	font-size: 30px;
-	text-align: center;
-	display: block;
-	padding-top: 10px;
+   width: 100%;
+   height: 30px;
+   line-height: 30px;
+   font-size: 30px;
+   text-align: center;
+   display: block;
+   padding-top: 10px;
 }
 
 .description{
-	width: 50%;
-	height: auto;
-	position: relative;
-	display: inline-block;
-	text-align: center;
-	left: 25%;
-	font-weight: 900;
+   width: 50%;
+   height: auto;
+   position: relative;
+   display: inline-block;
+   text-align: center;
+   left: 25%;
+   font-weight: 900;
 }
 
 .info{
-	text-align: center;
+   text-align: center;
 }
 
 .more{
-	position: relative;
-	padding: 0px 10px;
-	line-height: 25px;
-	border: 2px black solid;
-	box-shadow: 3px 3px black;
+   position: relative;
+   padding: 0px 10px;
+   line-height: 25px;
+   border: 2px black solid;
+   box-shadow: 3px 3px black;
 }
 
 .link{
-	margin: 3%;
-	width: 15%;
-	min-height: 40px;
-	display: block-inline;
-	position: relative;
-	background-image: url("/pictures/info.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center center;
+   margin: 3%;
+   width: 15%;
+   min-height: 40px;
+   height: initial;
+   display: block-inline;
+   position: relative;
+   background-image: url("/pictures/info.png");
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center center;
 }
 .scopri{
-	width: 70%;
-	min-height: 40px;
-	background-color: white;
-	box-shadow: 10px 10px black;
-	display: block;
-	position: relative;
-	margin: 5% 15%;
-	text-align: center;
-	font-size: 30px;
-	line-height: 30px;
-	border: 2px black solid;
-	box-sizing: border-box;
+   width: 70%;
+   min-height: 40px;
+   height: initial;
+   background-color: white;
+   box-shadow: 10px 10px black;
+   display: block;
+   position: relative;
+   margin: 5% 15%;
+   text-align: center;
+   font-size: 30px;
+   line-height: 30px;
+   border: 2px black solid;
+   box-sizing: border-box;
+}
+
+.products{
+   left: initial;
+
+}
+
+.offers{
+   left: initial;
 }
 
 .doorstopper {

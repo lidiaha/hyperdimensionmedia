@@ -1,6 +1,7 @@
 .gobackbar {
    width: 100%;
    min-height: 50px;
+   height: initial;
    display: inline-block;
    cursor: pointer;
 }

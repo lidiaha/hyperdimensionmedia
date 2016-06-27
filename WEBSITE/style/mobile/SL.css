@@ -2,11 +2,12 @@
 .serviceitem{
    width: 100%;
    min-height: 160px;
+   height: initial;
    border: 1px black solid;
    background-color: white;
-	position: relative;
-	display: inline-block;
-	margin-bottom: 1%;
+   position: relative;
+   display: inline-block;
+   margin-bottom: 1%;
 }
 .servicename{
    position: relative;
@@ -22,7 +23,7 @@
    position: relative;
    float: left;
    background-position: center center;
-	background-size: contain;
+   background-size: contain;
    margin-right: 2%;
 }
 
@@ -37,9 +38,16 @@
 }
 
 .scopri{
-	display: inline-block;
-	position: relative;
-	margin: 3% 5%;
+   display: inline-block;
+   position: relative;
+   margin: 3% 5%;
+   float: initial;
+   width: initial;
+   top: initial;
+   transform: initial;
+   right: initial;
+   color: initial;
+   font-size: initial;
 }
 
 .doorstopper {

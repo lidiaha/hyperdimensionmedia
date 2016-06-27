@@ -2,6 +2,7 @@
    position: relative;
    width: 80%;
    min-height: 220px;
+   height: initial;
    float: left;
    background-color: #ffffff;
    margin-left: 10%;
@@ -17,20 +18,21 @@
    font-size: 16pt;
    z-index: 6;
    color: blue;
-	display: inline-block;
+   display: inline-block;
 }
 .promopic {
    position: relative;
    height: 102px;
-	background-size: contain;
+   background-size: contain;
    top: 0px;
    margin: auto;
    z-index: 5;
 }
 .subtitle{
    position: relative;
+   top: initial;
    margin: 5% 2%;
-	display: block;
+   display: block;
 }
 .promoprice {
    position: relative;
@@ -38,7 +40,8 @@
    height: 10%;
    text-align: center;
    margin: 5% 2%;
-	display: block;
+   display: block;
+   bottom: initial;
 }
 .scopri{
    position: relative;
