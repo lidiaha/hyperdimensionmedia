@@ -7,11 +7,15 @@ var scheduledInjectBC = false;
 var landmarks = ["/pages/SL-services.php","/pages/smartlife-categories.php","/pages/devices.php",
    "/pages/device-categories.php","/pages/promotions.php","/pages/assistance-services.php","/pages/assistance-categories.php"];
 
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
 function isLandmark(url) {
    var candidate;
    for (var i=0; i<landmarks.length; i++) {
       candidate = landmarks[i];
-      if (url.endsWith(candidate)) {
+      if (endsWith(url, candidate)) {
          return true;
       }
    }

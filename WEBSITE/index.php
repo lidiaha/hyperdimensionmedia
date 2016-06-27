@@ -5,7 +5,7 @@
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/homepage.css" media="screen and (min-width: 480px)">
-		<link rel="stylesheet" type="text/css" href="/style/mobile/homepage.css" media="screen and (max-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/homepage.css" media="screen and (max-width: 480px)">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/home.js"></script>
@@ -43,24 +43,24 @@
                   </div>
                </div>
                <div class="util">
-					   <div class="link" style="background-image:url(/pictures/icons/home/icon1.png)">
-						   Ricarica veloce
-						</div>
-						<div class="link" style="background-image:url(/pictures/icons/home/icon2.png)">
-						   Guida all'acquisto
-						</div>
-						<div class="link" style="background-image:url(/pictures/icons/home/icon3.png)">
-						   Trova negozio
-						</div>
-						<div class="link" style="background-image:url(/pictures/icons/home/icon4.png)">
-						   Richiedi un esperto
-						</div>
-						<div class="link" style="background-image:url(/pictures/icons/home/icon5.png)">
-						   My Tim
-						</div>
-						<div class="link" style="background-image:url(/pictures/icons/home/icon6.png)">
-						   Per i consumatori
-						</div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon1.png)">
+                     Ricarica veloce
+                  </div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon2.png)">
+                     Guida all'acquisto
+                  </div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon3.png)">
+                     Trova negozio
+                  </div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon4.png)">
+                     Richiedi un esperto
+                  </div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon5.png)">
+                     My Tim
+                  </div>
+                  <div class="link" style="background-image:url(/pictures/icons/home/icon6.png)">
+                     Per i consumatori
+                  </div>
                </div>
                <div class='doorstopper'></div>
             </div>
