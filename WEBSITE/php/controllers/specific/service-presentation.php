@@ -1,7 +1,8 @@
 <?php
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-mean-color.php";
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+   include_once "phplib/database.php";
+   include_once "phplib/image-auto-extension.php";
+   include_once "phplib/image-mean-color.php";
    $conn = dbconn();
 
    $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
