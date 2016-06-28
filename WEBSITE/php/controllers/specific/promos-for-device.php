@@ -1,7 +1,7 @@
 <?php
-   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
-   include_once "/phplib/database.php";
-   include_once "/phplib/image-auto-extension.php";
+   set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
+   include_once "phplib/database.php";
+   include_once "phplib/image-auto-extension.php";
    $conn = dbconn();
 
    $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);

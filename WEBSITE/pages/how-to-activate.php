@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
  ?>
 <html>
    <head>
@@ -10,7 +10,7 @@ set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "",
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/howtoactivate.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/howtoactivate.css" media="screen and (max-width: 480px)">
-		
+
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <?php

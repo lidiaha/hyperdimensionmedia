@@ -1,4 +1,8 @@
-<?php include_once "ui-elements/nav-tracking.html"; ?>
+
+<?php
+set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
+include_once "ui-elements/nav-tracking.html";
+ ?>
 <?php
    function pageIdentify($name) {
       $sitename = "ulTIM8";
