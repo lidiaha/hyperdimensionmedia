@@ -4,7 +4,7 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
  ?>
 <html>
    <head>
-      <?php include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/viewport.html"; ?>
+      <?php include "ui-elements/viewport.html"; ?>
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/homepage.css" media="screen and (min-width: 480px)">
