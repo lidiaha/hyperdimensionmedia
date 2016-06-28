@@ -45,7 +45,7 @@
       }
       echo "\n";
       if (mysqli_num_rows($result) == 0) {
-         include $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/no-results.html";
+         include "ui-elements/no-results.html";
       }
    }
    $conn->close();
