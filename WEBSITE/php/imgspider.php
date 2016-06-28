@@ -5,8 +5,11 @@ set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "",
 include "phplib/simple_html_dom.php";
 include "phplib/database.php";
 
+$docroot = str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']);
+
 function downloadPic($ass_id, $img_id, $img_url) {
-   $storage = $_SERVER['DOCUMENT_ROOT'] . "/pictures/assistance/";
+   global $docroot
+   $storage = $docroot . "/pictures/assistance/";
 
    $folder = $storage . $ass_id . "/";
    if (!is_dir($folder)) {
