@@ -12,6 +12,8 @@
          json representation of the selected tuples
    */
 
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+
    function idToName($conn, $table, $id) {
       $sql = "SELECT * FROM $table WHERE id = '$id'";
       $result = $conn->query($sql);
@@ -25,9 +27,9 @@
       }
    }
 
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+   include "phplib/filter-engine.php";
+   include "phplib/database.php";
+   include "phplib/image-auto-extension.php";
    $conn = dbconn();
 
    // apply "preview"

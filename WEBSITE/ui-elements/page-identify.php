@@ -1,4 +1,4 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/ui-elements/nav-tracking.html"; ?>
+<?php include_once "ui-elements/nav-tracking.html"; ?>
 <?php
    function pageIdentify($name) {
       $sitename = "ulTIM8";

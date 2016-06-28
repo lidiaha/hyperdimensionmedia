@@ -19,10 +19,12 @@
          json representation of the selected tuples
    */
 
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/php/get-page-hits.php";
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+
+   include "phplib/filter-engine.php";
+   include "phplib/database.php";
+   include "phplib/image-auto-extension.php";
+   include "php/get-page-hits.php";
 
    function cmp_function($ra, $rb) {
       $hits_a = getHitNum($ra["id"], "devices");

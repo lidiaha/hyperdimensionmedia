@@ -1,6 +1,9 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . "/phplib/simple_html_dom.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+
+set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+
+include "phplib/simple_html_dom.php";
+include "phplib/database.php";
 
 function downloadPic($ass_id, $img_id, $img_url) {
    $storage = $_SERVER['DOCUMENT_ROOT'] . "/pictures/assistance/";

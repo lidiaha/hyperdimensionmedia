@@ -8,7 +8,9 @@
       prints "done" once finished processing, with optional "query error" in case of error.
       please note that receiving "done" does not guarantee that the db update was successful
 */
-include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+
+set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+include  "phplib/database.php";
 $conn = dbconn();
 $pagetypes = array("assistance", "devices");
 

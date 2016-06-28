@@ -11,9 +11,11 @@
          json representation of the selected tuples
    */
 
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/filter-engine.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-   include $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+
+   include "phplib/filter-engine.php";
+   include "phplib/database.php";
+   include "phplib/image-auto-extension.php";
    $conn = dbconn();
 
    // apply "preview"

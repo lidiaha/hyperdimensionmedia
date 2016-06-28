@@ -10,7 +10,8 @@
          id, table.
          on error, either "query error" or "forbidden"
 */
-include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+include_once "phplib/database.php";
 
 $conn = dbconn();
 $allowed = array("category", "assistance", "devices", "promotions", "sl_services");

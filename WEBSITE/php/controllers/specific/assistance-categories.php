@@ -1,6 +1,7 @@
 <?php
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/image-auto-extension.php";
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+   include_once "phplib/database.php";
+   include_once "phplib/image-auto-extension.php";
    $conn = dbconn();
    $sql = "SELECT * FROM category WHERE type='assistance' ";
    $result = $conn->query($sql);
