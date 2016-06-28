@@ -1,5 +1,5 @@
 
-function setupButtons() {
+function setUpButtons() {
    $(".pre").click(function() {
       $(this).parents().find(".presentazione").show();
       $(this).css("background-color","white");
@@ -18,6 +18,22 @@ function setupButtons() {
    });
 }
 
+
+function setUpButtonsMobile() {
+   $(".pre").click(function() {
+      $(this).parents().find(".presentazione").show();
+      $(this).css("background-color","white");
+      $(this).parents().find(".caratteristiche").hide();
+      $(this).parent().find(".car").css("background-color","grey");
+   });
+   $(".car").click(function() {
+      $(this).parents().find(".caratteristiche").show();
+      $(this).css("background-color","white");
+      $(this).parents().find(".presentazione").hide();
+      $(this).parent().find(".pre").css("background-color","grey");
+   });
+}
+
 function rankMe() {
    console.log("ranking..");
    $.post("/php/page-hitcounter.php", {
@@ -29,7 +45,12 @@ function rankMe() {
 }
 
 $(document).ready(function() {
-   setupButtons();
+	if (parseInt($(window).width()) >= 480) {
+      setUpButtons();
+	}
+	if (parseInt($(window).width()) < 480) {
+		setUpButtonsMobile();
+	}
    if (!(typeof device_id === 'undefined')) {  // shows a specific section if required
       rankMe();
    }
