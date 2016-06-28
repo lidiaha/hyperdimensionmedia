@@ -1,5 +1,6 @@
 <?php
-   include_once $_SERVER['DOCUMENT_ROOT'] . "/phplib/database.php";
+   set_include_path(get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']));
+   include_once "phplib/database.php";
    $conn = dbconn();
 ?>
 <?php
@@ -23,13 +24,13 @@
                while($row = $result->fetch_assoc()) {
                   $category = ucfirst($row["name"]);
                   $id = $row["id"];
-						if ($id != 5){
-							echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
+                  if ($id != 5){
+                     echo "<span><input class=\"item\" type=\"checkbox\" name=\"category\" value=\"$id\"><label><span></span>$category</label><br></span>\n";
                   }
-						else {
-							echo "<span><input class=\"item price\" type=\"checkbox\" name=\"discount\" value=\"yes\"><label><span></span>$category</label><br></span>\n";
-						}
-					}
+                  else {
+                     echo "<span><input class=\"item price\" type=\"checkbox\" name=\"discount\" value=\"yes\"><label><span></span>$category</label><br></span>\n";
+                  }
+               }
          }
        ?>
    </div>

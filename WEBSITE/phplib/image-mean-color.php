@@ -1,6 +1,10 @@
 <?php
+
+$docroot = str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']);
+
 function imageCreateFromAny($filepath) {
-    $type = getImageSize($filepath)[2]; // [] if you don't have exif you could use getImageSize()
+    $data = getImageSize($filepath);
+    $type = $data[2]; // [] if you don't have exif you could use getImageSize()
     $allowedTypes = array(
         1,  // [] gif
         2,  // [] jpg
@@ -47,7 +51,8 @@ function imageMeanColor($rel_path) {
       so that the resizing algorithm averages the color for us.
       Then, read the color of that single pixel.
    */
-   $impath = $_SERVER['DOCUMENT_ROOT'] . $rel_path;
+   global $docroot;
+   $impath = $docroot . $rel_path;
    $image = imageCreateFromAny($impath);
    list($width, $height) = getimagesize($impath);
 
