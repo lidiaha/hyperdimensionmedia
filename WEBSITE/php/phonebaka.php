@@ -93,17 +93,17 @@ function fixReferences($filepath) {
    $fullpath = $newhome . $filepath;
    echo "processing $fullpath <br>\n";
    $data = file_get_contents($fullpath);
-   if (isset($_GET["phonegap"])) {
-      foreach ($pgbaka as $link) {
-         $data = str_replace($link, $pgbase . $link, $data);
-      }
-   }
    foreach ($changeback as $phppath => $htmlpath) {
       $datafixedref = str_replace($phppath, $htmlpath, $data);
       if ($datafixedref != $data) {
          echo "fixed reference: $phppath -> $htmlpath in file $fullpath <br>\n";
       }
       $data = $datafixedref;
+   }
+   if (isset($_GET["phonegap"])) {
+      foreach ($pgbaka as $link) {
+         $data = str_replace($link, $pgbase . $link, $data);
+      }
    }
    saveTo($fullpath, $data);
 }

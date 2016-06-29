@@ -33,7 +33,7 @@
       }
    }
 ?>
-<div class="gobackbar" onclick="location.href='/pages/device-presentation.html?device_id=<?php echo $device_id; ?>'">
+<div class="gobackbar" onclick="location.href='file:///android_asset/www/pages/device-presentation.html?device_id=<?php echo $device_id; ?>'">
    <div class="arrowback"></div>
    <div class="labelback">Torna al prodotto</div>
 </div>
@@ -70,7 +70,7 @@
                $name = $row2["name"];
                $tags2 = explode(";",$tags2);
                if(findMatch($tags, $tags2)){
-                  echo "<div class='assis_item'><a href=\"/pages/assistance-page.html?id=$id_as\">$name</a></div>";
+                  echo "<div class='assis_item'><a href=\"file:///android_asset/www/pages/assistance-page.html?id=$id_as\">$name</a></div>";
                }
             }
          }

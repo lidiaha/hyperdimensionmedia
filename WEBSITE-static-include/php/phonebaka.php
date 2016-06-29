@@ -54,7 +54,7 @@ function retrieveAndCopy($filepath) {
    $fullurl = $baseurl . $filepath;
    $oldfullpath = $oldhome . $filepath;
    $newfullpath = $newhome . $filepath;
-   if (startsWith($filepath, "/pages") || startsWith($filepath, "/index.html")) {
+   if (startsWith($filepath, "/pages") || startsWith($filepath, "file:///android_asset/www/index.html")) {
       echo "this file must be fetched from the server ($fullurl). <br>\n";
       $data = file_get_contents($fullurl);
       $convert2html = true;
@@ -93,17 +93,17 @@ function fixReferences($filepath) {
    $fullpath = $newhome . $filepath;
    echo "processing $fullpath <br>\n";
    $data = file_get_contents($fullpath);
-   if (isset($_GET["phonegap"])) {
-      foreach ($pgbaka as $link) {
-         $data = str_replace($link, $pgbase . $link, $data);
-      }
-   }
    foreach ($changeback as $phppath => $htmlpath) {
       $datafixedref = str_replace($phppath, $htmlpath, $data);
       if ($datafixedref != $data) {
          echo "fixed reference: $phppath -> $htmlpath in file $fullpath <br>\n";
       }
       $data = $datafixedref;
+   }
+   if (isset($_GET["phonegap"])) {
+      foreach ($pgbaka as $link) {
+         $data = str_replace($link, $pgbase . $link, $data);
+      }
    }
    saveTo($fullpath, $data);
 }

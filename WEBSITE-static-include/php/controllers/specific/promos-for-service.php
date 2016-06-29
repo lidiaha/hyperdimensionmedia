@@ -6,7 +6,7 @@
 
    $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
 ?>
-<div class="gobackbar" onclick="location.href='/pages/service-presentation.html?service_id=<?php echo $service_id; ?>'">
+<div class="gobackbar" onclick="location.href='file:///android_asset/www/pages/service-presentation.html?service_id=<?php echo $service_id; ?>'">
    <div class="arrowback"></div>
    <div class="labelback">Torna al servizio SL</div>
 </div>
@@ -24,7 +24,7 @@
          echo "<div class='dummyheader'></div>\n";
          echo "<div class='item'>";
          echo "<div class='pic' style='background-image: url(\"$image\")'></div>\n";
-         echo "<div class='name'><a href='/pages/promotion-description.html?promo_id=$promo_id' >$name</a></div>\n";
+         echo "<div class='name'><a href='file:///android_asset/www/pages/promotion-description.html?promo_id=$promo_id' >$name</a></div>\n";
          echo "</div>\n";
          echo "<div class='doorstopper'></div>\n";
       }

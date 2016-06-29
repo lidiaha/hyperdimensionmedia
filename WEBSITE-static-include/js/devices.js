@@ -112,7 +112,7 @@ function processDevice(obj) {
       div_price = "<div class='deviceprice'>" + obj.price + "€</div>"
    }
    $("#maincontent").append("<div class='deviceitem'>" +
-   "<div class='devicename'><a href='/pages/device-presentation.html?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
+   "<div class='devicename'><a href='file:///android_asset/www/pages/device-presentation.html?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
    "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
    div_rate + div_price + div_promo +
    "</div>");

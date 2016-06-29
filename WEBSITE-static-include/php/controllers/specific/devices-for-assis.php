@@ -21,7 +21,7 @@
    }
 
 ?>
-<div class="gobackbar" onclick="location.href='/pages/assistance-page.html?id=<?php echo $assistance_id; ?>'">
+<div class="gobackbar" onclick="location.href='file:///android_asset/www/pages/assistance-page.html?id=<?php echo $assistance_id; ?>'">
    <div class="arrowback"></div>
    <div class="labelback">Torna al servizio di assistenza</div>
 </div>
@@ -52,7 +52,7 @@
                if(findMatch($tags, $tags2)){
                   echo "<div class='item'>";
                   echo "<div class='pic' style='background-image: url(\"$image\")'></div>\n";
-                  echo "<div class='name'><a href='/pages/device-presentation.html?device_id=$device_id' >$name</a></div>\n";
+                  echo "<div class='name'><a href='file:///android_asset/www/pages/device-presentation.html?device_id=$device_id' >$name</a></div>\n";
                   echo "</div>\n";
                }
             }

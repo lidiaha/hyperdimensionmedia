@@ -13,7 +13,7 @@
          $name = $row["name"];
          $id=$row["id"];
          $image = imageAutoExtension("/pictures/category/assistance/", $row["id"]);
-         echo "<a class=\"category\" href=\"/pages/assistance-mono-category.html?category=$id\">\n";
+         echo "<a class=\"category\" href=\"file:///android_asset/www/pages/assistance-mono-category.html?category=$id\">\n";
          echo "<div class=\"data\"><img class=\"image\" src=\"$image\">\n";
          echo "<div class=\"name\">$name</div>\n";
          echo "</div></a>";

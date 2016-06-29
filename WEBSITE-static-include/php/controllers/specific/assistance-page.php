@@ -38,7 +38,7 @@
          $name = $row["name"];
          $description = $row["description"];
          echo "<div class='name'>$name</div>\n";
-         echo "<div class='products'><a href='/pages/devices-for-assis.html?assistance_id=$assistance_id'> Scopri i prodotti interessati </a></div>";
+         echo "<div class='products'><a href='file:///android_asset/www/pages/devices-for-assis.html?assistance_id=$assistance_id'> Scopri i prodotti interessati </a></div>";
          echo "<div class='description'><p>$description</p></div>\n";
          printFaq($conn, $assistance_id);
          echo "<div class='doorstopper'></div>\n";

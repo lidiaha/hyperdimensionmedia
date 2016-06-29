@@ -65,7 +65,7 @@ function processService(obj) {
    "<div class='serviceinfo'><div class='servicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
    "<div class='servicename'>" + obj.name + "</a></div>" +
    "<div class='description'>" + obj.description + "</div>" +
-   "</div><div class='scopri'><a href='/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
+   "</div><div class='scopri'><a href='file:///android_asset/www/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
    "</div>");
 }
 

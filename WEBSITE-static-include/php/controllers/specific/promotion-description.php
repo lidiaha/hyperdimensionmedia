@@ -37,7 +37,7 @@
          $image = imageAutoExtension("/pictures/promotionbanners/", $row["id"]);
          echo "<div class='header' style='background-image: url(\"$image\")'>\n";
          echo "<div class='name'>$name</div>\n";
-         echo "<a href='/pages/how-to-activate.html'><div class='rules'>Come si attiva</div></a>\n";
+         echo "<a href='file:///android_asset/www/pages/how-to-activate.html'><div class='rules'>Come si attiva</div></a>\n";
          echo "<div class='mini-description'>$subtitle</div>\n";
          echo "<div class='price'> $price €/mese ";
          if ($duration!=0){
@@ -51,7 +51,7 @@
          if ($linked_sl < 0) {
             echo "<div class='SL'>Nessun servizio Smart Life associato</div>\n";
          } else {
-            echo "<div class='SL'><a href='/pages/service-presentation.html?service_id=$linked_sl'> Scopri di più sul servizio</a></div>\n";
+            echo "<div class='SL'><a href='file:///android_asset/www/pages/service-presentation.html?service_id=$linked_sl'> Scopri di più sul servizio</a></div>\n";
          }
          echo "<div class='table'>\n";
          echo "$table_code";

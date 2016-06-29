@@ -89,9 +89,9 @@
             echo "<br></div>";
             echo "</div>";
             echo "<div id='link'>";
-            echo "<a href='/pages/SL-for-device.html?device_id=$device_id'> Servizi Smart Life</a><br>";
-            echo "<a href='/pages/assis-for-device.html?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
-            echo "<a href='/pages/promos-for-device.html?device_id=$device_id'> Altre promozioni </a>";
+            echo "<a href='file:///android_asset/www/pages/SL-for-device.html?device_id=$device_id'> Servizi Smart Life</a><br>";
+            echo "<a href='file:///android_asset/www/pages/assis-for-device.html?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
+            echo "<a href='file:///android_asset/www/pages/promos-for-device.html?device_id=$device_id'> Altre promozioni </a>";
             echo "</div>";
          }
       echo "\n";

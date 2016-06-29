@@ -6,7 +6,7 @@
 
    $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
 ?>
-<div class="gobackbar" onclick="location.href='/pages/device-presentation.html?device_id=<?php echo $device_id; ?>'">
+<div class="gobackbar" onclick="location.href='file:///android_asset/www/pages/device-presentation.html?device_id=<?php echo $device_id; ?>'">
    <div class="arrowback"></div>
    <div class="labelback">Torna al prodotto</div>
 </div>
@@ -28,7 +28,7 @@
          echo "<div class='name'> $name </div>";
          echo "<div class='subtitle'> $subtitle </div>";
          echo "<div class='promoprice'> da $price €/mese</div>";
-         echo "<div class='scopri'><a class='more' href='/pages/promotion-description.html?promo_id=$promo_id'> Scopri </a></div>";
+         echo "<div class='scopri'><a class='more' href='file:///android_asset/www/pages/promotion-description.html?promo_id=$promo_id'> Scopri </a></div>";
          echo "</div>";
          echo "<div class='doorstopper'></div>\n";
       }

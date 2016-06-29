@@ -37,8 +37,8 @@
          echo "<div class='description'><p>$description</p></div>\n";
          echo "</div>";
          printUrls($urls);
-         echo "<div class='products scopri'><a href='/pages/devices-for-service.html?service_id=$service_id'> Scopri i prodotti</a></div>\n";
-         echo "<div class='offers scopri'><a href='/pages/promos-for-service.html?service_id=$service_id'> Scopri le offerte</a></div>\n";
+         echo "<div class='products scopri'><a href='file:///android_asset/www/pages/devices-for-service.html?service_id=$service_id'> Scopri i prodotti</a></div>\n";
+         echo "<div class='offers scopri'><a href='file:///android_asset/www/pages/promos-for-service.html?service_id=$service_id'> Scopri le offerte</a></div>\n";
          echo "<div class='doorstopper'></div>\n";
       }
       echo "\n";
