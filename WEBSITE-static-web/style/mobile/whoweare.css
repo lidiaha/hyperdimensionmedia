@@ -1,0 +1,146 @@
+.dummyheader {
+   position: relative;
+   width: 100%;
+   height: 30px;
+}
+
+.menu {
+   width: 96%;
+   height: 3%;
+   margin: 0 2%;
+   top: 0px;
+   position: relative;
+   transform: initial;
+   display: inline-block;
+}
+
+.item {
+   width: 31%;
+   height: 170%;
+   line-height: 170%;
+   float: left;
+   padding-left: 1%;
+   background-color: white;
+   border: 2px black solid;
+   cursor: pointer;
+}
+
+.inn{
+   background-color: grey;
+}
+
+.bar{
+   width: 100%;
+   height: 90px;
+   background-color: #2b78e4;
+   color: white;
+   text-shadow: 2px 2px #0000ff;
+   background-image: url(/pictures/whoweare/logo.png);
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: 8% 50%;
+   margin-bottom: 5%;
+   position: relative;
+   display: inline-block;
+}
+
+.subtitle{
+   position: relative;
+   top: 75%;
+   text-align: center;
+}
+
+.description{
+   padding: 0% 8%;
+}
+
+.discover{
+   width: 90%;
+   height: 165px;
+   display: inline-table;
+   margin: 2% 5%;
+   cursor: pointer;
+   color: blue;
+   border: 1px black solid;
+}
+
+.pic{
+   width: 100%;
+   height: 165px;
+   background-position: bottom center;
+   background-repeat: no-repeat;
+   background-size: contain;
+   margin-bottom: 0px;
+}
+
+.more{
+   display: none;
+   padding: 5px 20px;
+   color: black;
+}
+.title{
+   width: 100%;
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.testimonial{
+   display: none;
+}
+
+.quote{
+   background-position: bottom center;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.one{
+   width: 100%;
+   height: 200px;
+   background-image: url(/pictures/whoweare/quote1.jpg);
+}
+
+.two{
+   width: 100%;
+   height: 200px;
+   background-image: url(/pictures/whoweare/quote2.jpg);
+}
+
+.text{
+   width: 40%;
+   float: left;
+   color: white;
+   padding: 5%;
+   position: relative;
+}
+
+.progetti{
+   display: none;
+}
+
+.project{
+   position: relative;
+   width: 96%;
+   min-height: 120px;
+   display: inline-table;
+   background-color: #ffffff;
+   margin: 3% 2% 0 2%;
+   border: 3px solid black;
+   box-sizing: border-box;
+   cursor: pointer;
+   padding: 5px;
+}
+
+.name{
+   text-align: center;
+   color: blue;
+}
+.desc{
+   padding: 3px 10px;
+   color: black;
+}
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}

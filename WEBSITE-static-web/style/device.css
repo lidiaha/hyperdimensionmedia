@@ -1,0 +1,136 @@
+#side{
+   background-color: white;
+   position: fixed;
+   width: 15%;
+   left: 149px;
+   top: 300px;
+   z-index: 1;
+}
+
+.pre{
+   width: 100%;
+   min-height: 30px;
+   padding-left:10px;
+   box-sizing: border-box;
+   cursor:pointer;
+   border: 1px black solid;
+   border-right: 0px;
+   line-height: 30px;
+}
+
+.car{
+   background-color: grey;
+   width: 100%;
+   min-height: 30px;
+   padding-left:10px;
+   box-sizing: border-box;
+   cursor:pointer;
+   border: 1px black solid;
+   line-height: 30px;
+}
+
+.presentazione{
+   position: relative;
+   top: 20px;
+   margin: auto;
+   margin-bottom: 0px;
+   width: 80%;
+   min-height: 200px;
+   overflow:auto;
+   background-color: white;
+   padding: 20px;
+   display: block;
+}
+
+.info{
+   display: inline-block;
+}
+
+.left{
+   width: 230px;
+   height: 100%;
+   box-sizing: border-box;
+   padding-right: 20px;
+   padding-top: 35px;
+   float: left;
+}
+.device-img{
+   width: 100%;
+   height: auto;
+   border-radius: 8px;
+   border: grey 2px solid;
+}
+
+.color{
+   width: 30px;
+   height: 30px;
+   background: #F8F8F8;
+   border-radius: 50%;
+   border: black 1px solid;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.right{
+   width: 320px;
+   height: 100%;
+   box-sizing: border-box;
+   padding: 5px;
+   float: left;
+}
+
+.name{
+   color: blue;
+   font-size: 25px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+
+}
+
+.price{
+   margin-bottom: 10px;
+
+}
+
+.buy{
+   margin-top: 30px;
+	background-color: red;
+   height: 30px;
+	line-height: 30px;
+	position: relative;
+	right: -10px;
+   color: white;
+   cursor: pointer;
+}
+.caratteristiche{
+   position: relative;
+   top: 20px;
+   margin: auto;
+   margin-bottom: 0px;
+   width: 80%;
+   height: 400px;
+   overflow:auto;
+   background-color: white;
+   padding: 20px;
+   display: none;
+}
+
+.specifiche{
+   border: black 1px solid;
+   border-radius: 10px;
+   padding: 10px;
+   margin-top:10px;
+   height: 80%;
+   overflow-y: scroll;
+}
+p{
+   margin:0px;
+}
+#link{
+   display: block;
+   position: relative;
+   margin: auto;
+   width: 80%;
+   background-color: white;
+   padding: 20px;
+}

@@ -5,7 +5,12 @@ $pgbaka = array();
 
 $pgbase = "file:///android_asset/www";
 
-$newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-include";
+if (isset($_GET["phonegap"])) {
+   $newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-phonegapp";
+} else {
+   $newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-web";
+}
+
 
 if (realpath($_SERVER['DOCUMENT_ROOT'] . "/..") == "") {
    die("Cannot generate WEBSITE-baka path");

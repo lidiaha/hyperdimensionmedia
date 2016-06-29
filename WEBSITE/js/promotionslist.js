@@ -82,7 +82,7 @@ function processPromotion(obj) {
       "<div class='name'>" + obj.name + "</div>" +
       "<div class='subtitle'>" +obj.subtitle + "</div>" +
       "<div class='promoprice'> da " + obj.price + "€/mese</div>" +
-      "<div class='scopri'><a class='more' href='file:///android_asset/www/pages/promotion-description.php?promo_id=" + obj.id + "'> Scopri </a></div>" +
+      "<div class='scopri'><a class='more' href='file:///android_asset/www/pages/promotion-description.html?promo_id=" + obj.id + "'> Scopri </a></div>" +
       "</div>");
    } else {
       $("#maincontent").append("<div class='promotionitem'>" +

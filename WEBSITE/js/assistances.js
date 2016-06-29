@@ -74,7 +74,7 @@ function clearContent() {
 function processItem(obj) {
    console.log(obj.name);
    if (isApp()) {
-      code_accumulator += "<div class=\"assis_item\"><a href=\"file:///android_asset/www/pages/assistance-page.php?id=" + obj.id +"\">" + obj.name + "</a></div>";
+      code_accumulator += "<div class=\"assis_item\"><a href=\"file:///android_asset/www/pages/assistance-page.html?id=" + obj.id +"\">" + obj.name + "</a></div>";
    } else {
       code_accumulator += "<div class=\"assis_item\"><a href=\"/pages/assistance-page.php?id=" + obj.id +"\">" + obj.name + "</a></div>";
    }

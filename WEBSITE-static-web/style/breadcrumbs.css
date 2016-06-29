@@ -1,0 +1,24 @@
+.bcbar {
+   width: 100%;
+   min-height: 50px;
+   line-height: 30px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+   box-sizing: border-box;
+}
+
+.bcitem {
+   display: inline-block;
+   font-size: 15pt;
+}
+
+.bcsep {
+   display: inline-block;
+   font-size: 20pt;
+}
+
+.bclast {
+   font-weight: bold;
+}

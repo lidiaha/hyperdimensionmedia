@@ -1,0 +1,57 @@
+.name {
+   font-size: 45px;
+   text-align: center;
+   width: 100%;
+}
+
+.description {
+   width: 70%;
+   margin: auto;
+   margin-top: 60px;
+}
+
+.products{
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	margin-left: 20px;
+	color: yellow;
+}
+
+.faqbox {
+   width: 90%;
+   margin: auto;
+}
+
+.faqinnerbox {
+   width: 95%;
+   margin: auto;
+   margin-top: 10px;
+}
+
+.faqitem {
+   background-color: #ffffff;
+   border: solid 2px #000000;
+}
+
+.faq_question {
+   width: 100%;
+   line-height: 30px;
+   font-size: 15pt;
+   box-sizing: border-box;
+   padding: 10px 10px 10px 10px;
+}
+
+.faq_answer {
+   box-sizing: border-box;
+   padding: 10px 10px 10px 10px;
+   display: none;
+   max-height: 400px;
+   overflow-y: scroll;
+}
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}

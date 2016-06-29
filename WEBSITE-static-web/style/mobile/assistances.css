@@ -1,0 +1,59 @@
+.assis_category {
+   border: 2px solid #707070;
+	background-color: #808080;
+	padding-bottom: 10px;
+}
+
+.assis_subcategory {
+   margin: 0px 30px;
+	background-color: #A0A0A0;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: none;
+}
+
+.assis_subtopic {
+   margin: 0px 30px;
+	background-color: #C0C0C0;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: none;
+}
+
+.assis_item {
+   margin: 0px 30px;
+	background-color: #E0E0E0;
+	border-radius: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	display: none;
+}
+
+.assis_category_label {
+	margin-left: 10px;
+   font-size: 22pt;
+}
+
+.assis_category_label::first-letter{
+	text-transform: capitalize;
+}
+
+.assis_subcategory_label {
+	margin-left: 10px;
+   font-size: 16pt;
+}
+
+.assis_subcategory_label::first-letter{
+	text-transform: capitalize;
+}
+
+.assis_subtopic_label {
+	margin-left: 10px;
+   font-size: 11pt;
+}
+
+.assis_subtopic_label::first-letter{
+	text-transform: capitalize;
+}
