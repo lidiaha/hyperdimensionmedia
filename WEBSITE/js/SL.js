@@ -92,7 +92,7 @@ function fetchServicesAllCategory() {
          emptyResultHandler();
       }
       newmessages.forEach(processService);
-      postProcessServices();
+      //postProcessServices();
    });
 }
 
@@ -109,7 +109,7 @@ function fetchServicesSingleCategory() {
          emptyResultHandler();
       }
       newmessages.forEach(processService);
-      postProcessServices();
+      //postProcessServices();
    });
 }
 
