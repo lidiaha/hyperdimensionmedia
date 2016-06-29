@@ -6,10 +6,10 @@
         id        = "com.phonegap.ultim8"
         version   = "1.0.0">
 
-    <name>Hello World</name>
+    <name>Ultim8</name>
 
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Univeristy project (Hypermedia)
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
