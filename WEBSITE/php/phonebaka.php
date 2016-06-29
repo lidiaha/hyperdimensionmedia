@@ -1,9 +1,11 @@
 <?php
 
 $changeback = array();
-$newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-include";
+$pgbaka = array();
 
-$phonegappbase = "<base href=\"file:///android_asset/www/\" target=\"_blank\">";
+$pgbase = "file:///android_asset/www";
+
+$newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-include";
 
 if (realpath($_SERVER['DOCUMENT_ROOT'] . "/..") == "") {
    die("Cannot generate WEBSITE-baka path");
@@ -45,7 +47,7 @@ function saveTo($path, $data) {
 }
 
 function retrieveAndCopy($filepath) {
-   global $changeback, $newhome;
+   global $changeback, $newhome, $pgbaka;
    $convert2html = false;
    $baseurl = "http://127.0.0.1";
    $oldhome = $_SERVER['DOCUMENT_ROOT'];
@@ -67,12 +69,14 @@ function retrieveAndCopy($filepath) {
    }
    if (!$convert2html) {
       echo "writing to $newfullpath <br>\n";
+      array_push($pgbaka, $filepath);
       saveTo($newfullpath, $data);
    } else {
       $newfullpathhtml = preg_replace('/\\.[^.\\s]{3,4}$/', '', $newfullpath);
       $newfullpathhtml = $newfullpathhtml . ".html";
       echo "writing to ~~$newfullpath~~ -> $newfullpathhtml <br>\n";
       $changeback[$filepath] = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filepath) . ".html";
+      array_push($pgbaka, preg_replace('/\\.[^.\\s]{3,4}$/', '', $filepath) . ".html");
       saveTo($newfullpathhtml, $data);
    }
 }
@@ -85,12 +89,14 @@ function pgAdapt($data) {
 }
 
 function fixReferences($filepath) {
-   global $changeback, $newhome;
+   global $changeback, $newhome, $pgbaka, $pgbase;
    $fullpath = $newhome . $filepath;
    echo "processing $fullpath <br>\n";
    $data = file_get_contents($fullpath);
    if (isset($_GET["phonegap"])) {
-      $data = pgAdapt($data);
+      foreach ($pgbaka as $link) {
+         $data = str_replace($link, $pgbase . $link, $data);
+      }
    }
    foreach ($changeback as $phppath => $htmlpath) {
       $datafixedref = str_replace($phppath, $htmlpath, $data);

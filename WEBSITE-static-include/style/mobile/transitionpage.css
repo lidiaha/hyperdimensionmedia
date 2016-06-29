@@ -10,7 +10,7 @@
    width: 100px;
    float: left;
    margin: 8% 0 0 5%;
-   background: url("/pictures/icons/arrow.png");
+   background: url("file:///android_asset/www/pictures/icons/arrow.png");
    background-size: contain;
    background-repeat: no-repeat;
    background-position: center center;

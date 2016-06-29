@@ -9,10 +9,10 @@
    width: 180px;
    float: left;
    margin-left: 20px;
-   /*background: url("/pictures/icons/swords.png") 0px -12px;
+   /*background: url("file:///android_asset/www/pictures/icons/swords.png") 0px -12px;
    background-size: 100% 400%;
    background-repeat: no-repeat;*/
-   background: url("/pictures/icons/arrow.png");
+   background: url("file:///android_asset/www/pictures/icons/arrow.png");
    background-size: contain;
    background-repeat: no-repeat;
    background-position: center center;

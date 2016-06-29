@@ -74,13 +74,13 @@ function postProcessServices() {
 }
 
 function emptyResultHandler() {
-   $.get(sitename + "/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "file:///android_asset/www/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
 
 function fetchServicesAllCategory() {
-   $.post(sitename + "/php/controllers/get-services.php", {
+   $.post(sitename + "file:///android_asset/www/php/controllers/get-services.php", {
       "preview": true,
       "category": categoryFilter.join(","),
       "subcategory": subCategoryFilter.join(",")
@@ -97,7 +97,7 @@ function fetchServicesAllCategory() {
 }
 
 function fetchServicesSingleCategory() {
-   $.post(sitename + "/php/controllers/get-services.php", {
+   $.post(sitename + "file:///android_asset/www/php/controllers/get-services.php", {
       "preview": true,
       "category": category_id,
       "subcategory": subCategoryFilter.join(",")

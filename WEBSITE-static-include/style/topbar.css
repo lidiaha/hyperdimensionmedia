@@ -45,7 +45,7 @@
 }
 
 .iconcart {
-   background-image: url('/pictures/shopping_cart.png');
+   background-image: url('file:///android_asset/www/pictures/shopping_cart.png');
 }
 
 .timhome {
@@ -62,7 +62,7 @@
 .toptimlogo {
    width: 40px;
    height: 40px;
-   background-image: url('/pictures/logo.png');
+   background-image: url('file:///android_asset/www/pictures/logo.png');
    background-repeat: no-repeat;
    background-size: contain;
    float: left;

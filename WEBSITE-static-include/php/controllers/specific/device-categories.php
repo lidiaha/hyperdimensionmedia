@@ -26,7 +26,7 @@
    $conn->close();
 ?>
 <a class="category" href="/pages/devices-outlet.html">
-<div class="data"><img class="image" src="/pictures/category/device/5.png">
+<div class="data"><img class="image" src="file:///android_asset/www/pictures/category/device/5.png">
 <div class="name">outlet</div>
 </div></a>
 <div class="doorstopper"></div>

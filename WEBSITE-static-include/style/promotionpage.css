@@ -36,7 +36,7 @@
 	line-height: 20px;
 	font-size: 20px;
 	color: white;
-   background-image: url(/pictures/question-mark2.png);
+   background-image: url(file:///android_asset/www/pictures/question-mark2.png);
    background-size: 20%;
    background-repeat: no-repeat;
    background-position: bottom center;

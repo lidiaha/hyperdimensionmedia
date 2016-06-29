@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" href="/style/filter.css" media="screen and (min-width: 480px)">
-<link rel="stylesheet" type="text/css" href="/style/mobile/filter.css" media="screen and (max-width: 480px)">
-<script src="/js/filter.js"></script>
+<link rel="stylesheet" type="text/css" href="file:///android_asset/www/style/filter.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" type="text/css" href="file:///android_asset/www/style/mobile/filter.css" media="screen and (max-width: 480px)">
+<script src="file:///android_asset/www/js/filter.js"></script>
 
 <div class="filter"><div class="title"> Filtri</div>
    <div class="choosen">

@@ -58,7 +58,7 @@
 	width: 100px;
 	height: 100px;
 	display: inline-block;
-	background-image: url("/pictures/info.png");
+	background-image: url("file:///android_asset/www/pictures/info.png");
 	background-repeat: no-repeat;
 	background-size: 70px 70px;
 	background-position: center center;

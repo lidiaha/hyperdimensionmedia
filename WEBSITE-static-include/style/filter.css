@@ -24,7 +24,7 @@
    text-decoration: none;
    padding: 10px 0px 10px 20px;
    box-sizing: border-box;
-   background-image: url(/pictures/down.png);
+   background-image: url(file:///android_asset/www/pictures/down.png);
    background-repeat: no-repeat;
    background-position: top right;
    background-size: contain;
@@ -66,11 +66,11 @@ span > input[type="checkbox"] + label span {
     height:19px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
-    background:url('/pictures/ui/check_radio_sheet.png') left top no-repeat;
+    background:url('file:///android_asset/www/pictures/ui/check_radio_sheet.png') left top no-repeat;
     cursor:pointer;
 }
 span > input[type="checkbox"]:checked + label span {
-    background:url('/pictures/ui/check_radio_sheet.png') -19px top no-repeat;
+    background:url('file:///android_asset/www/pictures/ui/check_radio_sheet.png') -19px top no-repeat;
 }
 
 #filteropen {
