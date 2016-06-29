@@ -86,6 +86,9 @@ function fetchServicesAllCategory() {
       "subcategory": subCategoryFilter.join(",")
    }, function(data) {
       console.log(data);
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -103,6 +106,9 @@ function fetchServicesSingleCategory() {
       "subcategory": subCategoryFilter.join(",")
    }, function(data) {
       console.log(data);
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

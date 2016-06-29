@@ -124,6 +124,9 @@ function fetchDevicesAllCategory() {
       "subcategory": typologyFilter.join(","),
       "subtopic": topicFilter.join(",")
    }, function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -144,6 +147,9 @@ function fetchDevicesSingleCategory() {
       "subcategory": typologyFilter.join(","),
       "subtopic": topicFilter.join(",")
    }, function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

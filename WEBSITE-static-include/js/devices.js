@@ -162,6 +162,9 @@ function fetchDevicesAllCategory() {
       "typology": typologyFilter.join(","),
       "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -184,6 +187,9 @@ function fetchDevicesSingleCategory() {
       "typology": typologyFilter.join(","),
       "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

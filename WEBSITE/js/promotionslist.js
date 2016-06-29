@@ -113,6 +113,9 @@ function fetchAllPomotions() {
       "price_range": JSON.stringify(priceFilter),
       "duration_range": JSON.stringify(durationFilter)
    }, function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

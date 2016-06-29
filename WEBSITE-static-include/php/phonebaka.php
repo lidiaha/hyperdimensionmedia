@@ -111,6 +111,7 @@ function fixReferences($filepath) {
             $data = str_replace($link, $pgbase . $link, $data);
          }
       }
+      $data = str_replace("var sitename = \"\";", "var sitename = \"http://ultim8.altervista.org\";", $data);
    }
    saveTo($fullpath, $data);
 }

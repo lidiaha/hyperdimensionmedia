@@ -5,8 +5,19 @@ $(document).bind("mobileinit", function () {
    $.mobile.allowCrossDomainPages = true;
 });
 
+function isApp() {
+   return document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+}
+
+function localizeData(data) {
+   return data.replace(/\/pages/g,"file:///android_asset/www/pages").replace(/\/pictures/g,"file:///android_asset/www/pictures");
+}
+
 function includeResource(localurl, params, container, callback) {
    $.get(sitename + localurl, params, function (data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       container.append(data);
       callback();
    });
@@ -14,6 +25,9 @@ function includeResource(localurl, params, container, callback) {
 
 function afterResource(localurl, params, container, callback) {
    $.get(sitename + localurl, params, function (data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       container.after(data);
       callback();
    });
