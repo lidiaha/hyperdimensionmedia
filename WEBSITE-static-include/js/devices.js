@@ -111,11 +111,19 @@ function processDevice(obj) {
    else {
       div_price = "<div class='deviceprice'>" + obj.price + "€</div>"
    }
-   $("#maincontent").append("<div class='deviceitem'>" +
-   "<div class='devicename'><a href='/pages/device-presentation.html?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
-   "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
-   div_rate + div_price + div_promo +
-   "</div>");
+   if (isApp()) {
+      $("#maincontent").append("<div class='deviceitem'>" +
+      "<div class='devicename'><a href='file:///android_asset/www/pages/device-presentation.html?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
+      "<div class='devicepic' style=\"background: url('" + localizeData(obj.image) + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
+      div_rate + div_price + div_promo +
+      "</div>");
+   } else {
+      $("#maincontent").append("<div class='deviceitem'>" +
+      "<div class='devicename'><a href='/pages/device-presentation.html?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
+      "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
+      div_rate + div_price + div_promo +
+      "</div>");
+   }
 }
 
 function fitTileSize() {
@@ -140,6 +148,9 @@ function postProcessDevices() {
 
 function emptyResultHandler() {
    $.get(sitename + "/ui-elements/no-results.html", function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       $("#maincontent").append(data);
    });
 }
@@ -162,9 +173,6 @@ function fetchDevicesAllCategory() {
       "typology": typologyFilter.join(","),
       "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -187,9 +195,6 @@ function fetchDevicesSingleCategory() {
       "typology": typologyFilter.join(","),
       "discount": simplifyBinaryArray(discountFilter)
    }, function(data) {
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

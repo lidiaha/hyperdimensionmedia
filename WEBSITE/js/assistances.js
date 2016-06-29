@@ -73,7 +73,11 @@ function clearContent() {
 
 function processItem(obj) {
    console.log(obj.name);
-   code_accumulator += "<div class=\"assis_item\"><a href=\"/pages/assistance-page.php?id=" + obj.id +"\">" + obj.name + "</a></div>";
+   if (isApp()) {
+      code_accumulator += "<div class=\"assis_item\"><a href=\"file:///android_asset/www/pages/assistance-page.php?id=" + obj.id +"\">" + obj.name + "</a></div>";
+   } else {
+      code_accumulator += "<div class=\"assis_item\"><a href=\"/pages/assistance-page.php?id=" + obj.id +"\">" + obj.name + "</a></div>";
+   }
 }
 
 function processSubTopic(name, obj) {
@@ -113,6 +117,9 @@ function postProcessDevices() {
 
 function emptyResultHandler() {
    $.get(sitename + "/ui-elements/no-results.html", function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       $("#maincontent").append(data);
    });
 }
@@ -124,9 +131,6 @@ function fetchDevicesAllCategory() {
       "subcategory": typologyFilter.join(","),
       "subtopic": topicFilter.join(",")
    }, function(data) {
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -147,9 +151,6 @@ function fetchDevicesSingleCategory() {
       "subcategory": typologyFilter.join(","),
       "subtopic": topicFilter.join(",")
    }, function(data) {
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

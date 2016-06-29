@@ -76,13 +76,23 @@ function clearContent() {
 }
 
 function processPromotion(obj) {
-   $("#maincontent").append("<div class='promotionitem'>" +
-   "<div class='promopic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center top;\"></div>" +
-   "<div class='name'>" + obj.name + "</div>" +
-   "<div class='subtitle'>" +obj.subtitle + "</div>" +
-   "<div class='promoprice'> da " + obj.price + "€/mese</div>" +
-   "<div class='scopri'><a class='more' href='/pages/promotion-description.php?promo_id=" + obj.id + "'> Scopri </a></div>" +
-   "</div>");
+   if (isApp()) {
+      $("#maincontent").append("<div class='promotionitem'>" +
+      "<div class='promopic' style=\"background: url('" + localizeData(obj.image) + "') no-repeat; background-size: contain; background-position: center top;\"></div>" +
+      "<div class='name'>" + obj.name + "</div>" +
+      "<div class='subtitle'>" +obj.subtitle + "</div>" +
+      "<div class='promoprice'> da " + obj.price + "€/mese</div>" +
+      "<div class='scopri'><a class='more' href='file:///android_asset/www/pages/promotion-description.php?promo_id=" + obj.id + "'> Scopri </a></div>" +
+      "</div>");
+   } else {
+      $("#maincontent").append("<div class='promotionitem'>" +
+      "<div class='promopic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center top;\"></div>" +
+      "<div class='name'>" + obj.name + "</div>" +
+      "<div class='subtitle'>" +obj.subtitle + "</div>" +
+      "<div class='promoprice'> da " + obj.price + "€/mese</div>" +
+      "<div class='scopri'><a class='more' href='/pages/promotion-description.php?promo_id=" + obj.id + "'> Scopri </a></div>" +
+      "</div>");
+   }
 }
 
 function fitTileSize() {
@@ -103,6 +113,9 @@ function postProcessPromotions() {
 
 function emptyResultHandler() {
    $.get(sitename + "/ui-elements/no-results.html", function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       $("#maincontent").append(data);
    });
 }
@@ -113,9 +126,6 @@ function fetchAllPomotions() {
       "price_range": JSON.stringify(priceFilter),
       "duration_range": JSON.stringify(durationFilter)
    }, function(data) {
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {

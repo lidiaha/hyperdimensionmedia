@@ -61,12 +61,21 @@ function clearContent() {
 }
 
 function processService(obj) {
-   $("#maincontent").append("<div class='serviceitem'>" +
-   "<div class='serviceinfo'><div class='servicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
-   "<div class='servicename'>" + obj.name + "</a></div>" +
-   "<div class='description'>" + obj.description + "</div>" +
-   "</div><div class='scopri'><a href='/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
-   "</div>");
+   if (isApp()) {
+      $("#maincontent").append("<div class='serviceitem'>" +
+      "<div class='serviceinfo'><div class='servicepic' style=\"background: url('" + localizeData(obj.image) + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
+      "<div class='servicename'>" + obj.name + "</a></div>" +
+      "<div class='description'>" + obj.description + "</div>" +
+      "</div><div class='scopri'><a href='file:///android_asset/www/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
+      "</div>");
+   } else {
+      $("#maincontent").append("<div class='serviceitem'>" +
+      "<div class='serviceinfo'><div class='servicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
+      "<div class='servicename'>" + obj.name + "</a></div>" +
+      "<div class='description'>" + obj.description + "</div>" +
+      "</div><div class='scopri'><a href='/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
+      "</div>");
+   }
 }
 
 function postProcessServices() {
@@ -75,6 +84,9 @@ function postProcessServices() {
 
 function emptyResultHandler() {
    $.get(sitename + "/ui-elements/no-results.html", function(data) {
+      if (isApp()) {
+         data = localizeData(data);
+      }
       $("#maincontent").append(data);
    });
 }
@@ -86,9 +98,6 @@ function fetchServicesAllCategory() {
       "subcategory": subCategoryFilter.join(",")
    }, function(data) {
       console.log(data);
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
@@ -106,9 +115,6 @@ function fetchServicesSingleCategory() {
       "subcategory": subCategoryFilter.join(",")
    }, function(data) {
       console.log(data);
-      if (isApp()) {
-         data = localizeData(data);
-      }
       var newmessages = JSON.parse(data);
       clearContent();
       if (newmessages.length == 0) {
