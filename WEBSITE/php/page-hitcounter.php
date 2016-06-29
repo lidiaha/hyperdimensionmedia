@@ -9,7 +9,7 @@
       please note that receiving "done" does not guarantee that the db update was successful
 */
 
-set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().":".str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
+set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().PATH_SEPARATOR.str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
 include  "phplib/database.php";
 $conn = dbconn();
 $pagetypes = array("assistance", "devices");
