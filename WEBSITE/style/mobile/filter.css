@@ -78,7 +78,7 @@ span > input[type="checkbox"]:checked + label span {
 }
 
 #filteropen {
-   background-color: MediumAquaMarine;
+   background-color: #F8F8F8;
    border: solid 2px #000000;
    position: fixed;
    left: 0px;
@@ -91,4 +91,5 @@ span > input[type="checkbox"]:checked + label span {
    padding-left: 10px;
    border-top-right-radius: 50px;
    z-index: 27;
+   display: block;
 }
