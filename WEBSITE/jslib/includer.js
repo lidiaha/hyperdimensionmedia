@@ -1,5 +1,10 @@
 var sitename = "";
 
+$(document).bind("mobileinit", function () {
+   $.support.cors = true;
+   $.mobile.allowCrossDomainPages = true;
+});
+
 function includeResource(localurl, params, container, callback) {
    $.get(sitename + localurl, params, function (data) {
       container.append(data);

@@ -3,6 +3,7 @@
    include_once "phplib/database.php";
    include_once "phplib/image-auto-extension.php";
    include_once "phplib/image-mean-color.php";
+   header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
 
    $service_id = mysqli_real_escape_string($conn, $_GET["service_id"]);
@@ -10,11 +11,11 @@
    function printUrls($url) {
       if($url!=null){
          $links = explode(";",$url);
-			echo "<div class='links'>";
+         echo "<div class='links'>";
          foreach($links as $link){
             echo "<a href='$link'><div class='link'></div></a>";
          }
-			echo "</div>";
+         echo "</div>";
       }
    }
    $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";

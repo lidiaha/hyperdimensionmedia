@@ -25,6 +25,7 @@
    include "phplib/database.php";
    include "phplib/image-auto-extension.php";
    include "php/get-page-hits.php";
+   header('Access-Control-Allow-Origin: *');
 
    function cmp_function($ra, $rb) {
       $hits_a = getHitNum($ra["id"], "devices");

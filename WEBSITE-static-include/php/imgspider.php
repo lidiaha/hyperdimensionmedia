@@ -4,6 +4,7 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
 
 include "phplib/simple_html_dom.php";
 include "phplib/database.php";
+header('Access-Control-Allow-Origin: *');
 
 $docroot = str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']);
 

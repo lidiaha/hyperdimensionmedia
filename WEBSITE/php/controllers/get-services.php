@@ -16,6 +16,7 @@
    include "phplib/filter-engine.php";
    include "phplib/database.php";
    include "phplib/image-auto-extension.php";
+   header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
 
    // apply "preview"

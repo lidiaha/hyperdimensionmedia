@@ -1,6 +1,7 @@
 <?php
    set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().PATH_SEPARATOR.str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
    include_once "phplib/database.php";
+   header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
 
    $sql = "SELECT * FROM projects";
