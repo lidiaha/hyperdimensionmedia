@@ -1,0 +1,142 @@
+.dummyheader {
+   position: relative;
+   width: 100%;
+   height: 30px;
+}
+
+.menu {
+	width: 390px;
+	height: 40px;
+	right: 590px;
+	top: 190px;
+	transform: rotate(270deg);
+	position: absolute;
+}
+
+.item {
+	width: 30%;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	padding-left: 5px;
+	background-color: white;
+	border: 2px black solid;
+   cursor: pointer;
+}
+
+.inn{
+	background-color: grey;
+}
+
+.bar{
+	width: 100%;
+	height: 90px;
+	background-color: #2b78e4;	
+	color: white;
+	text-shadow: 2px 2px #0000ff;
+	background-image: url(/pictures/whoweare/logo.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 8% 70%;
+	margin-bottom: 30px;
+}
+
+.subtitle{
+	position: relative;
+	top: 75%;
+	text-align: center;
+}
+
+.description{
+	padding: 0% 8%;
+}
+
+.discover{
+	width: 40%;
+	height: 165px;
+	display: inline-table;
+	margin-top: 20px;
+	margin-left: 50px;
+	cursor: pointer;
+	border: 1px black solid;
+}
+
+.pic{
+	width: 100%;
+	height: 165px;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-bottom: 0px;	
+}
+
+.more{
+	display: none;
+	padding: 5px 20px;
+}
+.title{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.testimonial{
+	display: none;
+}
+
+.quote{
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.one{
+	width: 100%;
+	height: 300px;
+	background-image: url(/pictures/whoweare/quote1.jpg);
+}
+
+.two{
+	width: 100%;
+	height: 300px;
+	background-image: url(/pictures/whoweare/quote2.jpg);
+}
+
+.text{
+	width: 40%;
+	float: left;
+	color: white;
+	padding: 100px;
+}
+
+.progetti{
+	display: none;
+}
+
+.project{
+	position: relative;
+   width: 45%;
+   min-height: 120px;
+   display: inline-table;
+   background-color: #ffffff;
+   margin-left: 2.5%;
+   margin-top: 5px;
+   border: 3px solid black;
+   box-sizing: border-box;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.name{
+	text-align: center;
+	color: blue;
+}
+.desc{
+	padding: 3px 10px;
+	color: black;
+}
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}

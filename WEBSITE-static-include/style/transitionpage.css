@@ -1,0 +1,26 @@
+.gobackbar {
+   width: 100%;
+   height: 80px;
+   display: inline-block;
+   cursor: pointer;
+}
+.arrowback {
+   height: 80px;
+   width: 180px;
+   float: left;
+   margin-left: 20px;
+   /*background: url("/pictures/icons/swords.png") 0px -12px;
+   background-size: 100% 400%;
+   background-repeat: no-repeat;*/
+   background: url("/pictures/icons/arrow.png");
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center center;
+}
+.labelback {
+   height: 100%;
+   float: left;
+   line-height: 80px;
+   font-size: 35px;
+   margin-left: 20px;
+}

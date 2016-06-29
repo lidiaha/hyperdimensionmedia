@@ -1,0 +1,34 @@
+.dummyheader {
+   position: relative;
+   width: 100%;
+   height: 30px;
+}
+
+.item{
+	background-color: white;
+	border: 2px black solid;
+	margin: 0px 100px;
+	height: 150px;
+}
+
+.pic{
+	float: right;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+}
+
+.name{
+	margin: 65px;
+	font-size: 20px;
+	line-height: 20px;	
+}
+
+.doorstopper {
+   width: 100%;
+   display: inline-block;
+   height: 1px;
+}

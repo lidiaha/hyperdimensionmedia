@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	   <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.8">
+      <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/category2.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/category2.css" media="screen and (max-width: 480px)">
+      <script src="/jslib/jquery-1.11.0.min.js"></script>
+      <script src="/jslib/parallax.min.js"></script>
+      <script src="/jslib/includer.js"></script>
+      
+<link rel="stylesheet" type="text/css" href="/style/breadcrumbs.css">
+<script src="/jslib/js.cookie.js"></script>
+<script src="/js/breadcrumbs.js"></script>
+<script>loadHistory();
+breadcrumbCurrentPage("smartlife categories", location.href)</script>
+<title>ulTIM8 - smartlife categories</title>
+   </head>
+   <body>
+      <div id="supercontainer">
+         <link rel="stylesheet" type="text/css" href="/style/topbar.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" type="text/css" href="/style/mobile/topbar.css" media="screen and (max-width: 480px)">
+
+<script src="/js/topbar.js"></script>
+<!-- element with class "ddstay" are part of a dropdown. -->
+<!-- element with class "lidropdown" contain the "collapsable content" of a dropdown . -->
+<div id="topbar">
+   <div class="bluepart">
+      <div class="topicon iconcart" onclick="location.href='/pages/cart.html'"></div>
+      <div class="timhome" onclick="location.href='/index.php'"><div class="toptimlogo"></div>TIM Home</div>
+      <div class="topsearchbar"><input class="topsearchinput" type="textbox" value="fake search..."></div>
+   </div>
+   <div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/SL-services.html'">Smart Life</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/smartlife-categories.html'">Servizi SL per categoria</div></div>
+   </div><div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/devices.html'">Prodotti</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/device-categories.html'">Prodotti per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/promotions.html'">Promozioni
+   </div><div class="liparent landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-services.html'">Assistenza</div>
+      <div class="lidropdown landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-categories.html'">Assistenza per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/whoweare.html'">Chi Siamo
+   </div><div class="listandalone landmarkitem">Il Gruppo
+   </div><div class="listandalone landmarkitem" id="landmarktoggle">Mostra Menu di navigazione</div>
+
+</div>
+         <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
+            <div id="maincontent">
+
+            </div>
+            <script>getMyData();</script>
+         </div>
+      <!-- <div id="footer"> -->
+      </div>
+      <!-- Main CSS -->
+<link href="/pictures/icons/socialMedia/css/rounded.css" rel="stylesheet" type="text/css" />
+<!-- Social Font Codes -->
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-codes.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-embedded.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7-codes.css" rel="stylesheet" type="text/css" />
+<!-- Animate Master CSS -->
+<link href="/pictures/icons/socialMedia/css/animate.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/style/social-icons.css" media="screen and (min-width: 480px)"/>
+<link rel="stylesheet" type="text/css" href="/style/mobile/social-icons.css" media="screen and (max-width: 480px)"/>
+
+<div class="social-icon-container">
+   <ul class="cv-social-media">
+      <a class="fadeIn animated" href="#"><li id="facebook" class="icon-facebook facebook"></li></a>
+      <a class="fadeIn animated" href="#"><li id="twitter" class="icon-twitter"></li></a>
+      <a class="fadeIn animated" href="#"><li id="pinterest" class="icon-pinterest"></li></a>
+      <a class="fadeIn animated" href="#"><li id="youtube" class="icon-youtube"></li></a>
+      <a class="fadeIn animated" href="#"><li id="gplus" class="icon-gplus"></li></a>
+   </ul>
+</div>
+<script>
+   if (parseInt($(window).width()) <= 480) {
+      $(document).ready(function() {
+         var cut = $(".social-icon-container");
+         var paste = cut.html()
+         cut.remove();
+         $("#maincontent").after("<div class=\"social-icon-container\">" + paste + "</div>");
+      });
+   }
+</script>
+   </body>
+</html>

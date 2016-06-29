@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+   interface:
+      get parameters:
+         section = "progetti", "testimonial", "innovation": section to show open
+         after loading
+-->
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.8">
+      <title>ulTIM8</title>
+      <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/whoweare.css" media="screen and (min-width: 480px)">
+      <link rel="stylesheet" type="text/css" href="/style/mobile/whoweare.css" media="screen and (max-width: 480px)">
+      <script src="/jslib/jquery-1.11.0.min.js"></script>
+      <script src="/jslib/parallax.min.js"></script>
+      <script src="/jslib/includer.js"></script>
+      <script>
+         var section = "";
+         if (getParams().hasOwnProperty('section')) {
+            section = getParams().section;
+         }
+      </script>
+      <script src="/js/whoweare.js"></script>
+   </head>
+   <body>
+      <div id="supercontainer">
+         <link rel="stylesheet" type="text/css" href="/style/topbar.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" type="text/css" href="/style/mobile/topbar.css" media="screen and (max-width: 480px)">
+
+<script src="/js/topbar.js"></script>
+<!-- element with class "ddstay" are part of a dropdown. -->
+<!-- element with class "lidropdown" contain the "collapsable content" of a dropdown . -->
+<div id="topbar">
+   <div class="bluepart">
+      <div class="topicon iconcart" onclick="location.href='/pages/cart.html'"></div>
+      <div class="timhome" onclick="location.href='/index.php'"><div class="toptimlogo"></div>TIM Home</div>
+      <div class="topsearchbar"><input class="topsearchinput" type="textbox" value="fake search..."></div>
+   </div>
+   <div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/SL-services.html'">Smart Life</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/smartlife-categories.html'">Servizi SL per categoria</div></div>
+   </div><div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/devices.html'">Prodotti</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/device-categories.html'">Prodotti per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/promotions.html'">Promozioni
+   </div><div class="liparent landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-services.html'">Assistenza</div>
+      <div class="lidropdown landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-categories.html'">Assistenza per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/whoweare.html'">Chi Siamo
+   </div><div class="listandalone landmarkitem">Il Gruppo
+   </div><div class="listandalone landmarkitem" id="landmarktoggle">Mostra Menu di navigazione</div>
+
+</div>
+         <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
+            <div id="maincontent">
+               <div class='dummyheader'></div>
+               <div class='menu'>
+                  <div class='item pro'>Progetti</div>
+                  <div class='item test'>Testimonial</div>
+                  <div class='item inn'>Innovazione</div>
+               </div>
+               <div class='innovation'>
+                  <div class='bar'>
+                     <div class='subtitle'>Protagonista del cambiamento</div>
+                  </div>
+                  <div class='description'>Il futuro è un orizzonte che si sposta giorno dopo giorno.
+                     La tecnologia permette alle persone di esprimersi e di cogliere le infinite opportunità di un presente in costante cambiamento.
+                     La TIM di oggi è protagonista di questo cambiamento, perché porta in sé la solidità tecnologica di Telecom Italia e la visione dinamica e innovatrice che hanno da sempre caratterizzato TIM.
+                     Perché è rivolta a chi nella tecnologia non vede solo uno scambio di dati, ma una condivisione di esperienze, pensieri ed emozioni.
+                     Qualcosa che ci rende tutti più aperti, generosi, ispirati, umani.
+                  </div>
+                  <div class='discover'>
+                     <div class='title'>Siamo leader responsabili</div>
+                     <div class='pic' style='background-image: url("/pictures/whoweare/innovation1.jpg")' ></div>
+                     <div class='more'>Essere leader significa possedere una visione che vada oltre gli orizzonti della conoscenza, dare il buon esempio,
+                        essere modelli di riferimento. Crediamo nella cultura dell’inclusione, considerando il confronto un’opportunità e ci impegniamo a
+                        incoraggiare il dialogo.
+                     </div>
+                  </div>
+                  <div class='discover'>
+                     <div class='title'>Desideriamo crescere</div>
+                     <div class='pic'style='background-image: url("/pictures/whoweare/innovation2.jpg")'></div>
+                     <div class='more'>Mantenere sempre viva la passione, alimentando la propria curiosità con la ferma volontà di migliorarsi è tra i
+                        nostri impegni primari: restiamo aperti al mondo e protesi verso il futuro.
+                     </div>
+                  </div>
+                  <div class='discover'>
+                     <div class='title'>Puntiamo all’eccellenza</div>
+                     <div class='pic'style='background-image: url("/pictures/whoweare/innovation3.jpg")' ></div>
+                     <div class='more'>Impegno e dedizione sono elementi imprescindibili per sviluppare progetti di assoluta qualità, realizzati
+                        con uno sguardo costante all’innovazione e alle esigenze dei nostri clienti.
+                     </div>
+                  </div><div class='discover'>
+                     <div class='title'>Viviamo il cliente</div>
+                     <div class='pic' style='background-image: url("/pictures/whoweare/innovation4.jpg")'></div>
+                     <div class='more'>Lavoriamo per far comunicare le persone, rendendo la loro vita più semplice, ricca di opportunità e relazioni.
+                         Tutto questo attraverso un cammino di cura, sviluppo e arricchimento reciproco che incontri i bisogni, le aspirazioni ed i sogni dei nostri clienti.
+                     </div>
+                  </div>
+               </div>
+               <div class='testimonial'>
+                  <div class='quote one'>
+                     <div class='text'><b>Tim Berners-Lee</b><br>"Quando si osserva il web è come se si osservasse l'intera umanità."</div>
+                  </div>
+                  <div class='quote two'>
+                     <div class='text'><b>Fabio Fazio</b><br>"Si può essere dovunque con un click,andare dappertutto."</div>
+                  </div>
+               </div>
+               <div class='progetti'>
+               </div>
+               <div class="doorstopper"></div>
+            </div>
+            <script>getMyDataIn($(".progetti"));</script>
+         </div>
+      <!-- <div id="footer"> -->
+      </div>
+     <!-- Main CSS -->
+<link href="/pictures/icons/socialMedia/css/rounded.css" rel="stylesheet" type="text/css" />
+<!-- Social Font Codes -->
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-codes.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-embedded.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7-codes.css" rel="stylesheet" type="text/css" />
+<!-- Animate Master CSS -->
+<link href="/pictures/icons/socialMedia/css/animate.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/style/social-icons.css" media="screen and (min-width: 480px)"/>
+<link rel="stylesheet" type="text/css" href="/style/mobile/social-icons.css" media="screen and (max-width: 480px)"/>
+
+<div class="social-icon-container">
+   <ul class="cv-social-media">
+      <a class="fadeIn animated" href="#"><li id="facebook" class="icon-facebook facebook"></li></a>
+      <a class="fadeIn animated" href="#"><li id="twitter" class="icon-twitter"></li></a>
+      <a class="fadeIn animated" href="#"><li id="pinterest" class="icon-pinterest"></li></a>
+      <a class="fadeIn animated" href="#"><li id="youtube" class="icon-youtube"></li></a>
+      <a class="fadeIn animated" href="#"><li id="gplus" class="icon-gplus"></li></a>
+   </ul>
+</div>
+<script>
+   if (parseInt($(window).width()) <= 480) {
+      $(document).ready(function() {
+         var cut = $(".social-icon-container");
+         var paste = cut.html()
+         cut.remove();
+         $("#maincontent").after("<div class=\"social-icon-container\">" + paste + "</div>");
+      });
+   }
+</script>
+   </body>
+</html>
