@@ -8,6 +8,8 @@
    display: none;
    z-index: 25;
    opacity: initial;
+   max-height: initial;
+   overflow-y: initial;
 }
 
 .title{
