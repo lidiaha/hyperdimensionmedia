@@ -36,7 +36,7 @@ function setUpButtonsMobile() {
 
 function rankMe() {
    console.log("ranking..");
-   $.post(sitename + "file:///android_asset/www/php/page-hitcounter.php", {
+   $.post(sitename + "/php/page-hitcounter.php", {
       "pageid": device_id,
       "pagetype": "devices"
    }, function(data) {

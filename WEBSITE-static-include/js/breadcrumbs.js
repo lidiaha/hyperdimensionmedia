@@ -4,8 +4,8 @@ var cookieKey = "nav_history";
 var nameFromDb = "";
 var scheduledInjectBC = false;
 
-var landmarks = ["file:///android_asset/www/pages/SL-services.html","file:///android_asset/www/pages/smartlife-categories.html","file:///android_asset/www/pages/devices.html",
-   "file:///android_asset/www/pages/device-categories.html","file:///android_asset/www/pages/promotions.html","file:///android_asset/www/pages/assistance-services.html","file:///android_asset/www/pages/assistance-categories.html"];
+var landmarks = ["/pages/SL-services.html","/pages/smartlife-categories.html","/pages/devices.html",
+   "/pages/device-categories.html","/pages/promotions.html","/pages/assistance-services.html","/pages/assistance-categories.html"];
 
 function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -68,7 +68,7 @@ function breadcrumbCurrentPageFromDbQuery(id, table, url) {
 }
 
 function _breadcrumbCurrentPageFromDbQuery(id, table, url, callback) {
-   $.get(sitename + "file:///android_asset/www/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
+   $.get(sitename + "/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
       console.log(data);
       if (data != "query error") {
          nameFromDb = data;

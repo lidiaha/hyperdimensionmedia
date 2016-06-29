@@ -65,7 +65,7 @@ function processService(obj) {
    "<div class='serviceinfo'><div class='servicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
    "<div class='servicename'>" + obj.name + "</a></div>" +
    "<div class='description'>" + obj.description + "</div>" +
-   "</div><div class='scopri'><a href='file:///android_asset/www/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
+   "</div><div class='scopri'><a href='/pages/service-presentation.html?service_id=" + obj.id + "'> Scopri di più </div>" +
    "</div>");
 }
 
@@ -74,13 +74,13 @@ function postProcessServices() {
 }
 
 function emptyResultHandler() {
-   $.get(sitename + "file:///android_asset/www/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
 
 function fetchServicesAllCategory() {
-   $.post(sitename + "file:///android_asset/www/php/controllers/get-services.php", {
+   $.post(sitename + "/php/controllers/get-services.php", {
       "preview": true,
       "category": categoryFilter.join(","),
       "subcategory": subCategoryFilter.join(",")
@@ -97,7 +97,7 @@ function fetchServicesAllCategory() {
 }
 
 function fetchServicesSingleCategory() {
-   $.post(sitename + "file:///android_asset/www/php/controllers/get-services.php", {
+   $.post(sitename + "/php/controllers/get-services.php", {
       "preview": true,
       "category": category_id,
       "subcategory": subCategoryFilter.join(",")

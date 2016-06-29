@@ -119,11 +119,11 @@ function afterFilterLoaded() {
       var dataopen = $(this).parent().find(".element").attr("data-open");
       var open = (dataopen == "true");
       if(!open){
-         $(this).parent().find("a").css("background-image", "url(file:///android_asset/www/pictures/up.png)");
+         $(this).parent().find("a").css("background-image", "url(/pictures/up.png)");
          $(this).parent().find(".element").attr("data-open", "true");
       }
       else{
-         $(this).parent().find("a").css("background-image", "url(file:///android_asset/www/pictures/down.png)");
+         $(this).parent().find("a").css("background-image", "url(/pictures/down.png)");
          $(this).parent().find(".element").attr("data-open", "false");
       }
    });

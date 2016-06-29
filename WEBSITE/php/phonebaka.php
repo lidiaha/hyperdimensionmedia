@@ -16,6 +16,11 @@ function startsWith($haystack, $needle) {
     return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
 }
 
+function endsWith($haystack, $needle) {
+    // search forward starting from end minus needle length characters
+    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+}
+
 function scanSubPath($subpath, $docrootoverride="") {
    $docroot = $_SERVER['DOCUMENT_ROOT'];
    if ($docrootoverride != "") $docroot = $docrootoverride;
@@ -101,8 +106,10 @@ function fixReferences($filepath) {
       $data = $datafixedref;
    }
    if (isset($_GET["phonegap"])) {
-      foreach ($pgbaka as $link) {
-         $data = str_replace($link, $pgbase . $link, $data);
+      if (!endsWith($filepath, ".js")) {
+         foreach ($pgbaka as $link) {
+            $data = str_replace($link, $pgbase . $link, $data);
+         }
       }
    }
    saveTo($fullpath, $data);

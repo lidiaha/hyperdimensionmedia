@@ -73,7 +73,7 @@ function clearContent() {
 
 function processItem(obj) {
    console.log(obj.name);
-   code_accumulator += "<div class=\"assis_item\"><a href=\"file:///android_asset/www/pages/assistance-page.html?id=" + obj.id +"\">" + obj.name + "</a></div>";
+   code_accumulator += "<div class=\"assis_item\"><a href=\"/pages/assistance-page.html?id=" + obj.id +"\">" + obj.name + "</a></div>";
 }
 
 function processSubTopic(name, obj) {
@@ -112,13 +112,13 @@ function postProcessDevices() {
 }
 
 function emptyResultHandler() {
-   $.get(sitename + "file:///android_asset/www/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
 
 function fetchDevicesAllCategory() {
-   $.post(sitename + "file:///android_asset/www/php/controllers/get-assistances.php", {
+   $.post(sitename + "/php/controllers/get-assistances.php", {
       "preview": true,
       "category": categoryFilter.join(","),
       "subcategory": typologyFilter.join(","),
@@ -138,7 +138,7 @@ function fetchDevicesAllCategory() {
 }
 
 function fetchDevicesSingleCategory() {
-   $.post(sitename + "file:///android_asset/www/php/controllers/get-assistances.php", {
+   $.post(sitename + "/php/controllers/get-assistances.php", {
       "preview": true,
       "category": category_id,
       "subcategory": typologyFilter.join(","),
