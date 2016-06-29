@@ -68,7 +68,7 @@ function breadcrumbCurrentPageFromDbQuery(id, table, url) {
 }
 
 function _breadcrumbCurrentPageFromDbQuery(id, table, url, callback) {
-   $.get("/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
+   $.get(sitename + "/php/controllers/identifyFomDb.php", {id: id, table: table}, function (data) {
       console.log(data);
       if (data != "query error") {
          nameFromDb = data;

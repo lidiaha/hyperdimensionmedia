@@ -112,13 +112,13 @@ function postProcessDevices() {
 }
 
 function emptyResultHandler() {
-   $.get("/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
 
 function fetchDevicesAllCategory() {
-   $.post("/php/controllers/get-assistances.php", {
+   $.post(sitename + "/php/controllers/get-assistances.php", {
       "preview": true,
       "category": categoryFilter.join(","),
       "subcategory": typologyFilter.join(","),
@@ -138,7 +138,7 @@ function fetchDevicesAllCategory() {
 }
 
 function fetchDevicesSingleCategory() {
-   $.post("/php/controllers/get-assistances.php", {
+   $.post(sitename + "/php/controllers/get-assistances.php", {
       "preview": true,
       "category": category_id,
       "subcategory": typologyFilter.join(","),

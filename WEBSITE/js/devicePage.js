@@ -36,7 +36,7 @@ function setUpButtonsMobile() {
 
 function rankMe() {
    console.log("ranking..");
-   $.post("/php/page-hitcounter.php", {
+   $.post(sitename + "/php/page-hitcounter.php", {
       "pageid": device_id,
       "pagetype": "devices"
    }, function(data) {
@@ -45,12 +45,12 @@ function rankMe() {
 }
 
 $(document).ready(function() {
-	if (parseInt($(window).width()) >= 480) {
+   if (parseInt($(window).width()) >= 480) {
       setUpButtons();
-	}
-	if (parseInt($(window).width()) < 480) {
-		setUpButtonsMobile();
-	}
+   }
+   if (parseInt($(window).width()) < 480) {
+      setUpButtonsMobile();
+   }
    if (!(typeof device_id === 'undefined')) {  // shows a specific section if required
       rankMe();
    }

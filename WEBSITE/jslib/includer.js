@@ -1,12 +1,14 @@
+var sitename = "";
+
 function includeResource(localurl, params, container, callback) {
-   $.get(localurl, params, function (data) {
+   $.get(sitename + localurl, params, function (data) {
       container.append(data);
       callback();
    });
 }
 
 function afterResource(localurl, params, container, callback) {
-   $.get(localurl, params, function (data) {
+   $.get(sitename + localurl, params, function (data) {
       container.after(data);
       callback();
    });

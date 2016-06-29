@@ -102,13 +102,13 @@ function postProcessPromotions() {
 }
 
 function emptyResultHandler() {
-   $.get("/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
 
 function fetchAllPomotions() {
-   $.post("/php/controllers/get-promotions.php", {
+   $.post(sitename + "/php/controllers/get-promotions.php", {
       "preview": true,
       "price_range": JSON.stringify(priceFilter),
       "duration_range": JSON.stringify(durationFilter)

@@ -139,7 +139,7 @@ function postProcessDevices() {
 }
 
 function emptyResultHandler() {
-   $.get("/ui-elements/no-results.html", function(data) {
+   $.get(sitename + "/ui-elements/no-results.html", function(data) {
       $("#maincontent").append(data);
    });
 }
@@ -151,7 +151,7 @@ function simplifyBinaryArray(arr) {
 }
 
 function fetchDevicesAllCategory() {
-   $.post("/php/controllers/get-devices.php", {
+   $.post(sitename + "/php/controllers/get-devices.php", {
       "preview": true,
       "price_range": JSON.stringify(priceFilter),
       "brands": brandFilter.join(","),
@@ -173,7 +173,7 @@ function fetchDevicesAllCategory() {
 }
 
 function fetchDevicesSingleCategory() {
-   $.post("/php/controllers/get-devices.php", {
+   $.post(sitename + "/php/controllers/get-devices.php", {
       "preview": true,
       "category": category_id,
       "price_range": JSON.stringify(priceFilter),
@@ -195,7 +195,7 @@ function fetchDevicesSingleCategory() {
 }
 
 function fetchDevicesOutlet() {
-   $.post("/php/controllers/get-devices.php", {
+   $.post(sitename + "/php/controllers/get-devices.php", {
       "preview": true,
       "price_range": JSON.stringify(priceFilter),
       "brands": brandFilter.join(","),
