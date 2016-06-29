@@ -572,6 +572,7 @@ CREATE TABLE `page_hits` (
 LOCK TABLES `page_hits` WRITE;
 /*!40000 ALTER TABLE `page_hits` DISABLE KEYS */;
 INSERT INTO `page_hits` VALUES (2,'devices',6);
+INSERT INTO `page_hits` VALUES (4,'assistance',1);
 INSERT INTO `page_hits` VALUES (7,'devices',29);
 INSERT INTO `page_hits` VALUES (8,'devices',4);
 INSERT INTO `page_hits` VALUES (9,'devices',1);
@@ -835,4 +836,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-29 21:30:27
+-- Dump completed on 2016-06-29 23:37:17

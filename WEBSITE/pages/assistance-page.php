@@ -11,12 +11,15 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
       <link rel="stylesheet" type="text/css" href="/style/assistancepage.css">
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
-      <script src="/js/assisPage.js"></script>
       <script src="/jslib/includer.js"></script>
+      <script>
+         var assistance_id = getParams().id;
+      </script>
       <?php
          include_once "ui-elements/page-identify.php";
          pageIdentifyFromDB("id","assistance");
        ?>
+      <script src="/js/assisPage.js"></script>
    </head>
    <body>
       <div id="supercontainer">
