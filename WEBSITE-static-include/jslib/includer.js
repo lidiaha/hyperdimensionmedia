@@ -1,4 +1,4 @@
-var sitename = "http://ultim8.altervista.org";
+var sitename = "";
 
 function includeResource(localurl, params, container, callback) {
    $.get(sitename + localurl, params, function (data) {

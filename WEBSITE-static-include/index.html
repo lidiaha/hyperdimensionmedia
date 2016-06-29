@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<?php
-set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().PATH_SEPARATOR.str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
- ?>
 <html>
    <head>
-      <?php include "ui-elements/viewport.html"; ?>
+<base href="file:///android_asset/www/" target="_blank">
+
+      <meta name="viewport" content="width=device-width, initial-scale=0.8">
       <link rel="stylesheet" type="text/css" href="/style/home.css" media="screen and (min-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/mobile/home.css" media="screen and (max-width: 480px)">
       <link rel="stylesheet" type="text/css" href="/style/homepage.css" media="screen and (min-width: 480px)">
@@ -12,18 +11,110 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
       <script src="/jslib/jquery-1.11.0.min.js"></script>
       <script src="/jslib/parallax.min.js"></script>
       <script src="/js/home.js"></script>
-      <?php
-         include_once "ui-elements/page-identify.php";
-         pageIdentifyReset("home");
-       ?>
+      
+<link rel="stylesheet" type="text/css" href="/style/breadcrumbs.css">
+<script src="/jslib/js.cookie.js"></script>
+<script src="/js/breadcrumbs.js"></script>
+<script>loadHistory();
+resetBreadcrumbs()</script>
+<title>ulTIM8 - home</title>
    </head>
    <body>
       <div id="supercontainer">
-         <?php include "ui-elements/topbar.html"; ?>
+         <link rel="stylesheet" type="text/css" href="/style/topbar.css" media="screen and (min-width: 480px)">
+<link rel="stylesheet" type="text/css" href="/style/mobile/topbar.css" media="screen and (max-width: 480px)">
+
+<script src="/js/topbar.js"></script>
+<!-- element with class "ddstay" are part of a dropdown. -->
+<!-- element with class "lidropdown" contain the "collapsable content" of a dropdown . -->
+<div id="topbar">
+   <div class="bluepart">
+      <div class="topicon iconcart" onclick="location.href='/pages/cart.html'"></div>
+      <div class="timhome" onclick="location.href='/index.html'"><div class="toptimlogo"></div>TIM Home</div>
+      <div class="topsearchbar"><input class="topsearchinput" type="textbox" value="fake search..."></div>
+   </div>
+   <div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/SL-services.html'">Smart Life</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/smartlife-categories.html'">Servizi SL per categoria</div></div>
+   </div><div class="liparent landmarkitem ddstay"><div onclick="location.href='/pages/devices.html'">Prodotti</div>
+      <div class="lidropdown landmarkitem ddstay"><div onclick="location.href='/pages/device-categories.html'">Prodotti per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/promotions.html'">Promozioni
+   </div><div class="liparent landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-services.html'">Assistenza</div>
+      <div class="lidropdown landmarkitem ddstay"><div onClick ="location.href='/pages/assistance-categories.html'">Assistenza per categoria</div></div>
+   </div><div class="listandalone landmarkitem" onclick="location.href='/pages/whoweare.html'">Chi Siamo
+   </div><div class="listandalone landmarkitem">Il Gruppo
+   </div><div class="listandalone landmarkitem" id="landmarktoggle">Mostra Menu di navigazione</div>
+
+</div>
          <div id="contentwrapper" class="parallax-window" data-parallax="scroll" data-image-src="/pictures/bg-scroll-sea-2.jpg">
             <div id="maincontent">
-               <?php include "ui-elements/ElasticSlideshow/index2.html"; ?>
-               <div class="trending">
+               <link rel="stylesheet" type="text/css" href="/ui-elements/ElasticSlideshow/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="/ui-elements/ElasticSlideshow/css/style.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />
+<noscript>
+	<link rel="stylesheet" type="text/css" href="/ui-elements/ElasticSlideshow/css/noscript.css" />
+</noscript>
+<div class="container">
+   <div class="wrapper">
+      <div id="ei-slider" class="ei-slider">
+      <ul class="ei-slider-large">
+		   <li>
+            <a href='/pages/whoweare.html?section=testimonial'><img src="/ui-elements/ElasticSlideshow/images/large/4.jpg" alt="image04" style="background-size:contain"/>
+            <div class="ei-title">
+               <h2>Tim Berners-Lee per TIM</h2>
+            </div>
+				</a>
+         </li>
+         <li>
+            <a href='/pages/service-presentation.html?service_id=1'><img src="/ui-elements/ElasticSlideshow/images/large/1.jpg" alt="image01"/>
+				<div class="ei-title">
+              <h2></h2>
+              <h3>Scopri TIMvision</h3>
+            </div>
+				</a>
+         </li>
+         <li>
+            <a href='/pages/whoweare.html'><img src="/ui-elements/ElasticSlideshow/images/large/2.jpg" alt="image02" />
+            <div class="ei-title">
+               <h2>Il futuro firmato</h2>
+               <h2>Telecom Italia</h2>
+            </div>
+				</a>
+         </li>
+         <li>
+            <a href='/pages/assistance-mono-category.html?category=14'><img src="/ui-elements/ElasticSlideshow/images/large/3.jpg" alt="image03"/>
+            <div class="ei-title">
+               <h2>Servizio assistenza online</h2>
+               <h3>In evidenza</h3>
+            </div>
+				</a>
+         </li>
+                        
+      </ul><!-- ei-slider-large -->
+      <ul class="ei-slider-thumbs">
+         <li class="ei-slider-element">Current</li>
+		   <li><a href="#">Slide 4</a><img src="/ui-elements/ElasticSlideshow/images/thumbs/4.jpg" alt="thumb04" /></li>
+         <li><a href="#">Slide 1</a><img src="/ui-elements/ElasticSlideshow/images/thumbs/1.jpg" alt="thumb01" /></li>
+         <li><a href="#">Slide 2</a><img src="/ui-elements/ElasticSlideshow/images/thumbs/2.jpg" alt="thumb02" /></li>
+         <li><a href="#">Slide 3</a><img src="/ui-elements/ElasticSlideshow/images/thumbs/3.jpg" alt="thumb03" /></li>
+                        
+      </ul><!-- ei-slider-thumbs -->
+      </div><!-- ei-slider -->
+   </div><!-- wrapper -->
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="/ui-elements/ElasticSlideshow/js/jquery.eislideshow.js"></script>
+<script type="text/javascript" src="/ui-elements/ElasticSlideshow/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+$(function() {
+   $('#ei-slider').eislideshow({
+		animation			: 'center',
+		autoplay			: true,
+		slideshow_interval	: 3000,
+		titlesFactor		: 0
+   });
+});
+</script>
+                <div class="trending">
                   <div class="top outlet"><a href = "/pages/devices-outlet.html">
                      <div class="pic" style="background-image: url(/pictures/sconti.jpg)">
                         <div class="name">Prodotti scontati</div>
@@ -70,6 +161,36 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
          </div>
       <!-- <div id="footer"> -->
       </div>
-     <?php include "ui-elements/social-icons.html"; ?>
+     <!-- Main CSS -->
+<link href="/pictures/icons/socialMedia/css/rounded.css" rel="stylesheet" type="text/css" />
+<!-- Social Font Codes -->
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-codes.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-embedded.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7.css" rel="stylesheet" type="text/css" />
+<link href="/pictures/icons/socialMedia/css/socialIconsFont/creativeverse_social-ie7-codes.css" rel="stylesheet" type="text/css" />
+<!-- Animate Master CSS -->
+<link href="/pictures/icons/socialMedia/css/animate.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/style/social-icons.css" media="screen and (min-width: 480px)"/>
+<link rel="stylesheet" type="text/css" href="/style/mobile/social-icons.css" media="screen and (max-width: 480px)"/>
+
+<div class="social-icon-container">
+   <ul class="cv-social-media">
+      <a class="fadeIn animated" href="#"><li id="facebook" class="icon-facebook facebook"></li></a>
+      <a class="fadeIn animated" href="#"><li id="twitter" class="icon-twitter"></li></a>
+      <a class="fadeIn animated" href="#"><li id="pinterest" class="icon-pinterest"></li></a>
+      <a class="fadeIn animated" href="#"><li id="youtube" class="icon-youtube"></li></a>
+      <a class="fadeIn animated" href="#"><li id="gplus" class="icon-gplus"></li></a>
+   </ul>
+</div>
+<script>
+   if (parseInt($(window).width()) <= 480) {
+      $(document).ready(function() {
+         var cut = $(".social-icon-container");
+         var paste = cut.html()
+         cut.remove();
+         $("#maincontent").after("<div class=\"social-icon-container\">" + paste + "</div>");
+      });
+   }
+</script>
    </body>
 </html>

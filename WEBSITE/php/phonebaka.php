@@ -1,7 +1,9 @@
 <?php
 
 $changeback = array();
-$newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-baka";
+$newhome = realpath($_SERVER['DOCUMENT_ROOT'] . "/..") . "/WEBSITE-static-include";
+
+$phonegappbase = "<base href=\"file:///android_asset/www/\" target=\"_blank\">";
 
 if (realpath($_SERVER['DOCUMENT_ROOT'] . "/..") == "") {
    die("Cannot generate WEBSITE-baka path");
@@ -50,7 +52,7 @@ function retrieveAndCopy($filepath) {
    $fullurl = $baseurl . $filepath;
    $oldfullpath = $oldhome . $filepath;
    $newfullpath = $newhome . $filepath;
-   if (startsWith($filepath, "/pages") || startsWith($filepath, "index.php")) {
+   if (startsWith($filepath, "/pages") || startsWith($filepath, "/index.php")) {
       echo "this file must be fetched from the server ($fullurl). <br>\n";
       $data = file_get_contents($fullurl);
       $convert2html = true;
@@ -75,11 +77,21 @@ function retrieveAndCopy($filepath) {
    }
 }
 
+function pgAdapt($data) {
+   global $phonegappbase;
+   $before = "<head>";
+   $after = $before . "\n" . $phonegappbase . "\n";
+   return str_replace($before, $after, $data);
+}
+
 function fixReferences($filepath) {
    global $changeback, $newhome;
    $fullpath = $newhome . $filepath;
    echo "processing $fullpath <br>\n";
    $data = file_get_contents($fullpath);
+   if (isset($_GET["phonegap"])) {
+      $data = pgAdapt($data);
+   }
    foreach ($changeback as $phppath => $htmlpath) {
       $datafixedref = str_replace($phppath, $htmlpath, $data);
       if ($datafixedref != $data) {
