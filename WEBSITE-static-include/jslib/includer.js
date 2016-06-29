@@ -1,4 +1,4 @@
-var sitename = "";
+var sitename = "http://ultim8.altervista.org";
 
 $(document).bind("mobileinit", function () {
    $.support.cors = true;
