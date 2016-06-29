@@ -34,16 +34,16 @@ set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_
                         <div class="name">Internet senza limiti</div>
                      </div>
                   </div>
-                  <div class="top">
+                  <div class="top"><a href = "/pages/promotion-description.php?promo_id=3">
                      <div class="pic" style="background-image: url(/pictures/top3.jpg)">
-                        <div class="name">Netflix</div>
+                        <div class="name">TIMmusic</div>
                      </div>
-                  </div>
-                  <div class="top">
+                  </a></div>
+                  <div class="top"><a href = "/pages/promotion-description.php?promo_id=2">
                      <div class="pic" style="background-image: url(/pictures/top4.jpg)">
                         <div class="name">Tim Smart Fibra</div>
                      </div>
-                  </div>
+                  </a></div>
                </div>
                <div class="util">
                   <div class="link" style="background-image:url(/pictures/icons/home/icon1.png)">

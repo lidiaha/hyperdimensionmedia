@@ -10,9 +10,11 @@
    function printUrls($url) {
       if($url!=null){
          $links = explode(";",$url);
+			echo "<div class='links'>";
          foreach($links as $link){
             echo "<a href='$link'><div class='link'></div></a>";
          }
+			echo "</div>";
       }
    }
    $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";
