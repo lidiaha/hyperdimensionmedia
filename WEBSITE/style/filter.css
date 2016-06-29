@@ -3,9 +3,11 @@
    position: fixed;
    width: 19%;
    left: 10px;
-   top: 150px;
+   top: 22%;
    border: black solid 2px;
    display: block;
+   max-height: 77%;
+   overflow-y: scroll;
 }
 
 .title{
