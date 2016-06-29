@@ -46,7 +46,8 @@
 .lidropdown {
    width: 50%;
    height: 51px;
-   line-height: 55px;
+	font-size: 15px;
+   line-height: 15px;
    box-sizing: border-box;
    float: left;
    position: initial;

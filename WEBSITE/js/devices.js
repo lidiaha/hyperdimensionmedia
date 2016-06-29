@@ -113,7 +113,7 @@ function processDevice(obj) {
    }
    $("#maincontent").append("<div class='deviceitem'>" +
    "<div class='devicename'><a href='/pages/device-presentation.php?device_id=" + obj.id + "'>" + obj.name + "</a></div>" +  //TODO: make title link somewhere
-   "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain;\"></div>" +
+   "<div class='devicepic' style=\"background: url('" + obj.image + "') no-repeat; background-size: contain; background-position: center center;\"></div>" +
    div_rate + div_price + div_promo +
    "</div>");
 }
@@ -127,7 +127,7 @@ function fitTileSize() {
       var textheight = parseFloat($(this).find("a").css("height"));
       var divheight = parseFloat($(this).css("height"));
       var fontsize = parseFloat($(this).css("font-size"));
-      if (textheight > divheight) {
+      if (textheight > 2*divheight) {
          $(this).css("font-size", (fontsize/1.5) + "px");
       }
    });
