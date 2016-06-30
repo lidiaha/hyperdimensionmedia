@@ -59,12 +59,12 @@
                while($row2 = $result2->fetch_assoc()) {
                   $tags2 = explode(";", $row2["tags"]);
                   if(findMatch($tags, $tags2)){
-						   return 1;
+						   return true;
 					   }
                }
             }
          }
-      return 0;
+      return false;
       }
 	}
 
@@ -81,10 +81,10 @@
          $description = $row["description"];
          echo "<div class='name'>$name</div>\n";
 			if(getResults($conn, $assistance_id)){
-					echo "<div class='products'><a href='/pages/devices-for-assis.php?assistance_id=$assistance_id'> Scopri i prodotti interessati </a></div>";
-				}
-			else{
-					"<div class='products'><a> >Nessun prodotto interessato </a></div>";
+			   echo "<div class='products'><a href='/pages/devices-for-assis.php?assistance_id=$assistance_id'> Scopri i prodotti interessati </a></div>";
+		   }
+			else {
+			   echo "<div class='products'><a> >Nessun prodotto interessato </a></div>";
 			}
          echo "<div class='description'><p>$description</p></div>\n";
          printFaq($conn, $assistance_id);

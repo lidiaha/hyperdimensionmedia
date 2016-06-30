@@ -64,7 +64,7 @@
       }
    }
 	
-	function getResultsAssitance($conn, $device_id) {
+	function getResultsAssistance($conn, $device_id) {
       $sql = "SELECT tags FROM devices WHERE id='$device_id'";
       $result = $conn->query($sql);
       if (!$result) {
@@ -83,35 +83,27 @@
                while($row2 = $result2->fetch_assoc()) {
                   $tags2 = explode(";", $row2["tags"]);
                   if(findMatch($tags, $tags2)){
-						   return 1;
+						   return true;
 					   }
                }
             }
          }
-      return 0;
+      return false;
       }
 	}
 	
-	function getResults($conn, $device_id, $par) {
-		if($par=="SL"){
-         $sql = "SELECT * FROM device_service WHERE device_id='$device_id' ";
-		}
-		else if($par=="assis"){
-			return getResultsAssitance($conn, $device_id);
-		}
-		else if($par=="promo"){
-			$sql = "SELECT * FROM device_promo WHERE device_id='$device_id' ";
-		}
+	function getResults($conn, $device_id, $table) {
+	   $sql = "SELECT * FROM $table WHERE device_id='$device_id' ";
       $result = $conn->query($sql);
       if (!$result) {
          echo "query error";
       }
       else {
          if(mysqli_num_rows($result) != 0){
-				return 1;
+				return true;
          }
       }
-      return 0;
+      return false;
    }
 
 
@@ -153,19 +145,19 @@
             echo "<br></div>";
             echo "</div>";
             echo "<div id='link'>";
-            if(getResults($conn, $device_id, 'SL')){
+            if(getResults($conn, $device_id, 'device_service')){
 					echo "<a href='/pages/SL-for-device.php?device_id=$device_id'> Servizi Smart Life</a><br>";
 				}
 				else{
 					echo "<a> No Servizi Smart Life</a><br>";
 				}
-				if(getResults($conn, $device_id, 'assis')){
+				if(getResultsAssistance($conn, $device_id)){
 					echo "<a href='/pages/assis-for-device.php?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
 				}
 				else{
 					echo "<a> No Servizi di assitenza </a><br>";
 				}
-            if(getResults($conn, $device_id, 'promo')){
+            if(getResults($conn, $device_id, 'device_promo')){
 					echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
 				}
 				else{
