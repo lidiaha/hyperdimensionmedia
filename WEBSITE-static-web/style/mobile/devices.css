@@ -23,7 +23,8 @@
    position: relative;
    width: 100%;
    height: 200px;
-   bottom: 2%;
+   bottom: 5%;
+   margin-bottom: 20px;
    background-position: center center;
    z-index: 5;
 }
