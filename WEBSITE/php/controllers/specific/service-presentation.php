@@ -60,7 +60,7 @@
 			else{
 					echo "<div class='products scopri'><a> Nessun prodotto</a></div>";
 			}
-			if(getResults($conn, $service_id, 'device_promo')){
+			if(getResults($conn, $service_id, 'service_promo')){
 					echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
 				}
 			else{
