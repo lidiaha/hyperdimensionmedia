@@ -21,6 +21,8 @@
    line-height: 40px;
    font-size: 20px;
    margin: 8% 0 0 5%;
+	position: relative;
+   display: inline-block;
 }
 
 .dedicated{

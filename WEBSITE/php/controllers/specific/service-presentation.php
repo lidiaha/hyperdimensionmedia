@@ -19,6 +19,26 @@
          echo "</div>";
       }
    }
+	
+	function getResults($conn, $service_id, $par) {
+		if($par=="device"){
+         $sql = "SELECT * FROM device_service WHERE service_id='$service_id' ";
+		}
+		else if($par=="promo"){
+			$sql = "SELECT * FROM service_promo WHERE service_id='$service_id' ";
+		}
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else {
+         if(mysqli_num_rows($result) != 0){
+				return 1;
+         }
+      }
+      return 0;
+   }
+	
    $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";
    $result = $conn->query($sql);
    if (!$result) {
@@ -39,8 +59,18 @@
          echo "<div class='description'><p>$description</p></div>\n";
          echo "</div>";
          printUrls($urls);
-         echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
-         echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
+			if(getResults($conn, $service_id, 'device')){
+					echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
+				}
+			else{
+					echo "<div class='products scopri'><a> Nessun prodotto</a></div>";
+			}
+			if(getResults($conn, $service_id, 'promo')){
+					echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
+				}
+			else{
+					echo "<div class='offers scopri'><a> Nessuna offerta</a></div>";
+			}
          echo "<div class='doorstopper'></div>\n";
       }
       echo "\n";

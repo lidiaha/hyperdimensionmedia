@@ -4,7 +4,6 @@
    include_once "phplib/image-auto-extension.php";
    header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
-   $conn2 = dbconn();
 
    $assistance_id = mysqli_real_escape_string($conn, $_GET["assistance_id"]);
 
@@ -37,7 +36,7 @@
          $tags= $row["tags"];
          $tags = explode(";",$tags);
          $sql2 = "SELECT * FROM devices";
-         $result2 = $conn2->query($sql2);
+         $result2 = $conn->query($sql2);
          if (!$result2) {
             echo "query error";
          }

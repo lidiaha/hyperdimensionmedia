@@ -50,6 +50,69 @@
          }
       }
    }
+	
+	function findMatch($tags, $tags2) {
+      if($tags!=null){
+         foreach($tags as $tag){
+            foreach($tags2 as $tag2){
+               if($tag==$tag2){
+                  return true;
+               }
+            }
+         }
+         return false;
+      }
+   }
+	
+	function getResultsAssitance($conn, $device_id) {
+      $sql = "SELECT tags FROM devices WHERE id='$device_id'";
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else { 
+		   while($row = $result->fetch_assoc()) {
+            $tags= $row["tags"];
+            $tags = explode(";",$tags);
+            $sql2 = "SELECT * FROM assistance";
+            $result2 = $conn->query($sql2);
+            if (!$result2) {
+               echo "query error";
+            }
+            else {
+               while($row2 = $result2->fetch_assoc()) {
+                  $tags2 = explode(";", $row2["tags"]);
+                  if(findMatch($tags, $tags2)){
+						   return 1;
+					   }
+               }
+            }
+         }
+      return 0;
+      }
+	}
+	
+	function getResults($conn, $device_id, $par) {
+		if($par=="SL"){
+         $sql = "SELECT * FROM device_service WHERE device_id='$device_id' ";
+		}
+		else if($par=="assis"){
+			return getResultsAssitance($conn, $device_id);
+		}
+		else if($par=="promo"){
+			$sql = "SELECT * FROM device_promo WHERE device_id='$device_id' ";
+		}
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else {
+         if(mysqli_num_rows($result) != 0){
+				return 1;
+         }
+      }
+      return 0;
+   }
 
 
    $sql = "SELECT * FROM devices WHERE id='$device_id' ";
@@ -90,9 +153,24 @@
             echo "<br></div>";
             echo "</div>";
             echo "<div id='link'>";
-            echo "<a href='/pages/SL-for-device.php?device_id=$device_id'> Servizi Smart Life</a><br>";
-            echo "<a href='/pages/assis-for-device.php?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
-            echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
+            if(getResults($conn, $device_id, 'SL')){
+					echo "<a href='/pages/SL-for-device.php?device_id=$device_id'> Servizi Smart Life</a><br>";
+				}
+				else{
+					echo "<a> No Servizi Smart Life</a><br>";
+				}
+				if(getResults($conn, $device_id, 'assis')){
+					echo "<a href='/pages/assis-for-device.php?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
+				}
+				else{
+					echo "<a> No Servizi di assitenza </a><br>";
+				}
+            if(getResults($conn, $device_id, 'promo')){
+					echo "<a href='/pages/promos-for-device.php?device_id=$device_id'> Altre promozioni </a>";
+				}
+				else{
+					echo "<a> No Altre pomozioni </a><br>";
+				}
             echo "</div>";
          }
       echo "\n";
