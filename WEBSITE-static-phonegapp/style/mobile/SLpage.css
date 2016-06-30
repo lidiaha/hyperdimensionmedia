@@ -49,17 +49,23 @@
    box-shadow: 3px 3px black;
 }
 
+.links{
+	width: 100%;
+	min-height: 60px;
+}
 .link{
-   margin: 3%;
+   margin: 0% 6%;
    width: 15%;
    min-height: 40px;
    height: initial;
    display: inline-block;
+	text-align: center;
+	text-transform: capitalize;
    position: relative;
    background-image: url("file:///android_asset/www/pictures/info.png");
    background-repeat: no-repeat;
-   background-size: contain;
-   background-position: center center;
+   background-size: 50% 50%;
+   background-position: bottom center;
 }
 .scopri{
    width: 70%;

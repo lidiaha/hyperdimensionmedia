@@ -14,6 +14,13 @@
 
    set_include_path(str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, get_include_path().PATH_SEPARATOR.str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME'])));
 
+   include "phplib/filter-engine.php";
+   include "phplib/database.php";
+   include "phplib/image-auto-extension.php";
+   include "php/get-page-hits.php";
+   header('Access-Control-Allow-Origin: *');
+   $conn = dbconn();
+
    function idToName($conn, $table, $id) {
       $sql = "SELECT * FROM $table WHERE id = '$id'";
       $result = $conn->query($sql);
@@ -27,11 +34,14 @@
       }
    }
 
-   include "phplib/filter-engine.php";
-   include "phplib/database.php";
-   include "phplib/image-auto-extension.php";
-   header('Access-Control-Allow-Origin: *');
-   $conn = dbconn();
+   function cmp_function($ra, $rb) {
+      $hits_a = getHitNum($ra["id"], "assistance");
+      $hits_b = getHitNum($rb["id"], "assistance");
+      if ($hits_a == $hits_b) {
+         return 0;
+      }
+      return ($hits_a < $hits_b) ? 1 : -1;
+   }
 
    // apply "preview"
    if (isset($_POST["preview"])) {
@@ -57,7 +67,14 @@
    }
 
    $ret = array();
+   $temp = array();
    while($r = mysqli_fetch_assoc($result)) {
+      array_push($temp, $r);
+   }
+
+   usort($temp, "cmp_function");
+
+   foreach ($temp as $r) {
       $cate = idToName($conn, "category", $r["category"]);
       $subcate = idToName($conn, "assistance_subcategory", $r["subcategory"]);
       $subtopic = idToName($conn, "assistance_subtopics", $r["subtopic"]);
@@ -68,5 +85,6 @@
 
       array_push($ret[$cate][$subcate][$subtopic], $r);
    }
+
    print json_encode($ret);
  ?>

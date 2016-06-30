@@ -13,7 +13,8 @@
          $links = explode(";",$url);
          echo "<div class='links'>";
          foreach($links as $link){
-            echo "<a href='$link'><div class='link'></div></a>";
+				$name= basename($link, ".html").PHP_EOL;
+            echo "<a href='$link'><div class='link'>$name</div></a>";
          }
          echo "</div>";
       }

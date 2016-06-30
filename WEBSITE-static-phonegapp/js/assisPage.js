@@ -1,4 +1,13 @@
 
+function rankMe() {
+   console.log("ranking..");
+   $.post(sitename + "/php/page-hitcounter.php", {
+      "pageid": assistance_id,
+      "pagetype": "assistance"
+   }, function(data) {
+      console.log(data);
+   });
+}
 
 function faqEnable() {
    $(".faqitem").each(function() {
@@ -8,3 +17,9 @@ function faqEnable() {
       });
    });
 }
+
+$(document).ready(function() {
+   if (!(typeof assistance_id === 'undefined')) {  // shows a specific section if required
+      rankMe();
+   }
+});

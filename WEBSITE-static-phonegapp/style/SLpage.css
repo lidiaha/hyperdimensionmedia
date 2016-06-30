@@ -51,17 +51,19 @@
 }
 .links{
 	width: 100%;
-	height: 110px;
+	height: 120px;
 }
 .link{
 	margin: 10px;
 	width: 100px;
 	height: 100px;
 	display: inline-block;
+	text-align: center;
+	text-transform: capitalize;
 	background-image: url("file:///android_asset/www/pictures/info.png");
 	background-repeat: no-repeat;
 	background-size: 70px 70px;
-	background-position: center center;
+	background-position: bottom center;
 }
 .scopri{
 	width: 260px;
