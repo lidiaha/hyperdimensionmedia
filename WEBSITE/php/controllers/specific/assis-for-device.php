@@ -69,6 +69,7 @@
                }
 
             }
+				echo "<div class='dedicated'> Servizi di assistenza per questo prodotto</div>";
             foreach ($ret as $cate => $objcate) {
                echo "<div class=\"assis_category\"><div class=\"assis_category_label\">" . $cate . "</div>\n";
                foreach ($objcate as $subcate => $objsubcate) {

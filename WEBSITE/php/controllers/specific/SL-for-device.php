@@ -18,6 +18,7 @@
       echo "query error";
    }
    else {
+		echo "<div class='dedicated'> Servizi SL per questo prodotto</div>";
       while($row = $result->fetch_assoc()) {
          $service_id= $row["id"];
          $name = $row["name"];

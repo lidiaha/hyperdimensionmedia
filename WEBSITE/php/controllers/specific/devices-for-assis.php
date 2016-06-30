@@ -44,6 +44,7 @@
          else {
             $ret = array();
             echo "<div class='dummyheader'></div>\n";
+				echo "<div class='dedicated'> Prodotti per questo servizio di assistenza</div>";
             while($row2 = $result2->fetch_assoc()) {
                $tags2= $row2["tags"];
                $device_id= $row2["id"];

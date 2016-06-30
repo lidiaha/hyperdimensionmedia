@@ -18,6 +18,7 @@
       echo "query error";
    }
    else {
+		echo "<div class='dedicated'> Prodotti per questo servizio SL</div>";
       while($row = $result->fetch_assoc()) {
          $device_id= $row["id"];
          $name = $row["name"];
