@@ -9,7 +9,7 @@ header('Access-Control-Allow-Origin: *');
 $docroot = str_replace($_SERVER['SCRIPT_NAME'], "", $_SERVER['SCRIPT_FILENAME']);
 
 function downloadPic($ass_id, $img_id, $img_url) {
-   global $docroot
+   global $docroot;
    $storage = $docroot . "/pictures/assistance/";
 
    $folder = $storage . $ass_id . "/";

@@ -43,7 +43,7 @@ actual static content.
 The actual web server takes care of this job for us. Then, all the old reference (links
 and urls) to the old .php pages are updated to point to the correct new .html page.
 
-In tha case of the phonegap build, the paths are also corrected to work correctly on a
+In the case of the phonegap build, the paths are also corrected to work correctly on a
 local android file-structure.  
 (Of course, if we wanted to target the iOS platform, this code should be modified and extended)
 
