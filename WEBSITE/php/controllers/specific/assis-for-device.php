@@ -84,6 +84,9 @@
                }
                echo "</div>\n";
             }
+            if (count($ret) == 0) {
+               include "ui-elements/no-results.html";
+            }
          }
          echo "<div class='doorstopper'></div>\n";
       }
