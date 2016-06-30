@@ -4,7 +4,7 @@
 function enableopen() {
    $(".ddstay").mouseover(function() {
       if (!$(this).find(".lidropdown").data("open") && !$(this).data("open")) {
-         $(this).find(".lidropdown").stop( true, true ).slideDown("slow", function() {
+         $(this).find(".lidropdown").stop( true, true ).show("fast", function() {
             $(this).data("open", true);
          });
       }
@@ -21,7 +21,7 @@ function enableopen() {
 // this function is easy, it simply attaches the event handler (close on mouseout)
 function enableclose() {
    $(".ddstay").mouseout(function() {
-      $(this).find(".lidropdown").stop( true, true ).slideUp("slow", function() {
+      $(this).find(".lidropdown").stop( true, true ).hide("fast", function() {
       $(this).data("open", false);
       });
    });

@@ -1,11 +1,12 @@
 body{
 	font-family: "Times New Roman", Times, serif;
 	font-size: 16px;
+	background-color: #227dd0;
 }
 
 #maincontent {
    position: relative;
-   width: 760px;
+   width: 56%;
    height: 100%;
    margin: 0px auto 0px 22%;
    background-color: #D0D0D0 ;

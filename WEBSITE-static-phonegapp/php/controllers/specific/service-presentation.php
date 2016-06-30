@@ -19,6 +19,21 @@
          echo "</div>";
       }
    }
+	
+	function getResults($conn, $service_id, $table) {
+		$sql = "SELECT * FROM $table WHERE service_id='$service_id' ";
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else {
+         if(mysqli_num_rows($result) != 0){
+				return true;
+         }
+      }
+      return false;
+   }
+	
    $sql = "SELECT * FROM sl_services WHERE id='$service_id' ";
    $result = $conn->query($sql);
    if (!$result) {
@@ -39,8 +54,18 @@
          echo "<div class='description'><p>$description</p></div>\n";
          echo "</div>";
          printUrls($urls);
-         echo "<div class='products scopri'><a href='file:///android_asset/www/pages/devices-for-service.html?service_id=$service_id'> Scopri i prodotti</a></div>\n";
-         echo "<div class='offers scopri'><a href='file:///android_asset/www/pages/promos-for-service.html?service_id=$service_id'> Scopri le offerte</a></div>\n";
+			if(getResults($conn, $service_id, 'device_service')){
+			   echo "<div class='products scopri'><a href='file:///android_asset/www/pages/devices-for-service.html?service_id=$service_id'> Scopri i prodotti</a></div>\n";
+			}
+			else{
+			   echo "<div class='products scopri'><a> Nessun prodotto</a></div>";
+			}
+			if(getResults($conn, $service_id, 'service_promo')){
+			   echo "<div class='offers scopri'><a href='file:///android_asset/www/pages/promos-for-service.html?service_id=$service_id'> Scopri le offerte</a></div>\n";
+			}
+			else{
+            echo "<div class='offers scopri'><a> Nessuna offerta</a></div>";
+			}
          echo "<div class='doorstopper'></div>\n";
       }
       echo "\n";

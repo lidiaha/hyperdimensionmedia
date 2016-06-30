@@ -5,12 +5,12 @@
 }
 
 .menu {
-	width: 390px;
-	height: 40px;
-	right: 590px;
-	top: 190px;
+	width: 30%;
+	height: 10%;
+	right: 64%;
+	top: 350px;
 	transform: rotate(270deg);
-	position: absolute;
+	position: fixed;
 }
 
 .item {
@@ -55,10 +55,10 @@
 	width: 40%;
 	height: 165px;
 	display: inline-table;
-	margin-top: 20px;
-	margin-left: 50px;
+	margin: 6% 4.5% 0% 5%;
 	cursor: pointer;
 	border: 1px black solid;
+	box-sizing: border-box;
 }
 
 .pic{

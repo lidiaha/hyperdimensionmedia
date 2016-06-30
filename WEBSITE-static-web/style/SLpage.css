@@ -51,21 +51,23 @@
 }
 .links{
 	width: 100%;
-	height: 110px;
+	height: 120px;
 }
 .link{
 	margin: 10px;
 	width: 100px;
 	height: 100px;
 	display: inline-block;
+	text-align: center;
+	text-transform: capitalize;
 	background-image: url("/pictures/info.png");
 	background-repeat: no-repeat;
 	background-size: 70px 70px;
-	background-position: center center;
+	background-position: bottom center;
 }
 .scopri{
-	width: 260px;
-	height: 40px;
+	width: 40%;
+	min-height: 40px;
 	background-color: white;
 	box-shadow: 10px 10px black;
 	display: inline-block;
@@ -78,12 +80,12 @@
 	box-sizing: border-box;
 }
 .products{
-	left: 20px;
+	left: 6%;
 	
 }
 
 .offers{
-	left: 180px;
+	left: 12%;
 }
 
 .doorstopper {

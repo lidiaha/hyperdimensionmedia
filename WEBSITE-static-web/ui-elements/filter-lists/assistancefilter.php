@@ -37,7 +37,11 @@
     <a> <div class="sub">Tipologia </div></a>
     <div class= "element">
        <?php
-          $sql = "SELECT * FROM assistance_subcategory";
+          if (isset($_GET["category"])) {
+             $sql = "SELECT * FROM timdb.assistance_subcategory WHERE id IN (SELECT ass.subcategory FROM assistance AS ass WHERE ass.category = '$filter_category')";
+          } else {
+             $sql = "SELECT * FROM assistance_subcategory";
+          }
           $result = $conn->query($sql);
           if (!$result) {
              echo "query error";
@@ -56,7 +60,11 @@
     <a> <div class="sub">Argomento </div></a>
     <div class= "element">
       <?php
-          $sql = "SELECT * FROM assistance_subtopics";
+          if (isset($_GET["category"])) {
+             $sql = "SELECT * FROM timdb.assistance_subtopics WHERE id IN (SELECT ass.subtopic FROM assistance AS ass WHERE ass.category = '$filter_category')";
+          } else {
+             $sql = "SELECT * FROM assistance_subtopics";
+          }
           $result = $conn->query($sql);
           if (!$result) {
              echo "query error";

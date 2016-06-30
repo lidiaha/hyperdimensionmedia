@@ -21,4 +21,14 @@
    line-height: 40px;
    font-size: 20px;
    margin: 8% 0 0 5%;
+   position: relative;
+   display: inline-block;
+}
+
+.dedicated{
+	width: 100%;
+	text-align: center;
+	display: block;
+	color: #0000b3;
+	margin: 0 0 3% 0;
 }

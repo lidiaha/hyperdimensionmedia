@@ -6,7 +6,7 @@
 }
 .arrowback {
    height: 80px;
-   width: 180px;
+   width: 20%;
    float: left;
    margin-left: 20px;
    /*background: url("/pictures/icons/swords.png") 0px -12px;
@@ -21,6 +21,16 @@
    height: 100%;
    float: left;
    line-height: 80px;
-   font-size: 35px;
+   font-size: 25px;
    margin-left: 20px;
+   position: relative;
+   display: inline-block;
+}
+
+.dedicated{
+	width: 100%;
+	text-align: center;
+	display: block;
+	color: #0000b3;
+	margin: 0 0 3% 0;
 }

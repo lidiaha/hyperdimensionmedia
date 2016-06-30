@@ -3,7 +3,6 @@
    include_once "phplib/database.php";
    header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
-   $conn2 = dbconn();
 
    $device_id = mysqli_real_escape_string($conn, $_GET["device_id"]);
 
@@ -49,7 +48,7 @@
          $tags= $row["tags"];
          $tags = explode(";",$tags);
          $sql2 = "SELECT * FROM assistance";
-         $result2 = $conn2->query($sql2);
+         $result2 = $conn->query($sql2);
          if (!$result2) {
             echo "query error";
          }
@@ -59,20 +58,34 @@
                $cate = idToName($conn, "category", $row2["category"]);
                $subcate = idToName($conn, "assistance_subcategory", $row2["subcategory"]);
                $subtopic = idToName($conn, "assistance_subtopics", $row2["subtopic"]);
+               $tags2 = explode(";", $row2["tags"]);
 
-               if (!isset($ret[$cate])) { $ret[$cate] = array(); }
-               if (!isset($ret[$cate][$subcate])) { $ret[$cate][$subcate] = array(); }
-               if (!isset($ret[$cate][$subcate][$subtopic])) { $ret[$cate][$subcate][$subtopic] = array(); }
-
-               array_push($ret[$cate][$subcate][$subtopic], $row2);
-
-               $tags2= $row2["tags"];
-               $id_as= $row2["id"];
-               $name = $row2["name"];
-               $tags2 = explode(";",$tags2);
                if(findMatch($tags, $tags2)){
-                  echo "<div class='assis_item'><a href=\"/pages/assistance-page.html?id=$id_as\">$name</a></div>";
+                  if (!isset($ret[$cate])) { $ret[$cate] = array(); }
+                  if (!isset($ret[$cate][$subcate])) { $ret[$cate][$subcate] = array(); }
+                  if (!isset($ret[$cate][$subcate][$subtopic])) { $ret[$cate][$subcate][$subtopic] = array(); }
+                  array_push($ret[$cate][$subcate][$subtopic], $row2);
                }
+
+            }
+				echo "<div class='dedicated'> Servizi di assistenza per questo prodotto</div>";
+            foreach ($ret as $cate => $objcate) {
+               echo "<div class=\"assis_category\"><div class=\"assis_category_label\">" . $cate . "</div>\n";
+               foreach ($objcate as $subcate => $objsubcate) {
+                  echo "<div class=\"assis_subcategory\"><div class=\"assis_subcategory_label\">" . $subcate . "</div>\n";
+                  foreach ($objsubcate as $subtopic => $objsubtopic) {
+                     echo "<div class=\"assis_subtopic\"><div class=\"assis_subtopic_label\">" . $subtopic . "</div>\n";
+                     foreach ($objsubtopic as $row) {
+                        echo "<div class=\"assis_item\"><a href=\"/pages/assistance-page.html?id=" . $row["id"] . "\">" . $row["name"] . "</a></div>\n";
+                     }
+                     echo "</div>\n";
+                  }
+                  echo "</div>\n";
+               }
+               echo "</div>\n";
+            }
+            if (count($ret) == 0) {
+               include "ui-elements/no-results.html";
             }
          }
          echo "<div class='doorstopper'></div>\n";

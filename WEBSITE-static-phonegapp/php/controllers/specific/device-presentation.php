@@ -50,6 +50,61 @@
          }
       }
    }
+	
+	function findMatch($tags, $tags2) {
+      if($tags!=null){
+         foreach($tags as $tag){
+            foreach($tags2 as $tag2){
+               if($tag==$tag2){
+                  return true;
+               }
+            }
+         }
+         return false;
+      }
+   }
+	
+	function getResultsAssistance($conn, $device_id) {
+      $sql = "SELECT tags FROM devices WHERE id='$device_id'";
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else { 
+		   while($row = $result->fetch_assoc()) {
+            $tags= $row["tags"];
+            $tags = explode(";",$tags);
+            $sql2 = "SELECT * FROM assistance";
+            $result2 = $conn->query($sql2);
+            if (!$result2) {
+               echo "query error";
+            }
+            else {
+               while($row2 = $result2->fetch_assoc()) {
+                  $tags2 = explode(";", $row2["tags"]);
+                  if(findMatch($tags, $tags2)){
+						   return true;
+					   }
+               }
+            }
+         }
+      return false;
+      }
+	}
+	
+	function getResults($conn, $device_id, $table) {
+	   $sql = "SELECT * FROM $table WHERE device_id='$device_id' ";
+      $result = $conn->query($sql);
+      if (!$result) {
+         echo "query error";
+      }
+      else {
+         if(mysqli_num_rows($result) != 0){
+				return true;
+         }
+      }
+      return false;
+   }
 
 
    $sql = "SELECT * FROM devices WHERE id='$device_id' ";
@@ -90,9 +145,24 @@
             echo "<br></div>";
             echo "</div>";
             echo "<div id='link'>";
-            echo "<a href='file:///android_asset/www/pages/SL-for-device.html?device_id=$device_id'> Servizi Smart Life</a><br>";
-            echo "<a href='file:///android_asset/www/pages/assis-for-device.html?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
-            echo "<a href='file:///android_asset/www/pages/promos-for-device.html?device_id=$device_id'> Altre promozioni </a>";
+            if(getResults($conn, $device_id, 'device_service')){
+					echo "<a href='file:///android_asset/www/pages/SL-for-device.html?device_id=$device_id'> Servizi Smart Life</a><br>";
+				}
+				else{
+					echo "<a> No Servizi Smart Life</a><br>";
+				}
+				if(getResultsAssistance($conn, $device_id)){
+					echo "<a href='file:///android_asset/www/pages/assis-for-device.html?device_id=$device_id'> Servizio di assistenza dedicato</a><br>";
+				}
+				else{
+					echo "<a> No Servizi di assitenza </a><br>";
+				}
+            if(getResults($conn, $device_id, 'device_promo')){
+					echo "<a href='file:///android_asset/www/pages/promos-for-device.html?device_id=$device_id'> Altre promozioni </a>";
+				}
+				else{
+					echo "<a> No Altre pomozioni </a><br>";
+				}
             echo "</div>";
          }
       echo "\n";

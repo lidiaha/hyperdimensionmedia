@@ -18,6 +18,7 @@
       echo "query error";
    }
    else {
+		echo "<div class='dedicated'> Promozioni per questo prodotto</div>";
       while($row = $result->fetch_assoc()) {
          $promo_id= $row["id"];
          $name = $row["name"];

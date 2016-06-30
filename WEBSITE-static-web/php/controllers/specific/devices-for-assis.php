@@ -4,7 +4,6 @@
    include_once "phplib/image-auto-extension.php";
    header('Access-Control-Allow-Origin: *');
    $conn = dbconn();
-   $conn2 = dbconn();
 
    $assistance_id = mysqli_real_escape_string($conn, $_GET["assistance_id"]);
 
@@ -37,13 +36,14 @@
          $tags= $row["tags"];
          $tags = explode(";",$tags);
          $sql2 = "SELECT * FROM devices";
-         $result2 = $conn2->query($sql2);
+         $result2 = $conn->query($sql2);
          if (!$result2) {
             echo "query error";
          }
          else {
             $ret = array();
             echo "<div class='dummyheader'></div>\n";
+				echo "<div class='dedicated'> Prodotti per questo servizio di assistenza</div>";
             while($row2 = $result2->fetch_assoc()) {
                $tags2= $row2["tags"];
                $device_id= $row2["id"];
