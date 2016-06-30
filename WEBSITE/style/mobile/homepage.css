@@ -62,7 +62,7 @@
    font-size: 15px;
    line-height: 35px;
    background-position: 1% center;
-   background-size: 15% 80%;
+   background-size: 15% auto;
    background-repeat: no-repeat;
 }
 

@@ -1,12 +1,12 @@
 .trending{
-	width: 100%;
-	min-height: 130px;
-	margin: 10% 0;
-	display: inline-block;
+   width: 100%;
+   min-height: 130px;
+   margin: 10% 0;
+   display: inline-block;
 }
 
 .top{
-	position: relative;
+   position: relative;
    width: 22%;
    height: 120px;
    float: left;
@@ -17,51 +17,51 @@
 }
 
 .pic{
-	width: 100%;
-	height: 100%;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: top center;
+   width: 100%;
+   height: 100%;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: top center;
 }
 
 .name{
-	width: 100%;
-	background-color: white;
-	opacity: 0.7;
-	float: left;
-	text-align: center;
-	position: absolute;
-	bottom: 0px;
-	
+   width: 100%;
+   background-color: white;
+   opacity: 0.7;
+   float: left;
+   text-align: center;
+   position: absolute;
+   bottom: 0px;
+
 }
 
 .util{
-	position: relative;
-	width: 80%;
-	margin: 0 10%;
-	background-color: white;
-	display: inline-block;
-	padding-bottom: 3%;
+   position: relative;
+   width: 80%;
+   margin: 0 10%;
+   background-color: white;
+   display: inline-block;
+   padding-bottom: 3%;
 }
 
 .link{
-	position: relative;
+   position: relative;
    width: 30%;
    min-height: 50px;
-	display: inline-table;
-   
+   display: inline-table;
+
    background-color: #ffffff;
    margin-left: 2.5%;
    margin-top: 25px;
-	padding: 1% 1%;
+   padding: 1% 1%;
    border: 3px solid black;
    box-sizing: border-box;
-	text-align: right;
-	font-size: 15px;
-	line-height: 35px;
-	background-position: 3px center;
-	background-size: 20% 65%;
-	background-repeat: no-repeat;
+   text-align: right;
+   font-size: 15px;
+   line-height: 35px;
+   background-position: 3px center;
+   background-size: 20% auto;
+   background-repeat: no-repeat;
 }
 
 .doorstopper {
