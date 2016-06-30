@@ -55,16 +55,16 @@
          echo "</div>";
          printUrls($urls);
 			if(getResults($conn, $service_id, 'device_service')){
-					echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
-				}
+			   echo "<div class='products scopri'><a href='/pages/devices-for-service.php?service_id=$service_id'> Scopri i prodotti</a></div>\n";
+			}
 			else{
-					echo "<div class='products scopri'><a> Nessun prodotto</a></div>";
+			   echo "<div class='products scopri'><a> Nessun prodotto</a></div>";
 			}
 			if(getResults($conn, $service_id, 'service_promo')){
-					echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
-				}
+			   echo "<div class='offers scopri'><a href='/pages/promos-for-service.php?service_id=$service_id'> Scopri le offerte</a></div>\n";
+			}
 			else{
-					echo "<div class='offers scopri'><a> Nessuna offerta</a></div>";
+            echo "<div class='offers scopri'><a> Nessuna offerta</a></div>";
 			}
          echo "<div class='doorstopper'></div>\n";
       }
