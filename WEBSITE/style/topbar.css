@@ -16,7 +16,7 @@
 }
 .landmarkitem {
    width: 16.666%;
-   height: 55px;
+   min-height: 55px;
    line-height: 55px;
    box-sizing: border-box;
    display: inline-block;
