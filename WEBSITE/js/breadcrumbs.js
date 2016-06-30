@@ -11,6 +11,22 @@ function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
 
+function storeData(key, value) {
+   if (isApp()) {
+      window.localStorage.setItem(key, value);
+   } else {
+      Cookies.set(key, value, { path: '/' });
+   }
+}
+
+function loadData(key) {
+   if (isApp()) {
+      return window.localStorage.getItem(key);
+   } else {
+      return Cookies.get(key, { path: '/' });
+   }
+}
+
 function isLandmark(url) {
    var candidate;
    for (var i=0; i<landmarks.length; i++) {
@@ -23,7 +39,7 @@ function isLandmark(url) {
 }
 
 function loadHistory() {
-   var cookie = Cookies.get(cookieKey, { path: '/' });
+   var cookie = loadData(cookieKey);
    if (cookie) {
       navHistory = JSON.parse(cookie);
    }
@@ -42,7 +58,7 @@ function superIndexOf(arr, histObj) {
 
 function resetBreadcrumbs() {
    navHistory = [];
-   Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
+   storeData(cookieKey, JSON.stringify(navHistory));
 }
 
 function breadcrumbCurrentPage(name, url) {
@@ -56,7 +72,7 @@ function breadcrumbCurrentPage(name, url) {
       }
       navHistory.push(newentry);
    }
-   Cookies.set(cookieKey, JSON.stringify(navHistory), { path: '/' });
+   storeData(cookieKey, JSON.stringify(navHistory));
 }
 
 function breadcrumbCurrentPageFromDbQuery(id, table, url) {
